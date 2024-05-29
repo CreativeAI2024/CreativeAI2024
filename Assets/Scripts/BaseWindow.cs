@@ -11,13 +11,17 @@ public class BaseWindow : MonoBehaviour
         this.CloseWindow();
     }
 
-    void OpenWindow() 
+    public void OpenWindow() 
     {
-        this.gameObject.SetActive(true);
+        ChangeActive(true);
     }
 
-    void CloseWindow()
+    public void CloseWindow()
     {
-        this.gameObject.SetActive(false);
+        ChangeActive(false);
+    }
+
+    private void ChangeActive(bool b) {
+        this.gameObject.SetActive(b);
     }
 }
