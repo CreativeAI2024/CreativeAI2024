@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Load : MonoBehaviour
+public class GameStartLoad : MonoBehaviour
 {
 
     private bool firstPush = false;

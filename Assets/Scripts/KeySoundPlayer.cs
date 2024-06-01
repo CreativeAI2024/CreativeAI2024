@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 using UnityEngine.EventSystems;
 
-public class Key : MonoBehaviour
+public class KeySoundPlayer : MonoBehaviour
 {
     //https://unity-shoshinsha.biz/archives/1119#Button-4
     //Button button;
