@@ -8,9 +8,6 @@ using UnityEngine.EventSystems;
 
 public class KeySoundPlayer : MonoBehaviour
 {
-    //https://unity-shoshinsha.biz/archives/1119#Button-4
-    //Button button;
-
     //キー操作で動かすためのコード
     public Button[] buttons;
     private int currentButtonIndex = 0;
@@ -23,10 +20,6 @@ public class KeySoundPlayer : MonoBehaviour
     void Start()
     {
         SelectButton(currentButtonIndex);
-
-        //以下のコードはこれを参考　https://unity-shoshinsha.biz/archives/1119#Button-4
-        //button = GameObject.Find("Canvas/Button").GetComponent<Button>();
-        //button.Select();
     }
 
     // Update is called once per frame
