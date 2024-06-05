@@ -10,15 +10,11 @@ public class Title : MonoBehaviour
 
     public void PressStart()
     {
-        // 参考にした動画　https://www.youtube.com/watch?v=gD0HvOg_i28&t=110s
-        //背景の一枚絵は視覚班からもらい次第いれる
-        //タイトルはゲームタイトルが決まりしだい、視覚班と相談
         Debug.Log("Press Start!");
         if (!firstPush)
         {
             Debug.Log("Go Next Scene!");
             //ここに次のシーンへいく命令を書く。
-            //SapmleSceneにいく事にしている
             SceneManager.LoadScene("SampleScene");
             //
             firstPush = true;

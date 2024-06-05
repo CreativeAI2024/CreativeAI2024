@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 
 public class KeySoundPlayer : MonoBehaviour
 {
-    //�L�[����œ��������߂̃R�[�h
     public Button[] buttons;
     private int currentButtonIndex = 0;
 
