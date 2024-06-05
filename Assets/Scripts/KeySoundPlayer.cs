@@ -8,11 +8,10 @@ using UnityEngine.EventSystems;
 
 public class KeySoundPlayer : MonoBehaviour
 {
-    //ƒL[‘€ì‚Å“®‚©‚·‚½‚ß‚ÌƒR[ƒh
     public Button[] buttons;
     private int currentButtonIndex = 0;
 
-    //–îˆóƒL[‰Ÿ‚µ‚½‚çŒø‰Ê‰¹
+    //ï¿½ï¿½ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‰ï¿½
     public AudioClip selectSound;
     public AudioSource audioSource;
 
@@ -27,19 +26,19 @@ public class KeySoundPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            // ã–îˆóƒL[‚Å‘O‚Ìƒ{ƒ^ƒ“‚ğ‘I‘ğ
+            // ï¿½ï¿½ï¿½ï¿½Lï¿½[ï¿½Å‘Oï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
             currentButtonIndex--;
             if (currentButtonIndex < 0)
                 currentButtonIndex = buttons.Length - 1;
             SelectButton(currentButtonIndex);
 
-            //–îˆóƒL[‰Ÿ‚µ‚½‚çŒø‰Ê‰¹
+            //ï¿½ï¿½ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‰ï¿½
             PlaySelectSound();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            // ‰º–îˆóƒL[‚ÅŸ‚Ìƒ{ƒ^ƒ“‚ğ‘I‘ğ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½[ï¿½Åï¿½ï¿½Ìƒ{ï¿½^ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
             currentButtonIndex++;
             if (currentButtonIndex >= buttons.Length)
                 currentButtonIndex = 0;
@@ -49,14 +48,14 @@ public class KeySoundPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            // ZƒL[‚ÅŒ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN
+            // Zï¿½Lï¿½[ï¿½ÅŒï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½N
             buttons[currentButtonIndex].onClick.Invoke();
         }
     }
 
     void SelectButton(int index)
     {
-        // ƒ{ƒ^ƒ“‚ğ‘I‘ğ
+        // ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
 
