@@ -39,11 +39,9 @@ namespace NovelGame
         public int lineNumber = 0;
 
         [SerializeField] string _nextScene;
-        //public string _loadingTextFile;
         public TextAsset _textFile;
 
         public List<string> _sentences = new List<string>();
-        //string _textFilePath ="Sample";
 
         // Start is called before the first frame update
         void Start()
@@ -83,10 +81,6 @@ namespace NovelGame
             rb = _mainTextObject.GetComponent<TextMeshProRuby>();
 
             //テキストファイルの読み込み。_sentencesに格納
-            //var tex = EditorGUILayout.ObjectField("text", null, typeof(TextAsset), true) as TextAsset;
-            //var path = AssetDatabase.GetAssetPath(tex);
-            //TextAsset _textFile = Resources.Load<TextAsset>(_loadingTextFile);
-            //TextAsset _textFile = Resources.Load<TextAsset>("Texts/" + _textFilePath);
             if (_textFile == null)
             {
                 Debug.LogError("テキストファイルが見つかりませんでした");
@@ -169,11 +163,14 @@ namespace NovelGame
                     DisplayText();
                     audioSource.clip = audioClipNextLine;
                     audioSource.PlayOneShot(audioSource.clip);
+
+                    Debug.Log("GoNextLine");
                 }
                 else if (_time > -0.45f)
                 {
-                    //全文が表示されていない場合に右クリックしたとき、全文を表示
+                    //全文が表示されていない場合にキーを押したとき、全文を表示
                     _mainTextObject.maxVisibleCharacters = _displayedSentenceLength = _sentenceLength;
+                    Debug.Log("LineSkipped");
                 }
                 else
                 {
@@ -192,11 +189,14 @@ namespace NovelGame
                     //GameManager.Instance.audioManager.PageSE();
                     GoToTheFormerLine();
                     DisplayText();
+
+                    Debug.Log("GoFormerLine");
                 }
                 else if (_time > -0.45f)
                 {
-                    //全文が表示されていない場合に右クリックしたとき、全文を表示
+                    //全文が表示されていない場合にキーを押したとき、全文を表示
                     _mainTextObject.maxVisibleCharacters = _displayedSentenceLength = _sentenceLength;
+                    Debug.Log("LineSkipped");
                 }
                 else
                 {
@@ -232,6 +232,8 @@ namespace NovelGame
                     if (textPosition == Vector2.zero) return;
                     textPosition.x += 25f;
                     RectTransform iconTransform = iconObject.GetComponent<RectTransform>();
+
+                    //Debug.Log("YouCanGoToTheNextLine");
                     iconTransform.anchoredPosition = textPosition;
                 }
                 _nextPageIcon.SetActive(true);
@@ -262,7 +264,7 @@ namespace NovelGame
                 _mainTextObject.maxVisibleCharacters = 0;
                 _displayedSentenceLength = 0;
             }else{
-                //Debug.Log("STOP!");
+                Debug.Log("SceneEnded");
                 SceneManager.LoadScene(_nextScene);
             }
         }
@@ -279,7 +281,7 @@ namespace NovelGame
             }
             else
             {
-                //Debug.Log("STOP!");
+                Debug.Log("TheFirstLine!");
                 //SceneManager.LoadScene(_nextScene);
             }
         }
@@ -294,6 +296,7 @@ namespace NovelGame
             //テキストを取得し、表示。今回はrb.Textに格納された文字が表示される。
             string text = GetCurrentSentence();
             rb.Text = MainText(text);
+            Debug.Log(text);
         }
 
         public string MainText(string str)
