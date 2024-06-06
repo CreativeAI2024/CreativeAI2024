@@ -10,7 +10,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 _startPosition = Vector3.zero;
     private Rigidbody2D _myRigidbody;
     private Transform _playerTransform;
+    
     private void Start()
+    {
+        OnStart();
+    }
+
+    protected virtual void OnStart()
     {
         _myRigidbody = GetComponent<Rigidbody2D>();
         _playerTransform = transform;
@@ -19,14 +25,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InputMove();
+        if (_canMove)
+        {
+            Vector3 inputVector = GetInputVector();
+            if (inputVector != Vector3.zero)
+            {
+                _canMove = false;
+            }
+            InputMove(inputVector);
+        }
         MoveEnd();
     }
 
-    void InputMove()
+    Vector3 GetInputVector()
     {
-        if (!_canMove) return;
-        
         Vector3 vector = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
         {
@@ -44,11 +56,12 @@ public class PlayerController : MonoBehaviour
         {
             vector += Vector3.right;
         }
-        if (vector != Vector3.zero)
-        {
-            _canMove = false;
-        }
         vector *= unitDistance;
+        return vector;
+    }
+
+    protected virtual void InputMove(Vector3 vector)
+    {
         _startPosition = _playerTransform.position;
         _targetPosition = _startPosition + vector;
         _myRigidbody.velocity = vector * speed;
@@ -58,19 +71,25 @@ public class PlayerController : MonoBehaviour
     {
         if (_canMove) return;
         if (Vector3.Distance(_targetPosition, _playerTransform.position) >= allowDistance) return;
-
-        MovePrepare(_targetPosition);
+        
+        _playerTransform.position = _targetPosition;
+        MovePrepare();
     }
 
-    void MovePrepare(Vector3 position)
+    protected virtual void MovePrepare()
     {
-        _playerTransform.position = position;
         _myRigidbody.velocity = Vector3.zero;
         _canMove = true;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        MovePrepare(_startPosition);
+        ResetPosition();
     }
+
+    protected void ResetPosition()
+    {
+        _playerTransform.position = _startPosition;
+        MovePrepare();
+    } 
 }
