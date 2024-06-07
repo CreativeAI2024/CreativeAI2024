@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -565,7 +565,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: []
-  currentButtonIndex: 0
   selectSound: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!1 &617126530
@@ -1382,7 +1381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edcb7838f63e05c4ba5ec2f925e38f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstPush: 0
 --- !u!114 &1658386695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,7 +1393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcabf5aed7efee04091a5cb38a52c691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstPush: 0
 --- !u!114 &1658386696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,7 +1408,6 @@ MonoBehaviour:
   buttons:
   - {fileID: 2012257150}
   - {fileID: 184491169}
-  currentButtonIndex: 0
   selectSound: {fileID: 8300000, guid: e4df2f122744fb945aab8440fb763f55, type: 3}
   audioSource: {fileID: 1131386013}
 --- !u!82 &1658386697
