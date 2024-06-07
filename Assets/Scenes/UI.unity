@@ -2323,6 +2323,11 @@ PrefabInstance:
       propertyPath: m_text
       value: OpenWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 5564290828405958830, guid: 8e53c558df7c6457d9f7c13db16c38d8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
