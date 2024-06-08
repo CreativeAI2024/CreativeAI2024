@@ -5,23 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Cursor : MonoBehaviour
 {
-    void Start()
-    {
-        setPosition();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        changePosition();
-    }
-
-    void changePosition()
-    {
-        if (!IsCurrentEventSystemNull())
-        {
-            setPosition();
-        }
+        setPosition();
     }
     private void setPosition()
     {
