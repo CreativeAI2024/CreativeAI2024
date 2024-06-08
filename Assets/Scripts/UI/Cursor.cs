@@ -5,15 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Cursor : MonoBehaviour
 {
-    public static Cursor cursor = null;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        if (cursor==null)
-        {
-            cursor = this;
-        }
-    }
     void Start()
     {
         setPosition();
@@ -25,15 +16,23 @@ public class Cursor : MonoBehaviour
         changePosition();
     }
 
-    void changePosition() 
+    void changePosition()
     {
-        if (transform.position != EventSystem.current.currentSelectedGameObject.transform.position)
+        if (!IsCurrentEventSystemNull())
         {
             setPosition();
         }
     }
     private void setPosition()
     {
-        transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
+        if (!IsCurrentEventSystemNull())
+        {
+            transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
+
+        }
+    }
+    private bool IsCurrentEventSystemNull()
+    {
+        return EventSystem.current == null || EventSystem.current.currentSelectedGameObject == null;
     }
 }

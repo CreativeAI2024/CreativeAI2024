@@ -38,6 +38,9 @@ public class GridLayoutGroup : MonoBehaviour
 
     private void focusHeadButton()
     {
-        EventSystem.current.SetSelectedGameObject(headButton.gameObject);
+        if(EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(headButton.gameObject);
+        }
     }
 }
