@@ -1,46 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class GridLayoutGroup : MonoBehaviour
 {
-    private List<Button> buttons;
-    [SerializeField] Button headButton;
-    void Start()
-    {
-        buttons = new List<Button>();
-
-        foreach (Transform child in transform)
-        {
-            Button buttonTmp = child.GetComponent<Button>();
-            if (buttonTmp != null)
-            {
-                buttons.Add(buttonTmp);
-            }
-            else
-            {
-                Debug.Log("There are no buttons in " + gameObject);
-            }
-        }
-    }
-
-    void Update()
-    {
-
-    }
-
+    [SerializeField] GameObject firstButton;
     void OnEnable()
     {
-        StartCoroutine("focusHeadButton");
+        FocusHeadButton();
     }
 
-    private void focusHeadButton()
+    private void FocusHeadButton()
     {
-        if(EventSystem.current != null)
+        if(!UIManager.IsCurrentEventSystemNull() && firstButton!=null)
         {
-            EventSystem.current.SetSelectedGameObject(headButton.gameObject);
+            EventSystem.current.SetSelectedGameObject(firstButton);
         }
     }
 }

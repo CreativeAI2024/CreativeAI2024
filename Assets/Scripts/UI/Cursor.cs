@@ -1,38 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Cursor : MonoBehaviour
 {
-    void Start()
-    {
-        setPosition();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        changePosition();
+        SetPosition();
     }
-
-    void changePosition()
+    private void SetPosition()
     {
-        if (!IsCurrentEventSystemNull())
-        {
-            setPosition();
-        }
-    }
-    private void setPosition()
-    {
-        if (!IsCurrentEventSystemNull())
+        if (!UIManager.IsCurrentEventSystemNull())
         {
             transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
 
         }
-    }
-    private bool IsCurrentEventSystemNull()
-    {
-        return EventSystem.current == null || EventSystem.current.currentSelectedGameObject == null;
     }
 }

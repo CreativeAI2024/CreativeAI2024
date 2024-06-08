@@ -210,7 +210,7 @@ PrefabInstance:
         type: 3}
       propertyPath: childFirstButton
       value: 
-      objectReference: {fileID: 1970283664}
+      objectReference: {fileID: 0}
     - target: {fileID: 3953210530282341960, guid: 8e53c558df7c6457d9f7c13db16c38d8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -823,7 +823,12 @@ PrefabInstance:
         type: 3}
       propertyPath: headButton
       value: 
-      objectReference: {fileID: 1970283664}
+      objectReference: {fileID: 1970283663}
+    - target: {fileID: 7270624620151931561, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      propertyPath: firstButton
+      value: 
+      objectReference: {fileID: 1970283663}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1157,18 +1162,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576103409}
   m_CullTransparentMesh: 1
---- !u!114 &1645689653 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3669597330430604570, guid: 8e53c558df7c6457d9f7c13db16c38d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1050329437}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38282a685398b484fa4b778c60826268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1655492888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,6 +1299,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1663916084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2238412286224207160, guid: 8e53c558df7c6457d9f7c13db16c38d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1050329437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1702875636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1532,7 @@ PrefabInstance:
         type: 3}
       propertyPath: childFirstButton
       value: 
-      objectReference: {fileID: 1645689653}
+      objectReference: {fileID: 0}
     - target: {fileID: 3953210530282341960, guid: 8e53c558df7c6457d9f7c13db16c38d8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1656,18 +1655,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1970283661}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1970283664 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3669597330430604570, guid: 8e53c558df7c6457d9f7c13db16c38d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1970283661}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970283663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38282a685398b484fa4b778c60826268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2121905294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1790,7 +1777,12 @@ PrefabInstance:
         type: 3}
       propertyPath: headButton
       value: 
-      objectReference: {fileID: 1645689653}
+      objectReference: {fileID: 1663916084}
+    - target: {fileID: 7270624620151931561, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      propertyPath: firstButton
+      value: 
+      objectReference: {fileID: 1663916084}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
