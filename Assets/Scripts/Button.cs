@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Button : MonoBehaviour, IEventSystemHandler
 {
+    [SerializeField] Button childFirstButton;
     // Start is called before the first frame update
     private void Start()
     {
@@ -18,21 +20,10 @@ public class Button : MonoBehaviour, IEventSystemHandler
         
     }
 
-    private void OnSelect(BaseEventData eventData)
+    void OnEnable()
     {
-        this.SetCursorVisibility(true);
     }
 
-    private void OnDeselect(BaseEventData eventData) 
-    {
-        this.SetCursorVisibility(false);
-    }
-
-    private void SetCursorVisibility(bool isVisible) 
-    {
-        this.GetComponent<Image>().enabled = isVisible;
-        
-    }
 }
 
 // OpenButton.csの内容
