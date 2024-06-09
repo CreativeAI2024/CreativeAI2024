@@ -7,13 +7,11 @@ public class NewBehaviourScript : MonoBehaviour
     private InputSetting _inputSetting;
     private Button button;
     private GameObject currentWindow;
-    private GameObject previousWindow;
     void Start()
     {
         _inputSetting = InputSetting.Load();
         button = GetComponent<Button>();
         currentWindow = transform.parent.parent.gameObject;
-        previousWindow = currentWindow.GetComponent<Window>().previousWindow;
     }
     void Update()
     {
@@ -41,20 +39,8 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (_inputSetting.GetCancelKeyDown())
             {
-                changeActive(currentWindow, false);
-                changeActive(previousWindow, true);
+                currentWindow.GetComponent<Window>().Cancel();
             }
-        }
-    }
-    private void changeActive(GameObject gameObject, bool isVisible)
-    {
-        if (gameObject == null)
-        {
-            Debug.Log("gameObject of changeActive() is null.");
-        }
-        else
-        {
-            gameObject.SetActive(isVisible);
         }
     }
 }

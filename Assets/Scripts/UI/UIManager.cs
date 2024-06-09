@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
+    private InputSetting _inputSetting;
+    [SerializeField] private GameObject windowBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +16,13 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_inputSetting.GetItemKeyDown())
+        {
+            ToggleWindow();
+        }
     }
-    public static bool IsCurrentEventSystemNull()
+    public void ToggleWindow()
     {
-        return EventSystem.current == null || EventSystem.current.currentSelectedGameObject == null;
+        UIUtility.ChangeActive(windowBox, !windowBox.activeSelf);
     }
 }

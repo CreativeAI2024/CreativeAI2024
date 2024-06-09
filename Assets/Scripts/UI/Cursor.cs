@@ -9,10 +9,9 @@ public class Cursor : MonoBehaviour
     }
     private void SetPosition()
     {
-        if (!UIManager.IsCurrentEventSystemNull())
+        if (!UIUtility.IsCurrentEventSystemNull())
         {
             transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
-
         }
     }
 }
