@@ -807,6 +807,8 @@ GameObject:
   - component: {fileID: 1143990361}
   - component: {fileID: 1143990363}
   - component: {fileID: 1143990362}
+  - component: {fileID: 1143990364}
+  - component: {fileID: 1143990365}
   m_Layer: 5
   m_Name: TextPanel
   m_TagString: Untagged
@@ -873,6 +875,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143990360}
   m_CullTransparentMesh: 1
+--- !u!114 &1143990364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143990360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75cb3e56cfa86074d8e914f78478ce64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainTextObject: {fileID: 1323356588}
+  _mainTextPrefab: {fileID: 1143990360}
+  animator: {fileID: 79016239}
+  _nextPageIcon: {fileID: 79016235}
+  _feedTime: 0.04
+  _time: 0
+  _displayedSentenceLength: -1
+  _sentenceLength: 0
+  iconObject: {fileID: 64620505}
+  _sentences: []
+--- !u!114 &1143990365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143990360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad08051a2000eb48af6b0693f4bcab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1323356590}
 --- !u!1 &1202710324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1053,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202710324}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b4593dea6416b242849fa4c30ae0baa, type: 3}
   m_Name: 
@@ -1037,7 +1074,6 @@ GameObject:
   - component: {fileID: 1229550435}
   - component: {fileID: 1229550434}
   - component: {fileID: 1229550433}
-  - component: {fileID: 1229550437}
   - component: {fileID: 1229550438}
   m_Layer: 5
   m_Name: TextWindow
@@ -1129,7 +1165,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1229550437
+--- !u!114 &1229550438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1138,120 +1174,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1229550432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 084ff864ec9e00d41b2cc91484c037e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f1974713e43a4d4bbf0610d02540fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainTextObject: {fileID: 1323356588}
-  _nameTextObject: {fileID: 1202710327}
-  _mainTextPrefab: {fileID: 1143990360}
-  _nameTextPrefab: {fileID: 2123466732}
-  rb: {fileID: 0}
-  animator: {fileID: 79016239}
-  _nextPageIcon: {fileID: 79016235}
-  iconObject: {fileID: 64620505}
-  audioClipTyping: {fileID: 8300000, guid: 4de9cef40ff235e4fbda192c44aa153d, type: 3}
-  audioClipNextLine: {fileID: 8300000, guid: bd526f032f3e3204fbc1f6d4ea16da6e, type: 3}
-  _sentenceLength: 0
-  lineNumber: 0
-  _nextScene: SampleScene
-  _textFile: {fileID: 4900000, guid: ac63ab8c3c5ba29429cfa76b9318e954, type: 3}
-  _sentences: []
---- !u!82 &1229550438
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229550432}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  mainTextDrawer: {fileID: 1143990364}
+  nameTextDrawer: {fileID: 2123466736}
+  textAsset: {fileID: 4900000, guid: ac63ab8c3c5ba29429cfa76b9318e954, type: 3}
 --- !u!1 &1323356586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1343,7 @@ GameObject:
   - component: {fileID: 2123466735}
   - component: {fileID: 2123466734}
   - component: {fileID: 2123466733}
+  - component: {fileID: 2123466736}
   m_Layer: 5
   m_Name: NamePanel
   m_TagString: Untagged
@@ -1480,6 +1409,20 @@ RectTransform:
   m_AnchoredPosition: {x: -776.65985, y: -239.20001}
   m_SizeDelta: {x: -1553.33, y: -993.17}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2123466736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123466732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a311cb6d33bfa0b4ab9c95f366b63b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nameTextObject: {fileID: 1202710327}
+  _nameTextPrefab: {fileID: 2123466732}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
