@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
+using UnityEditor.SceneManagement;
 
 public class ConversationTextManager : MonoBehaviour
 {
-    public static ConversationTextManager Instance { get; private set; }
-
-    public MainTextDrawer  mainTextDrawer;
-    public NameTextDrawer  nameTextDrawer;
+    public MainTextDrawer mainTextDrawer;
+    public NameTextDrawer nameTextDrawer;
     private float _time;
     public TextAsset textAsset;
     private int lineNumber = 0;
@@ -29,7 +29,7 @@ public class ConversationTextManager : MonoBehaviour
         mainTextDrawer.Typewriter();
 
         // zキーが離されたとき、次の行へ移動
-        ChangeLine(KeyCode.Z, KeyCode.X);
+        ChangeLine();
 
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.GoToTheNextLineIcon();
@@ -37,17 +37,7 @@ public class ConversationTextManager : MonoBehaviour
 
     public void Initiallize()
     {
-        Instance = this;
-        //下記三行はあまり意味がない。
-        /*_mainTextObject = _mainTextObject.GetComponent<TextMeshProUGUI>();
-        _nameTextObject = _nameTextObject.GetComponent<TextMeshProUGUI>();
-        rb = _mainTextObject.GetComponent<TextMeshProRuby>();*/
-
-        mainTextDrawer = mainTextDrawer.GetComponent<MainTextDrawer>();
-        nameTextDrawer = nameTextDrawer.GetComponent<NameTextDrawer>();
-
         mainTextDrawer.SetLineNumber(lineNumber);
-
 
         //テキストファイルの読み込み。_sentencesに格納
         if (textAsset == null)
@@ -70,64 +60,49 @@ public class ConversationTextManager : MonoBehaviour
         //テキストを表示
         MainText();
         mainTextDrawer.DisplayText();
-
     }
 
 
-    public void ChangeLine(KeyCode keyNext, KeyCode keyFormer)
+    public void ChangeLine()
     {
-
-        if (Input.GetKeyUp(keyNext))
+        if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.X))
         {
-            //全文が表示されている場合、次の行へ移動
-            if (mainTextDrawer.CanGoToTheNextLine() && _time > -0.45f)
+            DisplayText();
+        }
+    }
+
+    void DisplayText()
+    {
+        //全文が表示されている場合、次の行へ移動
+        if (mainTextDrawer.CanGoToTheNextLine() && _time > -0.45f)
+        {
+            if (Input.GetKeyUp(KeyCode.Z))
             {
                 mainTextDrawer.GoToTheNextLine();
-                MainText();
-                mainTextDrawer.DisplayText();
-
             }
-            else if (_time > -0.45f)
+            else if (Input.GetKeyUp(KeyCode.X))
             {
-                //全文が表示されていない場合にキーを押したとき、全文を表示
-                mainTextDrawer._mainTextObject.maxVisibleCharacters = mainTextDrawer._displayedSentenceLength = mainTextDrawer._sentenceLength;
-                Debug.Log("LineSkipped");
-            }
-            else
-            {
-                //エラー対策。不要説はある。
-                _time = 0.2f;
-            }
-            if (_time > -0.55f)//連打対策（爆速スクロール等）
-                _time -= 0.35f;
-
-        }
-        else if (Input.GetKeyUp(keyFormer))
-        {
-            if (mainTextDrawer.CanGoToTheNextLine() && _time > -0.45f)
-            {
-                //GameManager.Instance.audioManager.PageSE();
                 mainTextDrawer.GoToTheFormerLine();
-                MainText();
-                mainTextDrawer.DisplayText();
-
             }
-            else if (_time > -0.45f)
-            {
-                //全文が表示されていない場合にキーを押したとき、全文を表示
-                mainTextDrawer._mainTextObject.maxVisibleCharacters = mainTextDrawer._displayedSentenceLength = mainTextDrawer._sentenceLength;
-                Debug.Log("LineSkipped");
-            }
-            else
-            {
-                //エラー対策。不要説はある。
-                _time = 0.2f;
-            }
-            if (_time > -0.55f)//連打対策（爆速スクロール等）
-                _time -= 0.35f;
-
+            MainText();
+            mainTextDrawer.DisplayText();
         }
-
+        else if (_time > -0.45f)
+        {
+            //全文が表示されていない場合にキーを押したとき、タグなしの本文を取得し、その長さを代入
+            //mainTextDrawer._sentenceLength : 表示されている本文のもともとの長さ
+            //mainTextDrawer._displayedSentenceLength : 表示されている本文のうち実際に画面にあるだけの長さ
+            //maxVisibleCharacters : TMPの機能で表示する文字の数を制御する。タグなしの本文の長さを代入することで全文を表示
+            mainTextDrawer._mainTextObject.maxVisibleCharacters = mainTextDrawer._displayedSentenceLength = mainTextDrawer._sentenceLength = mainTextDrawer._mainTextObject.GetParsedText().Length; 
+            Debug.Log("LineSkipped");
+        }
+        else
+        {
+            //エラー対策。不要説はある。
+            _time = 0.2f;
+        }
+        if (_time > -0.55f)//連打対策（爆速スクロール等）
+            _time -= 0.35f;
     }
 
     public string GetCurrentSentence()
@@ -140,21 +115,27 @@ public class ConversationTextManager : MonoBehaviour
         return mainTextDrawer._sentences[mainTextDrawer.GetLineNumber()];
     }
 
-
     public void MainText()
     {
         string text = GetCurrentSentence();
-        string[] words = text.Split(":");
+        string[] words = text.Split(':');
         //名前がある場合、名前を表示。名前がない場合、名前表示を非表示にする。名前は「名前:文章」という形式で記述する。
+        string lineText;
         if (words.Length > 1)
         {
-            nameTextDrawer.NameText(words[0]);
-            mainTextDrawer._mainTextObject.text = words[1];
+            if (!(nameTextDrawer == null)) { 
+                nameTextDrawer.NameText(words[0]);
+            }
+            lineText = words[1];
         }
         else
         {
-            nameTextDrawer._nameTextPrefab.SetActive(false);
-            mainTextDrawer._mainTextObject.text = text;
+            if (!(nameTextDrawer == null))
+            {
+                nameTextDrawer._nameTextPrefab.SetActive(false);
+            }
+            lineText = text;
         }
+        mainTextDrawer._mainTextObject.text = lineText;
     }
 }

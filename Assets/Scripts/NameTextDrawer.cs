@@ -5,7 +5,6 @@ using TMPro;
 
 public class NameTextDrawer : MonoBehaviour
 {
-
     public TextMeshProUGUI _nameTextObject;
     public GameObject _nameTextPrefab;
 
