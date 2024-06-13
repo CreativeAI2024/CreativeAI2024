@@ -9,9 +9,14 @@ public class Cursor : MonoBehaviour
     }
     private void SetPosition()
     {
-        if (!UIUtility.IsCurrentEventSystemNull())
+        if (!IsCurrentEventSystemNull())
         {
             transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
         }
+    }
+
+    private bool IsCurrentEventSystemNull()
+    {
+        return EventSystem.current == null || EventSystem.current.currentSelectedGameObject == null;
     }
 }

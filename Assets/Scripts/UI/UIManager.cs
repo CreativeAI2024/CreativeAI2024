@@ -7,13 +7,10 @@ public class UIManager : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject windowBox;
-    // Start is called before the first frame update
     void Start()
     {
-        
+        _inputSetting = InputSetting.Load();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (_inputSetting.GetItemKeyDown())
@@ -21,8 +18,12 @@ public class UIManager : MonoBehaviour
             ToggleWindow();
         }
     }
-    public void ToggleWindow()
+    public void ToggleWindow() //どのウィンドウを開けてるかの状態もリセットしたい。各ウィンドウのdisenable()の中で処理した方がいい？
     {
-        UIUtility.ChangeActive(windowBox, !windowBox.activeSelf);
+        ChangeActive(windowBox, !windowBox.activeSelf);
+    }
+    private void ChangeActive(GameObject gameObject, bool isActive)
+    {
+        gameObject.SetActive(isActive);
     }
 }

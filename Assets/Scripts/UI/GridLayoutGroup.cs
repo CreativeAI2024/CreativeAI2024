@@ -11,9 +11,13 @@ public class GridLayoutGroup : MonoBehaviour
 
     private void FocusHeadButton()
     {
-        if(!UIUtility.IsCurrentEventSystemNull() && firstButton!=null)
+        if(!IsCurrentEventSystemNull() && firstButton!=null)
         {
             EventSystem.current.SetSelectedGameObject(firstButton);
         }
+    }
+    private bool IsCurrentEventSystemNull()
+    {
+        return EventSystem.current == null || EventSystem.current.currentSelectedGameObject == null;
     }
 }

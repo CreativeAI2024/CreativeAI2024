@@ -2,15 +2,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class OpenWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     private Button button;
     private GameObject currentWindow;
+    [SerializeField] private GameObject nextWindow;
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        button = GetComponent<Button>();
+        button = GetComponent<Button>(); //もっと賢い方法ある
         currentWindow = transform.parent.parent.gameObject;
     }
     void Update()
@@ -35,12 +36,21 @@ public class NewBehaviourScript : MonoBehaviour
             }
             if (_inputSetting.GetDecideKeyDown())
             {
-                button.onClick.Invoke();
+                Open();
             }
             if (_inputSetting.GetCancelKeyDown())
             {
                 currentWindow.GetComponent<Window>().Cancel();
             }
         }
+    }
+    private void Open()
+    {
+        ChangeActive(nextWindow, true);
+        ChangeActive(currentWindow, false);
+    }
+    private void ChangeActive(GameObject gameObject, bool isActive)
+    {
+        gameObject.SetActive(isActive);
     }
 }

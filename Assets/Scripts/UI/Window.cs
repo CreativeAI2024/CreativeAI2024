@@ -3,18 +3,22 @@ using UnityEngine;
 public class Window : MonoBehaviour
 {
     [SerializeField] public GameObject previousWindow;
-    [SerializeField] private GameObject uiManager;
+    [SerializeField] private UIManager uiManager;
 
     public void Cancel()
     {
         if (previousWindow != null)
         {
-            UIUtility.ChangeActive(gameObject, false);
-            UIUtility.ChangeActive(previousWindow, true);
+            ChangeActive(gameObject, false);
+            ChangeActive(previousWindow, true);
         }
         else
         {
-            uiManager.GetComponent<UIManager>().ToggleWindow();
+            uiManager.ToggleWindow();
         }
+    }
+    private void ChangeActive(GameObject gameObject, bool isActive)
+    {
+        gameObject.SetActive(isActive);
     }
 }
