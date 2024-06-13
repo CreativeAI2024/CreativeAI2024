@@ -249,15 +249,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "jp.netsis.rubytmp": {
-      "version": "https://github.com/jp-netsis/RubyTextMeshPro.git?path=/Assets/RubyTextMeshPro#v1.2.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.textmeshpro": "3.0.6"
-      },
-      "hash": "93a4dcdbce5309a09ed533cf2066d107532dd1ab"
-    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

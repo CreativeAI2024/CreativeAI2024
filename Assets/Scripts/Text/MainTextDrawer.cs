@@ -8,21 +8,26 @@ using UnityEngine.UI;
 
 public class MainTextDrawer : MonoBehaviour
 {
-    public TextMeshProUGUI _mainTextObject;
+    [HideInInspector] public TextMeshProUGUI _mainTextObject;
     public GameObject _mainTextPrefab;
 
     public Animator animator;
     public GameObject _nextPageIcon;
-    public float _feedTime;
+    public float intervalTime;
 
-    public float _time;
-    public int _displayedSentenceLength = -1;
-    public int _sentenceLength;
+    [HideInInspector] public float _time;
+    [HideInInspector] public int _displayedSentenceLength = -1;
+    [HideInInspector] public int _sentenceLength;
 
     [SerializeField] Image iconObject;
-    public List<string> _sentences = new List<string>();
+    [HideInInspector] public List<string> _sentences = new List<string>();
 
     private int lineNumber;
+
+    void Start()
+    {
+        _mainTextObject = GetComponent<TextMeshProUGUI>();
+    }
 
     public void SetLineNumber(int settingLineNumber)
     {
@@ -38,9 +43,9 @@ public class MainTextDrawer : MonoBehaviour
     public void Typewriter()
     {
         _time += Time.deltaTime;
-        if (_time >= _feedTime)
+        if (_time >= intervalTime)
         {
-            _time -= _feedTime;
+            _time -= intervalTime;
 
             if (!CanGoToTheNextLine())
             {
@@ -58,11 +63,11 @@ public class MainTextDrawer : MonoBehaviour
                     if (sentence[_displayedSentenceLength - 1].Equals('。') || sentence[_displayedSentenceLength - 1].Equals('！') || sentence[_displayedSentenceLength - 1].Equals('？'))
                     {
                         //、と。で表示速度を変える。
-                        _time -= _feedTime*10;
+                        _time -= intervalTime*10;
                     }
                     else if (sentence[_displayedSentenceLength - 1].Equals('、'))
                     {
-                        _time -= _feedTime*5;
+                        _time -= intervalTime*5;
                     }
                 }
             }
@@ -136,11 +141,13 @@ public class MainTextDrawer : MonoBehaviour
     public void GoToTheNextLine()
     {
         GoToLine(1);
+        Debug.Log("NextLine");
     }
     // 前の行へ移動
     public void GoToTheFormerLine()
     {
         GoToLine(-1);
+        Debug.Log("FormerLine");
     }
 
     // テキストを表示

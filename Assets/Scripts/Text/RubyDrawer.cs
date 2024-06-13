@@ -5,8 +5,12 @@ using TMPro;
 
 public class RubyDrawer : MonoBehaviour
 {
-    public TextMeshProRuby rb;
+    [HideInInspector] public TextMeshProRuby rb;
 
+    private void Start()
+    {
+        rb = GetComponent<TextMeshProRuby>();
+    }
     public void RubySpawner(string str)
     {
         rb.Text = str;

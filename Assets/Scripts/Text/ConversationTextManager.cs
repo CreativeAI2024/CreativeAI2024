@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
-using UnityEditor.SceneManagement;
 
 public class ConversationTextManager : MonoBehaviour
 {
@@ -12,10 +11,12 @@ public class ConversationTextManager : MonoBehaviour
     private float _time;
     public TextAsset textAsset;
     private int lineNumber = 0;
+    private InputSetting _inputSetting;
 
     // Start is called before the first frame update
     void Start()
     {
+        _inputSetting = InputSetting.Load();
         Initiallize();
     }
 
@@ -65,7 +66,7 @@ public class ConversationTextManager : MonoBehaviour
 
     public void ChangeLine()
     {
-        if (Input.GetKeyUp(KeyCode.Z) || Input.GetKeyUp(KeyCode.X))
+        if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
         {
             DisplayText();
         }
@@ -76,11 +77,11 @@ public class ConversationTextManager : MonoBehaviour
         //全文が表示されている場合、次の行へ移動
         if (mainTextDrawer.CanGoToTheNextLine() && _time > -0.45f)
         {
-            if (Input.GetKeyUp(KeyCode.Z))
+            if (_inputSetting.GetDecideKeyUp())
             {
                 mainTextDrawer.GoToTheNextLine();
             }
-            else if (Input.GetKeyUp(KeyCode.X))
+            else if (_inputSetting.GetCancelKeyUp())
             {
                 mainTextDrawer.GoToTheFormerLine();
             }
