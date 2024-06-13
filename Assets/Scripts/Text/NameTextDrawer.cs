@@ -5,17 +5,24 @@ using TMPro;
 
 public class NameTextDrawer : MonoBehaviour
 {
-    [HideInInspector] public TextMeshProUGUI _nameTextObject;
-    public GameObject _nameTextPrefab;
+    private TextMeshProUGUI _nameTextObject;
+    private GameObject _nameTextPanel;
 
-    private void Start()
+     void Start()
     {
         _nameTextObject = GetComponent<TextMeshProUGUI>();
+        _nameTextPanel = transform.parent.gameObject;
     }
+
+    public void NamePanelSwitch()
+    {
+        _nameTextPanel.SetActive(false);
+    }
+
     public void NameText(string str)
     {
         //–¼‘O‚ð•\Ž¦‚·‚é
-        _nameTextPrefab.SetActive(true);
+        _nameTextPanel.SetActive(true);
         _nameTextObject.text = str;
     }
 }

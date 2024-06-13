@@ -954,7 +954,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nameTextObject: {fileID: 0}
-  _nameTextPrefab: {fileID: 2123466732}
 --- !u!1 &1229550432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1083,6 @@ GameObject:
   - component: {fileID: 1323356587}
   - component: {fileID: 1323356589}
   - component: {fileID: 1323356591}
-  - component: {fileID: 1323356592}
   - component: {fileID: 1323356590}
   - component: {fileID: 1323356588}
   m_Layer: 5
@@ -1239,29 +1237,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cb3e56cfa86074d8e914f78478ce64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainTextObject: {fileID: 0}
-  _mainTextPrefab: {fileID: 1143990360}
   animator: {fileID: 79016239}
   _nextPageIcon: {fileID: 79016235}
   intervalTime: 0.04
   _time: 0
   _displayedSentenceLength: -1
   _sentenceLength: 0
-  iconObject: {fileID: 64620505}
+  iconObject: {fileID: 64620504}
   _sentences: []
---- !u!114 &1323356592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323356586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad08051a2000eb48af6b0693f4bcab4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
 --- !u!1 &2123466732
 GameObject:
   m_ObjectHideFlags: 0

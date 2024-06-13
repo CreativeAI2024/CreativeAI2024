@@ -8,30 +8,24 @@ using UnityEngine.UI;
 
 public class MainTextDrawer : MonoBehaviour
 {
-    [HideInInspector] public TextMeshProUGUI _mainTextObject;
-    public GameObject _mainTextPrefab;
+    private TextMeshProUGUI _mainTextObject;
 
-    public Animator animator;
-    public GameObject _nextPageIcon;
-    public float intervalTime;
+    [SerializeField] Animator animator;
+    [SerializeField] GameObject _nextPageIcon;
+    [SerializeField] float intervalTime;
 
-    [HideInInspector] public float _time;
+    [HideInInspector] public float unitTime;
     [HideInInspector] public int _displayedSentenceLength = -1;
     [HideInInspector] public int _sentenceLength;
 
-    [SerializeField] Image iconObject;
+    [SerializeField] RectTransform iconObject;
     [HideInInspector] public List<string> _sentences = new List<string>();
 
-    private int lineNumber;
+    private int lineNumber = 0;
 
-    void Start()
+    public void Initiallize()
     {
         _mainTextObject = GetComponent<TextMeshProUGUI>();
-    }
-
-    public void SetLineNumber(int settingLineNumber)
-    {
-        lineNumber = settingLineNumber;
     }
 
     public int GetLineNumber()
@@ -39,13 +33,18 @@ public class MainTextDrawer : MonoBehaviour
         return lineNumber;
     }
 
+    public TextMeshProUGUI GetMainTextObject()
+    {
+        return this._mainTextObject;
+    }
+
     // 単位時間 feedTimeごとに文章を１文字ずつ表示する
     public void Typewriter()
     {
-        _time += Time.deltaTime;
-        if (_time >= intervalTime)
+        unitTime += Time.deltaTime;
+        if (unitTime >= intervalTime)
         {
-            _time -= intervalTime;
+            unitTime -= intervalTime;
 
             if (!CanGoToTheNextLine())
             {
@@ -63,15 +62,20 @@ public class MainTextDrawer : MonoBehaviour
                     if (sentence[_displayedSentenceLength - 1].Equals('。') || sentence[_displayedSentenceLength - 1].Equals('！') || sentence[_displayedSentenceLength - 1].Equals('？'))
                     {
                         //、と。で表示速度を変える。
-                        _time -= intervalTime*10;
+                        PauseTypewriter(10);
                     }
                     else if (sentence[_displayedSentenceLength - 1].Equals('、'))
                     {
-                        _time -= intervalTime*5;
+                        PauseTypewriter(5);
                     }
                 }
             }
         }
+    }
+
+    private void PauseTypewriter(int multiple)
+    {
+        unitTime -= intervalTime * multiple;
     }
 
     //次の行へ進むアイコンの表示非表示
@@ -95,10 +99,8 @@ public class MainTextDrawer : MonoBehaviour
                 Vector2 textPosition = LastTextPosition();
                 if (textPosition == Vector2.zero) return;
                 textPosition.x += 25f;
-                RectTransform iconTransform = iconObject.GetComponent<RectTransform>();
 
-                //Debug.Log("YouCanGoToTheNextLine");
-                iconTransform.anchoredPosition = textPosition;
+                iconObject.anchoredPosition = textPosition;
             }
             _nextPageIcon.SetActive(true);
             if (animator.enabled == false)
@@ -112,14 +114,13 @@ public class MainTextDrawer : MonoBehaviour
     public bool CanGoToTheNextLine()
     {
         string sentence = _mainTextObject.GetParsedText();
-        //_sentenceLength = sentence.Length;
         return (_displayedSentenceLength > sentence.Length - 1);
     }
 
     //行の移動
     private void GoToLine(int increase)
     {
-        _time = 0.04f;
+        unitTime = intervalTime;
         if (0 <= lineNumber && lineNumber <= _sentences.Count - 1)
         {
             //次の行へ移動し、表示する文字数をリセット
@@ -135,7 +136,6 @@ public class MainTextDrawer : MonoBehaviour
             Debug.Log("SceneEnded");
         }
     }
-
 
     // 次の行へ移動
     public void GoToTheNextLine()
@@ -153,15 +153,15 @@ public class MainTextDrawer : MonoBehaviour
     // テキストを表示
     public void DisplayText()
     {
-        if (TryGetComponent(out RubyDrawer rb))
+        if (TryGetComponent(out TextMeshProRuby rb))
         {
-            rb.RubySpawner(_mainTextObject.text);
+            rb.Text = _mainTextObject.text;
         }
         //テキストを取得し、表示。
         Debug.Log(_mainTextObject.text);
     }
 
-    public Vector2 LastTextPosition()
+    private Vector2 LastTextPosition()
     {
         //末尾文字の位置を取得
         TMP_TextInfo textInfo = _mainTextObject.textInfo;

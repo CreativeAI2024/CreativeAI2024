@@ -6,11 +6,10 @@ using System;
 
 public class ConversationTextManager : MonoBehaviour
 {
-    public MainTextDrawer mainTextDrawer;
-    public NameTextDrawer nameTextDrawer;
-    private float _time;
-    public TextAsset textAsset;
-    private int lineNumber = 0;
+    [SerializeField] MainTextDrawer mainTextDrawer;
+    [SerializeField] NameTextDrawer nameTextDrawer;
+
+    [SerializeField] TextAsset textAsset;
     private InputSetting _inputSetting;
 
     // Start is called before the first frame update
@@ -23,9 +22,6 @@ public class ConversationTextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        _time = mainTextDrawer._time;
-
         // 単位時間 feedTimeごとに文章を１文字ずつ表示する
         mainTextDrawer.Typewriter();
 
@@ -38,7 +34,7 @@ public class ConversationTextManager : MonoBehaviour
 
     public void Initiallize()
     {
-        mainTextDrawer.SetLineNumber(lineNumber);
+        mainTextDrawer.Initiallize();
 
         //テキストファイルの読み込み。_sentencesに格納
         if (textAsset == null)
@@ -54,10 +50,10 @@ public class ConversationTextManager : MonoBehaviour
             mainTextDrawer._sentences.Add(line);
         }
 
-        _time = 0f;
+        mainTextDrawer.unitTime = 0f;
 
         //一文字ずつ表示するため、最初は0文字に設定
-        mainTextDrawer._mainTextObject.maxVisibleCharacters = 0;
+        mainTextDrawer.GetMainTextObject().maxVisibleCharacters = 0;
         //テキストを表示
         MainText();
         mainTextDrawer.DisplayText();
@@ -75,7 +71,7 @@ public class ConversationTextManager : MonoBehaviour
     void DisplayText()
     {
         //全文が表示されている場合、次の行へ移動
-        if (mainTextDrawer.CanGoToTheNextLine() && _time > -0.45f)
+        if (mainTextDrawer.CanGoToTheNextLine() && mainTextDrawer.unitTime > -0.45f)
         {
             if (_inputSetting.GetDecideKeyUp())
             {
@@ -88,22 +84,22 @@ public class ConversationTextManager : MonoBehaviour
             MainText();
             mainTextDrawer.DisplayText();
         }
-        else if (_time > -0.45f)
+        else if (mainTextDrawer.unitTime > -0.45f)
         {
             //全文が表示されていない場合にキーを押したとき、タグなしの本文を取得し、その長さを代入
             //mainTextDrawer._sentenceLength : 表示されている本文のもともとの長さ
             //mainTextDrawer._displayedSentenceLength : 表示されている本文のうち実際に画面にあるだけの長さ
             //maxVisibleCharacters : TMPの機能で表示する文字の数を制御する。タグなしの本文の長さを代入することで全文を表示
-            mainTextDrawer._mainTextObject.maxVisibleCharacters = mainTextDrawer._displayedSentenceLength = mainTextDrawer._sentenceLength = mainTextDrawer._mainTextObject.GetParsedText().Length; 
+            mainTextDrawer.GetMainTextObject().maxVisibleCharacters = mainTextDrawer._displayedSentenceLength = mainTextDrawer._sentenceLength = mainTextDrawer.GetMainTextObject().GetParsedText().Length; 
             Debug.Log("LineSkipped");
         }
         else
         {
             //エラー対策。不要説はある。
-            _time = 0.2f;
+            mainTextDrawer.unitTime = 0.2f;
         }
-        if (_time > -0.55f)//連打対策（爆速スクロール等）
-            _time -= 0.35f;
+        if (mainTextDrawer.unitTime > -0.55f)//連打対策（爆速スクロール等）
+            mainTextDrawer.unitTime -= 0.35f;
     }
 
     public string GetCurrentSentence()
@@ -133,10 +129,10 @@ public class ConversationTextManager : MonoBehaviour
         {
             if (!(nameTextDrawer == null))
             {
-                nameTextDrawer._nameTextPrefab.SetActive(false);
+                nameTextDrawer.NamePanelSwitch();
             }
             lineText = text;
         }
-        mainTextDrawer._mainTextObject.text = lineText;
+        mainTextDrawer.GetMainTextObject().text = lineText;
     }
 }
