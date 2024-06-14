@@ -3,7 +3,7 @@ using UnityEngine;
 public class CancelAction : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    [SerializeField] public GameObject previousWindow;
+    [SerializeField] private GameObject previousWindow;
 
     void Start()
     {
@@ -22,8 +22,8 @@ public class CancelAction : MonoBehaviour
         ChangeActive(gameObject, false);
         ChangeActive(previousWindow, true);
     }
-    private void ChangeActive(GameObject gameObject, bool isActive)
+    private void ChangeActive(GameObject _gameObject, bool isActive)
     {
-        gameObject.SetActive(isActive);
+        _gameObject.SetActive(isActive);
     }
 }

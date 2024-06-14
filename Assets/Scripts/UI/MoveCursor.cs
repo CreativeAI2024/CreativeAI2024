@@ -12,11 +12,7 @@ public class MoveCursor : MonoBehaviour
     {
         if (EventSystem.current != null)
         {
-            GameObject selectedObject = EventSystem.current.currentSelectedGameObject;
-            if (selectedObject != null)
-            {
-                transform.position = selectedObject.transform.position;
-            }
+            transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
         }
     }
 }

@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class OpenWindow : MonoBehaviour
+public class OpenWindowAction : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    [SerializeField] private GameObject parentWindow;
+    [SerializeField] private GameObject currentWindow;
     [SerializeField] private GameObject nextWindow;
     void Start()
     {
         _inputSetting = InputSetting.Load();
+        currentWindow = transform.parent.parent.gameObject;
     }
     void Update()
     {
@@ -23,7 +24,7 @@ public class OpenWindow : MonoBehaviour
     void Open()
     {
         ChangeActive(nextWindow, true);
-        ChangeActive(parentWindow, false);
+        ChangeActive(currentWindow, false);
     }
     private void ChangeActive(GameObject gameObject, bool isActive)
     {

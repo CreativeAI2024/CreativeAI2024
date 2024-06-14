@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ToggleWindowAction : MonoBehaviour
+public class OpenAndCloseWindowTreeAction : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject windowBox;
