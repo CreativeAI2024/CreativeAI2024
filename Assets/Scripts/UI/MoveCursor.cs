@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class MoveCursor : MonoBehaviour
 {
-    void Update()
+    void OnEnable()
     {
         SetPosition();
     }
