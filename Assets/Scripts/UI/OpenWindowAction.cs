@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class OpenWindow : MonoBehaviour
+public class OpenWindowAction : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    private GameObject currentWindow;
+    [SerializeField] private GameObject currentWindow;
     [SerializeField] private GameObject nextWindow;
     void Start()
     {

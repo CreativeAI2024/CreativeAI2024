@@ -3,10 +3,6 @@ using UnityEngine.EventSystems;
 
 public class SetButtonFocusAction : MonoBehaviour
 {
-    void Start()
-    {
-        SetButtonFocus();
-    }
     void OnEnable()
     {
         SetButtonFocus();
