@@ -953,7 +953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a311cb6d33bfa0b4ab9c95f366b63b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nameTextObject: {fileID: 0}
 --- !u!1 &1229550432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1071,8 @@ MonoBehaviour:
   mainTextDrawer: {fileID: 1323356591}
   nameTextDrawer: {fileID: 1202710328}
   textAsset: {fileID: 4900000, guid: ac63ab8c3c5ba29429cfa76b9318e954, type: 3}
+  intervalTime: 0.04
+  unitTime: 0
 --- !u!1 &1323356586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,8 +1240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 79016239}
   _nextPageIcon: {fileID: 79016235}
-  intervalTime: 0.04
-  _time: 0
   _displayedSentenceLength: -1
   _sentenceLength: 0
   iconObject: {fileID: 64620504}

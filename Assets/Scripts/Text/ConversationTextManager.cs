@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System;
 
 public class ConversationTextManager : MonoBehaviour
 {
-    [SerializeField] MainTextDrawer mainTextDrawer;
-    [SerializeField] NameTextDrawer nameTextDrawer;
+    [SerializeField] private MainTextDrawer mainTextDrawer;
+    [SerializeField] private NameTextDrawer nameTextDrawer;
+    [SerializeField] private TextAsset textAsset;
 
-    [SerializeField] TextAsset textAsset;
+    [SerializeField] private float intervalTime;
+    private float unitTime;
     private InputSetting _inputSetting;
 
     // Start is called before the first frame update
@@ -22,8 +23,8 @@ public class ConversationTextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 単位時間 feedTimeごとに文章を１文字ずつ表示する
-        mainTextDrawer.Typewriter();
+        unitTime += Time.deltaTime;
+        TimeKeeper();
 
         // zキーが離されたとき、次の行へ移動
         ChangeLine();
@@ -32,7 +33,7 @@ public class ConversationTextManager : MonoBehaviour
         mainTextDrawer.GoToTheNextLineIcon();
     }
 
-    public void Initiallize()
+    private void Initiallize()
     {
         mainTextDrawer.Initiallize();
 
@@ -42,7 +43,7 @@ public class ConversationTextManager : MonoBehaviour
             Debug.LogError("テキストファイルが見つかりませんでした");
             return;
         }
-        StringReader reader = new StringReader(textAsset.text);
+        StringReader reader = new(textAsset.text);
         while (reader.Peek() != -1)
         {
             string line = reader.ReadLine();
@@ -50,59 +51,25 @@ public class ConversationTextManager : MonoBehaviour
             mainTextDrawer._sentences.Add(line);
         }
 
-        mainTextDrawer.unitTime = 0f;
+        unitTime = 0f;
 
         //一文字ずつ表示するため、最初は0文字に設定
-        mainTextDrawer.GetMainTextObject().maxVisibleCharacters = 0;
+        mainTextDrawer.SetMaxVisibleCharacters(0);
         //テキストを表示
-        MainText();
-        mainTextDrawer.DisplayText();
+        SplitText();
+        mainTextDrawer.DisplayTextRuby();
     }
 
-
-    public void ChangeLine()
+    private void TimeKeeper()
     {
-        if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
+        if (unitTime >= intervalTime)
         {
-            DisplayText();
+            unitTime -= intervalTime * mainTextDrawer.GetDelayTime();
+            mainTextDrawer.Typewriter();
         }
     }
 
-    void DisplayText()
-    {
-        //全文が表示されている場合、次の行へ移動
-        if (mainTextDrawer.CanGoToTheNextLine() && mainTextDrawer.unitTime > -0.45f)
-        {
-            if (_inputSetting.GetDecideKeyUp())
-            {
-                mainTextDrawer.GoToTheNextLine();
-            }
-            else if (_inputSetting.GetCancelKeyUp())
-            {
-                mainTextDrawer.GoToTheFormerLine();
-            }
-            MainText();
-            mainTextDrawer.DisplayText();
-        }
-        else if (mainTextDrawer.unitTime > -0.45f)
-        {
-            //全文が表示されていない場合にキーを押したとき、タグなしの本文を取得し、その長さを代入
-            //mainTextDrawer._sentenceLength : 表示されている本文のもともとの長さ
-            //mainTextDrawer._displayedSentenceLength : 表示されている本文のうち実際に画面にあるだけの長さ
-            //maxVisibleCharacters : TMPの機能で表示する文字の数を制御する。タグなしの本文の長さを代入することで全文を表示
-            mainTextDrawer.GetMainTextObject().maxVisibleCharacters = mainTextDrawer._displayedSentenceLength = mainTextDrawer._sentenceLength = mainTextDrawer.GetMainTextObject().GetParsedText().Length; 
-            Debug.Log("LineSkipped");
-        }
-        else
-        {
-            //エラー対策。不要説はある。
-            mainTextDrawer.unitTime = 0.2f;
-        }
-        if (mainTextDrawer.unitTime > -0.55f)//連打対策（爆速スクロール等）
-            mainTextDrawer.unitTime -= 0.35f;
-    }
-
-    public string GetCurrentSentence()
+    private string GetCurrentSentence()
     {
         //現在の行を取得
         if (mainTextDrawer.GetLineNumber() >= mainTextDrawer._sentences.Count)
@@ -112,7 +79,45 @@ public class ConversationTextManager : MonoBehaviour
         return mainTextDrawer._sentences[mainTextDrawer.GetLineNumber()];
     }
 
-    public void MainText()
+    private void ChangeLine()
+    {
+        if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
+        {
+            DisplayText();
+        }
+        SplitText();
+        mainTextDrawer.DisplayTextRuby();
+    }
+
+    private void DisplayText()
+    {
+        if (mainTextDrawer.CanGoToTheNextLine() && unitTime > -0.45f)
+        {
+            if (_inputSetting.GetDecideKeyUp())
+            {
+                unitTime = intervalTime;
+                mainTextDrawer.GoToTheNextLine();
+            }
+            else if (_inputSetting.GetCancelKeyUp())
+            {
+                unitTime = intervalTime;
+                mainTextDrawer.GoToTheFormerLine();
+            }
+        }
+        else if (unitTime > -0.45f)
+        {
+            mainTextDrawer.SkipTypewriter();
+        }
+        else
+        {
+            //エラー対策。不要説はある。
+            unitTime = 0.2f;
+        }
+        if (unitTime > -0.55f)//連打対策（爆速スクロール等）
+            unitTime -= 0.35f;
+    }
+
+    private void SplitText()
     {
         string text = GetCurrentSentence();
         string[] words = text.Split(':');
@@ -133,6 +138,6 @@ public class ConversationTextManager : MonoBehaviour
             }
             lineText = text;
         }
-        mainTextDrawer.GetMainTextObject().text = lineText;
+        mainTextDrawer.SetMainText(lineText);
     }
 }

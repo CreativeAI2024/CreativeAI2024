@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Text.RegularExpressions;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class MainTextDrawer : MonoBehaviour
 {
@@ -12,14 +9,12 @@ public class MainTextDrawer : MonoBehaviour
 
     [SerializeField] Animator animator;
     [SerializeField] GameObject _nextPageIcon;
-    [SerializeField] float intervalTime;
 
-    [HideInInspector] public float unitTime;
     [HideInInspector] public int _displayedSentenceLength = -1;
     [HideInInspector] public int _sentenceLength;
 
     [SerializeField] RectTransform iconObject;
-    [HideInInspector] public List<string> _sentences = new List<string>();
+    [HideInInspector] public List<string> _sentences = new();
 
     private int lineNumber = 0;
 
@@ -33,49 +28,68 @@ public class MainTextDrawer : MonoBehaviour
         return lineNumber;
     }
 
-    public TextMeshProUGUI GetMainTextObject()
+    public void SetMaxVisibleCharacters(int num)
     {
-        return this._mainTextObject;
+        _mainTextObject.maxVisibleCharacters = num;
+    }
+
+    public void SetMainText(string text)
+    {
+        _mainTextObject.text = text;
+    }
+
+    public int GetParsedTextLength()
+    {
+        return _mainTextObject.GetParsedText().Length;
     }
 
     // 単位時間 feedTimeごとに文章を１文字ずつ表示する
     public void Typewriter()
     {
-        unitTime += Time.deltaTime;
-        if (unitTime >= intervalTime)
+        if (!CanGoToTheNextLine())
         {
-            unitTime -= intervalTime;
+            //_displayedSentenceLengthでmaxVisibleCharactersを制御。
+            _displayedSentenceLength++;
 
-            if (!CanGoToTheNextLine())
+            //参照漏れの防止
+            if (_displayedSentenceLength > 0 && _mainTextObject.GetParsedText().Length > _displayedSentenceLength - 1)
             {
-                string sentence = _mainTextObject.GetParsedText();
-
-                //_displayedSentenceLengthでmaxVisibleCharactersを制御。
-                _displayedSentenceLength++;
-
-                //参照漏れの防止
-                if (_displayedSentenceLength > 0 && _mainTextObject.GetParsedText().Length > _displayedSentenceLength - 1)
-                {
-                    //前回よりテキストを一文字多く表示する。
-                    _mainTextObject.maxVisibleCharacters = _displayedSentenceLength;
-
-                    if (sentence[_displayedSentenceLength - 1].Equals('。') || sentence[_displayedSentenceLength - 1].Equals('！') || sentence[_displayedSentenceLength - 1].Equals('？'))
-                    {
-                        //、と。で表示速度を変える。
-                        PauseTypewriter(10);
-                    }
-                    else if (sentence[_displayedSentenceLength - 1].Equals('、'))
-                    {
-                        PauseTypewriter(5);
-                    }
-                }
+                //前回よりテキストを一文字多く表示する。
+                _mainTextObject.maxVisibleCharacters = _displayedSentenceLength;
             }
         }
     }
 
-    private void PauseTypewriter(int multiple)
+    public int GetDelayTime()
     {
-        unitTime -= intervalTime * multiple;
+        if (!CanGoToTheNextLine())
+        {
+            string sentence = _mainTextObject.GetParsedText();
+            if (_displayedSentenceLength+1 > 0 && _mainTextObject.GetParsedText().Length > _displayedSentenceLength)
+            {
+                if (sentence[_displayedSentenceLength].Equals('。') || sentence[_displayedSentenceLength].Equals('！') || sentence[_displayedSentenceLength].Equals('？'))
+                {
+                    return 10;
+                }
+                else if (sentence[_displayedSentenceLength].Equals('、'))
+                {
+                    return 5;
+                }
+            }
+        }
+        return 1;
+    }
+
+
+    public void SkipTypewriter()
+    {
+        //全文が表示されていない場合にキーを押したとき、タグなしの本文を取得し、その長さを代入
+        //_sentenceLength : 表示されている本文のもともとの長さ
+        //_displayedSentenceLength : 表示されている本文のうち実際に画面にあるだけの長さ
+        //maxVisibleCharacters : TMPの機能で表示する文字の数を制御する。タグなしの本文の長さを代入することで全文を表示
+        _displayedSentenceLength = _sentenceLength = GetParsedTextLength();
+        SetMaxVisibleCharacters(_displayedSentenceLength);
+        Debug.Log("LineSkipped");
     }
 
     //次の行へ進むアイコンの表示非表示
@@ -120,7 +134,6 @@ public class MainTextDrawer : MonoBehaviour
     //行の移動
     private void GoToLine(int increase)
     {
-        unitTime = intervalTime;
         if (0 <= lineNumber && lineNumber <= _sentences.Count - 1)
         {
             //次の行へ移動し、表示する文字数をリセット
@@ -141,6 +154,7 @@ public class MainTextDrawer : MonoBehaviour
     public void GoToTheNextLine()
     {
         GoToLine(1);
+
         Debug.Log("NextLine");
     }
     // 前の行へ移動
@@ -151,14 +165,14 @@ public class MainTextDrawer : MonoBehaviour
     }
 
     // テキストを表示
-    public void DisplayText()
+    public void DisplayTextRuby()
     {
         if (TryGetComponent(out TextMeshProRuby rb))
         {
             rb.Text = _mainTextObject.text;
         }
         //テキストを取得し、表示。
-        Debug.Log(_mainTextObject.text);
+        //Debug.Log(_mainTextObject.text);
     }
 
     private Vector2 LastTextPosition()
