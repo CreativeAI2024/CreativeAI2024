@@ -9,7 +9,6 @@ public class OpenWindowAction : MonoBehaviour
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        currentWindow = transform.parent.parent.gameObject;
     }
     void Update()
     {
