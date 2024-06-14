@@ -16,44 +16,39 @@ public class MoveButtonFocus : MonoBehaviour
     {
         if (_inputSetting.GetForwardKeyDown())
         {
-            FocusUpButton(focusedButton);
+            FocusUpButton();
         }
         if (_inputSetting.GetBackKeyDown())
         {
-            FocusDownButton(focusedButton);
+            FocusDownButton();
         }
         if (_inputSetting.GetLeftKeyDown())
         {
-            FocusLeftButton(focusedButton);
+            FocusLeftButton();
         }
         if (_inputSetting.GetRightKeyDown())
         {
-            FocusRightButton(focusedButton);
+            FocusRightButton();
         }
     }
-
-    private bool isSelected()
+    private void FocusUpButton()
     {
-        return (EventSystem.current.currentSelectedGameObject == gameObject);
+        focusedButton = focusedButton.FindSelectableOnUp();
+        focusedButton.Select();
     }
-    private void FocusUpButton(Selectable _button)
+    private void FocusDownButton()
     {
-        if (isSelected())
-        _button.FindSelectableOnUp().Select();
+        focusedButton = focusedButton.FindSelectableOnDown();
+        focusedButton.Select();
     }
-    private void FocusDownButton(Selectable _button)
+    private void FocusLeftButton()
     {
-        if (isSelected())
-        _button.FindSelectableOnDown().Select();
+        focusedButton = focusedButton.FindSelectableOnLeft();
+        focusedButton.Select();
     }
-    private void FocusLeftButton(Selectable _button)
+    private void FocusRightButton()
     {
-        if (isSelected())
-        _button.FindSelectableOnLeft().Select();
-    }
-    private void FocusRightButton(Selectable _button)
-    {
-        if (isSelected())
-        _button.FindSelectableOnRight().Select();
+        focusedButton = focusedButton.FindSelectableOnRight();
+        focusedButton.Select();
     }
 }

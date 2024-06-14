@@ -9,7 +9,6 @@ public class OpenWindowAction : MonoBehaviour
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        currentWindow = transform.parent.parent.gameObject;
     }
     void Update()
     {
@@ -26,8 +25,8 @@ public class OpenWindowAction : MonoBehaviour
         ChangeActive(nextWindow, true);
         ChangeActive(currentWindow, false);
     }
-    private void ChangeActive(GameObject gameObject, bool isActive)
+    private void ChangeActive(GameObject window, bool isActive)
     {
-        gameObject.SetActive(isActive);
+        window.SetActive(isActive);
     }
 }

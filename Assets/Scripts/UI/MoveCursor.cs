@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class MoveCursor : MonoBehaviour
 {
-    void OnEnable()
+    void Update()
     {
         SetPosition();
     }
@@ -12,6 +12,8 @@ public class MoveCursor : MonoBehaviour
     {
         if (EventSystem.current != null)
         {
+            Debug.Log("currentSelectedGameObject: "+EventSystem.current.currentSelectedGameObject);
+            Debug.Log("this: "+this.gameObject);
             transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
         }
     }
