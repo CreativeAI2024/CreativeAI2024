@@ -11,19 +11,19 @@ public class CloseWindow : MonoBehaviour
     }
     void Update()
     {
-        if (_inputSetting.GetCancelKeyDown() && previousWindow != null) //タグで検査するようにする
+        if (_inputSetting.GetCancelKeyDown() && previousWindow != null)
         {
-            Cancel();
+            Close();
         }
     }
 
-    public void Cancel()
+    public void Close()
     {
         ChangeActive(gameObject, false);
         ChangeActive(previousWindow, true);
     }
-    private void ChangeActive(GameObject _gameObject, bool isActive)
+    private void ChangeActive(GameObject window, bool isActive)
     {
-        _gameObject.SetActive(isActive);
+        window.SetActive(isActive);
     }
 }

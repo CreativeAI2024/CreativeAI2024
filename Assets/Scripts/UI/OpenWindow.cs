@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class OpenWindowAction : MonoBehaviour
+public class OpenWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject currentWindow;

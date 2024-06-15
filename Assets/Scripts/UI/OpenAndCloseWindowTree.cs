@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OpenAndCloseWindowTreeAction : MonoBehaviour
+public class OpenAndCloseWindowTree : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject windowBox;
@@ -13,10 +13,10 @@ public class OpenAndCloseWindowTreeAction : MonoBehaviour
     {
         if (_inputSetting.GetItemKeyDown() || (_inputSetting.GetCancelKeyDown()&&topWindow.activeSelf))
         {
-            ToggleWindow();
+            OpenAndClose();
         }
     }
-    public void ToggleWindow() //どのウィンドウを開けてるかの状態もリセットしたい。各ウィンドウのdisenable()の中で処理した方がいい？
+    public void OpenAndClose() //どのウィンドウを開けてるかの状態もリセットしたい。各ウィンドウのdisenable()の中で処理した方がいい？
     {
         ChangeActive(windowBox, !windowBox.activeSelf);
     }

@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SetButtonFocusAction : MonoBehaviour
+public class SetButtonFocus : MonoBehaviour
 {
     void OnEnable()
     {
-        SetButtonFocus();
+        SetFocus();
     }
 
-    private void SetButtonFocus()
+    private void SetFocus()
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
     }
