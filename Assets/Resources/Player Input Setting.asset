@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df334c43c372a9f43902e509bce2dcbd, type: 3}
   m_Name: Player Input Setting
   m_EditorClassIdentifier: 
-  forwardKey: 119
-  leftKey: 97
-  backKey: 115
-  rightKey: 100
+  forwardKey: 273
+  leftKey: 276
+  backKey: 274
+  rightKey: 275
   decideKey: 122
   cancelKey: 120
   itemKey: 99
