@@ -39,29 +39,28 @@ public class MoveCursor : MonoBehaviour
     }
     private void FocusButton(Selectable focusCandidate)
     {
-        focusedButton = focusCandidate;
-        focusedButton.Select();
+        if (focusCandidate != null)
+        {
+            focusedButton = focusCandidate;
+            focusedButton.Select();
+        }
     }
     private void FocusUpButton()
     {
-        Selectable focusCandidate = focusedButton.FindSelectableOnUp() ? focusedButton.FindSelectableOnUp() : focusedButton;
-        FocusButton(focusCandidate);
+        FocusButton(focusedButton.FindSelectableOnUp());
     }
 
     private void FocusDownButton()
     {
-        Selectable focusCandidate = focusedButton.FindSelectableOnDown() ? focusedButton.FindSelectableOnDown() : focusedButton;
-        FocusButton(focusCandidate);
+        FocusButton(focusedButton.FindSelectableOnDown());
     }
     private void FocusLeftButton()
     {
-        Selectable focusCandidate = focusedButton.FindSelectableOnLeft() ? focusedButton.FindSelectableOnLeft() : focusedButton;
-        FocusButton(focusCandidate);
+        FocusButton(focusedButton.FindSelectableOnLeft());
     }
     private void FocusRightButton()
     {
-        Selectable focusCandidate = focusedButton.FindSelectableOnRight() ? focusedButton.FindSelectableOnRight() : focusedButton;
-        FocusButton(focusCandidate);
+        FocusButton(focusedButton.FindSelectableOnRight());
     }
     private void SetPosition()
     {
