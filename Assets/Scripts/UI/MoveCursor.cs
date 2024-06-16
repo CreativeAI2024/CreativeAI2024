@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -36,33 +37,30 @@ public class MoveCursor : MonoBehaviour
             SetPosition();
         }
     }
-
     private void FocusButton(Selectable focusCandidate)
     {
-        if (focusCandidate != null)
-        {
-            focusedButton = focusCandidate;
-            focusedButton.Select();
-        }
+        focusedButton = focusCandidate;
+        focusedButton.Select();
     }
     private void FocusUpButton()
     {
-        Selectable focusCandidate = focusedButton.FindSelectableOnUp();
+        Selectable focusCandidate = focusedButton.FindSelectableOnUp() ? focusedButton.FindSelectableOnUp() : focusedButton;
         FocusButton(focusCandidate);
     }
+
     private void FocusDownButton()
     {
-        Selectable focusCandidate = focusedButton.FindSelectableOnDown();
+        Selectable focusCandidate = focusedButton.FindSelectableOnDown() ? focusedButton.FindSelectableOnDown() : focusedButton;
         FocusButton(focusCandidate);
     }
     private void FocusLeftButton()
     {
-        Selectable focusCandidate = focusedButton.FindSelectableOnLeft();
+        Selectable focusCandidate = focusedButton.FindSelectableOnLeft() ? focusedButton.FindSelectableOnLeft() : focusedButton;
         FocusButton(focusCandidate);
     }
     private void FocusRightButton()
     {
-        Selectable focusCandidate = focusedButton.FindSelectableOnRight();
+        Selectable focusCandidate = focusedButton.FindSelectableOnRight() ? focusedButton.FindSelectableOnRight() : focusedButton;
         FocusButton(focusCandidate);
     }
     private void SetPosition()
