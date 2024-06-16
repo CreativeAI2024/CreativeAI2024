@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SetButtonFocus : MonoBehaviour
+public class SetFirstFocus : MonoBehaviour
 {
     void OnEnable()
     {

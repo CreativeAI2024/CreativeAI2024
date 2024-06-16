@@ -54,11 +54,13 @@ public class MoveCursor : MonoBehaviour
     {
         Selectable focusCandidate = focusedButton.FindSelectableOnDown();
         FocusButton(focusCandidate);
-    }    private void FocusLeftButton()
+    }
+    private void FocusLeftButton()
     {
         Selectable focusCandidate = focusedButton.FindSelectableOnLeft();
         FocusButton(focusCandidate);
-    }    private void FocusRightButton()
+    }
+    private void FocusRightButton()
     {
         Selectable focusCandidate = focusedButton.FindSelectableOnRight();
         FocusButton(focusCandidate);

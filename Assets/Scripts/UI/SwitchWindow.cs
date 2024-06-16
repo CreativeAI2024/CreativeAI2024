@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OpenAndCloseWindowTree : MonoBehaviour
+public class SwitchWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject windowBox;
@@ -13,15 +13,15 @@ public class OpenAndCloseWindowTree : MonoBehaviour
     {
         if (_inputSetting.GetItemKeyDown() || (_inputSetting.GetCancelKeyDown()&&topWindow.activeSelf))
         {
-            OpenAndClose();
+            Switch();
         }
     }
-    public void OpenAndClose() //どのウィンドウを開けてるかの状態もリセットしたい。各ウィンドウのdisenable()の中で処理した方がいい？
+    public void Switch()
     {
         ChangeActive(windowBox, !windowBox.activeSelf);
     }
-    private void ChangeActive(GameObject gameObject, bool isActive)
+    private void ChangeActive(GameObject window, bool isActive)
     {
-        gameObject.SetActive(isActive);
+        window.SetActive(isActive);
     }
 }
