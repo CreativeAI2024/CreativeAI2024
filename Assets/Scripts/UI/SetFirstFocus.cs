@@ -7,12 +7,6 @@ public class SetFirstFocus : MonoBehaviour
     [SerializeField] private GameObject cursor;
     void OnEnable()
     {
-        Debug.Log("OnEnable");
-        SetButtonFocus();
-        SetCursorPosition();
-    }
-    void Start()
-    {
         SetButtonFocus();
         SetCursorPosition();
     }
