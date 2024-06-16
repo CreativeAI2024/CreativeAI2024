@@ -418,6 +418,11 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 1738106292}
+    - target: {fileID: 6649786585131092273, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      propertyPath: cursorTransform
+      value: 
+      objectReference: {fileID: 1848157611}
     - target: {fileID: 6932867076371440777, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1211,7 +1216,6 @@ GameObject:
   - component: {fileID: 1848157611}
   - component: {fileID: 1848157613}
   - component: {fileID: 1848157612}
-  - component: {fileID: 1848157614}
   m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
@@ -1276,18 +1280,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848157610}
   m_CullTransparentMesh: 1
---- !u!114 &1848157614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848157610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9647fa2c7ac7b454cb4cb91e217b0c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1970283661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1300,26 +1292,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ItemButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 3589296765088328918, guid: 8e53c558df7c6457d9f7c13db16c38d8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2121905297}
-    - target: {fileID: 3589296765088328918, guid: 8e53c558df7c6457d9f7c13db16c38d8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1176380268}
-    - target: {fileID: 3589296765088328918, guid: 8e53c558df7c6457d9f7c13db16c38d8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 3589296765088328918, guid: 8e53c558df7c6457d9f7c13db16c38d8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3669597330430604570, guid: 8e53c558df7c6457d9f7c13db16c38d8,
         type: 3}
@@ -1510,6 +1482,11 @@ PrefabInstance:
       propertyPath: previousWindow
       value: 
       objectReference: {fileID: 1176380268}
+    - target: {fileID: 6649786585131092273, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      propertyPath: cursorTransform
+      value: 
+      objectReference: {fileID: 1848157611}
     - target: {fileID: 6932867076371440777, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
         type: 3}
       propertyPath: m_Pivot.x

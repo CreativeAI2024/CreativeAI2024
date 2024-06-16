@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class OpenWindowAction : MonoBehaviour
+public class OpenWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject currentWindow;
@@ -25,8 +25,8 @@ public class OpenWindowAction : MonoBehaviour
         ChangeActive(nextWindow, true);
         ChangeActive(currentWindow, false);
     }
-    private void ChangeActive(GameObject gameObject, bool isActive)
+    private void ChangeActive(GameObject window, bool isActive)
     {
-        gameObject.SetActive(isActive);
+        window.SetActive(isActive);
     }
 }
