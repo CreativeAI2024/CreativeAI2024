@@ -14,7 +14,7 @@ public class NameTextDrawer : MonoBehaviour
         _nameTextPanel = transform.parent.gameObject;
     }
 
-    public void SplitNameText(string[] words)
+    public void DisplayNameText(string[] words)
     {
         if (words.Length > 1)
         {

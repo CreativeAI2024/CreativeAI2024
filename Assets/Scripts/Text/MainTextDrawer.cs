@@ -18,12 +18,7 @@ public class MainTextDrawer : MonoBehaviour
     {
         _mainTextObject = GetComponent<TextMeshProUGUI>();
         //一文字ずつ表示するため、最初は0文字に設定
-        SetMaxVisibleCharacters(0);
-    }
-
-    private void SetMaxVisibleCharacters(int num)
-    {
-        _mainTextObject.maxVisibleCharacters = num;
+        _mainTextObject.maxVisibleCharacters = 0;
     }
 
     // 単位時間 feedTimeごとに文章を１文字ずつ表示する
@@ -41,6 +36,16 @@ public class MainTextDrawer : MonoBehaviour
                 _mainTextObject.maxVisibleCharacters = _displayedSentenceLength;
             }
         }
+    }
+
+    public void SkipTypewriter()
+    {
+        //全文が表示されていない場合にキーを押したとき、タグなしの本文を取得し、その長さを代入
+        //_displayedSentenceLength : 表示されている本文のうち実際に画面にあるだけの長さ
+        //maxVisibleCharacters : TMPの機能で表示する文字の数を制御する。タグなしの本文の長さを代入することで全文を表示
+        _displayedSentenceLength = _mainTextObject.GetParsedText().Length;
+        _mainTextObject.maxVisibleCharacters = _displayedSentenceLength;
+        Debug.Log("LineSkipped");
     }
 
     public int GetDelayTime()
@@ -63,14 +68,31 @@ public class MainTextDrawer : MonoBehaviour
         return 1;
     }
 
-    public void SkipTypewriter()
+    // その行の、すべての文字が表示されていなければ、行を変えることはできない
+    public bool AllowChangeLine()
     {
-        //全文が表示されていない場合にキーを押したとき、タグなしの本文を取得し、その長さを代入
-        //_displayedSentenceLength : 表示されている本文のうち実際に画面にあるだけの長さ
-        //maxVisibleCharacters : TMPの機能で表示する文字の数を制御する。タグなしの本文の長さを代入することで全文を表示
-        _displayedSentenceLength = _mainTextObject.GetParsedText().Length;
-        SetMaxVisibleCharacters(_displayedSentenceLength);
-        Debug.Log("LineSkipped");
+        string sentence = _mainTextObject.GetParsedText();
+        return (_displayedSentenceLength > sentence.Length - 1);
+    }
+
+    public void InitializeLine()
+    {
+        _mainTextObject.maxVisibleCharacters = 0;
+        _displayedSentenceLength = 0;
+    }
+
+    // テキストを表示
+    public void DisplayTextRuby()
+    {
+        if (TryGetComponent(out TextMeshProRuby rb))
+        {
+            rb.Text = _mainTextObject.text;
+        }
+    }
+
+    public void DisplayMainText(string[] words)
+    {
+        _mainTextObject.text = words[words.Length - 1];
     }
 
     //次の行へ進むアイコンの表示非表示
@@ -99,41 +121,15 @@ public class MainTextDrawer : MonoBehaviour
         }
     }
 
-    // その行の、すべての文字が表示されていなければ、行を変えることはできない
-    public bool AllowChangeLine()
-    {
-        string sentence = _mainTextObject.GetParsedText();
-        return (_displayedSentenceLength > sentence.Length - 1);
-    }
-
-    public void InitializeLine()
-    {
-        _mainTextObject.maxVisibleCharacters = 0;
-        _displayedSentenceLength = 0;
-    }
-
-    // テキストを表示
-    public void DisplayTextRuby()
-    {
-        if (TryGetComponent(out TextMeshProRuby rb))
-        {
-            rb.Text = _mainTextObject.text;
-        }
-    }
-    public void SplitMainText(string[] words)
-    {
-        _mainTextObject.text = words[words.Length - 1];
-    }
-
     private Vector2 LastTextPosition()
     {
         //末尾文字の位置を取得
         TMP_TextInfo textInfo = _mainTextObject.textInfo;
         string str = _mainTextObject.GetParsedText();
         if (str == "") return new Vector2(0, 0);
-        Vector2 character_vector = textInfo.characterInfo[str.Length - 1].bottomRight;
-        if (str.EndsWith("─") || str.EndsWith("…")) character_vector.y -= 20;
-        Vector2 object_vector = _mainTextObject.transform.parent.gameObject.GetComponent<RectTransform>().anchoredPosition;
-        return character_vector + object_vector;
+        Vector2 characterVector = textInfo.characterInfo[str.Length - 1].bottomRight;
+        if (str.EndsWith("─") || str.EndsWith("…")) characterVector.y -= 20;
+        Vector2 objectVector = _mainTextObject.transform.parent.gameObject.GetComponent<RectTransform>().anchoredPosition;
+        return characterVector + objectVector;
     }
 }

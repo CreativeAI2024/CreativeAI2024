@@ -59,13 +59,7 @@ public class ConversationTextManager : MonoBehaviour
         unitTime = 0f;
 
         //テキストを表示
-        string[] words = SplitText();
-        mainTextDrawer.SplitMainText(words);
-        if (!(nameTextDrawer == null))
-        {
-            nameTextDrawer.SplitNameText(words);
-        }
-        mainTextDrawer.DisplayTextRuby();
+        DisplayText();
     }
 
     private void TimeKeeper()
@@ -91,18 +85,23 @@ public class ConversationTextManager : MonoBehaviour
     {
         if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
         {
-            DisplayText();
+            ControllText();
         }
+        DisplayText();
+    }
+
+    private void DisplayText()
+    {
         string[] words = SplitText();
-        mainTextDrawer.SplitMainText(words);
+        mainTextDrawer.DisplayMainText(words);
         if (!(nameTextDrawer == null))
         {
-            nameTextDrawer.SplitNameText(words);
+            nameTextDrawer.DisplayNameText(words);
         }
         mainTextDrawer.DisplayTextRuby();
     }
 
-    private void DisplayText()
+    private void ControllText()
     {
         if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
         {
