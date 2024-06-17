@@ -26,11 +26,6 @@ public class MainTextDrawer : MonoBehaviour
         _mainTextObject.maxVisibleCharacters = num;
     }
 
-    private void SetMainText(string text)
-    {
-        _mainTextObject.text = text;
-    }
-
     // 単位時間 feedTimeごとに文章を１文字ずつ表示する
     public void Typewriter()
     {
@@ -71,7 +66,6 @@ public class MainTextDrawer : MonoBehaviour
     public void SkipTypewriter()
     {
         //全文が表示されていない場合にキーを押したとき、タグなしの本文を取得し、その長さを代入
-        //_sentenceLength : 表示されている本文のもともとの長さ
         //_displayedSentenceLength : 表示されている本文のうち実際に画面にあるだけの長さ
         //maxVisibleCharacters : TMPの機能で表示する文字の数を制御する。タグなしの本文の長さを代入することで全文を表示
         _displayedSentenceLength = _mainTextObject.GetParsedText().Length;
@@ -86,10 +80,7 @@ public class MainTextDrawer : MonoBehaviour
         {
             //次の行へ進むことができない場合、次の行へ進むアイコンを非表示にする
             _nextPageIcon.SetActive(false);
-            if (animator.enabled == true)
-            {
-                animator.enabled = false;
-            }
+            animator.enabled = false;
         }
         else if (AllowChangeLine())
         {
@@ -104,10 +95,7 @@ public class MainTextDrawer : MonoBehaviour
                 iconObject.anchoredPosition = textPosition;
             }
             _nextPageIcon.SetActive(true);
-            if (animator.enabled == false)
-            {
-                animator.enabled = true;
-            }
+            animator.enabled = true;
         }
     }
 
@@ -134,7 +122,7 @@ public class MainTextDrawer : MonoBehaviour
     }
     public void SplitMainText(string[] words)
     {
-        SetMainText(words[words.Length - 1]);
+        _mainTextObject.text = words[words.Length - 1];
     }
 
     private Vector2 LastTextPosition()

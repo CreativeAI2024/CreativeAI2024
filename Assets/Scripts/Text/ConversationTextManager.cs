@@ -112,17 +112,19 @@ public class ConversationTextManager : MonoBehaviour
                 if (_inputSetting.GetDecideKeyUp() && !(lineNumber >= _sentences.Count - 1))
                 {
                     ChangeLine(1);
+                    Debug.Log("NextLine");
                 }
                 else if (_inputSetting.GetCancelKeyUp() && !((lineNumber <= 0)))
                 {
                     ChangeLine(-1);
+                    Debug.Log("BackLine");
                 }
             }
             else
             {
                 Debug.Log("SceneEnded");
             }
-            
+
         }
         else if (unitTime > -0.45f)
         {
