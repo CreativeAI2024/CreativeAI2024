@@ -1072,7 +1072,6 @@ MonoBehaviour:
   nameTextDrawer: {fileID: 1202710328}
   textAsset: {fileID: 4900000, guid: ac63ab8c3c5ba29429cfa76b9318e954, type: 3}
   intervalTime: 0.04
-  unitTime: 0
 --- !u!1 &1323356586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,10 +1239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 79016239}
   _nextPageIcon: {fileID: 79016235}
-  _displayedSentenceLength: -1
-  _sentenceLength: 0
   iconObject: {fileID: 64620504}
-  _sentences: []
 --- !u!1 &2123466732
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,12 +14,24 @@ public class NameTextDrawer : MonoBehaviour
         _nameTextPanel = transform.parent.gameObject;
     }
 
-    public void NamePanelSwitch()
+    public void SplitNameText(string[] words)
+    {
+        if (words.Length > 1)
+        {
+            NameText(words[0]);
+        }
+        else
+        {
+            NamePanelSwitch();
+        }
+    }
+
+    private void NamePanelSwitch()
     {
         _nameTextPanel.SetActive(false);
     }
 
-    public void NameText(string str)
+    private void NameText(string str)
     {
         //–¼‘O‚ð•\Ž¦‚·‚é
         _nameTextPanel.SetActive(true);
