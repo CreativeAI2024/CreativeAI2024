@@ -85,7 +85,7 @@ public class ConversationTextManager : MonoBehaviour
     {
         if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
         {
-            ControllText();
+            ControlTextDrawing();
         }
         DisplayText();
     }
@@ -101,7 +101,7 @@ public class ConversationTextManager : MonoBehaviour
         mainTextDrawer.DisplayTextRuby();
     }
 
-    private void ControllText()
+    private void ControlTextDrawing()
     {
         if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
         {

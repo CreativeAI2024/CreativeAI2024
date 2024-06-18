@@ -10,7 +10,7 @@ public class MainTextDrawer : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject _nextPageIcon;
 
-    [HideInInspector] private int _displayedSentenceLength = -1;
+    private int _displayedSentenceLength = -1;
 
     [SerializeField] RectTransform iconObject;
 
