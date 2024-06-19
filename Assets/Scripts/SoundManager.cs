@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource audioSourceBGM; // BGMのスピーカー
-    public AudioClip[] audioClipsBGM;  // BGMの音源
+    public List<AudioSource> audioSourcesBGM; // BGMのスピーカー（リスト）
+    public List<AudioClip> audioClipsBGM;    // BGMの音源
 
     public AudioSource audioSourceSE; // SEのスピーカー
-    public AudioClip[] audioClipsSE;// SEの音源
+    public List<AudioClip> audioClipsSE; // SEの音源
 
     public static SoundManager instance;
 
@@ -26,43 +24,74 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        // BGM用のAudioSourceの数だけ初期化
+        foreach (var source in audioSourcesBGM)
+        {
+            source.loop = true; // BGMはループする
+        }
     }
 
-    public void PlayBGM(string sceneName)
+    public void PlayBGM(string bgmName, float volume = 1f)
     {
-        AudioClip bgmClip = null;  
-
-        switch (sceneName)
+        AudioClip bgmClip = audioClipsBGM.Find(clip => clip.name == bgmName);
+        if (bgmClip == null)
         {
-            default:
-            case "SampleScene":
-                bgmClip = audioClipsBGM[0];
-                break;
-            case "SoundManager":
-                bgmClip = audioClipsBGM[1];
-               break;
+            Debug.LogWarning("BGM not found: " + bgmName);
+            return;
         }
 
-        // もし再生中のBGMが同じクリップなら、再生を開始しない
-        if(audioSourceBGM.clip == bgmClip && audioSourceBGM.isPlaying)
+        // 使用可能なAudioSourceを取得
+        AudioSource availableSource = GetAvailableBGMSource();
+        if (availableSource == null)
+        {
+            Debug.LogWarning("No available BGM sources.");
+            return;
+        }
+
+        // 同じBGMを再生している場合は何もしない
+        if (availableSource.clip == bgmClip && availableSource.isPlaying)
         {
             return;
         }
 
-        audioSourceBGM.clip = bgmClip;
-        audioSourceBGM.Play();
+        // BGMを設定して再生
+        availableSource.clip = bgmClip;
+        availableSource.volume = volume;
+        availableSource.Play();
     }
-    // SEを一度だけならす
-    public void PlaySE(int index)
+
+    public void PlaySE(string seName, float volume = 1f)
     {
-       audioSourceSE.PlayOneShot(audioClipsSE[index]);
+        AudioClip seClip = audioClipsSE.Find(clip => clip.name == seName);
+        if (seClip == null)
+        {
+            Debug.LogWarning("SE not found: " + seName);
+            return;
+        }
+
+        audioSourceSE.PlayOneShot(seClip, volume);
     }
+
+    private AudioSource GetAvailableBGMSource()
+    {
+        foreach (var source in audioSourcesBGM)
+        {
+            if (source != null && !source.isPlaying)
+            {
+                return source;
+            }
+        }
+        return null;
+    }
+
 
     void Start()
     {
-        
+        // ゲーム開始時に最初のBGMを再生
+        PlayBGM("8-bit_Aggressive1", 1f);
     }
-   
+
     void Update()
     {
 
