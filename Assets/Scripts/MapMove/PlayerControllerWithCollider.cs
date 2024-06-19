@@ -31,6 +31,7 @@ public class PlayerControllerWithCollider : PlayerController
 
     void OnCollisionStay2D(Collision2D collision)
     {
+        Debug.Log("asdfjlk;");
         ResetPosition();
     }
 }
