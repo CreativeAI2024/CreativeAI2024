@@ -1,91 +1,98 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using System.Collections;
 
 public class SoundVolumeController : MonoBehaviour
 {
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] Slider masterVolumeSlider;
-
     [SerializeField] Slider BGMSlider;
     [SerializeField] Slider SESlider;
 
+    string BGMLabel = "BGM";
+    string SELabel = "SE";
+    string MasterLabel = "Master";
+
+    // 初期のデシベル値（BGM、SE、Masterの初期値を設定する場合に使用）
+    float initialBGMVolume = 0f;
+    float initialSEVolume = 0f;
+    float initialMasterVolume = 0f;
+
     void Start()
     {
-        // BGMとSEの現在の音量を取得してスライダーの値を設定
-        audioMixer.GetFloat("BGM", out float bgmVolume);
-        BGMSlider.value = dBToVolume(bgmVolume);
+        // 各音量の初期値を設定
+        audioMixer.GetFloat(BGMLabel, out initialBGMVolume);
+        audioMixer.GetFloat(SELabel, out initialSEVolume);
 
-        audioMixer.GetFloat("SE", out float seVolume);
-        SESlider.value = dBToVolume(seVolume);
+        audioMixer.GetFloat(MasterLabel, out initialMasterVolume);
 
-        audioMixer.GetFloat("Master", out float masterVolume);
-        masterVolumeSlider.value = dBToVolume(masterVolume);
+        // スライダーの値を初期化
+        BGMSlider.value = DBToVolume(initialBGMVolume);
+        SESlider.value = DBToVolume(initialSEVolume);
+        masterVolumeSlider.value = DBToVolume(initialMasterVolume);
 
         // スライダーの値が変わったときに呼ばれるメソッドを設定
         BGMSlider.onValueChanged.AddListener(SetBGM);
         SESlider.onValueChanged.AddListener(SetSE);
         masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
-
-        // スライダーの最小値を設定（例: 0.1）
-        BGMSlider.minValue = 0.1f;
-        SESlider.minValue = 0.1f;
-        masterVolumeSlider.minValue = 0.1f;
     }
 
-    float dBToVolume(float dB)
+    float DBToVolume(float dB)
     {
         // デシベル値が -80dB 未満にならないように制限する
         const float minDB = -80f;
-        float clampedDB = Mathf.Clamp(dB, minDB, 0f);
-
-        // -Infinity の場合、最小のデシベル値に設定する
-        if (float.IsNegativeInfinity(clampedDB))
-        {
-            clampedDB = minDB;
-        }
+        float clampedDB = Mathf.Clamp(dB, minDB, 0f); // 0f -> -80f の範囲にクランプ
 
         // デシベル値をパーセンテージに変換する
         return Mathf.Pow(10f, clampedDB / 20f);
     }
 
-
-
-
-    public void SetBGM(float volume)
-    {
-        float dB = VolumeToDB(volume);
-        audioMixer.SetFloat("BGM", dB);
-    }
-
-    public void SetSE(float volume)
-    {
-        float dB = VolumeToDB(volume);
-        audioMixer.SetFloat("SE", dB);
-    }
-
-    public void SetMasterVolume(float volume)
-    {
-        float dB = VolumeToDB(volume);
-        audioMixer.SetFloat("Master", dB);
-    }
-
     float VolumeToDB(float volume)
     {
-        // volume が 0 以下の場合、-80dB に制限する
+        // パーセンテージが 0 以下の場合、-80dB に制限する
         if (volume <= 0f)
             return -80f;
         else
             return Mathf.Log10(volume) * 20f;
     }
 
-
-
-
-    void Update()
+    public void SetBGM(float volume)
     {
+        float dB = VolumeToDB(volume);
+        StartCoroutine(SmoothChangeBGM(dB));
+    }
 
+    IEnumerator SmoothChangeBGM(float targetVolumeDB)
+    {
+        float currentVolumeDB;
+        audioMixer.GetFloat(BGMLabel, out currentVolumeDB);
+
+        float startVolumeDB = currentVolumeDB;
+        float startTime = Time.unscaledTime;
+        float endTime = startTime + 0.5f; // スライダーの操作にかかる時間（例えば0.5秒）
+
+        while (Time.unscaledTime < endTime)
+        {
+            float t = (Time.unscaledTime - startTime) / (endTime - startTime);
+            float newVolumeDB = Mathf.Lerp(startVolumeDB, targetVolumeDB, t);
+            audioMixer.SetFloat(BGMLabel, newVolumeDB);
+            yield return null;
+        }
+
+        // 最終的に確実に目標の音量にセットする
+        audioMixer.SetFloat(BGMLabel, targetVolumeDB);
+    }
+
+    public void SetSE(float volume)
+    {
+        float dB = VolumeToDB(volume);
+        audioMixer.SetFloat(SELabel, dB);
+    }
+
+    public void SetMasterVolume(float volume)
+    {
+        float dB = VolumeToDB(volume);
+        audioMixer.SetFloat(MasterLabel, dB);
     }
 }

@@ -2,32 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class SoundManagerTester : MonoBehaviour
 {
-    public SoundManager SoundManager;
-
     void Start()
     {
         // ゲーム開始時に最初のBGMを再生
-        SoundManager.PlayBGM("8-bit_Aggressive1", 1f);
+        SoundManager.instance.PlayBGM(1, 1f);
     }
 
     // シーンが移動するときに、BGMを変更してSEを再生
-    public void ToSampleScene()
+    public async void ToSampleScene()
     {
-        SoundManager.PlaySE("Pa", 0.5f); // SEを再生
+        SoundManager.instance.PlaySE(0, 0.5f); // SEを再生
 
-        // シーンを切り替える
-        SceneManager.LoadScene("SampleScene");
+        // シーンを非同期でロードする
+        var loadScene = SceneManager.LoadSceneAsync("SampleScene");
+        loadScene.allowSceneActivation = false;
 
-        // 切り替えた後に別のBGMを再生
-        SoundManager.PlayBGM("Pappa_Parappa", 0.7f);
-    }
+        // シーンのロードが完了するまで待機
+        while (loadScene.progress < 0.9f)
+        {
+            await Task.Yield(); // フレームごとに待機
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
 
+        // シーンの切り替えを許可
+        loadScene.allowSceneActivation = true;
+
+        // シーン切り替え後にBGMを再生（index 0のBGMを再生）
+        SoundManager.instance.PlayBGM(0, 0.7f);
     }
 }
