@@ -15,7 +15,7 @@ public class SoundManagerTester : MonoBehaviour
     // シーンが移動するときに、BGMを変更してSEを再生
     public async void ToSampleScene()
     {
-        SoundManager.instance.PlaySE(0, 0.5f); // SEを再生
+        SoundManager.instance.PlaySE(0, 0.5f); 
 
         // シーンを非同期でロードする
         var loadScene = SceneManager.LoadSceneAsync("SampleScene");

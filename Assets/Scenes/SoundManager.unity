@@ -238,7 +238,6 @@ GameObject:
   m_Component:
   - component: {fileID: 239301290}
   - component: {fileID: 239301291}
-  - component: {fileID: 239301292}
   m_Layer: 5
   m_Name: BGMSlider
   m_TagString: Untagged
@@ -315,39 +314,10 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1192416222}
-        m_TargetAssemblyTypeName: SoundVolumeController, Assembly-CSharp
-        m_MethodName: SetBGM
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &239301292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239301289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5d2c142914d4141b6c95d8f88e1181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 102dcdb944460ac4484a220afc898a7d, type: 2}
-  soundManager: {fileID: 724143255}
-  masterVolumeSlider: {fileID: 813006870}
-  BGMSlider: {fileID: 239301291}
-  SESlider: {fileID: 695597704}
+      m_Calls: []
 --- !u!1 &248887616
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -889,7 +859,6 @@ GameObject:
   m_Component:
   - component: {fileID: 695597705}
   - component: {fileID: 695597704}
-  - component: {fileID: 695597706}
   m_Layer: 5
   m_Name: SESlider
   m_TagString: Untagged
@@ -944,22 +913,10 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.1
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1192416222}
-        m_TargetAssemblyTypeName: SoundVolumeController, Assembly-CSharp
-        m_MethodName: SetSE
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &695597705
 RectTransform:
   m_ObjectHideFlags: 0
@@ -982,23 +939,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -130}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &695597706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695597703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5d2c142914d4141b6c95d8f88e1181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 102dcdb944460ac4484a220afc898a7d, type: 2}
-  soundManager: {fileID: 724143255}
-  masterVolumeSlider: {fileID: 813006870}
-  BGMSlider: {fileID: 239301291}
-  SESlider: {fileID: 695597704}
 --- !u!1 &724143250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,14 +1082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1600ffdbf74010f4a9170372e9841862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSourcesBGM:
-  - {fileID: 724143252}
-  - {fileID: 724143252}
-  - {fileID: 724143252}
+  audioSourcesBGM: {fileID: 724143252}
   audioClipsBGM:
   - {fileID: 8300000, guid: 172d7613a24fdbe43a7de77e092f1e43, type: 3}
   - {fileID: 8300000, guid: a71b5f40735ca0b4399a03489bca55b3, type: 3}
-  audioSourceSE: {fileID: 724143252}
+  audioSourceSE: {fileID: 724143257}
   audioClipsSE:
   - {fileID: 8300000, guid: e4df2f122744fb945aab8440fb763f55, type: 3}
 --- !u!82 &724143257
@@ -1334,7 +1271,6 @@ GameObject:
   m_Component:
   - component: {fileID: 813006869}
   - component: {fileID: 813006870}
-  - component: {fileID: 813006871}
   m_Layer: 5
   m_Name: masterVolumeSlider
   m_TagString: Untagged
@@ -1411,39 +1347,10 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.1
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1192416222}
-        m_TargetAssemblyTypeName: SoundVolumeController, Assembly-CSharp
-        m_MethodName: SetMasterVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &813006871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813006868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5d2c142914d4141b6c95d8f88e1181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 102dcdb944460ac4484a220afc898a7d, type: 2}
-  soundManager: {fileID: 724143255}
-  masterVolumeSlider: {fileID: 813006870}
-  BGMSlider: {fileID: 239301291}
-  SESlider: {fileID: 695597704}
+      m_Calls: []
 --- !u!1 &834556901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1192416223}
-  - component: {fileID: 1192416222}
+  - component: {fileID: 1192416224}
   m_Layer: 0
   m_Name: SoundVolumeController
   m_TagString: Untagged
@@ -1734,23 +1641,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1192416222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192416221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5d2c142914d4141b6c95d8f88e1181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 102dcdb944460ac4484a220afc898a7d, type: 2}
-  soundManager: {fileID: 0}
-  masterVolumeSlider: {fileID: 813006870}
-  BGMSlider: {fileID: 239301291}
-  SESlider: {fileID: 695597704}
 --- !u!4 &1192416223
 Transform:
   m_ObjectHideFlags: 0
@@ -1766,6 +1656,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192416224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192416221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5d2c142914d4141b6c95d8f88e1181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 102dcdb944460ac4484a220afc898a7d, type: 2}
+  masterVolumeSlider: {fileID: 813006870}
+  BGMSlider: {fileID: 239301291}
+  SESlider: {fileID: 695597704}
 --- !u!1 &1382361148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,7 +1869,6 @@ GameObject:
   - component: {fileID: 1760886250}
   - component: {fileID: 1760886249}
   - component: {fileID: 1760886248}
-  - component: {fileID: 1760886251}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2021,23 +1926,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1760886251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760886247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5d2c142914d4141b6c95d8f88e1181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 102dcdb944460ac4484a220afc898a7d, type: 2}
-  soundManager: {fileID: 0}
-  masterVolumeSlider: {fileID: 813006870}
-  BGMSlider: {fileID: 239301291}
-  SESlider: {fileID: 695597704}
 --- !u!1 &1775235311
 GameObject:
   m_ObjectHideFlags: 0
