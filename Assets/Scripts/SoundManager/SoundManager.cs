@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using System;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource audioSourcesBGM; // BGMのスピーカー
+    public AudioSource audioSourceBGM; // BGMのスピーカー
     public List<AudioClip> audioClipsBGM;    // BGMの音源
 
     public AudioSource audioSourceSE; // SEのスピーカー
@@ -24,9 +25,9 @@ public class SoundManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
 
-            if(audioSourcesBGM != null)
+            if(audioSourceBGM != null)
             {
-                audioSourcesBGM.loop = true;
+                audioSourceBGM.loop = true;
             }
         }
         else
@@ -42,21 +43,26 @@ public class SoundManager : MonoBehaviour
         CheckAudioClip(bgmIndex, bgmClip);
 
         // 同じBGMを再生している場合は何もしない
-        if (audioSourcesBGM.clip == bgmClip)
+        if (audioSourceBGM.clip == bgmClip)
         {
             return;
         }
 
+        if (audioSourceBGM.isPlaying)
+        {
+            StopBGM();
+        }
+
         // BGMを設定して再生
-        audioSourcesBGM.clip = bgmClip;
-        audioSourcesBGM.volume = volume;
-        audioSourcesBGM.Play();
+        audioSourceBGM.clip = bgmClip;
+        audioSourceBGM.volume = volume;
+        audioSourceBGM.Play();
     
     }
 
     public void StopBGM()
     {
-        audioSourcesBGM.Stop();
+        audioSourceBGM.Stop();
     }
 
     public void PlaySE(int seIndex, float volume = 1f)
