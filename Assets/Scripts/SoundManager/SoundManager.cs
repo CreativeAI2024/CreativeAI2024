@@ -8,11 +8,11 @@ using System;
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource audioSourcesBGM; // BGM‚ÌƒXƒs[ƒJ[
-    public List<AudioClip> audioClipsBGM;    // BGM‚Ì‰¹Œ¹
+    public AudioSource audioSourcesBGM; // BGMã®ã‚¹ãƒ”ãƒ¼ã‚«ãƒ¼
+    public List<AudioClip> audioClipsBGM;    // BGMã®éŸ³æº
 
-    public AudioSource audioSourceSE; // SE‚ÌƒXƒs[ƒJ[
-    public List<AudioClip> audioClipsSE; // SE‚Ì‰¹Œ¹
+    public AudioSource audioSourceSE; // SEã®ã‚¹ãƒ”ãƒ¼ã‚«ãƒ¼
+    public List<AudioClip> audioClipsSE; // SEã®éŸ³æº
 
     public static SoundManager instance;
 
@@ -41,23 +41,20 @@ public class SoundManager : MonoBehaviour
         AudioClip bgmClip = audioClipsBGM[bgmIndex];
         CheckAudioClip(bgmIndex, bgmClip);
 
-        // “¯‚¶BGM‚ğÄ¶‚µ‚Ä‚¢‚éê‡‚Í‰½‚à‚µ‚È‚¢
+        // åŒã˜BGMã‚’å†ç”Ÿã—ã¦ã„ã‚‹å ´åˆã¯ä½•ã‚‚ã—ãªã„
         if (audioSourcesBGM.clip == bgmClip)
         {
             return;
         }
 
-        // Œ»İ‚ÌBGM‚ğ’â~‚µ‚ÄV‚µ‚¢BGM‚ğÄ¶
-        StopBGM();
-
-        // BGM‚ğİ’è‚µ‚ÄÄ¶
+        // BGMã‚’è¨­å®šã—ã¦å†ç”Ÿ
         audioSourcesBGM.clip = bgmClip;
         audioSourcesBGM.volume = volume;
         audioSourcesBGM.Play();
     
     }
 
-    void StopBGM()
+    public void StopBGM()
     {
         audioSourcesBGM.Stop();
     }
