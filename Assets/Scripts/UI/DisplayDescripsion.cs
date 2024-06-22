@@ -14,4 +14,8 @@ public class DisplayDescripsion : MonoBehaviour
     {
         
     }
+    private void SetText()
+    {
+        
+    }
 }
