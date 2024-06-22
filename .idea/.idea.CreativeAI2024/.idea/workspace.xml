@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +17,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04af773e223344bd9a56d36a602cfd4220a00/2a/3ca783e3/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -29,7 +31,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/input",
+    "git-widget-placeholder": "develop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -101,6 +103,13 @@
       <workItem from="1717254127332" duration="580000" />
       <workItem from="1717254967387" duration="23000" />
       <workItem from="1717776863545" duration="1843000" />
+      <workItem from="1718680730346" duration="112000" />
+      <workItem from="1718680887269" duration="1361000" />
+      <workItem from="1718684207445" duration="1361000" />
+      <workItem from="1718790018074" duration="1819000" />
+      <workItem from="1718978961059" duration="75000" />
+      <workItem from="1718979063157" duration="98000" />
+      <workItem from="1718980190910" duration="94000" />
     </task>
     <servers />
   </component>
