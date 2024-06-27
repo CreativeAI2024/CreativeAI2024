@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,37 +8,38 @@ using UnityEngine.SceneManagement;
 
 public class TimingGameMain : MonoBehaviour
 {
-    public TimingSlider timingSlider;
-    public TimingBar timingBar;
-    public TextMeshProUGUI tmp;
-    [SerializeField] private int repeat;
-    private int attempt = 1;
-    public string nextScene;
+    [SerializeField] private TimingSlider timingSlider;
+    [SerializeField] private TimingBar timingBar;
+    [SerializeField] private TextMeshProUGUI tmp;
     private InputSetting _inputSetting;
-    private string score;
-    private float timeSchedule;
-    [HideInInspector] public List<float> timingResults = new();
+
+    [SerializeField] private int repeat;
+    private int attempt = 1;                    //現在の試行回数
+    private float timeSchedule;                 //時間制御用
+
+    [SerializeField] private string nextScene;
+    private string score;                       //判定表示
+    private List<float> timingResults = new();
     [HideInInspector] public float timingResult;
+
     // Start is called before the first frame update
     void Start()
     {
-        timingSlider.Initialize();
-        timingBar.Initialize();
+        Initialize();
         _inputSetting = InputSetting.Load();
-        tmp.text = "";
     }
 
     // Update is called once per frame
     void Update()
     {
         timeSchedule += Time.deltaTime;
-        timingSlider.ObjectMove();
+        timingSlider.SliderMove();
         if (timeSchedule >= 0)
         {
             if (_inputSetting.GetDecideKeyDown())
             {
                 SaveScore();
-                timingSlider.ObjectStop();
+                timingSlider.SliderStop();
                 if (JustTimingDiff() < 0)
                 {
                     ScoreLetter("<size=80%><color=#00FFFF>fast</color></size><br>");
@@ -59,12 +60,19 @@ public class TimingGameMain : MonoBehaviour
         }
     }
 
-    public float JustTimingDiff()
+    private void Initialize()
+    {
+        timingSlider.Initialize();
+        timingBar.Initialize();
+        tmp.text = "";
+    }
+
+    private float JustTimingDiff()  //判定とのずれ(座標)を返す
     {
         return timingSlider.timingSlider.value* timingSlider.height - timingBar.justTiming;
     }
 
-    public void ScoreLetter(string text)
+    private void ScoreLetter(string text)  //精度を表示する
     {
         score = text;
         if (Math.Abs(JustTimingDiff()) < 25) score += "<color=#7FFF00>Great</color>";
@@ -73,18 +81,16 @@ public class TimingGameMain : MonoBehaviour
         tmp.text = score;
     }
 
-    public void EndTimingGame(int rep)
+    private void EndTimingGame(int rep)  //スライダーが停止された後の振る舞いを指定 rep:タイミングゲーを繰り返す回数
     {
         if(attempt < rep)
         {
             attempt++;
-            timingSlider.Initialize();
+            Initialize();
             timingSlider.ReInitialize();
-            timingBar.Initialize();
-            tmp.text = "";
             timeSchedule = 0;
         }
-        else
+        else  //タイミングゲーの後は会話ウィンドウに遷移する
         {
             CalcScoreAverage();
             Debug.Log(timingResult);
@@ -92,12 +98,12 @@ public class TimingGameMain : MonoBehaviour
         }
     }
 
-    public void SaveScore()
+    private void SaveScore()  //判定とのずれ(座標)を絶対値で保存する
     {
         timingResults.Add(Math.Abs(JustTimingDiff()));
     }
 
-    public void CalcScoreAverage()
+    private void CalcScoreAverage()  //タイミングゲーの成績でテキストが変化するらしいのでtimingResultsの平均値を計算しておく
     {
         timingResult = timingResults.Average();
     }

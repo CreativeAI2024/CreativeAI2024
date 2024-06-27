@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 639148461}
   - component: {fileID: 639148463}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: TimingGameBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,7 +819,7 @@ GameObject:
   - component: {fileID: 1510059985}
   - component: {fileID: 1510059986}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: TimingGameSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
