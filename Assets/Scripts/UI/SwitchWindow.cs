@@ -11,7 +11,7 @@ public class SwitchWindow : MonoBehaviour
     }
     void Update()
     {
-        if (_inputSetting.GetItemKeyDown() || (_inputSetting.GetCancelKeyDown()&&topWindow.activeSelf))
+        if (_inputSetting.GetMenuKeyDown() || (_inputSetting.GetCancelKeyDown()&&topWindow.activeSelf))
         {
             Switch();
         }
