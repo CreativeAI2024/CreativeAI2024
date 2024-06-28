@@ -395,7 +395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Judge Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -561,12 +561,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timingSlider: {fileID: 1510059986}
-  timingBar: {fileID: 1833536335}
-  tmp: {fileID: 431030898}
+  timingBar: {fileID: 1833536332}
+  judgeText: {fileID: 431030898}
   repeat: 3
   nextScene: Conversation_Window
-  timingResults: []
-  timingResult: 0
+  judgeGreat: 25
+  judgeGood: 50
 --- !u!1 &1355055715
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,9 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48371dbe08656b44b6fb1dd4a80f181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timingSlider: {fileID: 0}
   upSpeed: 0.001
-  height: 0
 --- !u!1 &1673406210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,8 +1194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9e5f1fa26c90f4b9712b4f2d2fb52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timingBar: {fileID: 0}
-  justTiming: 0
 --- !u!1 &1945320368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1229,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 10}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1945320370
 MonoBehaviour:

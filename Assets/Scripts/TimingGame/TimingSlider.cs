@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class TimingSlider: MonoBehaviour
 {
-    [HideInInspector] public Slider timingSlider;
+    private Slider timingSlider;
     [SerializeField] private float upSpeed;
-    private float saveUpSpeed;                  //upSpeedのバッファ用
-    [HideInInspector] public float height;
+    private float saveUpSpeed; 
+
+    private void Update()
+    {
+        timingSlider.value += upSpeed;
+    }
 
     public void Initialize()
     {
-        timingSlider = this.gameObject.GetComponent<Slider>();
-        RectTransform sliderRectTransform = timingSlider.GetComponent<RectTransform>();
-        height = sliderRectTransform.rect.height;
+        timingSlider = GetComponent<Slider>();
         timingSlider.value = 0;
     }
 
@@ -23,14 +25,15 @@ public class TimingSlider: MonoBehaviour
         upSpeed = saveUpSpeed;
     }
     
-    public void SliderMove()
-    {
-        timingSlider.value += upSpeed;
-    }
-
     public void SliderStop()
     {
-        saveUpSpeed = upSpeed;
+        saveUpSpeed = upSpeed;    //停止時にupSpeedが0になるので保存しておく
         upSpeed = 0;
+    }
+
+    public float SliderTopPosition()  //スライダーの上端の座標を返す
+    {
+        RectTransform sliderRectTransform = GetComponent<RectTransform>();
+        return timingSlider.value * sliderRectTransform.rect.height;
     }
 }
