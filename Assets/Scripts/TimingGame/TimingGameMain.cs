@@ -53,7 +53,7 @@ public class TimingGameMain : MonoBehaviour
     private void Initialize()
     {
         timingSlider.Initialize();
-        justTiming = timingBar.anchoredPosition.y / timingSlider.SliderCoordinateSpeed();
+        justTiming = timingBar.anchoredPosition.y / timingSlider.SliderCoordinateSpeed();  //判定の基準となる時間
         judgeText.text = "";
     }
 
@@ -85,10 +85,10 @@ public class TimingGameMain : MonoBehaviour
 
     private void JudgeTextAccuracy(string text)  //精度を表示する
     {
+        if (JustTimingDiffAbs() < judgeGreat) text += "<color=#7FFF00>Great</color>";
+        else if (JustTimingDiffAbs() < judgeGood) text += "<color=#00FF7F>Good</color>";
+        else text += "<color=#0000FF>Bad</color>";
         judgeText.text = text;
-        if (JustTimingDiffAbs() < judgeGreat) judgeText.text += "<color=#7FFF00>Great</color>";
-        else if (JustTimingDiffAbs() < judgeGood) judgeText.text += "<color=#00FF7F>Good</color>";
-        else judgeText.text += "<color=#0000FF>Bad</color>";
     }
 
     private void EndTimingGame()  //スライダーが停止された後の振る舞いを指定 rep:タイミングゲーを繰り返す回数
@@ -97,7 +97,7 @@ public class TimingGameMain : MonoBehaviour
         {
             attempt++;
             judgeText.text = "";
-            timingSlider.InitializeSliderParameter();
+            timingSlider.RestartSlider();
             timeSchedule = 0;
         }
         else  //タイミングゲーの後は会話ウィンドウに遷移する
