@@ -565,8 +565,8 @@ MonoBehaviour:
   judgeText: {fileID: 431030898}
   repeat: 3
   nextScene: Conversation_Window
-  judgeGreat: 25
-  judgeGood: 50
+  judgeGreat: 50
+  judgeGood: 100
 --- !u!1 &1355055715
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48371dbe08656b44b6fb1dd4a80f181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upSpeed: 0.001
+  ascendSpeed: 0.001
 --- !u!1 &1673406210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1116,6 @@ GameObject:
   - component: {fileID: 1833536332}
   - component: {fileID: 1833536334}
   - component: {fileID: 1833536333}
-  - component: {fileID: 1833536335}
   m_Layer: 5
   m_Name: TimingBar
   m_TagString: Untagged
@@ -1182,18 +1181,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833536331}
   m_CullTransparentMesh: 1
---- !u!114 &1833536335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833536331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9e5f1fa26c90f4b9712b4f2d2fb52e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1945320368
 GameObject:
   m_ObjectHideFlags: 0

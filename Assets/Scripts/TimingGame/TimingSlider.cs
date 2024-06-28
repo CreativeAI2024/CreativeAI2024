@@ -6,34 +6,38 @@ using UnityEngine.UI;
 public class TimingSlider: MonoBehaviour
 {
     private Slider timingSlider;
-    [SerializeField] private float upSpeed;
-    private float saveUpSpeed; 
+    [SerializeField, HeaderAttribute("範囲:0-1")] private float ascendSpeed;
+    private float ascend; 
 
     private void Update()
     {
-        timingSlider.value += upSpeed;
+        timingSlider.value += ascend;
     }
 
     public void Initialize()
     {
         timingSlider = GetComponent<Slider>();
-        timingSlider.value = 0;
+        InitializeSliderParameter();
     }
 
-    public void ReInitialize()  //スライダーが停止された後繰り返すため
+    public void InitializeSliderParameter()  //スライダーが停止された後繰り返すため
     {
-        upSpeed = saveUpSpeed;
+        timingSlider.value = 0;
+        ascend = ascendSpeed;
     }
     
     public void SliderStop()
     {
-        saveUpSpeed = upSpeed;    //停止時にupSpeedが0になるので保存しておく
-        upSpeed = 0;
+        ascend = 0;
     }
 
-    public float SliderTopPosition()  //スライダーの上端の座標を返す
+    public float SliderTopPositionTime()  //スライダーの上端がいる座標へ到達するためにかかる時間を返す
+    {
+        return timingSlider.value / ascendSpeed;
+    }
+    public float SliderCoordinateSpeed()  //スライダーの座標ベースでの速度を返す
     {
         RectTransform sliderRectTransform = GetComponent<RectTransform>();
-        return timingSlider.value * sliderRectTransform.rect.height;
+        return sliderRectTransform.rect.height * ascendSpeed;
     }
 }
