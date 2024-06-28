@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStartLoad : MonoBehaviour
+public class GameStart : MonoBehaviour
 {
 
     private bool firstPush = false;
@@ -14,20 +14,9 @@ public class GameStartLoad : MonoBehaviour
         if (!firstPush)
         {
             Debug.Log("Go Saving Scene!");
-            //‚±‚±‚ÉŸ‚ÌƒV[ƒ“‚Ö‚¢‚­–½—ß‚ğ‘‚­
-            SceneManager.LoadScene("SampleScene");
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½
+            SceneManager.LoadScene("ForVisualTeam");
             firstPush = true;
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

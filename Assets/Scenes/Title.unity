@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -284,19 +284,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 184491170}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1658386695}
-        m_TargetAssemblyTypeName: Load, Assembly-CSharp
-        m_MethodName: PressStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &184491170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +414,6 @@ GameObject:
   - component: {fileID: 482373539}
   - component: {fileID: 482373538}
   - component: {fileID: 482373541}
-  - component: {fileID: 482373542}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -552,21 +539,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &482373542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482373537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ea5bb80dec92b4cbff88bb1a0de852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons: []
-  selectSound: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!1 &617126530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1146,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1658386693}
   - component: {fileID: 1658386692}
-  - component: {fileID: 1658386694}
   - component: {fileID: 1658386695}
   - component: {fileID: 1658386691}
   - component: {fileID: 1658386690}
@@ -1271,18 +1242,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1658386694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658386689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcb7838f63e05c4ba5ec2f925e38f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1658386695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,8 +1354,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1658386694}
-        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+      - m_Target: {fileID: 1658386695}
+        m_TargetAssemblyTypeName: GameStart, Assembly-CSharp
         m_MethodName: PressStart
         m_Mode: 1
         m_Arguments:

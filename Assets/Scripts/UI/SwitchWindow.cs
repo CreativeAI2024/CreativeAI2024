@@ -5,23 +5,26 @@ public class SwitchWindow : MonoBehaviour
     private InputSetting _inputSetting;
     [SerializeField] private GameObject windowBox;
     [SerializeField] private GameObject topWindow;
+    private bool _isWindowActive = false;
     void Start()
     {
         _inputSetting = InputSetting.Load();
     }
     void Update()
     {
-        if (_inputSetting.GetMenuKeyDown() || (_inputSetting.GetCancelKeyDown()&&topWindow.activeSelf))
+        if (_inputSetting.GetMenuKeyDown())
         {
-            Switch();
+            SetWindowActive(!_isWindowActive);
+            _isWindowActive = !_isWindowActive;
+        }
+        else if (_inputSetting.GetCancelKeyDown() && _isWindowActive && topWindow.activeSelf)
+        {
+            SetWindowActive(false);
+            _isWindowActive = false;
         }
     }
-    public void Switch()
+    private void SetWindowActive(bool isActive)
     {
-        ChangeActive(windowBox, !windowBox.activeSelf);
-    }
-    private void ChangeActive(GameObject window, bool isActive)
-    {
-        window.SetActive(isActive);
+        windowBox.SetActive(isActive);
     }
 }
