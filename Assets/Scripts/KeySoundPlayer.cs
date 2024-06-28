@@ -11,7 +11,6 @@ public class KeySoundPlayer : MonoBehaviour
     public Button[] buttons;
     private int currentButtonIndex = 0;
 
-    //���L�[����������ʉ�
     public AudioClip selectSound;
     public AudioSource audioSource;
 
@@ -26,13 +25,11 @@ public class KeySoundPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            // ����L�[�őO�̃{�^����I��
             currentButtonIndex--;
             if (currentButtonIndex < 0)
                 currentButtonIndex = buttons.Length - 1;
             SelectButton(currentButtonIndex);
 
-            //���L�[����������ʉ�
             PlaySelectSound();
         }
 
@@ -55,7 +52,6 @@ public class KeySoundPlayer : MonoBehaviour
 
     void SelectButton(int index)
     {
-        // �{�^����I��
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
 
