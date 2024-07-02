@@ -3,9 +3,9 @@ using UnityEngine;
 
 public abstract class BaseItem : ScriptableObject
 {
-    [SerializeField] private String itemName;
-    [SerializeField, Multiline] private String discription;
+    [SerializeField] private string itemName;
+    [SerializeField, Multiline] private string discription;
 
-    public String GetItemName() => itemName;
-    public String GetDiscription() => discription;
+    public string GetItemName() => itemName;
+    public string GetDiscription() => discription;
 }
