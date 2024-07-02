@@ -638,6 +638,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Item 01
       objectReference: {fileID: 0}
+    - target: {fileID: 4602705215074726824, guid: 0c381518c836a4af48cdd50f6c93c4d7,
+        type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7780956747717782826, guid: 0c381518c836a4af48cdd50f6c93c4d7,
         type: 3}
       propertyPath: m_Name
@@ -2200,7 +2205,7 @@ PrefabInstance:
     - target: {fileID: 2238412286224207160, guid: 8e53c558df7c6457d9f7c13db16c38d8,
         type: 3}
       propertyPath: m_Name
-      value: ItemButton
+      value: ItemListButton
       objectReference: {fileID: 0}
     - target: {fileID: 3669597330430604570, guid: 8e53c558df7c6457d9f7c13db16c38d8,
         type: 3}
@@ -2519,8 +2524,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1817693082}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1290780148296136670, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7297667953626392408}
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1492fb3094ed8b8aa46fae6eb800, type: 3}
+--- !u!1 &2121905295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1290780148296136670, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+    type: 3}
+  m_PrefabInstance: {fileID: 2121905294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2238412286334684261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7780956747717782826, guid: 0c381518c836a4af48cdd50f6c93c4d7,
@@ -2684,6 +2699,20 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2121905294}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7297667953626392408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121905295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edd5518ced37450bbd9a1deeaa70d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemList: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  itemButtonPrefab: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
