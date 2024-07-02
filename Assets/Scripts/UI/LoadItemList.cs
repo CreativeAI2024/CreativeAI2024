@@ -22,29 +22,29 @@ public class LoadItemList : MonoBehaviour
 
     public void AddItemToWindow(BaseItem item)
     {
-        MakeItemButton(item);
-        //新しいアイテムならMakeItemButton()、すでにあるアイテムなら、個数を表す整数を増やす
-        ValueTuple<GameObject, int> addedItem;
-        if ((addedItem = FindInItemButtons(item.GetItemName())) != (null, -1))
+        int index = GetIndexByButton(item.GetItemName());
+        if (index == -1)
         {
-
+            itemButtons.Add((MakeItemButton(item), 1));
         }
+        //新しいアイテムならMakeItemButton()、すでにあるアイテムなら、個数を表す整数を増やす
+        
     }
     public void RemoveItemFromWindow(BaseItem item)
     {
         DestroyItemButton(item);
     }
 
-    private (GameObject, int) FindInItemButtons(String searchedButtonName) //FindWithTag()の代わり
+    private int GetIndexByButton(String searchedButtonName)
     {
-        foreach ((GameObject button, int count) in itemButtons)
+        for (int i=0; i<itemButtons.Count; i++)
         {
-            if (button.GetComponent<TextMeshPro>().text==searchedButtonName)
+            if (itemButtons[i].button.GetComponent<TextMeshPro>().text.Equals(searchedButtonName))
             {
-                return (button, count);
+                return i;
             }
         }
-        return (null, -1);
+        return -1;
     }
 
     private void MakeItemButton(BaseItem item)
@@ -54,7 +54,7 @@ public class LoadItemList : MonoBehaviour
     }
     private void DestroyItemButton(BaseItem item)
     {
-        GameObject removedItemButton = GameObject.FindWithTag(item.GetItemName());
+        (GameObject, int) removedItemButton = FindInItemButtons(item.GetItemName());
         Destroy(removedItemButton);
     }
 }
