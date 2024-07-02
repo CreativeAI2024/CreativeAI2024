@@ -12,49 +12,50 @@ public class LoadItemList : MonoBehaviour
 {
     [SerializeField] private ItemList itemList;
     [SerializeField] private GameObject itemButtonPrefab;
-    private List<(GameObject button, int count)> itemButtons; //int型は個数を表す
+    private Dictionary<String, int> itemNumbers;
 
     void Start()
     {
-        itemButtons = new List<(GameObject button, int count)>();
+        itemNumbers = new Dictionary<string, int>();
     }
 
 
     public void AddItemToWindow(BaseItem item)
     {
-        int index = GetIndexByButton(item.GetItemName());
-        if (index == -1)
+        String itemName = item.GetItemName();
+        if(itemNumbers.ContainsKey(itemName))
         {
-            itemButtons.Add((MakeItemButton(item), 1));
+            itemNumbers[itemName] ++;
         }
-        //新しいアイテムならMakeItemButton()、すでにあるアイテムなら、個数を表す整数を増やす
-        
+        else 
+        {
+            MakeItemButton(item);
+            itemNumbers.Add(itemName, 1);
+        }
     }
     public void RemoveItemFromWindow(BaseItem item)
     {
-        DestroyItemButton(item);
-    }
-
-    private int GetIndexByButton(String searchedButtonName)
-    {
-        for (int i=0; i<itemButtons.Count; i++)
+        String itemName = item.GetItemName();
+        if(itemNumbers.ContainsKey(itemName))
         {
-            if (itemButtons[i].button.GetComponent<TextMeshPro>().text.Equals(searchedButtonName))
-            {
-                return i;
-            }
+            itemNumbers[itemName] --;
         }
-        return -1;
+        else 
+        {
+            DestroyItemButton(item);
+            itemNumbers.Remove(itemName);
+        }
     }
 
     private void MakeItemButton(BaseItem item)
     {
         GameObject itemButton = Instantiate(itemButtonPrefab,transform);
+        itemButton.tag = item.GetItemName();
         itemButton.transform.GetChild(0).GetComponent<TextMeshPro>().text = item.GetItemName();
     }
     private void DestroyItemButton(BaseItem item)
     {
-        (GameObject, int) removedItemButton = FindInItemButtons(item.GetItemName());
+        GameObject removedItemButton = GameObject.FindWithTag(item.GetItemName());
         Destroy(removedItemButton);
     }
 }
