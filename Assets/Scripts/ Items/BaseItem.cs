@@ -4,8 +4,24 @@ using UnityEngine;
 public abstract class BaseItem : ScriptableObject
 {
     [SerializeField] private string itemName;
-    [SerializeField, Multiline] private string discription;
-
-    public string GetItemName() => itemName;
-    public string GetDiscription() => discription;
+    public string ItemName => itemName;
+    [SerializeField] private string description;
+    public string Description => description;
+    private int count = 1;
+    public int Count => count;
+    public void IncrementCount()
+    {
+        count++;
+    }
+    public void DecrementCount()
+    {
+        if (count >= 1)
+        {
+            count--;
+        }
+        else
+        {
+            throw new InvalidOperationException("Count cannot be less than 1");
+        }
+    }
 }
