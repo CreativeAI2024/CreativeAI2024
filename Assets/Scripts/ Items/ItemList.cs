@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-//forを使う時は慎重に
+
 [Serializable]
 [CreateAssetMenu(fileName = "ItemList", menuName = "CreateItemList")]
 public class ItemList : ScriptableObject
@@ -27,7 +27,7 @@ public class ItemList : ScriptableObject
         {
             if (!checkerSet.Add(item.ItemName))
             {
-                Debug.Log("ItemList内で" + item + "が重複しています。");
+                throw new ArgumentException("ItemList内で" + item + "が重複しています。");
             }
         }
     }
