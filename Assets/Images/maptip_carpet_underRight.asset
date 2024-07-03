@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: maptip_carpet_ver4
+  m_Name: maptip_carpet_underRight
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 6be624b7db4274b8eb144d289b6b720a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e720a5b3459d04ea79ecb73558e35235, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 0
+  m_ColliderType: 1
