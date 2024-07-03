@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+// Windowじゃなく先頭の子オブジェクトにアタッチする
+// ItemWindowではスクリプトでアタッチする
 public class SetFirstFocus : MonoBehaviour
 {
-    [SerializeField] private GameObject headButton;
     [SerializeField] private GameObject cursor;
     void OnEnable()
     {
@@ -12,7 +12,7 @@ public class SetFirstFocus : MonoBehaviour
     }
     private void SetButtonFocus()
     {
-        EventSystem.current.SetSelectedGameObject(headButton);
+        EventSystem.current.SetSelectedGameObject(gameObject);
     }
 
     private void SetCursorPosition()

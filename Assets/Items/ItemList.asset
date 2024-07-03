@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e8c848c46ed412aa7912bea6f525d3, type: 3}
   m_Name: ItemList
   m_EditorClassIdentifier: 
-  initialItems:
+  items:
   - {fileID: 11400000, guid: ea131b1cce5f941939b88c8c19b41429, type: 2}
-  - {fileID: 11400000, guid: ea131b1cce5f941939b88c8c19b41429, type: 2}
-  initialQuantities: 0300000001000000
-  loadItemList: {fileID: 0}

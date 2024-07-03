@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 // やること
-// ItemWindowのSetFirstFocusのHeadButtonが空になってしまっている　ItemWindowにはゲーム起動前には何も入ってないから
+// ウィンドウを再表示した時にsetFirstFocusができていない OnEnableは親がenableになっても関係ない？
+// カーソルは１つだけでいいのでは？
+// カーソルの移動先が無い時にerrorが起きる
 // デバッグ
 // 説明ウィンドウの機能作成
 // ImageShowItemのimageを表示する機能
+// ItemButtonに個数表示機能
 // メニューUIの構造の見直し（自分以外でも使えるように）
 //     スクリプトをどのオブジェクトにアタッチすれば良いか
 //     プレハブを実体化すればすぐメニューUIが使えるようにする
@@ -22,6 +26,7 @@ public class ItemManager : MonoBehaviour
         {
             Add(item);
         }
+        AddSetFirstFocusComponent();
     }
 
     public GameObject Search(string searchedButtonName) //アイテム合成の時にリストを探索する時に呼び出す
@@ -80,6 +85,7 @@ public class ItemManager : MonoBehaviour
         {
             Destroy(removedButton);
             itemList.Remove(item);
+            AddSetFirstFocusComponent();
         }
         CheckDuplication();
     }
@@ -98,5 +104,10 @@ public class ItemManager : MonoBehaviour
     private void SetButtonName(GameObject button, string buttonName)
     {
         button.transform.GetChild(0).GetComponent<TextMeshPro>().text = buttonName;
+    }
+
+    private void AddSetFirstFocusComponent()
+    {
+        transform.GetChild(0).AddComponent<SetFirstFocus>();
     }
 }
