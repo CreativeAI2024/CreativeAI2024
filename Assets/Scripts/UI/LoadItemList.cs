@@ -18,18 +18,27 @@ public class LoadItemList : MonoBehaviour
     void Start()
     {
         itemNumbers = new Dictionary<string, int>();
-        foreach (Transform child in transform)
+        foreach (Tuple<BaseItem, int> itemAndQuantity in itemList.GetItemAndQuantilyList())
         {
-            //ゲーム開始時からItemWindowがもっているボタンをitemNumbersに入れる
-            //このやり方だとゲーム開始時に同じアイテムを複数持たせられない
-            //↓
-            //初期アイテムはItemListに入れる
-            //ここではItemList内の初期アイテムをメソッドをそのまま使ってボタンを生成し、itemNumbersにも登録する
-            //ItemListを、Inspectorでアイテムとその個数を登録できるようにする。配列をSerializeすれば複数登録できる？
-            GameObject button = child.gameObject;
-            button.tag = button.transform.GetChild(0).GetComponent<TextMeshPro>().text;
-            itemNumbers.Add(getButtonName(button), 1);
+            AddItemToWindow(itemAndQuantity.Item1);
+            itemNumbers.Add(itemAndQuantity.Item1.GetItemName(), itemAndQuantity.Item2);
         }
+        // foreach(BaseItem item in itemList.GetItemAndQuantityList())
+        // {
+        //     AddItemToWindow(item);
+        // }
+        // foreach (Transform child in transform)
+        // {
+        //     //ゲーム開始時からItemWindowがもっているボタンをitemNumbersに入れる
+        //     //このやり方だとゲーム開始時に同じアイテムを複数持たせられない
+        //     //↓
+        //     //初期アイテムはItemListに入れる
+        //     //ここではItemList内の初期アイテムをメソッドをそのまま使ってボタンを生成し、itemNumbersにも登録する
+        //     //ItemListを、Inspectorでアイテムとその個数を登録できるようにする。配列をSerializeすれば複数登録できる？
+        //     GameObject button = child.gameObject;
+        //     button.tag = button.transform.GetChild(0).GetComponent<TextMeshPro>().text;
+        //     itemNumbers.Add(getButtonName(button), 1);
+        // }
     }
 
 

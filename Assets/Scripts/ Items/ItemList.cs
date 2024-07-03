@@ -1,33 +1,52 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName ="ItemList", menuName ="CreateItemList")]
+[CreateAssetMenu(fileName = "ItemList", menuName = "CreateItemList")]
 public class ItemList : ScriptableObject
 {
-    private List<BaseItem> itemlist;
-    public List<BaseItem> GetItemList() => itemlist;
+    [SerializeField] private List<BaseItem> initialItems;
+    [SerializeField] private List<int> initialQuantities;
+    public List<Tuple<BaseItem, int>> GetItemAndQuantilyList()
+    {
+        List<Tuple<BaseItem, int>> rtn = new List<Tuple<BaseItem, int>>();
+        for (int i=0; i<initialItems.Count; i++)
+        {
+            rtn.Add(new Tuple<BaseItem, int>(initialItems[i], initialQuantities[i]));
+        }
+        return rtn;
+    }
     public BaseItem FindItem(BaseItem searchedItem)
     {
-        foreach (BaseItem item in itemlist)
+        foreach (BaseItem item in initialItems)
         {
-            if (item==searchedItem)
+            if (item == searchedItem)
             {
                 return item;
             }
         }
         return null;
     }
-
     public void AddItem(BaseItem AddedItem)
     {
-        itemlist.Add(AddedItem);
+        initialItems.Add(AddedItem);
     }
     public void RemoveItem(BaseItem RemovedItem)
     {
-        itemlist.Remove(RemovedItem);
+        initialItems.Remove(RemovedItem);
     }
-
+    public void CheckDuplication()
+    {
+        HashSet<BaseItem> checkerSet = new HashSet<BaseItem>();
+        foreach (BaseItem item in initialItems)
+        {
+            if (checkerSet.Add(item) == false)
+            {
+                Debug.Log("ItemList内で" + item + "が重複しています。");
+            }
+        }
+    }
 }
