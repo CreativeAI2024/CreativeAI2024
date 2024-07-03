@@ -9,10 +9,12 @@ public abstract class BaseItem : ScriptableObject
     public string Description => description;
     private int count = 1;
     public int Count => count;
+
     public void IncrementCount()
     {
         count++;
     }
+    
     public void DecrementCount()
     {
         if (count >= 1)

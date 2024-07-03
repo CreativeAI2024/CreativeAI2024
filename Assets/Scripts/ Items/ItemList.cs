@@ -8,7 +8,7 @@ public class ItemList : ScriptableObject
 {
     public List<BaseItem> Items { get; set; } = new List<BaseItem>();
 
-    public BaseItem Search(string searchedItemName)
+    public BaseItem Search(string searchedItemName) //Itemを探索したいときに　これとLoadItemListのSearch()はどちらかはprivateでもいいかも？
     {
         foreach (BaseItem item in Items)
         {
@@ -20,9 +20,9 @@ public class ItemList : ScriptableObject
         return null;
     }
 
-    public void CheckDuplication()
+    private void CheckDuplication()
     {
-        HashSet<string> checkerSet = new HashSet<string>();
+        HashSet<string> checkerSet = new();
         foreach (BaseItem item in Items)
         {
             if (!checkerSet.Add(item.ItemName))
@@ -32,7 +32,7 @@ public class ItemList : ScriptableObject
         }
     }
 
-    public void Add(BaseItem item)
+    public void Add(BaseItem item) 
     {
         BaseItem addedItem = Search(item.ItemName);
         if (addedItem == null)
@@ -43,6 +43,7 @@ public class ItemList : ScriptableObject
         {
             addedItem.IncrementCount();
         }
+        CheckDuplication();
     }
 
     public void Remove(BaseItem item)
@@ -56,5 +57,6 @@ public class ItemList : ScriptableObject
         {
             Items.Remove(removedItem);
         }
+        CheckDuplication();
     }
 }
