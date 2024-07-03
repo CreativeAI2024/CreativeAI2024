@@ -8,11 +8,11 @@ public class ItemList : ScriptableObject
 {
     public List<BaseItem> Items { get; set; } = new List<BaseItem>();
 
-    public BaseItem Search(BaseItem searchedItem)
+    public BaseItem Search(string searchedItemName)
     {
         foreach (BaseItem item in Items)
         {
-            if (item.ItemName == searchedItem.ItemName)
+            if (item.ItemName == searchedItemName)
             {
                 return item;
             }
@@ -34,7 +34,7 @@ public class ItemList : ScriptableObject
 
     public void Add(BaseItem item)
     {
-        BaseItem addedItem = Search(item);
+        BaseItem addedItem = Search(item.ItemName);
         if (addedItem == null)
         {
             Items.Add(item);
@@ -47,7 +47,7 @@ public class ItemList : ScriptableObject
 
     public void Remove(BaseItem item)
     {
-        BaseItem removedItem = Search(item);
+        BaseItem removedItem = Search(item.ItemName);
         if (removedItem.Count > 1)
         {
             removedItem.DecrementCount();

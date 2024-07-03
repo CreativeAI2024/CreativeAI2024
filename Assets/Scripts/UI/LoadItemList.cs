@@ -7,59 +7,74 @@ public class LoadItemList : MonoBehaviour
 {
     [SerializeField] private ItemList itemList;
     [SerializeField] private GameObject itemButtonPrefab;
-    private Dictionary<string, int> itemNumbers;
 
     void Awake()
     {
-        itemNumbers = new Dictionary<string, int>();
-        foreach (Tuple<BaseItem, int> itemAndQuantity in itemList.GetItemAndQuantilyList())
+        foreach (BaseItem item in itemList.Items)
         {
-            AddItemToWindow(itemAndQuantity.Item1);
-            itemNumbers.Add(itemAndQuantity.Item1.GetItemName(), itemAndQuantity.Item2);
+            Add(item);
         }
     }
 
-    public void AddItemToWindow(BaseItem item)
-    {
-        string itemName = item.GetItemName();
-        if (itemNumbers.ContainsKey(itemName))
-        {
-            itemNumbers[itemName]++;
-        }
-        else
-        {
-            MakeItemButton(item);
-            itemNumbers.Add(itemName, 1);
-        }
-    }
-    public void RemoveItemFromWindow(BaseItem item)
-    {
-        string itemName = item.GetItemName();
-        if (itemNumbers.ContainsKey(itemName))
-        {
-            itemNumbers[itemName]--;
-        }
-        else
-        {
-            DestroyItemButton(item);
-            itemNumbers.Remove(itemName);
-        }
-    }
-
-    private void MakeItemButton(BaseItem item)
-    {
-        GameObject itemButton = Instantiate(itemButtonPrefab, transform);
-        SetButtonName(itemButton, item.GetItemName());
-    }
-    private void DestroyItemButton(BaseItem item)
+    //重複チェック
+    //探索
+    //追加
+    //削除
+    public GameObject Search(string searchedButtonName)
     {
         foreach (GameObject button in transform)
         {
-            if (GetButtonName(button).Equals(item.GetItemName()))
+            if (GetButtonName(button).Equals(searchedButtonName))
             {
-                Destroy(button);
+                return button;
             }
         }
+        return null;
+    }
+    public void CheckDuplication()
+    {
+        HashSet<string> checkerSet = new HashSet<string>();
+        foreach (BaseItem item in itemList.Items)
+        {
+            if (!checkerSet.Add(item.ItemName))
+            {
+                throw new ArgumentException("ItemWindow内で" + item + "ボタンが重複しています。");
+            }
+        }
+    }
+    public void Add(BaseItem item)
+    {
+        GameObject addedButton = this.Search(item.ItemName);
+        if (addedButton == null)
+        {
+            MakeItemButton(item);
+        }
+        else
+        {
+            itemList.Search(item.ItemName).IncrementCount();
+        }
+    }
+    public void Remove(BaseItem item)
+    {
+        GameObject removedButton = this.Search(item.ItemName);
+        if (removedButton == null)
+        {
+            Debug.Log("存在しない"+item.ItemName+"ボタンを削除しようとしています。");
+        }
+        else if (itemList.Search(item.ItemName).Count > 1)
+        {
+            itemList.Search(item.ItemName).DecrementCount();
+        }
+        else
+        {
+            Destroy(removedButton);
+            itemList.Remove(item);
+        }
+    }
+    private void MakeItemButton(BaseItem item)
+    {
+        GameObject itemButton = Instantiate(itemButtonPrefab, transform);
+        SetButtonName(itemButton, item.ItemName);
     }
     private string GetButtonName(GameObject button)
     {
