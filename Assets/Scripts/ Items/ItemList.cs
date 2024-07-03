@@ -45,10 +45,10 @@ public class ItemList : ScriptableObject
     }
     public void CheckDuplication()
     {
-        HashSet<BaseItem> checkerSet = new HashSet<BaseItem>();
+        HashSet<string> checkerSet = new HashSet<string>();
         foreach (BaseItem item in initialItems)
         {
-            if (checkerSet.Add(item) == false)
+            if (checkerSet.Add(item.GetItemName()) == false)
             {
                 Debug.Log("ItemList内で" + item + "が重複しています。");
             }
