@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+// BaseItemと個数をまとめるだけのクラスを作り、それを~~~~ → BaseItemに個数情報を持たせるべき
 [Serializable]
 [CreateAssetMenu(fileName = "ItemList", menuName = "CreateItemList")]
 public class ItemList : ScriptableObject
