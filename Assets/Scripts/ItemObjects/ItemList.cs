@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemList", menuName = "ScriptableObject/Item/ItemList")]
 public class ItemList : ScriptableObject
 {
-    [SerializeField] public List<BaseItem> Items { get; set; } = new List<BaseItem>();
+    [SerializeField] private List<BaseItem> items = new();
+    public List<BaseItem> Items { get; set; }
 
     public BaseItem Search(string searchedItemName) //Itemを探索したいときに　これとLoadItemListのSearch()はどちらかはprivateでもいいかも？
     {
