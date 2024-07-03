@@ -10,6 +10,8 @@ public class ItemList : ScriptableObject
 {
     [SerializeField] private List<BaseItem> initialItems;
     [SerializeField] private List<int> initialQuantities;
+    [SerializeField] private LoadItemList loadItemList;
+
     public List<Tuple<BaseItem, int>> GetItemAndQuantilyList()
     {
         List<Tuple<BaseItem, int>> rtn = new List<Tuple<BaseItem, int>>();
@@ -33,10 +35,13 @@ public class ItemList : ScriptableObject
     public void AddItem(BaseItem AddedItem)
     {
         initialItems.Add(AddedItem);
+        loadItemList.AddItemToWindow(AddedItem);
+
     }
     public void RemoveItem(BaseItem RemovedItem)
     {
         initialItems.Remove(RemovedItem);
+        loadItemList.RemoveItemFromWindow(RemovedItem);
     }
     public void CheckDuplication()
     {
