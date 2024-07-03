@@ -15,7 +15,7 @@ public class LoadItemList : MonoBehaviour
     [SerializeField] private GameObject itemButtonPrefab;
     private Dictionary<string, int> itemNumbers;
 
-    void Start()
+    void Awake()
     {
         itemNumbers = new Dictionary<string, int>();
         foreach (Tuple<BaseItem, int> itemAndQuantity in itemList.GetItemAndQuantilyList())
