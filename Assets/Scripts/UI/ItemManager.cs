@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 // やること
 // ItemWindowのSetFirstFocusのHeadButtonが空になってしまっている　ItemWindowにはゲーム起動前には何も入ってないから
+// ItemListのInspectorに何の入力欄もない
 // デバッグ
 // 説明ウィンドウの機能作成
 // ImageShowItemのimageを表示する機能

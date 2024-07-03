@@ -1,13 +1,15 @@
 using System;
 using UnityEngine;
 
-public abstract class BaseItem : ScriptableObject
+[Serializable]
+[CreateAssetMenu(fileName ="BaseItem", menuName ="ScriptableObject/Item/BaseItem")]
+public class BaseItem : ScriptableObject
 {
     [SerializeField] private string itemName;
     public string ItemName => itemName;
     [SerializeField, TextArea] private string description;
     public string Description => description;
-    private int count = 1;
+    [SerializeField] private int count;
     public int Count => count;
 
     public void IncrementCount()

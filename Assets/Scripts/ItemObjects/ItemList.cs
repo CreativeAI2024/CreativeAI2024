@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "ItemList", menuName = "CreateItemList")]
+[CreateAssetMenu(fileName = "ItemList", menuName = "ScriptableObject/Item/ItemList")]
 public class ItemList : ScriptableObject
 {
-    public List<BaseItem> Items { get; set; } = new List<BaseItem>();
+    [SerializeField] public List<BaseItem> Items { get; set; } = new List<BaseItem>();
 
     public BaseItem Search(string searchedItemName) //Itemを探索したいときに　これとLoadItemListのSearch()はどちらかはprivateでもいいかも？
     {
