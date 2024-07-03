@@ -15,15 +15,11 @@ public class LoadItemList : MonoBehaviour
             Add(item);
         }
     }
-
-    //重複チェック
-    //探索
-    //追加
-    //削除
     public GameObject Search(string searchedButtonName)
     {
-        foreach (GameObject button in transform)
+        foreach (Transform child in transform)
         {
+            GameObject button = child.gameObject;
             if (GetButtonName(button).Equals(searchedButtonName))
             {
                 return button;
@@ -38,7 +34,7 @@ public class LoadItemList : MonoBehaviour
         {
             if (!checkerSet.Add(item.ItemName))
             {
-                throw new ArgumentException("ItemWindow内で" + item + "ボタンが重複しています。");
+                throw new InvalidOperationException("ItemWindow内で" + item + "ボタンが重複しています。");
             }
         }
     }

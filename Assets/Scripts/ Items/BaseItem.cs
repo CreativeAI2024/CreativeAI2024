@@ -5,7 +5,7 @@ public abstract class BaseItem : ScriptableObject
 {
     [SerializeField] private string itemName;
     public string ItemName => itemName;
-    [SerializeField] private string description;
+    [SerializeField, TextArea] private string description;
     public string Description => description;
     private int count = 1;
     public int Count => count;

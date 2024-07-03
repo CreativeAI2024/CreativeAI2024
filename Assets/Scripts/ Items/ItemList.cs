@@ -27,7 +27,7 @@ public class ItemList : ScriptableObject
         {
             if (!checkerSet.Add(item.ItemName))
             {
-                throw new ArgumentException("ItemList内で" + item + "が重複しています。");
+                throw new InvalidOperationException ("ItemList内で" + item + "が重複しています。");
             }
         }
     }
