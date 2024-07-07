@@ -4,13 +4,28 @@ using UnityEngine.UI;
 
 public class MoveCursor : MonoBehaviour
 {
+    private int lastRowCount;
+    private int columnCount;
+    private int rowCount;
     private InputSetting _inputSetting;
     private Selectable focusedButton;
+    private int focusedIndex;
     [SerializeField] private Transform cursorTransform;
     void Start()
     {
+        columnCount = transform.GetChild(0).GetComponent<GridLayoutGroup>().constraintCount;
+        lastRowCount = transform.GetChild(0).childCount%columnCount;
         _inputSetting = InputSetting.Load();
         focusedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+        focusedIndex = focusedButton.transform.GetSiblingIndex();
+        if (focusedIndex>=columnCount)
+        {
+            rowCount = transform.GetChild(0).childCount/columnCount + (lastRowCount!=0 ? 1 : 0);
+        }
+        else
+        {
+            rowCount = 1;
+        }
     }
 
     void Update()
@@ -46,7 +61,21 @@ public class MoveCursor : MonoBehaviour
     }
     private void FocusUpButton()
     {
-        FocusButton(focusedButton.FindSelectableOnUp());
+        if (focusedIndex >= columnCount)
+        {
+            FocusButton(focusedButton.FindSelectableOnUp());
+        }
+        else
+        {
+            if (focusedButton.transform.GetSiblingIndex() >= lastRowCount)
+            {
+                FocusButton(transform.GetChild(focusedIndex+columnCount*(lastRowCount-2)).GetComponent<Selectable>());
+            }
+            else 
+            {
+                //下段
+            }
+        }
     }
 
     private void FocusDownButton()
