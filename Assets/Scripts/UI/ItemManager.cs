@@ -24,7 +24,7 @@ public class ItemManager : MonoBehaviour
     {
         foreach (BaseItem item in itemList.Items)
         {
-            Add(item);
+            MakeItemButton(item);
         }
         AddSetFirstFocusComponent();
     }
@@ -36,6 +36,7 @@ public class ItemManager : MonoBehaviour
             GameObject button = child.gameObject;
             if (GetButtonName(button).Equals(searchedButtonName))
             {
+                Debug.Log(searchedButtonName + "is searched.");
                 return button;
             }
         }
@@ -61,10 +62,12 @@ public class ItemManager : MonoBehaviour
         if (addedButton == null)
         {
             MakeItemButton(item);
+            Debug.Log("New itemButton "+item.ItemName+" is generated.");
         }
         else
         {
             itemList.Search(item.ItemName).IncrementCount();
+            Debug.Log("The count of "+item.ItemName+"is incremented.");
         }
         CheckDuplication();
     }
@@ -80,12 +83,14 @@ public class ItemManager : MonoBehaviour
         else if (itemList.Search(item.ItemName).Count > 1)
         {
             itemList.Search(item.ItemName).DecrementCount();
+            Debug.Log("The count of "+item.ItemName+"is decremented.");
         }
         else
         {
             Destroy(removedButton);
             itemList.Remove(item);
             AddSetFirstFocusComponent();
+            Debug.Log("The itemButton "+item.ItemName+" destroyed.");
         }
         CheckDuplication();
     }
@@ -94,6 +99,7 @@ public class ItemManager : MonoBehaviour
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
         SetButtonName(itemButton, item.ItemName);
+        Debug.Log("MakeItemButton() finish.");
     }
 
     private string GetButtonName(GameObject button)

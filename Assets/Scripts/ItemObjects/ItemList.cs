@@ -6,12 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemList", menuName = "ScriptableObject/Item/ItemList")]
 public class ItemList : ScriptableObject
 {
-    [SerializeField] private List<BaseItem> items = new();
-    public List<BaseItem> Items { get; set; }
-
+    [SerializeField] private List<BaseItem> items;
+    public List<BaseItem> Items 
+    { 
+        get { return items; }
+    }
     public BaseItem Search(string searchedItemName) //Itemを探索したいときに　これとLoadItemListのSearch()はどちらかはprivateでもいいかも？
     {
-        foreach (BaseItem item in Items)
+        foreach (BaseItem item in items)
         {
             if (item.ItemName == searchedItemName)
             {
@@ -24,7 +26,7 @@ public class ItemList : ScriptableObject
     private void CheckDuplication()
     {
         HashSet<string> checkerSet = new();
-        foreach (BaseItem item in Items)
+        foreach (BaseItem item in items)
         {
             if (!checkerSet.Add(item.ItemName))
             {
@@ -38,7 +40,7 @@ public class ItemList : ScriptableObject
         BaseItem addedItem = Search(item.ItemName);
         if (addedItem == null)
         {
-            Items.Add(item);
+            items.Add(item);
         }
         else
         {
@@ -56,7 +58,7 @@ public class ItemList : ScriptableObject
         }
         else
         {
-            Items.Remove(removedItem);
+            items.Remove(removedItem);
         }
         CheckDuplication();
     }
