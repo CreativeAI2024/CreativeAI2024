@@ -4,8 +4,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 // やること
-// ウィンドウを再表示した時にsetFirstFocusができていない OnEnableは親がenableになっても関係ない？
-// カーソルは１つだけでいいのでは？
 // カーソルの移動先が無い時にerrorが起きる
 // デバッグ
 // 説明ウィンドウの機能作成
