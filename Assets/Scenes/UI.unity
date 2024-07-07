@@ -420,8 +420,7 @@ PrefabInstance:
       propertyPath: firstButton
       value: 
       objectReference: {fileID: 1970283663}
-    m_RemovedComponents:
-    - {fileID: 4801665785439177652, guid: 50eb1492fb3094ed8b8aa46fae6eb800, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1290780148296136670, guid: 50eb1492fb3094ed8b8aa46fae6eb800, type: 3}
     m_AddedGameObjects:
@@ -1551,7 +1550,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6649786585131092273, guid: 50eb1492fb3094ed8b8aa46fae6eb800, type: 3}
-    - {fileID: 4801665785439177652, guid: 50eb1492fb3094ed8b8aa46fae6eb800, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6932867076371440777, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
