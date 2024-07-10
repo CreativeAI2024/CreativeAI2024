@@ -1,37 +1,30 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PaperMove: MonoBehaviour
+public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    private Vector3 _previousPos = Vector3.zero; 
-    private Vector3 _currentPos = Vector3.zero;  
-    private bool _isDrag = false; 
+    private Vector3 _previousPos = Vector3.zero;
+    private Vector3 _initialPos;
+    private bool _isDrag = false;
 
-    void Update()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _previousPos = Input.mousePosition;
-        }
-
-        if (_isDrag)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                _currentPos = Input.mousePosition;
-                Vector3 _diffDistance = _currentPos - _previousPos;
-
-                this.transform.GetComponent<RectTransform>().position += new Vector3(_diffDistance.x, _diffDistance.y);
-                _previousPos = Input.mousePosition;
-            }
-        }
-    }
-
-    public void OnDrag()
-    {
+        _previousPos = eventData.position;
+        _initialPos = this.transform.GetComponent<RectTransform>().position;
         _isDrag = true;
     }
 
-    public void OffDrag()
+    public void OnDrag(PointerEventData eventData) 
+    {
+        if (_isDrag)
+        {
+            Vector3 _currentPos = eventData.position;
+            Vector3 _diffDistance = _currentPos - _previousPos;
+            this.transform.GetComponent<RectTransform>().position = _initialPos + new Vector3(_diffDistance.x, _diffDistance.y);
+        }
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
     {
         _isDrag = false;
     }
