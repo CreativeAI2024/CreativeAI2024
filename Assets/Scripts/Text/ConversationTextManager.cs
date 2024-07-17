@@ -35,17 +35,17 @@ public class ConversationTextManager : MonoBehaviour
         }
 
         // zキーが離されたとき、次の行へ移動
-        if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
+        if (_inputSetting.GetDecideKeyDown() || _inputSetting.GetCancelKeyDown())
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
+                if (_inputSetting.GetDecideKeyDown() && lineNumber < _sentences.Count - 1)
                 {
                     ChangeLine(1);
                     Debug.Log("NextLine");
                 }
-                else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
+                else if (_inputSetting.GetCancelKeyDown() && 0 < lineNumber)
                 {
                     ChangeLine(-1);
                     Debug.Log("BackLine");

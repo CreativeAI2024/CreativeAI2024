@@ -12,7 +12,7 @@ public class MainTextDrawer : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject nextPageIcon;
 
-    private int _displayedSentenceLength = -1;
+    private int _displayedSentenceLength;
 
     [SerializeField] RectTransform iconObject;
 
@@ -21,6 +21,7 @@ public class MainTextDrawer : MonoBehaviour
         _mainTextObject = GetComponent<TextMeshProUGUI>();
         //�ꕶ�����\�����邽�߁A�ŏ���0�����ɐݒ�
         _mainTextObject.maxVisibleCharacters = 0;
+        _displayedSentenceLength = -1;
     }
 
     // �P�ʎ��� feedTime���Ƃɕ��͂��P�������\������
