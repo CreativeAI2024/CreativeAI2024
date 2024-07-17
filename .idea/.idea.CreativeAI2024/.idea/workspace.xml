@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TextWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TextWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Texts/Sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Texts/Sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Title.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Title.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Text/ConversationTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Text/ConversationTextManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Text/MainTextDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Text/MainTextDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Balanced.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-Performant.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoundManager/SoundManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +17,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04af773e223344bd9a56d36a602cfd4220a00/2a/3ca783e3/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/273b9b160dfa4d338b74d774f8fa879ca200/eb/1b2e3a06/Tilemap.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerTilePosition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -129,13 +115,9 @@
       <workItem from="1718680887269" duration="1361000" />
       <workItem from="1718684207445" duration="1361000" />
       <workItem from="1718790018074" duration="1819000" />
-      <workItem from="1719560627345" duration="3856000" />
-      <workItem from="1720597470744" duration="4357000" />
-      <workItem from="1720662742983" duration="3336000" />
-      <workItem from="1720676355822" duration="15418000" />
-      <workItem from="1720714227877" duration="59000" />
-      <workItem from="1720760002844" duration="5346000" />
-      <workItem from="1721195435074" duration="1323000" />
+      <workItem from="1718978961059" duration="75000" />
+      <workItem from="1718979063157" duration="98000" />
+      <workItem from="1718980190910" duration="94000" />
     </task>
     <servers />
   </component>
