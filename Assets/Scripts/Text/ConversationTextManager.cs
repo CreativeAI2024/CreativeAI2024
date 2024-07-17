@@ -2,27 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System.Runtime.CompilerServices;
-using TMPro;
 
 public class ConversationTextManager : MonoBehaviour
 {
     [SerializeField] private MainTextDrawer mainTextDrawer;
     [SerializeField] private NameTextDrawer nameTextDrawer;
     [SerializeField] private TextAsset textAsset;
-
+    [SerializeField] private Pause pause;
     [SerializeField] private float intervalTime;
     private float unitTime;
     private InputSetting _inputSetting;
 
     private List<string> _sentences = new();
-    private int lineNumber = 0;
+    private int lineNumber;
 
     // Start is called before the first frame update
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        Initiallize();
+        //Initiallize();
     }
 
     // Update is called once per frame
@@ -37,20 +35,26 @@ public class ConversationTextManager : MonoBehaviour
         }
 
         // zキーが離されたとき、次の行へ移動
-        if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
+        if (_inputSetting.GetDecideKeyDown() || _inputSetting.GetCancelKeyDown())
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
+                if (_inputSetting.GetDecideKeyDown() && lineNumber < _sentences.Count - 1)
                 {
                     ChangeLine(1);
                     Debug.Log("NextLine");
                 }
-                else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
+                else if (_inputSetting.GetCancelKeyDown() && 0 < lineNumber)
                 {
                     ChangeLine(-1);
                     Debug.Log("BackLine");
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                    pause.UnPauseAll();
+                    return;
                 }
             }
             else if (unitTime > -0.45f)
@@ -67,15 +71,18 @@ public class ConversationTextManager : MonoBehaviour
         }
 
         DisplayText();
-
+        
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }
 
-    private void Initiallize()
+    public void Initiallize()
     {
-        mainTextDrawer.Initiallize();
-        
+        pause.PauseAll();
+        mainTextDrawer.Initialize();
+        nameTextDrawer.Initialize();
+        lineNumber = 0;
+        _sentences.Clear();
         unitTime = 0f;
 
         //テキストファイルの読み込み。_sentencesに格納

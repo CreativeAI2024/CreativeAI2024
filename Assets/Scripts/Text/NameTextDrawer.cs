@@ -9,7 +9,7 @@ public class NameTextDrawer : MonoBehaviour
     private TextMeshProUGUI _nameTextObject;
     private GameObject _nameTextPanel;
 
-     void Start()
+    public void Initialize()
     {
         _nameTextObject = GetComponent<TextMeshProUGUI>();
         _nameTextPanel = transform.parent.gameObject;
