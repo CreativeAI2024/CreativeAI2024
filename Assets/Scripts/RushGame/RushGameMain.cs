@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class RushGameMain : MonoBehaviour
 {
     [SerializeField] private float goalCount;
     private float rushedCount;
-    [SerializeField] private float limitTime;
+    [SerializeField, HeaderAttribute("単位:s")] private float limitTime;
     private float ScheduleTime;
     private InputSetting _inputSetting;
 
@@ -31,23 +30,23 @@ public class RushGameMain : MonoBehaviour
         }
         else if(_inputSetting.GetDecideKeyDown())
         {
-            if (rushedCount > goalCount)
+            if (rushedCount >= goalCount)
             {
-                Debug.Log("success");     //成功したとき
+                DebugLogger.Log("success");     //成功したとき
             }
             else
             {
-                Debug.Log("fail");     //失敗したとき
+                DebugLogger.Log("fail");     //失敗したとき
             }
         }
     }
 
-    public void Initialize()
+    private void Initialize()
     {
         _inputSetting = InputSetting.Load();
         ScheduleTime = 0;
     }
-    public void Proceed()
+    private void Proceed()
     {
         if (_inputSetting.GetDecideKeyDown())
         {
@@ -55,7 +54,7 @@ public class RushGameMain : MonoBehaviour
         }
     }
 
-    public void UIControl()
+    private void UIControl()
     {
         rushGameSlider.SetSliderValue(rushedCount / goalCount);
         rushGameSlider.SetGoalCountText(goalCount.ToString());
