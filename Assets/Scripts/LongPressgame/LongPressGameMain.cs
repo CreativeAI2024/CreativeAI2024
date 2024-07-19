@@ -6,9 +6,8 @@ using UnityEngine.Rendering;
 
 public class LongPressGameMain : MonoBehaviour
 {
-    [SerializeField] private float goalTime;
+    [SerializeField, HeaderAttribute("’PˆÊ:s")] private float goalTime;
     private float pressedTime;
-    private float scheduleTime;
     private InputSetting _inputSetting;
 
     [SerializeField] private LongPressGameSlider longPressGameSlider;
@@ -20,7 +19,6 @@ public class LongPressGameMain : MonoBehaviour
 
     void Update()
     {
-        scheduleTime += Time.deltaTime;
         if (!(longPressGameSlider == null))
         {
             UIControl();
@@ -28,11 +26,12 @@ public class LongPressGameMain : MonoBehaviour
 
         if (pressedTime >= goalTime && _inputSetting.GetDecideKeyUp())
         {
-            Debug.Log("success");
+            DebugLogger.Log("success");
+            pressedTime = 0;
         }
         else if(pressedTime < goalTime && _inputSetting.GetDecideKeyUp())
         {
-            Debug.Log("fail");
+            DebugLogger.Log("fail");
             pressedTime = 0;
         }
         else if(pressedTime < goalTime)
@@ -41,13 +40,12 @@ public class LongPressGameMain : MonoBehaviour
         }
     }
 
-    public void Initialize()
+    private void Initialize()
     {
         _inputSetting = InputSetting.Load();
-        scheduleTime = 0;
         pressedTime = 0;
     }
-    public void Proceed()
+    private void Proceed()
     {
         if (_inputSetting.GetDecideKey())
         {
@@ -55,7 +53,7 @@ public class LongPressGameMain : MonoBehaviour
         }
     }
 
-    public void UIControl()
+    private void UIControl()
     {
         longPressGameSlider.SetSliderValue(pressedTime / goalTime);
         longPressGameSlider.SetGoalTimeText(goalTime.ToString());
