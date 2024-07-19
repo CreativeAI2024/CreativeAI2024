@@ -5,27 +5,27 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 {
     private Vector3 _previousPos = Vector3.zero;
     private Vector3 _initialPos;
-    private bool _isDrag = false;
+    private RectTransform _rectTransform;
+
+    private void Start()
+    {
+        _rectTransform = this.GetComponent<RectTransform>();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         _previousPos = eventData.position;
-        _initialPos = this.transform.GetComponent<RectTransform>().position;
-        _isDrag = true;
+        _initialPos = _rectTransform.position;
     }
 
     public void OnDrag(PointerEventData eventData) 
     {
-        if (_isDrag)
-        {
-            Vector3 _currentPos = eventData.position;
-            Vector3 _diffDistance = _currentPos - _previousPos;
-            this.transform.GetComponent<RectTransform>().position = _initialPos + new Vector3(_diffDistance.x, _diffDistance.y);
-        }
+        Vector3 _currentPos = eventData.position;
+        Vector3 diff = _currentPos - _previousPos;
+        _rectTransform.position = _initialPos + new Vector3(diff.x, diff.y);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        _isDrag = false;
     }
 }
