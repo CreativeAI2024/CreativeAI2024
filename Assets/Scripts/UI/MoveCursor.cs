@@ -6,34 +6,30 @@ public class MoveCursor : MonoBehaviour
 {
     private InputSetting _inputSetting;
     private Selectable focusedButton;
-    [SerializeField] private Transform cursorTransform;
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        focusedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+        focusedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>();
+        ChangeCursorVisibility(focusedButton.gameObject, true);
     }
 
     void Update()
     {
         if (_inputSetting.GetForwardKeyDown())
         {
-            FocusUpButton();
-            SetPosition();
+            MoveToUpButton();
         }
         if (_inputSetting.GetBackKeyDown())
         {
-            FocusDownButton();
-            SetPosition();
+            MoveToDownButton();
         }
         if (_inputSetting.GetLeftKeyDown())
         {
-            FocusLeftButton();
-            SetPosition();
+            MoveToLeftButton();
         }
         if (_inputSetting.GetRightKeyDown())
         {
-            FocusRightButton();
-            SetPosition();
+            MoveToRightButton();
         }
     }
     private void FocusButton(Selectable focusCandidate)
@@ -44,25 +40,34 @@ public class MoveCursor : MonoBehaviour
             focusedButton.Select();
         }
     }
-    private void FocusUpButton()
+    private void ChangeCursorVisibility(GameObject button, bool isEnabled)
     {
-        FocusButton(focusedButton.FindSelectableOnUp());
+        button.GetComponent<Image>().enabled = isEnabled;
     }
 
-    private void FocusDownButton()
+    private void MoveToUpButton()
     {
+        ChangeCursorVisibility(focusedButton.gameObject, false);
+        FocusButton(focusedButton.FindSelectableOnUp());
+        ChangeCursorVisibility(focusedButton.gameObject, true);
+    }
+
+    private void MoveToDownButton()
+    {
+        ChangeCursorVisibility(focusedButton.gameObject, false);
         FocusButton(focusedButton.FindSelectableOnDown());
+        ChangeCursorVisibility(focusedButton.gameObject, true);
     }
-    private void FocusLeftButton()
+    private void MoveToLeftButton()
     {
+        ChangeCursorVisibility(focusedButton.gameObject, false);
         FocusButton(focusedButton.FindSelectableOnLeft());
+        ChangeCursorVisibility(focusedButton.gameObject, true);
     }
-    private void FocusRightButton()
+    private void MoveToRightButton()
     {
+        ChangeCursorVisibility(focusedButton.gameObject, false);
         FocusButton(focusedButton.FindSelectableOnRight());
-    }
-    private void SetPosition()
-    {
-        cursorTransform.position = EventSystem.current.currentSelectedGameObject.transform.position;
+        ChangeCursorVisibility(focusedButton.gameObject, true);
     }
 }

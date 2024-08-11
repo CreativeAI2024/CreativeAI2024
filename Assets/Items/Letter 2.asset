@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56b1bdf4f98fb4b039d9a61aca5f9cf7, type: 3}
-  m_Name: Letter
+  m_Name: Letter 2
   m_EditorClassIdentifier: 
-  itemName: Letter
-  description: A letter from my father
+  itemName: Letter 2
+  description: A letter from my mother
   count: 1
   image: {fileID: 21300000, guid: 47e654f81a0b044d8b4e14f660a653ae, type: 3}
