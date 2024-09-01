@@ -11,7 +11,7 @@ public class ItemList : ScriptableObject
     { 
         get { return items; }
     }
-    public BaseItem Search(string searchedItemName) //Itemを探索したいときに　これとLoadItemListのSearch()はどちらかはprivateでもいいかも？
+    public BaseItem Search(string searchedItemName) //TODO: Itemを探索したいときに　これとLoadItemListのSearch()はどちらかはprivateでもいいかも？判断する
     {
         foreach (BaseItem item in items)
         {

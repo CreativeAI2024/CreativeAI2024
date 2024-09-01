@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-// やること
-// カーソルの移動先が無い時にerrorが起きる
-// デバッグ
-// 説明ウィンドウの機能作成
-// ImageShowItemのimageを表示する機能
-// ItemButtonに個数表示機能
-// メニューUIの構造の見直し（自分以外でも使えるように）
-//     スクリプトをどのオブジェクトにアタッチすれば良いか
-//     プレハブを実体化すればすぐメニューUIが使えるようにする
-//     SerializeFieldは本当にこのスクリプトで必要か
+using UnityEngine.Rendering;
+//TODO: ImageShowItemのimageを表示する機能
+//TODO: カーソルの移動先が無い時にerrorが起きる
+//TODO: デバッグ
+//TODO: 説明ウィンドウの機能作成
+//TODO: ItemButtonに個数表示機能
+//TODO: メニューUIの構造の見直し（自分以外でも使えるように）
+//TODO:     スクリプトをどのオブジェクトにアタッチすれば良いか
+//TODO:     プレハブを実体化すればすぐメニューUIが使えるようにする
+//TODO:     SerializeFieldは本当にこのスクリプトで必要か
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField] private ItemList itemList;
+    private ItemList itemList;
     [SerializeField] private GameObject itemButtonPrefab;
 
     void Start()
     {
+        itemList = Resources.Load<ItemList>("Items/ItemList");
         foreach (BaseItem item in itemList.Items)
         {
             MakeItemButton(item);
@@ -89,7 +90,17 @@ public class ItemManager : MonoBehaviour
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
         SetButtonName(itemButton, item.ItemName);
+        itemButton.AddComponent<ItemEffect>();
     }
+
+//TODO: アイテム周りのクラス図を作る
+//TODO: 現在の問題：Buttonからアイテムの画像にアクセスできない
+//ImageShowItem Objectは画像と、そのgetterを持っている
+//ItemManagerはButtons内のBaseItemにfor文で全てにアクセスできる
+//引数の型がBaseItemでも、実際に引数として渡される変数がそれを継承したImageShowItemクラスなら、ImageShowItemクラスとして認識される
+//ItemButtonはアイテム名しか持っていない
+//ItemButtonからItemにアクセスできるようにして、ItemButtonを押した時にさまざまなことができるようにしたい
+//調べてみたら、ItemList.Search(ItemName)でアクセスできる！
 
     private string GetButtonName(GameObject button)
     {

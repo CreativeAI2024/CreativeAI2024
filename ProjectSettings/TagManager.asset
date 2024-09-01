@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SoundManager
+  - ImageOfImageShowItem
   layers:
   - Default
   - TransparentFX

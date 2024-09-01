@@ -6,7 +6,7 @@ public class DisplayDescripsion : MonoBehaviour
     private GameObject focusedButton;
     void Start()
     {
-        focusedButton = EventSystem.current.currentSelectedGameObject; //ボタンが切り替わったら表示テキストを変更する
+        focusedButton = EventSystem.current.currentSelectedGameObject; //TODO: ボタンが切り替わったら表示テキストを変更する
     }
     void Update()
     {
