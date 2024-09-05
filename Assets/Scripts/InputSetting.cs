@@ -1,46 +1,81 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName="ScriptableObject/InputSetting")]
 public class InputSetting : ScriptableObject
 {
-    public KeyCode forwardKey;
-    public KeyCode leftKey;
-    public KeyCode backKey;
-    public KeyCode rightKey;
-    public KeyCode decideKey;
-    public KeyCode cancelKey;
-    public KeyCode itemKey;
+    public List<KeyCode> forwardKey;
+    public List<KeyCode> leftKey;
+    public List<KeyCode> backKey;
+    public List<KeyCode> rightKey;
+    public List<KeyCode> decideKey;
+    public List<KeyCode> cancelKey;
+    public List<KeyCode> menuKey;
     
     public static InputSetting Load(string path = "Player Input Setting")
     {
         return Resources.Load<InputSetting>(path);
     }
+
+    private bool GetAnyKeyDown(List<KeyCode> keys)
+    {
+        foreach (KeyCode key in keys)
+        {
+            if (!Input.GetKeyDown(key)) continue;
+            
+            return true;
+        }
+        return false;
+    }
     
-    public bool GetForwardKeyDown() => Input.GetKeyDown(forwardKey);
-    public bool GetForwardKey() => Input.GetKey(forwardKey);
-    public bool GetForwardKeyUp() => Input.GetKeyUp(forwardKey);
+    private bool GetAnyKey(List<KeyCode> keys)
+    {
+        foreach (KeyCode key in keys)
+        {
+            if (!Input.GetKey(key)) continue;
+            
+            return true;
+        }
+        return false;
+    }
     
-    public bool GetLeftKeyDown() => Input.GetKeyDown(leftKey);
-    public bool GetLeftKey() => Input.GetKey(leftKey);
-    public bool GetLeftKeyUp() => Input.GetKeyUp(leftKey);
+    private bool GetAnyKeyUp(List<KeyCode> keys)
+    {
+        foreach (KeyCode key in keys)
+        {
+            if (!Input.GetKeyUp(key)) continue;
+            
+            return true;
+        }
+        return false;
+    }
+
+    public bool GetForwardKeyDown() => GetAnyKeyDown(forwardKey);
+    public bool GetForwardKey() => GetAnyKey(forwardKey);
+    public bool GetForwardKeyUp() => GetAnyKeyUp(forwardKey);
     
-    public bool GetBackKeyDown() => Input.GetKeyDown(backKey);
-    public bool GetBackKey() => Input.GetKey(backKey);
-    public bool GetBackKeyUp() => Input.GetKeyUp(backKey);
+    public bool GetLeftKeyDown() => GetAnyKeyDown(leftKey);
+    public bool GetLeftKey() => GetAnyKey(leftKey);
+    public bool GetLeftKeyUp() => GetAnyKeyUp(leftKey);
     
-    public bool GetRightKeyDown() => Input.GetKeyDown(rightKey);
-    public bool GetRightKey() => Input.GetKey(rightKey);
-    public bool GetRightKeyUp() => Input.GetKeyUp(rightKey);
+    public bool GetBackKeyDown() => GetAnyKeyDown(backKey);
+    public bool GetBackKey() => GetAnyKey(backKey);
+    public bool GetBackKeyUp() => GetAnyKeyUp(backKey);
     
-    public bool GetDecideKeyDown() => Input.GetKeyDown(decideKey);
-    public bool GetDecideKey() => Input.GetKey(decideKey);
-    public bool GetDecideKeyUp() => Input.GetKeyUp(decideKey);
+    public bool GetRightKeyDown() => GetAnyKeyDown(rightKey);
+    public bool GetRightKey() => GetAnyKey(rightKey);
+    public bool GetRightKeyUp() => GetAnyKeyUp(rightKey);
     
-    public bool GetCancelKeyDown() => Input.GetKeyDown(cancelKey);
-    public bool GetCancelKey() => Input.GetKey(cancelKey);
-    public bool GetCancelKeyUp() => Input.GetKeyUp(cancelKey);
+    public bool GetDecideKeyDown() => GetAnyKeyDown(decideKey);
+    public bool GetDecideKey() => GetAnyKey(decideKey);
+    public bool GetDecideKeyUp() => GetAnyKeyUp(decideKey);
     
-    public bool GetItemKeyDown() => Input.GetKeyDown(itemKey);
-    public bool GetItemKey() => Input.GetKey(itemKey);
-    public bool GetItemKeyUp() => Input.GetKeyUp(itemKey);
+    public bool GetCancelKeyDown() => GetAnyKeyDown(cancelKey);
+    public bool GetCancelKey() => GetAnyKey(cancelKey);
+    public bool GetCancelKeyUp() => GetAnyKeyUp(cancelKey);
+    
+    public bool GetMenuKeyDown() => GetAnyKeyDown(menuKey);
+    public bool GetMenuKey() => GetAnyKey(menuKey);
+    public bool GetMenuKeyUp() => GetAnyKeyUp(menuKey);
 }
