@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+//TODO: ItemManager の名前変える
 //TODO: カーソルの移動先が無い時にerrorが起きる
 //TODO: デバッグ
 //TODO: 説明ウィンドウの機能作成
@@ -14,19 +15,20 @@ using UnityEngine.Rendering;
 //TODO:     SerializeFieldは本当にこのスクリプトで必要か
 public class ItemManager : MonoBehaviour
 {
-    private ItemList itemList;
+    [SerializeField] private ItemList itemList;
     [SerializeField] private GameObject itemButtonPrefab;
 
     void Start()
     {
-        itemList = Resources.Load<ItemList>("Items/ItemList");
         foreach (BaseItem item in itemList.Items)
         {
             MakeItemButton(item);
         }
     }
 
-    public GameObject Search(string searchedButtonName) //アイテム合成の時にリストを探索する時に呼び出す
+//アイテム合成の時にリストを探索する時に呼び出す
+//上の場合でも、ItemList内を探せばいいのでは？
+    public GameObject Search(string searchedButtonName)
     {
         foreach (Transform child in transform)
         {

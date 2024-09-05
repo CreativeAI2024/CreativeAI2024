@@ -39,7 +39,7 @@ public class ItemEffect : MonoBehaviour
             }
         }
     }
-
+    //TODO: もっと便利に、いろんな場面で使える、特定のキー操作をロックするシステムの構築が必要
     //TODO: アイテム画像は1600*900で出してもらうことを視覚班に伝える
     private void ShowImage(ImageShowItem imageShowItem)
     {

@@ -6,6 +6,7 @@ public class MoveCursor : MonoBehaviour
 {
     private InputSetting _inputSetting;
     private Selectable focusedButton;
+    [SerializeField] private GameObject imageOfImageShownItem;
     void Start()
     {
         _inputSetting = InputSetting.Load();
@@ -15,19 +16,19 @@ public class MoveCursor : MonoBehaviour
 
     void Update()
     {
-        if (_inputSetting.GetForwardKeyDown())
+        if (_inputSetting.GetForwardKeyDown() && !IsImageEnabled())
         {
             MoveToUpButton();
         }
-        if (_inputSetting.GetBackKeyDown())
+        if (_inputSetting.GetBackKeyDown() && !IsImageEnabled())
         {
             MoveToDownButton();
         }
-        if (_inputSetting.GetLeftKeyDown())
+        if (_inputSetting.GetLeftKeyDown() && !IsImageEnabled())
         {
             MoveToLeftButton();
         }
-        if (_inputSetting.GetRightKeyDown())
+        if (_inputSetting.GetRightKeyDown() && !IsImageEnabled())
         {
             MoveToRightButton();
         }
@@ -69,5 +70,10 @@ public class MoveCursor : MonoBehaviour
         ChangeCursorVisibility(focusedButton.gameObject, false);
         FocusButton(focusedButton.FindSelectableOnRight());
         ChangeCursorVisibility(focusedButton.gameObject, true);
+    }
+
+    private bool IsImageEnabled()
+    {
+        return imageOfImageShownItem.GetComponent<Image>().enabled;
     }
 }
