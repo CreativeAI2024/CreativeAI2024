@@ -20,7 +20,7 @@ public class SwitchWindow : MonoBehaviour
         {
             SetWindowActive(!_isWindowActive);
         }
-        else if (_inputSetting.GetCancelKeyDown() && _isWindowActive && topWindow.activeSelf)
+        else if (_inputSetting.GetCancelKeyDown() && _isWindowActive && topWindow.activeSelf && ImageOfImageShowItem.GetComponent<Image>().enabled == false)
         {
             SetWindowActive(false);
         }

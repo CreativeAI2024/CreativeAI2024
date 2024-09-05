@@ -33,7 +33,7 @@ public class ItemEffect : MonoBehaviour
                 }
 
             }
-            else if (IsImageEnabled && (_inputSetting.GetCancelKeyDown() || _inputSetting.GetDecideKeyDown() || _inputSetting.GetItemKeyDown()))
+            else if (IsImageEnabled && (_inputSetting.GetCancelKeyDown() || _inputSetting.GetDecideKeyDown() || _inputSetting.GetMenuKeyDown()))
             {
                 ChangeEnabled(false);
             }
