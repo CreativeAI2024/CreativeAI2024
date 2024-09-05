@@ -1,9 +1,13 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using Image = UnityEngine.UI.Image;
+
 
 public class CloseWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject previousWindow;
+    [SerializeField] private GameObject ImageOfImageShowItem;
 
     void Start()
     {
@@ -11,7 +15,7 @@ public class CloseWindow : MonoBehaviour
     }
     void Update()
     {
-        if (_inputSetting.GetCancelKeyDown() && previousWindow != null)
+        if (_inputSetting.GetCancelKeyDown() && previousWindow != null && ImageOfImageShowItem.GetComponent<Image>().enabled == false)
         {
             Close();
         }

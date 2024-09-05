@@ -4,7 +4,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
-//TODO: ImageShowItemのimageを表示する機能
 //TODO: カーソルの移動先が無い時にerrorが起きる
 //TODO: デバッグ
 //TODO: 説明ウィンドウの機能作成

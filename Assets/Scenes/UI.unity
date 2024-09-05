@@ -684,6 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowBox: {fileID: 1576103409}
   topWindow: {fileID: 241254450}
+  ImageOfImageShowItem: {fileID: 1838889780}
 --- !u!1 &1838889780
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -914,32 +915,32 @@ PrefabInstance:
     - target: {fileID: 498299640329151993, guid: 4873dd8969ad84711bf479353b558f04,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 498299640329151993, guid: 4873dd8969ad84711bf479353b558f04,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 498299640329151993, guid: 4873dd8969ad84711bf479353b558f04,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 498299640329151993, guid: 4873dd8969ad84711bf479353b558f04,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 498299640329151993, guid: 4873dd8969ad84711bf479353b558f04,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 498299640329151993, guid: 4873dd8969ad84711bf479353b558f04,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 2103934072168904911, guid: 4873dd8969ad84711bf479353b558f04,
         type: 3}
@@ -971,6 +972,11 @@ PrefabInstance:
       propertyPath: m_ConstraintCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2700355596283593465, guid: 4873dd8969ad84711bf479353b558f04,
+        type: 3}
+      propertyPath: ImageOfImageShowItem
+      value: 
+      objectReference: {fileID: 1838889780}
     - target: {fileID: 2810079589815831816, guid: 4873dd8969ad84711bf479353b558f04,
         type: 3}
       propertyPath: m_Enabled
@@ -1159,6 +1165,11 @@ PrefabInstance:
       propertyPath: previousWindow
       value: 
       objectReference: {fileID: 241254450}
+    - target: {fileID: 5028304032791413518, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      propertyPath: ImageOfImageShowItem
+      value: 
+      objectReference: {fileID: 1838889780}
     - target: {fileID: 6649786585131092273, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
         type: 3}
       propertyPath: cursorTransform
