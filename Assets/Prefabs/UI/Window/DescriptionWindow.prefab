@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1155745995219862477}
   - component: {fileID: 9125676895128759958}
   m_Layer: 5
-  m_Name: DescripsionWindow
+  m_Name: DescriptionWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

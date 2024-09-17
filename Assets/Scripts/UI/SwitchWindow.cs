@@ -6,9 +6,8 @@ public class SwitchWindow : MonoBehaviour
     private InputSetting _inputSetting;
     [SerializeField] private GameObject windowBox;
     [SerializeField] private GameObject topWindow;
-    [SerializeField] private Pause pause;
+    // [SerializeField] private Pause pause; //何アタッチするのかわからない
     private bool _isWindowActive = false;
-    [SerializeField] private GameObject ImageOfImageShowItem;
 
     void Start()
     {
@@ -20,7 +19,7 @@ public class SwitchWindow : MonoBehaviour
         {
             SetWindowActive(!_isWindowActive);
         }
-        else if (_inputSetting.GetCancelKeyDown() && _isWindowActive && topWindow.activeSelf && ImageOfImageShowItem.GetComponent<Image>().enabled == false)
+        else if (_inputSetting.GetCancelKeyDown() && _isWindowActive && topWindow.activeSelf)
         {
             SetWindowActive(false);
         }
@@ -31,11 +30,11 @@ public class SwitchWindow : MonoBehaviour
         _isWindowActive = isActive;
         if (isActive)
         {
-            pause.PauseAll();
+            // pause.PauseAll();
         }
         else
         {
-            pause.UnPauseAll(); 
+            // pause.UnPauseAll(); 
         }
     }
 }

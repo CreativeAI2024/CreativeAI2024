@@ -9,7 +9,7 @@ public class BaseItem : ScriptableObject
     public string ItemName => itemName;
     [SerializeField, TextArea] private string description;
     public string Description => description;
-    [SerializeField] private int count;
+    [SerializeField] private int count = 1;
     public int Count => count;
 
     public void IncrementCount()

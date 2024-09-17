@@ -56,5 +56,10 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "CreativeAI2024.sln"
+    "dotnet.defaultSolution": "CreativeAI2024.sln",
+    "cSpell.words": [
+        "Behaviour",
+        "Scriptable",
+        "UGUI"
+    ]
 }

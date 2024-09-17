@@ -35,12 +35,12 @@ public class ItemList : ScriptableObject
         }
     }
 
-    public void Add(BaseItem item) 
+    public void Add(string itemName) 
     {
-        BaseItem addedItem = Search(item.ItemName);
+        BaseItem addedItem = Search(itemName);
         if (addedItem == null)
         {
-            items.Add(item);
+            items.Add(addedItem);
         }
         else
         {
@@ -49,9 +49,9 @@ public class ItemList : ScriptableObject
         CheckDuplication();
     }
 
-    public void Remove(BaseItem item)
+    public void Remove(string itemName)
     {
-        BaseItem removedItem = Search(item.ItemName);
+        BaseItem removedItem = Search(itemName);
         if (removedItem.Count > 1)
         {
             removedItem.DecrementCount();

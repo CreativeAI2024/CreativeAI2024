@@ -7,15 +7,13 @@ public class CloseWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject previousWindow;
-    [SerializeField] private GameObject ImageOfImageShowItem;
-
     void Start()
     {
         _inputSetting = InputSetting.Load();
     }
     void Update()
     {
-        if (_inputSetting.GetCancelKeyDown() && previousWindow != null && ImageOfImageShowItem.GetComponent<Image>().enabled == false)
+        if (_inputSetting.GetCancelKeyDown() && previousWindow != null)
         {
             Close();
         }

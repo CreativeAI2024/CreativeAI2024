@@ -2,7 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DisplayDescripsion : MonoBehaviour
+//TODO: 改行機能作成
+public class DisplayDescription : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private ItemList itemList;
@@ -11,17 +12,17 @@ public class DisplayDescripsion : MonoBehaviour
     {
         _inputSetting = InputSetting.Load();
         SetFocusedButtonName();
-        SetDescripsion();
+        SetDescription();
     }
     void Update()
     {
         if (_inputSetting.GetForwardKeyDown() || _inputSetting.GetBackKeyDown() || _inputSetting.GetLeftKeyDown() || _inputSetting.GetRightKeyDown())
         {
             SetFocusedButtonName();
-            SetDescripsion();
+            SetDescription();
         }
     }
-    private void SetDescripsion()
+    private void SetDescription()
     {
         transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemList.Search(focusedButtonName).Description;
     }
