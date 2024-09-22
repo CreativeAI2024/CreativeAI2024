@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 //TODO: ImageShowCombineMaterialItemがボタンに反応しない
+//TODO: 
 //TODO: アイテムの機能作る
 //TODO: 初回起動時、DescriptionWindowの文字列が読み込めていない
 //TODO: カーソル移動ロック機能作る
@@ -16,22 +17,22 @@ using UnityEngine.Rendering;
 //TODO:     スクリプトをどのオブジェクトにアタッチすれば良いか
 //TODO:     プレハブを実体化すればすぐメニューUIが使えるようにする
 //TODO:     SerializeFieldは本当にこのスクリプトで必要か
-public class ItemWindow : MonoBehaviour
+public class ItemButtons : MonoBehaviour
 {
     [SerializeField] private ItemList itemList;
     [SerializeField] private GameObject itemButtonPrefab;
-    public ItemWindow()
-    {
-        
-    }
+    [SerializeField] private GameObject itemImageScreen;
 
     void Start()
     {
+        LoadItemList();
     }
 
     private void LoadItemList()
     {
-
+        foreach (BaseItem item in itemList.Items) {
+            MakeItemButton(item.ItemName);
+        }
     }
 
     //アイテム合成の時にリストを探索する時に呼び出す
@@ -99,17 +100,21 @@ public class ItemWindow : MonoBehaviour
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
         SetButtonName(itemButton, itemName);
-        //この方法でのアイテムの型判別は、子クラスも通してしまう
+        //この方法でのアイテムの型判別は、子クラスも通してしまう。caseの順番を気をつければ今のところ大丈夫だけど、、、
         switch (itemList.Search(itemName))
         {
             case ImageShowItem :
-                itemButton.AddComponent<ShowImage>();
+                itemButton.AddComponent<OpenWindow>();
+                itemButton.GetComponent<OpenWindow>().currentWindow = transform.parent.gameObject;
+                itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
+                itemButton.AddComponent<SetImageAndNextWindow>();
                 break;
             case ImageShowCombineMaterialItem:
-            itemButton.AddComponent<ShowImage>();
+                itemButton.AddComponent<OpenWindow>();
+                itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
                 break;
-
         }
+        
     }
 
     //TODO: アイテム周りのクラス図を作る

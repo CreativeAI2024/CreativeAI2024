@@ -6,9 +6,10 @@ using Image = UnityEngine.UI.Image;
 public class CloseWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    [SerializeField] private GameObject previousWindow;
+    public GameObject previousWindow;
     void Start()
     {
+        // Debug.Log("CloseWindow on "+gameObject);
         _inputSetting = InputSetting.Load();
     }
     void Update()

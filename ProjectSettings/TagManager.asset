@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SoundManager
   - ItemImageScreen
+  - Canvas
+  - UIManager
   layers:
   - Default
   - TransparentFX

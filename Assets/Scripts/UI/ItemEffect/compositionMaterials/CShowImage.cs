@@ -8,16 +8,10 @@ public class CShowImage
   {
     this.itemImageScreen = itemImageScreen;
   }
-  public void Show(BaseItem imageShowItem)
+  public void Show(BaseItem imageShowItem, GameObject nextWindow)
   {
     ImageShowItem item = (ImageShowItem)imageShowItem;
-    Sprite image = item.Image;
-    itemImageScreen.GetComponent<Image>().sprite = image;
-    ChangeEnabled(true);
-
-  }
-  public void ChangeEnabled(bool IsEnabled)
-  {
-    itemImageScreen.GetComponent<Image>().enabled = IsEnabled;
+    itemImageScreen.GetComponent<Image>().sprite = item.Image;
+    itemImageScreen.GetComponent<OpenWindow>().nextWindow = nextWindow;
   }
 }
