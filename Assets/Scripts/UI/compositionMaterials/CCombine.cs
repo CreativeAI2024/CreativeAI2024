@@ -1,26 +1,19 @@
-using UnityEngine;
-
 public class CCombine
 {
   private ItemList itemList;
-  private CombineMaterialItem thisItem;
-  private string thisItemName;
-  private string pairItemName;
-  public CCombine(ItemList itemList, string itemName)
+  public CCombine(ItemList itemList)
   {
     this.itemList = itemList; 
-    thisItemName = itemName;
-    thisItem = (CombineMaterialItem)itemList.Search(thisItemName);
-    pairItemName = thisItem.PairItem.ItemName;
   }
 
-  public bool Combine()
+  public bool Combine(string itemName)
   {
-    if (itemList.Search(pairItemName)!=null)
+    CombineMaterialItem thisItem = (CombineMaterialItem)itemList.Search(itemName);
+    if (itemList.Search(thisItem.PairItem.ItemName)!=null)
     {
       itemList.Add(thisItem.CreatedItem.ItemName);
-      itemList.Remove(thisItemName);
-      itemList.Remove(pairItemName);
+      itemList.Remove(itemName);
+      itemList.Remove(thisItem.PairItem.ItemName);
       return true;
     } else {
       return false;

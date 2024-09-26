@@ -14,7 +14,11 @@ public class Combine : MonoBehaviour
     {
         _inputSetting = InputSetting.Load();
         itemList = Resources.Load<ItemList>("Items/ItemList");
-        cCombine = new CCombine(itemList, itemName);
+        cCombine = new CCombine(itemList);
+    }
+    void OnEnable()
+    {
+        Debug.Log("itemName: "+itemName);
     }
     void Update()
     {
@@ -22,7 +26,7 @@ public class Combine : MonoBehaviour
         {
             if (_inputSetting.GetDecideKeyDown())
             {
-                cCombine.Combine();
+                cCombine.Combine(itemName);
             }
         }
     }

@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-//TODO: 改行機能作成
 public class DisplayDescription : MonoBehaviour
 {
     private InputSetting _inputSetting;
@@ -25,6 +24,7 @@ public class DisplayDescription : MonoBehaviour
         }
         catch (Exception)
         {
+            //TODO: Awake()使えばいいのでは？
             Debug.Log("First Run");
         }
     }

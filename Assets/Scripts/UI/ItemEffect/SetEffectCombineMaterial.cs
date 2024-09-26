@@ -9,13 +9,28 @@ public class SetEffectCombineMaterial : MonoBehaviour
   private GameObject uiManager;
   private CombineMaterialItem thisItem;
   private GameObject confirmYesButton;
+  void Awake()
+  {
+    itemList = Resources.Load<ItemList>("Items/ItemList");
+    thisItem = (CombineMaterialItem)itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+  }
   void Start()
   {
     _inputSetting = InputSetting.Load();
-    itemList = Resources.Load<ItemList>("Items/ItemList");
     uiManager = GameObject.FindWithTag("UIManager");
-    thisItem = (CombineMaterialItem)itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
     confirmYesButton = uiManager.GetComponent<GameObjectHolder>().ConfirmYesButton;
+  }
+
+  void OnEnable()
+  {
+    if (itemList.Search(thisItem.PairItem.ItemName) == true)
+    {
+      ChangeEnabled(true);
+    }
+    else
+    {
+      ChangeEnabled(false);
+    }
   }
   void Update()
   {
@@ -25,12 +40,7 @@ public class SetEffectCombineMaterial : MonoBehaviour
       {
         if (itemList.Search(thisItem.PairItem.ItemName) == true)
         {
-          Debug.Log("ChangeEnabled(true)");
-          ChangeEnabled(true);
           confirmYesButton.GetComponent<Combine>().ItemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
-        }
-        else{
-          ChangeEnabled(false);
         }
       }
     }

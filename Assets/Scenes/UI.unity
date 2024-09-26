@@ -1442,10 +1442,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7297667953626392408}
-    - targetCorrespondingSourceObject: {fileID: 1290780148296136670, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7297667953626392414}
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1492fb3094ed8b8aa46fae6eb800, type: 3}
 --- !u!1 &2121905295 stripped
 GameObject:
@@ -1694,21 +1690,6 @@ MonoBehaviour:
   itemList: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   itemButtonPrefab: {fileID: 7780956747717782826, guid: 0c381518c836a4af48cdd50f6c93c4d7,
     type: 3}
-  itemImageScreen: {fileID: 1941728813}
-  confirmWindow: {fileID: 9059777143252679121}
---- !u!114 &7297667953626392414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2121905295}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719ae511ec8e8400496db9b8d6cdb268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemList: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   itemImageScreen: {fileID: 1941728813}
   confirmWindow: {fileID: 9059777143252679121}
 --- !u!1 &9059777143252679121 stripped

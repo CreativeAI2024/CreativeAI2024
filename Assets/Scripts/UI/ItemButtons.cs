@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 //TODO: アイテムの機能作る
-//TODO: カーソル移動ロック機能作る→今のところ不要になった
-//TODO: アイテム画像は1600*900で出してもらうことを視覚班に伝える→ゲーム全体の解像度によるので保留
+//TODO:     テキスト表示機能
+//TODO: アイテム合成の時に、アイテムの個数のことを考えずに問答無用でDestroyしていた
+//TODO: スクロール機能
+//TODO: 改行に合わせて説明ウィンドウの縦幅を増やす機能
+//TODO: 確認ウィンドウに合成アイテム名を表示
 //TODO: ItemButtonに個数表示機能
+//TODO: スクリプト実行順見直す
 //TODO: デバッグ
 //TODO: メニューUIの構造の見直し（自分以外でも使えるように）
-//TODO:     スクリプトをどのオブジェクトにアタッチすれば良いか
 //TODO:     プレハブを実体化すればすぐメニューUIが使えるようにする
-//TODO:     SerializeFieldは本当にこのスクリプトで必要か
+//カーソル移動ロック機能作る→今のところ不要になった
+//アイテム画像は1600*900で出してもらうことを視覚班に伝える→ゲーム全体の解像度によるので保留
+
 public class ItemButtons : MonoBehaviour
 {
     [SerializeField] private ItemList itemList;

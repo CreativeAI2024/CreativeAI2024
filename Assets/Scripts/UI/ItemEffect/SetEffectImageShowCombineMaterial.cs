@@ -13,17 +13,33 @@ public class SetEffectImageShowCombineMaterial : MonoBehaviour
   private GameObject confirmWindow;
   private GameObject confirmYesButton;
   private GameObject itemImageScreen;
+
+  void Awake()
+  {
+    itemList = Resources.Load<ItemList>("Items/ItemList");
+    thisItem = (CombineMaterialItem)itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+  }
   void Start()
   {
     _inputSetting = InputSetting.Load();
     uiManager = GameObject.FindWithTag("UIManager");
     string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
-    itemList = Resources.Load<ItemList>("Items/ItemList");
-    thisItem = (CombineMaterialItem)itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
     itemImage = ((ImageShowCombineMaterialItem)itemList.Search(itemName)).Image;
     confirmWindow = uiManager.GetComponent<GameObjectHolder>().ConfirmWindow;
     confirmYesButton = uiManager.GetComponent<GameObjectHolder>().ConfirmYesButton;
     itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
+  }
+
+  void OnEnable()
+  {
+    if (itemList.Search(thisItem.PairItem.ItemName) == true)
+    {
+      ChangeEnabled(true);
+    }
+    else
+    {
+      ChangeEnabled(false);
+    }
   }
   void Update()
   {
@@ -43,6 +59,11 @@ public class SetEffectImageShowCombineMaterial : MonoBehaviour
         }
       }
     }
+  }
+
+  private void ChangeEnabled(bool isCombinable)
+  {
+    transform.GetComponent<OpenWindow>().enabled = isCombinable;
   }
 
   private void ChangeNextWindow(bool isCombinable)
