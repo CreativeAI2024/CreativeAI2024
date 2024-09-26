@@ -1,15 +1,10 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
-//TODO: 合成機能作る
 //TODO: アイテムの機能作る
 //TODO: カーソル移動ロック機能作る→今のところ不要になった
-//TODO: 画像表示中にカーソル移動できないようにする
-//TODO: アイテム画像は1600*900で出してもらうことを視覚班に伝える
+//TODO: アイテム画像は1600*900で出してもらうことを視覚班に伝える→ゲーム全体の解像度によるので保留
 //TODO: ItemButtonに個数表示機能
 //TODO: デバッグ
 //TODO: メニューUIの構造の見直し（自分以外でも使えるように）

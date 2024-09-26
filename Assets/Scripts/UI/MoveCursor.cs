@@ -7,7 +7,6 @@ public class MoveCursor : MonoBehaviour
     protected Selectable focusedButton;
     protected void OnEnable()
     {
-        // Debug.Log("MoveCursor on "+transform.parent.gameObject);
         focusedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>();
         foreach (Transform child in transform)
         {

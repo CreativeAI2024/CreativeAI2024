@@ -11,7 +11,6 @@ public class DisplayDescription : MonoBehaviour
     private string focusedButtonName;
     void Start()
     {
-        // Debug.Log("DisplayDescription on "+gameObject);
         _inputSetting = InputSetting.Load();
         SetFocusedButtonName();
         SetDescription();

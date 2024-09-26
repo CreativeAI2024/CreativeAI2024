@@ -1,5 +1,4 @@
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
 
 public class SwitchWindow : MonoBehaviour
 {
@@ -7,12 +6,12 @@ public class SwitchWindow : MonoBehaviour
     [SerializeField] private GameObject windowBox;
     [SerializeField] private GameObject topWindow;
     // [SerializeField] private Pause pause; //何アタッチするのかわからない
-    private bool _isWindowActive = false;
+    private bool _isWindowActive;
 
     void Start()
     {
-        // Debug.Log("SwitchWindow on "+gameObject);
         _inputSetting = InputSetting.Load();
+        _isWindowActive = windowBox.activeInHierarchy;
     }
     void Update()
     {

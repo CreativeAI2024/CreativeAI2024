@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CCombine
 {
@@ -17,10 +16,8 @@ public class CCombine
 
   public bool Combine()
   {
-    Debug.Log("Combine ran");
     if (itemList.Search(pairItemName)!=null)
     {
-      Debug.Log("Pair Item Found");
       itemList.Add(thisItem.CreatedItem.ItemName);
       itemList.Remove(thisItemName);
       itemList.Remove(pairItemName);
