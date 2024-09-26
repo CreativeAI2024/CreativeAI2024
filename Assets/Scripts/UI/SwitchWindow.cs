@@ -11,6 +11,7 @@ public class SwitchWindow : MonoBehaviour
 
     void Start()
     {
+        // Debug.Log("SwitchWindow on "+gameObject);
         _inputSetting = InputSetting.Load();
     }
     void Update()

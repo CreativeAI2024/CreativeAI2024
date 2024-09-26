@@ -40,7 +40,7 @@ public class ItemList : ScriptableObject
         BaseItem addedItem = Search(itemName);
         if (addedItem == null)
         {
-            items.Add(addedItem);
+            items.Add(Resources.Load<BaseItem>("Items/"+itemName));
         }
         else
         {

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c123c25f8480b4fc1bb6a608de5091f0, type: 3}
+  m_Name: Disk
+  m_EditorClassIdentifier: 
+  itemName: Disk
+  description: There is a hole on the side
+  count: 1
+  pairItem: {fileID: 11400000, guid: 87b78e63ba87248e8a104e0f287b8007, type: 2}
+  createdItem: {fileID: 11400000, guid: 9f35463909b264ef5b2add2558f90db7, type: 2}

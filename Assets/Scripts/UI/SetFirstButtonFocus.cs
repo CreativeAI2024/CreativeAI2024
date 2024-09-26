@@ -7,13 +7,14 @@ using UnityEngine.UI;
 // Buttonsにアタッチする
 public class SetFirstButtonFocus : MonoBehaviour
 {
-    void OnEnable() //初回はOnEnableだとダメだった
+    void OnEnable() // ItemWindowでは、まだItemButtonが生成されていないから初回はOnEnableだとダメだった
     {
-        Debug.Log("SetFirstButtonFocus on "+transform.parent.gameObject);
+        // Debug.Log("(OnEnable())SetFirstButtonFocus on "+transform.parent.gameObject);
         Focus();
     }
     void Start()
     {
+        // Debug.Log("(Start())SetFirstButtonFocus on "+transform.parent.gameObject);
         Focus();
     }
     private void Focus()

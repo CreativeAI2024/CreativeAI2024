@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,9 +11,23 @@ public class DisplayDescription : MonoBehaviour
     private string focusedButtonName;
     void Start()
     {
+        // Debug.Log("DisplayDescription on "+gameObject);
         _inputSetting = InputSetting.Load();
         SetFocusedButtonName();
         SetDescription();
+    }
+
+    void OnEnable()
+    {
+        try
+        {
+            SetFocusedButtonName();
+            SetDescription();
+        }
+        catch (Exception)
+        {
+            Debug.Log("First Run");
+        }
     }
     void Update()
     {

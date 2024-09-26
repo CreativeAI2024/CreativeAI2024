@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class SetImageAndNextWindow : MonoBehaviour
 {
+    private InputSetting _inputSetting;
     private GameObject uiManager;
     private Sprite itemImage;
     private GameObject itemImageScreen;
     void Start()
     {
+        _inputSetting = InputSetting.Load();
         uiManager = GameObject.FindWithTag("UIManager");
         ItemList itemList = Resources.Load<ItemList>("Items/ItemList");
         itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
@@ -18,11 +20,13 @@ public class SetImageAndNextWindow : MonoBehaviour
     }
     void Update()
     {
-        if (EventSystem.current.currentSelectedGameObject == gameObject)
+        if (_inputSetting.GetDecideKeyDown())
         {
-                //Combineするなら、右辺をConfirmWindowにする
+            if (EventSystem.current.currentSelectedGameObject == gameObject)
+            {
                 itemImageScreen.GetComponent<OpenWindow>().nextWindow = transform.parent.parent.gameObject;
                 itemImageScreen.GetComponent<Image>().sprite = itemImage;
+            }
         }
     }
 }

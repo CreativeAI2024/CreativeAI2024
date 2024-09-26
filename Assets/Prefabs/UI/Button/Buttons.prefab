@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 765667995966161162}
   - component: {fileID: 1503839114850521259}
   - component: {fileID: 1962504585730056057}
-  - component: {fileID: 4580629220119720144}
-  - component: {fileID: 6014621531773099883}
+  - component: {fileID: 868540626576798486}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -84,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1585905b79e343268c90451f676017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4580629220119720144
+--- !u!114 &868540626576798486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,18 +95,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8396cbe639f1f462dbba1f543998e8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6014621531773099883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3490494531567460827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8edd5518ced37450bbd9a1deeaa70d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemList: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  itemButtonPrefab: {fileID: 7780956747717782826, guid: 0c381518c836a4af48cdd50f6c93c4d7,
-    type: 3}

@@ -4,11 +4,10 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
-//TODO: ImageShowCombineMaterialItemがボタンに反応しない
-//TODO: 
+using UnityEngine.UI;
+//TODO: 合成機能作る
 //TODO: アイテムの機能作る
-//TODO: 初回起動時、DescriptionWindowの文字列が読み込めていない
-//TODO: カーソル移動ロック機能作る
+//TODO: カーソル移動ロック機能作る→今のところ不要になった
 //TODO: 画像表示中にカーソル移動できないようにする
 //TODO: アイテム画像は1600*900で出してもらうことを視覚班に伝える
 //TODO: ItemButtonに個数表示機能
@@ -22,16 +21,34 @@ public class ItemButtons : MonoBehaviour
     [SerializeField] private ItemList itemList;
     [SerializeField] private GameObject itemButtonPrefab;
     [SerializeField] private GameObject itemImageScreen;
+    [SerializeField] private GameObject confirmWindow;
 
-    void Start()
+    void OnEnable()
     {
+        Debug.Log("ItemButtons on "+transform.parent.gameObject);
         LoadItemList();
     }
 
     private void LoadItemList()
     {
+        foreach (Transform child in transform)
+        {
+            if (!itemList.Search(child.GetChild(0).GetComponent<TextMeshProUGUI>().text))
+            {
+                Destroy(child.gameObject);
+                Debug.Log("Destroyed "+child.gameObject);
+            }
+        }
         foreach (BaseItem item in itemList.Items) {
-            MakeItemButton(item.ItemName);
+            if (Search(item.ItemName))
+            {
+                Debug.Log(item.ItemName+" Button already exist");
+            }
+            else
+            {
+                Debug.Log(item.ItemName+" Button hasn't exist yet");
+                MakeItemButton(item.ItemName);
+            }
         }
     }
 
@@ -109,9 +126,12 @@ public class ItemButtons : MonoBehaviour
                 itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
                 itemButton.AddComponent<SetImageAndNextWindow>();
                 break;
-            case ImageShowCombineMaterialItem:
+            case CombineMaterialItem:
                 itemButton.AddComponent<OpenWindow>();
-                itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
+                itemButton.GetComponent<OpenWindow>().enabled = false;
+                itemButton.GetComponent<OpenWindow>().currentWindow = transform.parent.gameObject;
+                itemButton.GetComponent<OpenWindow>().nextWindow = confirmWindow;
+                itemButton.AddComponent<SetCombineMaterial>();
                 break;
         }
         
