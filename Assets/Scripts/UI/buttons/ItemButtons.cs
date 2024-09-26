@@ -4,10 +4,10 @@ using TMPro;
 using UnityEngine;
 //TODO: アイテムの機能作る
 //TODO:     テキスト表示機能
-//TODO: アイテム合成の時に、アイテムの個数のことを考えずに問答無用でDestroyしていた
 //TODO: スクロール機能
 //TODO: 改行に合わせて説明ウィンドウの縦幅を増やす機能
 //TODO: 確認ウィンドウに合成アイテム名を表示
+//TODO: アイテム合成の時に、アイテムの個数のことを考えずに問答無用でDestroyしていた
 //TODO: ItemButtonに個数表示機能
 //TODO: スクリプト実行順見直す
 //TODO: デバッグ
@@ -15,6 +15,10 @@ using UnityEngine;
 //TODO:     プレハブを実体化すればすぐメニューUIが使えるようにする
 //カーソル移動ロック機能作る→今のところ不要になった
 //アイテム画像は1600*900で出してもらうことを視覚班に伝える→ゲーム全体の解像度によるので保留
+//TODO: アイテム周りのクラス図を作る
+//ImageShowItem Objectは画像と、そのgetterを持っている
+//ItemWindowはButtons内のBaseItemにfor文で全てにアクセスできる
+//引数の型がBaseItemでも、実際に引数として渡される変数がそれを継承したImageShowItemクラスなら、ImageShowItemクラスとして認識される
 
 public class ItemButtons : MonoBehaviour
 {
@@ -126,34 +130,25 @@ public class ItemButtons : MonoBehaviour
                 itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
 
                 itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
-                itemButton.AddComponent<SetEffectImageShowCombineMaterial>();
+                itemButton.AddComponent<SetVarImageShowCombineMaterial>();
                 break;
             case ImageShowItem:
                 itemButton.AddComponent<OpenWindow>();
                 itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
                 itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
                 itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
-                itemButton.AddComponent<SetEffectImageShow>();
+                itemButton.AddComponent<SetVarImageShow>();
                 break;
             case CombineMaterialItem:
                 itemButton.AddComponent<OpenWindow>();
                 itemButton.GetComponent<OpenWindow>().enabled = false;
                 itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
                 itemButton.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-                itemButton.AddComponent<SetEffectCombineMaterial>();
+                itemButton.AddComponent<SetVarCombineMaterial>();
                 break;
         }
         
     }
-
-    //TODO: アイテム周りのクラス図を作る
-    //TODO: 現在の問題：Buttonからアイテムの画像にアクセスできない
-    //ImageShowItem Objectは画像と、そのgetterを持っている
-    //ItemWindowはButtons内のBaseItemにfor文で全てにアクセスできる
-    //引数の型がBaseItemでも、実際に引数として渡される変数がそれを継承したImageShowItemクラスなら、ImageShowItemクラスとして認識される
-    //ItemButtonはアイテム名しか持っていない
-    //ItemButtonからItemにアクセスできるようにして、ItemButtonを押した時にさまざまなことができるようにしたい
-    //調べてみたら、ItemList.Search(ItemName)でアクセスできる！
 
     private string GetButtonName(GameObject button)
     {

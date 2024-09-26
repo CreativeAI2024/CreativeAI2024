@@ -1,9 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class SetEffectImageShow : MonoBehaviour
+public class SetVarImageShow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     private GameObject uiManager;
