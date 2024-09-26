@@ -16,11 +16,15 @@ public class ItemButtons : MonoBehaviour
     [SerializeField] private ItemList itemList;
     [SerializeField] private GameObject itemButtonPrefab;
     [SerializeField] private GameObject itemImageScreen;
+    private GameObject itemWindow;
     [SerializeField] private GameObject confirmWindow;
+    private GameObject confirmYesButton;
+
 
     void OnEnable()
     {
-        Debug.Log("ItemButtons on "+transform.parent.gameObject);
+        itemWindow = transform.parent.gameObject;
+        confirmYesButton = confirmWindow.transform.GetChild(0).gameObject;
         LoadItemList();
     }
 
@@ -31,17 +35,14 @@ public class ItemButtons : MonoBehaviour
             if (!itemList.Search(child.GetChild(0).GetComponent<TextMeshProUGUI>().text))
             {
                 Destroy(child.gameObject);
-                Debug.Log("Destroyed "+child.gameObject);
             }
         }
         foreach (BaseItem item in itemList.Items) {
             if (Search(item.ItemName))
             {
-                Debug.Log(item.ItemName+" Button already exist");
             }
             else
             {
-                Debug.Log(item.ItemName+" Button hasn't exist yet");
                 MakeItemButton(item.ItemName);
             }
         }
@@ -112,21 +113,29 @@ public class ItemButtons : MonoBehaviour
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
         SetButtonName(itemButton, itemName);
-        //この方法でのアイテムの型判別は、子クラスも通してしまう。caseの順番を気をつければ今のところ大丈夫だけど、、、
         switch (itemList.Search(itemName))
         {
-            case ImageShowItem :
+            case ImageShowCombineMaterialItem:
                 itemButton.AddComponent<OpenWindow>();
-                itemButton.GetComponent<OpenWindow>().currentWindow = transform.parent.gameObject;
+                itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
                 itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
-                itemButton.AddComponent<SetImageAndNextWindow>();
+
+                itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
+                itemButton.AddComponent<SetEffectImageShowCombineMaterial>();
+                break;
+            case ImageShowItem:
+                itemButton.AddComponent<OpenWindow>();
+                itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
+                itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
+                itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
+                itemButton.AddComponent<SetEffectImageShow>();
                 break;
             case CombineMaterialItem:
                 itemButton.AddComponent<OpenWindow>();
                 itemButton.GetComponent<OpenWindow>().enabled = false;
-                itemButton.GetComponent<OpenWindow>().currentWindow = transform.parent.gameObject;
+                itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
                 itemButton.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-                itemButton.AddComponent<SetCombineMaterial>();
+                itemButton.AddComponent<SetEffectCombineMaterial>();
                 break;
         }
         

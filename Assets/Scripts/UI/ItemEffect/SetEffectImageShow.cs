@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SetImageAndNextWindow : MonoBehaviour
+public class SetEffectImageShow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     private GameObject uiManager;

@@ -705,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImageScreen: {fileID: 1941728813}
+  confirmWindow: {fileID: 9059777143252679121}
   confirmYesButton: {fileID: 1772652030}
 --- !u!1 &1772652030 stripped
 GameObject:
@@ -1702,12 +1703,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121905295}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 719ae511ec8e8400496db9b8d6cdb268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemList: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  itemImageScreen: {fileID: 1941728813}
+  confirmWindow: {fileID: 9059777143252679121}
 --- !u!1 &9059777143252679121 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4199765696090946033, guid: 66f0218a6dfd1429bbe0f21c1c74d3e0,
