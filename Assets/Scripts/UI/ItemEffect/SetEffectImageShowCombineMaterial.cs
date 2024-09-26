@@ -13,12 +13,15 @@ public class SetEffectImageShowCombineMaterial : MonoBehaviour
   private GameObject confirmWindow;
   private GameObject confirmYesButton;
   private GameObject itemImageScreen;
+  private CSetImageShow cSetImageShow;
+  private CSetCombine cSetCombine;
 
   void Awake()
   {
     itemList = Resources.Load<ItemList>("Items/ItemList");
     thisItem = (CombineMaterialItem)itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
-  }
+    cSetCombine = new CSetCombine();
+}
   void Start()
   {
     _inputSetting = InputSetting.Load();
@@ -26,19 +29,21 @@ public class SetEffectImageShowCombineMaterial : MonoBehaviour
     string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
     itemImage = ((ImageShowCombineMaterialItem)itemList.Search(itemName)).Image;
     confirmWindow = uiManager.GetComponent<GameObjectHolder>().ConfirmWindow;
+    Debug.Log("confirmWindow: "+confirmWindow);
     confirmYesButton = uiManager.GetComponent<GameObjectHolder>().ConfirmYesButton;
     itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
+    cSetImageShow = new CSetImageShow(itemImageScreen);
   }
 
   void OnEnable()
   {
     if (itemList.Search(thisItem.PairItem.ItemName) == true)
     {
-      ChangeEnabled(true);
+      cSetCombine.SetEnabled(gameObject, true);
     }
     else
     {
-      ChangeEnabled(false);
+      cSetCombine.SetEnabled(gameObject, false);
     }
   }
   void Update()
@@ -50,32 +55,14 @@ public class SetEffectImageShowCombineMaterial : MonoBehaviour
         itemImageScreen.GetComponent<Image>().sprite = itemImage;
         if (itemList.Search(thisItem.PairItem.ItemName) == true)
         {
-          ChangeNextWindow(true);
-          confirmYesButton.GetComponent<Combine>().ItemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+          cSetImageShow.SetNextWindow(confirmWindow);
+          cSetCombine.SetItemName(confirmYesButton, thisItem.ItemName);
         }
         else
         {
-          ChangeNextWindow(false);
+          cSetImageShow.SetNextWindow(transform.parent.parent.gameObject);
         }
       }
     }
   }
-
-  private void ChangeEnabled(bool isCombinable)
-  {
-    transform.GetComponent<OpenWindow>().enabled = isCombinable;
-  }
-
-  private void ChangeNextWindow(bool isCombinable)
-  {
-    if (isCombinable)
-    {
-      itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-    }
-    else
-    {
-      itemImageScreen.GetComponent<OpenWindow>().nextWindow = transform.parent.parent.gameObject;
-    }
-  }
-
 }

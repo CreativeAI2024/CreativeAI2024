@@ -9,6 +9,7 @@ public class SetEffectImageShow : MonoBehaviour
     private GameObject uiManager;
     private Sprite itemImage;
     private GameObject itemImageScreen;
+    private CSetImageShow cSetImageShow;
     void Start()
     {
         _inputSetting = InputSetting.Load();
@@ -17,6 +18,7 @@ public class SetEffectImageShow : MonoBehaviour
         itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
         string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
         itemImage = ((ImageShowItem)itemList.Search(itemName)).Image;
+        cSetImageShow = new CSetImageShow(itemImageScreen);
     }
     void Update()
     {
@@ -24,8 +26,8 @@ public class SetEffectImageShow : MonoBehaviour
         {
             if (EventSystem.current.currentSelectedGameObject == gameObject)
             {
-                itemImageScreen.GetComponent<OpenWindow>().nextWindow = transform.parent.parent.gameObject;
-                itemImageScreen.GetComponent<Image>().sprite = itemImage;
+                cSetImageShow.SetNextWindow(transform.parent.parent.gameObject);
+                cSetImageShow.SetImage(itemImage);
             }
         }
     }

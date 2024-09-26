@@ -9,10 +9,12 @@ public class SetEffectCombineMaterial : MonoBehaviour
   private GameObject uiManager;
   private CombineMaterialItem thisItem;
   private GameObject confirmYesButton;
+  private CSetCombine cSetCombine;
   void Awake()
   {
     itemList = Resources.Load<ItemList>("Items/ItemList");
     thisItem = (CombineMaterialItem)itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+    cSetCombine = new CSetCombine();
   }
   void Start()
   {
@@ -25,11 +27,11 @@ public class SetEffectCombineMaterial : MonoBehaviour
   {
     if (itemList.Search(thisItem.PairItem.ItemName) == true)
     {
-      ChangeEnabled(true);
+      cSetCombine.SetEnabled(gameObject, true);
     }
     else
     {
-      ChangeEnabled(false);
+      cSetCombine.SetEnabled(gameObject, false);
     }
   }
   void Update()
@@ -40,15 +42,9 @@ public class SetEffectCombineMaterial : MonoBehaviour
       {
         if (itemList.Search(thisItem.PairItem.ItemName) == true)
         {
-          confirmYesButton.GetComponent<Combine>().ItemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+          cSetCombine.SetItemName(confirmYesButton, thisItem.ItemName);
         }
       }
     }
   }
-
-  private void ChangeEnabled(bool isCombinable)
-  {
-    transform.GetComponent<OpenWindow>().enabled = isCombinable;
-  }
-
 }
