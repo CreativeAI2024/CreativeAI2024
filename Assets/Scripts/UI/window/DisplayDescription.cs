@@ -8,6 +8,7 @@ public class DisplayDescription : MonoBehaviour
     private InputSetting _inputSetting;
     [SerializeField] private ItemList itemList;
     private string focusedButtonName;
+    private bool isOnEnableFirstRun = true;
     void Start()
     {
         _inputSetting = InputSetting.Load();
@@ -17,15 +18,14 @@ public class DisplayDescription : MonoBehaviour
 
     void OnEnable()
     {
-        try
+        if (isOnEnableFirstRun)
+        {
+            isOnEnableFirstRun = false;
+        }
+        else
         {
             SetFocusedButtonName();
             SetDescription();
-        }
-        catch (Exception)
-        {
-            //TODO: Awake()使えばいいのでは？
-            Debug.Log("First Run");
         }
     }
     void Update()

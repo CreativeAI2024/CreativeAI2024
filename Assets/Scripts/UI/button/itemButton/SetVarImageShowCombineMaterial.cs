@@ -29,7 +29,6 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
     string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
     itemImage = ((ImageShowCombineMaterialItem)itemList.Search(itemName)).Image;
     confirmWindow = uiManager.GetComponent<GameObjectHolder>().ConfirmWindow;
-    Debug.Log("confirmWindow: "+confirmWindow);
     confirmYesButton = uiManager.GetComponent<GameObjectHolder>().ConfirmYesButton;
     itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
     cSetImageShow = new CSetImageShow(itemImageScreen);

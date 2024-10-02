@@ -16,10 +16,6 @@ public class Combine : MonoBehaviour
         itemList = Resources.Load<ItemList>("Items/ItemList");
         cCombine = new CCombine(itemList);
     }
-    void OnEnable()
-    {
-        Debug.Log("itemName: "+itemName);
-    }
     void Update()
     {
         if (EventSystem.current.currentSelectedGameObject == gameObject)
