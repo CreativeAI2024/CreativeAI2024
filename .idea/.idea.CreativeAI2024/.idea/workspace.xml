@@ -31,12 +31,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/mapEvent",
+    "git-widget-placeholder": "feat/flag",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.EditorConfig",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -57,7 +58,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.27f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.27f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\kawak\Desktop\CreativeAI2024 -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawak\Desktop\CreativeAI2024" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -65,7 +66,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.27f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.27f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\kawak\Desktop\CreativeAI2024 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawak\Desktop\CreativeAI2024" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -119,6 +120,7 @@
       <workItem from="1718979063157" duration="98000" />
       <workItem from="1718980190910" duration="94000" />
       <workItem from="1721372444082" duration="1056000" />
+      <workItem from="1727857018421" duration="821000" />
     </task>
     <servers />
   </component>
