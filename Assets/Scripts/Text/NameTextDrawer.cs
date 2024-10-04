@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class NameTextDrawer : MonoBehaviour
@@ -17,19 +18,20 @@ public class NameTextDrawer : MonoBehaviour
 
     public void DisplayNameText(string[] words)
     {
-        if (words.Length > 1)
+        for (int i = 0; i < words.Length; i++)
         {
-            NameText(words[0]);
+            if (!words[i].StartsWith("[speaker]")) continue; //[speaker]タグを探す
+
+            string word = words[i].Split(']')[1];  //タグを外す
+            NameText(word);
+            return;
+
         }
-        else
-        {
-            _nameTextPanel.SetActive(false);
-        }
+        _nameTextPanel.SetActive(false);
     }
 
     private void NameText(string str)
     {
-        //���O��\������
         _nameTextPanel.SetActive(true);
         _nameTextObject.text = str;
     }

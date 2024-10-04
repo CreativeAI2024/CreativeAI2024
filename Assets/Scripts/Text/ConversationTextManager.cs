@@ -7,6 +7,8 @@ public class ConversationTextManager : MonoBehaviour
 {
     [SerializeField] private MainTextDrawer mainTextDrawer;
     [SerializeField] private NameTextDrawer nameTextDrawer;
+    [SerializeField] private ChangeBackground changeBackground;
+    [SerializeField] private Question question;
     [SerializeField] private TextAsset textAsset;
     [SerializeField] private Pause pause;
     [SerializeField] private float intervalTime;
@@ -20,7 +22,7 @@ public class ConversationTextManager : MonoBehaviour
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        //Initiallize();
+        Initiallize();
     }
 
     // Update is called once per frame
@@ -35,20 +37,20 @@ public class ConversationTextManager : MonoBehaviour
         }
 
         // zキーが離されたとき、次の行へ移動
-        if (_inputSetting.GetDecideKeyDown() || _inputSetting.GetCancelKeyDown())
+        if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideKeyDown() && lineNumber < _sentences.Count - 1)
+                if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
                 {
                     ChangeLine(1);
-                    Debug.Log("NextLine");
+                    DebugLogger.Log("NextLine");
                 }
-                else if (_inputSetting.GetCancelKeyDown() && 0 < lineNumber)
+                else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
                 {
                     ChangeLine(-1);
-                    Debug.Log("BackLine");
+                    DebugLogger.Log("BackLine");
                 }
                 else
                 {
@@ -96,7 +98,7 @@ public class ConversationTextManager : MonoBehaviour
     {
         if (textAsset == null)
         {
-            Debug.LogError("テキストファイルが見つかりませんでした");
+            DebugLogger.Log("テキストファイルが見つかりませんでした");
             return;
         }
         using StringReader reader = new(textAsset.text);
@@ -119,6 +121,14 @@ public class ConversationTextManager : MonoBehaviour
         if (nameTextDrawer != null)
         {
             nameTextDrawer.DisplayNameText(words);
+        }
+        if (changeBackground != null)
+        {
+            changeBackground.ChangeImages(words);
+        }
+        if (question != null)
+        {
+            question.DisplayQuestion(words);
         }
     }
 
