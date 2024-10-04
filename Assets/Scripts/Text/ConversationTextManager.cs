@@ -2,11 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-<<<<<<< HEAD
-=======
-using System.Runtime.CompilerServices;
-using TMPro;
->>>>>>> 1912a7190244439f9fe01baa9fee888f428e899e
 
 public class ConversationTextManager : MonoBehaviour
 {
