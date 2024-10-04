@@ -15,6 +15,10 @@ public class Question : MonoBehaviour
     [SerializeField] private Sprite cursorSprite;  //カーソル画像
     [SerializeField] private Sprite questionBranchSprite;  //非選択時の画像
 
+    private int cursorMax;
+    string[][] word;
+    public bool thinkingTime;
+
     void Start()
     {
         _inputSetting = InputSetting.Load();
@@ -25,26 +29,23 @@ public class Question : MonoBehaviour
             questionBranchImage[i] = questionBranches[i].GetComponent<Image>();
         }
         cursorPlace = 0;
+        thinkingTime = false;
     }
-    public void DisplayQuestion(string[] words)
-    {
-        for (int i = 0; i < words.Length; i++)
-        {
-            if (!words[i].StartsWith("[question]")) continue;  //[question]タグを探す  仮フォーマット: ans1^output1|ans2^output2|ans3^output3
 
-            TextConverter textConverter = new TextConverter();
-            string[][] word = textConverter.Converter(words[i]);
-            QuestionBranch(word[0]);
-            CursorMove(Mathf.Min(word[0].Length, questionBranches.Length));
-            if (_inputSetting.GetDecideKeyDown())
-            {
-                DebugLogger.Log(word[1][cursorPlace]);  //仮の出力
-            }
-            return;
-        }
+    public void DisplayQuestion(string words)
+    {
+        TextConverter textConverter = new TextConverter();
+        word = textConverter.Converter(words);
+        QuestionBranch(word[0]);
+        cursorMax = Mathf.Min(word[0].Length, questionBranches.Length);
+    }
+
+    public void DisableQuestionBranches()
+    {
         for (int i = 0; i < questionBranches.Length; i++)
         {
             questionBranches[i].SetActive(false);
+            thinkingTime = false;
         }
     }
 
@@ -56,21 +57,25 @@ public class Question : MonoBehaviour
             questionBranches[i].SetActive(true); //選択肢の表示
             textMeshPro[i].text = str[i];
         }
+        thinkingTime = true;
     }
 
-    private void CursorMove(int max)
+    public int CursorMax()
+    {
+        return cursorMax;
+    }
+
+    public void CursorMove(int max)
     {
         if (cursorPlace >= 0 && cursorPlace < max) 
         {
             if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())  //一直線に並べることを想定
             {
-                cursorPlace++;
-                if (cursorPlace >= max) cursorPlace = max - 1;
+                cursorPlace = Mathf.Min(cursorPlace + 1, max - 1);
             }
             else if (_inputSetting.GetForwardKeyUp() || _inputSetting.GetLeftKeyUp())
             {
-                cursorPlace--;
-                if (cursorPlace < 0) cursorPlace = 0;
+                cursorPlace = Mathf.Max(cursorPlace - 1, 0);
             }
         }
         for (int i = 0; i < max; ++i)
@@ -78,5 +83,10 @@ public class Question : MonoBehaviour
             questionBranchImage[i].sprite = questionBranchSprite;
         }
         questionBranchImage[cursorPlace].sprite = cursorSprite;
+    }
+
+    public void QuestionOutput()
+    {
+        DebugLogger.Log(word[1][cursorPlace]);  //仮の出力
     }
 }

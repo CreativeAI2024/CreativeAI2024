@@ -23,24 +23,20 @@ public class ChangeBackground : MonoBehaviour
         }
     }
 
-    public void ChangeImages(string[] words)
+    public void ChangeImages(string words)
     {
         TextConverter textConverter = new TextConverter();
-        for (int i = 0; i < words.Length; i++)
-        {
-            if (!words[i].StartsWith("[image]")) continue; //[image]タグを探す  仮フォーマット: spriteName1^imageNameA|spriteName2^imageNameB
-            
-            string[][] spriteAndImage = textConverter.Converter(words[i]);  //spriteAndImage[0]: spriteNameの配列, spriteAndImage[1]: imageNameの配列
+        string[][] spriteAndImage = textConverter.Converter(words);  //spriteAndImage[0]: spriteNameの配列, spriteAndImage[1]: imageNameの配列
 
-            // 各スプライトと画像の名前を初期化
-            for (int j = 0; j < spriteAndImage[0].Length; j++)
+        // 各スプライトと画像の名前を初期化
+        for (int i = 0; i < spriteAndImage[0].Length; i++)
+        {
+            //テキストから指定されたImage,Spriteの名前とインスペクターで設定したImage,Spriteの名前が一致したとき
+            if (imagesDict.ContainsKey(spriteAndImage[1][i]) && spritesDict.ContainsKey(spriteAndImage[0][i]))
             {
-                //テキストから指定されたImage,Spriteの名前とインスペクターで設定したImage,Spriteの名前が一致したとき
-                if (imagesDict.ContainsKey(spriteAndImage[1][j]) && spritesDict.ContainsKey(spriteAndImage[0][j]))
-                {
-                    imagesDict[spriteAndImage[1][j]].sprite = spritesDict[spriteAndImage[0][j]];
-                }
+                imagesDict[spriteAndImage[1][i]].sprite = spritesDict[spriteAndImage[0][i]];
             }
         }
     }
 }
+

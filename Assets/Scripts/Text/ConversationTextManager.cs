@@ -42,15 +42,21 @@ public class ConversationTextManager : MonoBehaviour
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
+                if (_inputSetting.GetDecideKeyUp()&& question.thinkingTime)
+                {
+                    question.QuestionOutput();  //仮の出力
+                }
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
                 {
                     ChangeLine(1);
+                    DisplayText();
                     DebugLogger.Log("NextLine");
                 }
                 else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
                 {
                     ChangeLine(-1);
+                    DisplayText();
                     DebugLogger.Log("BackLine");
                 }
                 else
@@ -72,8 +78,7 @@ public class ConversationTextManager : MonoBehaviour
             if (unitTime > -0.55f)//連打対策（爆速スクロール等）
                 unitTime -= 0.35f;
         }
-
-        DisplayText();
+        question.CursorMove(question.CursorMax());
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }
@@ -115,20 +120,33 @@ public class ConversationTextManager : MonoBehaviour
         //現在の行を取得
         string text = _sentences[lineNumber];
         string[] words = text.Split(':');
-        //名前がある場合、名前を表示。名前がない場合、名前表示を非表示にする。名前は「名前:文章」という形式で記述する。
-        mainTextDrawer.DisplayMainText(words);
-        mainTextDrawer.DisplayTextRuby();
-        if (nameTextDrawer != null)
+        //前の行の名前欄や選択肢を非表示にしておく
+        nameTextDrawer.DisableNameText();
+        question.DisableQuestionBranches();
+        TextTagShifter(words);
+    }
+
+    private void TextTagShifter(string[] words)
+    {
+        for (int i = 0; i < words.Length; i++)
         {
-            nameTextDrawer.DisplayNameText(words);
-        }
-        if (changeBackground != null)
-        {
-            changeBackground.ChangeImages(words);
-        }
-        if (question != null)
-        {
-            question.DisplayQuestion(words);
+            if (words[i].StartsWith("[speaker]"))  //[speaker]タグを探す
+            {
+                nameTextDrawer.DisplayNameText(words[i]);
+            }
+            else if (words[i].StartsWith("[image]"))  //[image]タグを探す
+            {
+                changeBackground.ChangeImages(words[i]);
+            }
+            else if (words[i].StartsWith("[question]"))  //[question]タグを探す
+            {
+                question.DisplayQuestion(words[i]);
+            }
+            else
+            {
+                mainTextDrawer.DisplayMainText(words[i]);
+                mainTextDrawer.DisplayTextRuby();
+            }
         }
     }
 

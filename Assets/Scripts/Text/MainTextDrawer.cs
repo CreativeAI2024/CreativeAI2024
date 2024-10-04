@@ -84,9 +84,9 @@ public class MainTextDrawer : MonoBehaviour
         }
     }
 
-    public void DisplayMainText(string[] words)
+    public void DisplayMainText(string word)
     {
-        _mainTextObject.text = words[words.Length - 1];
+        _mainTextObject.text = word;
     }
 
     public void NextLineIcon()

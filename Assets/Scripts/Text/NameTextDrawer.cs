@@ -17,17 +17,14 @@ public class NameTextDrawer : MonoBehaviour
         _nameTextPanel = transform.parent.gameObject;
     }
 
-    public void DisplayNameText(string[] words)
+    public void DisplayNameText(string words)
     {
-        for (int i = 0; i < words.Length; i++)
-        {
-            if (!words[i].StartsWith("[speaker]")) continue; //[speaker]タグを探す
+        string word = words.Split(']')[1];  //タグを外す
+        NameText(word);
+    }
 
-            string word = words[i].Split(']')[1];  //タグを外す
-            NameText(word);
-            return;
-
-        }
+    public void DisableNameText()
+    {
         _nameTextPanel.SetActive(false);
     }
 
