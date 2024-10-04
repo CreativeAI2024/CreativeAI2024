@@ -27,13 +27,10 @@ public class ItemButtons : MonoBehaviour
     [SerializeField] private GameObject itemImageScreen;
     private GameObject itemWindow;
     [SerializeField] private GameObject confirmWindow;
-    private GameObject confirmYesButton;
-
 
     void OnEnable()
     {
         itemWindow = transform.parent.gameObject;
-        confirmYesButton = confirmWindow.transform.GetChild(0).gameObject;
         LoadItemList();
     }
 
@@ -47,10 +44,7 @@ public class ItemButtons : MonoBehaviour
             }
         }
         foreach (BaseItem item in itemList.Items) {
-            if (Search(item.ItemName))
-            {
-            }
-            else
+            if (!Search(item.ItemName))
             {
                 MakeItemButton(item.ItemName);
             }
@@ -71,53 +65,6 @@ public class ItemButtons : MonoBehaviour
         }
         return null;
     }
-
-    private void CheckDuplication() //他のメソッド内で呼び出してチェックする　のは重そう
-    {
-        HashSet<string> checkerSet = new();
-        foreach (BaseItem item in itemList.Items)
-        {
-            if (!checkerSet.Add(item.ItemName))
-            {
-                throw new InvalidOperationException("ItemWindow内で" + item + "ボタンが重複しています。");
-            }
-        }
-    }
-
-    public void Add(string itemName) //アイテムをゲットした時に
-    {
-        itemList.Add(itemName);
-        GameObject addedButton = this.Search(itemName);
-        if (addedButton == null)
-        {
-            MakeItemButton(itemName);
-        }
-        else
-        {
-            itemList.Search(itemName).IncrementCount();
-        }
-        CheckDuplication();
-    }
-
-    public void Remove(string itemName) //消耗品のアイテム等を使った時に
-    {
-        itemList.Remove(itemName);
-        GameObject removedButton = this.Search(itemName);
-        if (removedButton == null)
-        {
-        }
-        else if (itemList.Search(itemName).Count > 1)
-        {
-            itemList.Search(itemName).DecrementCount();
-        }
-        else
-        {
-            Destroy(removedButton);
-            itemList.Remove(itemName);
-        }
-        CheckDuplication();
-    }
-
     private void MakeItemButton(string itemName)
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);

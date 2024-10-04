@@ -4,9 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="CombineMaterialItem", menuName ="ScriptableObject/Item/CombineMaterialItem")]
 public class CombineMaterialItem : BaseItem, ICombineMaterial
 {
-    [SerializeField] private BaseItem pairItem;
+    [SerializeField] private CombineMaterialItem pairItem;
     [SerializeField] private BaseItem createdItem;
 
-    public CombineMaterialItem PairItem => (CombineMaterialItem)pairItem;
+    public CombineMaterialItem PairItem => pairItem;
     public BaseItem CreatedItem => createdItem;
 }

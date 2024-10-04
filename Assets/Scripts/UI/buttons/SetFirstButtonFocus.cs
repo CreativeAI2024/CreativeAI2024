@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class SetFirstButtonFocus : MonoBehaviour
 {
-    // ItemWindowの初回起動時では、まだItemButtonが生成されていないからOnEnableだとダメだった
     void OnEnable()
     {
         Focus();
