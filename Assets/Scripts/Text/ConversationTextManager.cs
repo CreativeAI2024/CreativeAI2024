@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+<<<<<<< HEAD
+=======
+using System.Runtime.CompilerServices;
+using TMPro;
+>>>>>>> 1912a7190244439f9fe01baa9fee888f428e899e
 
 public class ConversationTextManager : MonoBehaviour
 {
@@ -17,6 +22,7 @@ public class ConversationTextManager : MonoBehaviour
 
     private List<string> _sentences = new();
     private int lineNumber;
+
 
     // Start is called before the first frame update
     void Start()
@@ -73,7 +79,6 @@ public class ConversationTextManager : MonoBehaviour
         }
 
         DisplayText();
-        
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }
