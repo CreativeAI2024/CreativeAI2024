@@ -388,6 +388,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &638663786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2449838930168480606, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3314666669585617825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &638663787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638663786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5309f632caa58ba4ab190f0f7f34fc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorSprite: {fileID: 21300000, guid: 03bd39641b041764b907504c2bfb738b, type: 3}
+  questionBranchSprite: {fileID: 21300000, guid: 2b4720d6581aca24da00d5934fb67a84,
+    type: 3}
 --- !u!1 &781940549
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +490,11 @@ PrefabInstance:
       propertyPath: pause
       value: 
       objectReference: {fileID: 237572391}
+    - target: {fileID: 673614102471081624, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
+        type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 638663787}
     - target: {fileID: 2449838930168480606, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
         type: 3}
       propertyPath: m_Name
@@ -594,7 +620,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2449838930168480606, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 638663787}
   m_SourcePrefab: {fileID: 100100000, guid: ce7cc27dec856b0448e6e13bfa86ae4a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

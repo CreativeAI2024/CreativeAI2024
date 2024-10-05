@@ -11,6 +11,7 @@ public class ConversationTextManager : MonoBehaviour
     [SerializeField] private Question question;
     [SerializeField] private TextAsset textAsset;
     [SerializeField] private Pause pause;
+    [SerializeField] private TextWindowCursor cursor;
     [SerializeField] private float intervalTime;
     private float unitTime;
     private InputSetting _inputSetting;
@@ -42,9 +43,9 @@ public class ConversationTextManager : MonoBehaviour
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
-                if (_inputSetting.GetDecideKeyUp()&& question.thinkingTime)
+                if (_inputSetting.GetDecideKeyUp()&& question.GetThinkingTime())
                 {
-                    question.QuestionOutput();  //仮の出力
+                    question.QuestionOutput(cursor.GetCursorPlace());  //仮の出力
                 }
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
@@ -78,7 +79,10 @@ public class ConversationTextManager : MonoBehaviour
             if (unitTime > -0.55f)//連打対策（爆速スクロール等）
                 unitTime -= 0.35f;
         }
-        question.CursorMove(question.CursorMax());
+        if (question.GetThinkingTime())
+        {
+            cursor.CursorMove(question.GetCursorMax());
+        }
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }
@@ -141,6 +145,7 @@ public class ConversationTextManager : MonoBehaviour
             else if (words[i].StartsWith("[question]"))  //[question]タグを探す
             {
                 question.DisplayQuestion(words[i]);
+                cursor.SetQuestionBranchImage(question.GetQuestionBranchImage());
             }
             else
             {
