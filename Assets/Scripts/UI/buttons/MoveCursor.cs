@@ -4,23 +4,44 @@ using UnityEngine.UI;
 
 public class MoveCursor : MonoBehaviour
 {
+    private bool isOnEnableFirstRun = true;
     protected Selectable focusedButton;
-    protected void OnEnable()
+    void OnEnable()
     {
-        focusedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>();
-        foreach (Transform child in transform)
+        if (isOnEnableFirstRun)
         {
-            ChangeCursorVisibility(child.gameObject, false);
+            isOnEnableFirstRun = false;
         }
-        Debug.Log("focusedButton: "+focusedButton.gameObject);
-        ChangeCursorVisibility(focusedButton.gameObject, true);
+        else
+        {
+            Debug.Log("EventSystem.current.currentSelectedGameObject: "+EventSystem.current.currentSelectedGameObject);
+            focusedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>();
+            Debug.Log("focusedButton: "+focusedButton.gameObject);
+            foreach (Transform child in transform)
+            {
+                ChangeCursorVisibility(child.gameObject, false);
+            }
+            ChangeCursorVisibility(focusedButton.gameObject, true);
+        }
     }
 
-    protected void Update()
+    void Start()
     {
-        if (focusedButton != EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>())
-        {
+            Debug.Log("EventSystem.current.currentSelectedGameObject: "+EventSystem.current.currentSelectedGameObject);
+            focusedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>();
+            Debug.Log("focusedButton: "+focusedButton.gameObject);
+            foreach (Transform child in transform)
+            {
+                ChangeCursorVisibility(child.gameObject, false);
+            }
+            ChangeCursorVisibility(focusedButton.gameObject, true);
+    }
 
+    void Update()
+    {
+        if (focusedButton.gameObject != EventSystem.current.currentSelectedGameObject)
+        {
+            Debug.Log("focusedButton: "+focusedButton);
             ChangeCursorVisibility(focusedButton.gameObject, false);
             FocusButton(EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>());
             ChangeCursorVisibility(focusedButton.gameObject, true);

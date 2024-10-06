@@ -4,9 +4,17 @@ using UnityEngine.UI;
 
 public class SetFirstButtonFocus : MonoBehaviour
 {
+    private bool isOnEnableFirstRun = true;
     void OnEnable()
     {
-        Focus();
+        if (isOnEnableFirstRun)
+        {
+            isOnEnableFirstRun = false;
+        }
+        else
+        {
+            Focus();
+        }
     }
     void Start()
     {
@@ -16,10 +24,8 @@ public class SetFirstButtonFocus : MonoBehaviour
     {
         if (transform.childCount > 0) 
         {
-            Debug.Log("transform: "+transform);
-            Debug.Log("transform.GetChild(0).gameObject: "+transform.GetChild(0).gameObject);
-            Debug.Log("EventSystem.current: "+EventSystem.current);
             EventSystem.current.SetSelectedGameObject(transform.GetChild(0).gameObject);
+            Debug.Log("EventSystem.current.currentSelectedGameObject: "+EventSystem.current.currentSelectedGameObject);
         }
         else if (gameObject.GetComponent<Selectable>())
         {
