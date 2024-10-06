@@ -7,8 +7,9 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
 {
   private InputSetting _inputSetting;
   private ItemList itemList;
+  private CombineRecipeList combineRecipeList;
   private GameObject uiManager;
-  private CombineMaterialItem thisItem;
+  private BaseItem thisItem;
   private Sprite itemImage;
   private GameObject confirmWindow;
   private GameObject confirmYesButton;
@@ -19,7 +20,8 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
   void Awake()
   {
     itemList = Resources.Load<ItemList>("Items/ItemList");
-    thisItem = (CombineMaterialItem)itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+    combineRecipeList = Resources.Load<CombineRecipeList>("Items/CombineRecipe/CombineRecipeList");
+    thisItem = itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
     cSetCombine = new CSetCombine();
 }
   void Start()
@@ -27,7 +29,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
     _inputSetting = InputSetting.Load();
     uiManager = GameObject.FindWithTag("UIManager");
     string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
-    itemImage = ((ImageShowCombineMaterialItem)itemList.Search(itemName)).Image;
+    itemImage = ((ImageShowItem)itemList.Search(itemName)).Image;
     confirmWindow = uiManager.GetComponent<GameObjectHolder>().ConfirmWindow;
     confirmYesButton = uiManager.GetComponent<GameObjectHolder>().ConfirmYesButton;
     itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
@@ -36,7 +38,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
 
   void OnEnable()
   {
-    if (itemList.Search(thisItem.PairItem.ItemName) == true)
+    if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
     {
       cSetCombine.SetEnabled(gameObject, true);
     }
@@ -52,7 +54,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
       if (EventSystem.current.currentSelectedGameObject == gameObject)
       {
         itemImageScreen.GetComponent<Image>().sprite = itemImage;
-        if (itemList.Search(thisItem.PairItem.ItemName) == true)
+        if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
         {
           cSetImageShow.SetNextWindow(confirmWindow);
           cSetCombine.SetItemName(confirmYesButton, thisItem.ItemName);

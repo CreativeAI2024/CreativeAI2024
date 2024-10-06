@@ -12,6 +12,7 @@ public class MoveCursor : MonoBehaviour
         {
             ChangeCursorVisibility(child.gameObject, false);
         }
+        Debug.Log("focusedButton: "+focusedButton.gameObject);
         ChangeCursorVisibility(focusedButton.gameObject, true);
     }
 
@@ -19,6 +20,7 @@ public class MoveCursor : MonoBehaviour
     {
         if (focusedButton != EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>())
         {
+
             ChangeCursorVisibility(focusedButton.gameObject, false);
             FocusButton(EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>());
             ChangeCursorVisibility(focusedButton.gameObject, true);

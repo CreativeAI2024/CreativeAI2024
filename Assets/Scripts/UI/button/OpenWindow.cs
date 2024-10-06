@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -15,7 +14,6 @@ public class OpenWindow : MonoBehaviour
     {
         if (_inputSetting.GetDecideKeyDown())
         {
-            //OpenWindowが有効化できていない
             if (EventSystem.current.currentSelectedGameObject == gameObject)
             {
                 Open();

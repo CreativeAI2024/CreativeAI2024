@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 388abbb4e3817441fab1437981d149f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 56b1bdf4f98fb4b039d9a61aca5f9cf7, type: 3}
   m_Name: LatterLetter
   m_EditorClassIdentifier: 
   itemName: LatterLetter
   description: A letter from my father that was in my pocket
   count: 1
+  isCombinable: 1
   image: {fileID: 21300000, guid: d48a7fea634c14fb090bf6ebe6da3538, type: 3}
-  pairItem: {fileID: 11400000, guid: e2a77be35815045f6bedcc6cd045e054, type: 2}
-  createdItem: {fileID: 11400000, guid: f8559e2ff3dc346c4a1de4da9f5839ee, type: 2}

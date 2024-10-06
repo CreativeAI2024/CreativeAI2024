@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 0.5
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -657,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 4485527157223527291, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: m_Name
-      value: WindowBox
+      value: MenuUI
       objectReference: {fileID: 0}
     - target: {fileID: 4854542878995634697, guid: c92169478df344a9db5af581df804b92,
         type: 3}

@@ -43,7 +43,8 @@ public class ItemButtons : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
-        foreach (BaseItem item in itemList.Items) {
+        foreach (BaseItem item in itemList.Items)
+        {
             if (!Search(item.ItemName))
             {
                 MakeItemButton(item.ItemName);
@@ -71,31 +72,35 @@ public class ItemButtons : MonoBehaviour
         SetButtonName(itemButton, itemName);
         switch (itemList.Search(itemName))
         {
-            case ImageShowCombineMaterialItem:
+            case ImageShowItem item:
                 itemButton.AddComponent<OpenWindow>();
                 itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
                 itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
-
-                itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
-                itemButton.AddComponent<SetVarImageShowCombineMaterial>();
+                if (item.IsCombinable)
+                {
+                    itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
+                    itemButton.AddComponent<SetVarImageShowCombineMaterial>();
+                }
+                else
+                {
+                    itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
+                    itemButton.AddComponent<SetVarImageShow>();
+                }
                 break;
-            case ImageShowItem:
-                itemButton.AddComponent<OpenWindow>();
-                itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
-                itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
-                itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
-                itemButton.AddComponent<SetVarImageShow>();
-                break;
-            case CombineMaterialItem:
-                itemButton.AddComponent<OpenWindow>();
-                itemButton.GetComponent<OpenWindow>().enabled = false;
-                itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
-                itemButton.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-                itemButton.AddComponent<SetVarCombineMaterial>();
+            case BaseItem item:
+                if (item.IsCombinable)
+                {
+                    itemButton.AddComponent<OpenWindow>();
+                    itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
+                    itemButton.GetComponent<OpenWindow>().nextWindow = confirmWindow;
+                    itemButton.GetComponent<OpenWindow>().enabled = false;
+                    itemButton.AddComponent<SetVarCombineMaterial>();
+                }
                 break;
         }
-        
+
     }
+
 
     private string GetButtonName(GameObject button)
     {

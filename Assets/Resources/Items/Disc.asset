@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: Stick
+  m_Name: Disc
   m_EditorClassIdentifier: 
-  itemName: Stick
-  description: It made of Metal
+  itemName: Disc
+  description: There is a hole on the side
   count: 1
   isCombinable: 1

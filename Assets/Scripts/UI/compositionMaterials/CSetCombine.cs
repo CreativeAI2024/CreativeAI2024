@@ -9,6 +9,6 @@ public class CSetCombine
   }
   public void SetItemName(GameObject confirmYesButton, string itemName)
   {
-    confirmYesButton.GetComponent<Combine>().ItemName = itemName;
+    confirmYesButton.GetComponent<CombineItems>().MaterialItemName = itemName;
   }
 }
