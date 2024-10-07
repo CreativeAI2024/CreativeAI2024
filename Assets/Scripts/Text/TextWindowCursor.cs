@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class TextWindowCursor : MonoBehaviour
 {
-    [SerializeField] private Sprite cursorSprite;  //カーソル画像
-    [SerializeField] private Sprite questionBranchSprite;  //非選択時の画像
     private InputSetting _inputSetting;
     private int cursorPlace;
-    private Image[] questionBranchImage;
+    private GameObject[] gameObjects;
+    [SerializeField] private GameObject cursorObject;
+    [SerializeField] private int cursorOffset;
 
     private void Start()
     {
@@ -17,11 +17,6 @@ public class TextWindowCursor : MonoBehaviour
         cursorPlace = 0;
     }
     
-    public void SetQuestionBranchImage(Image[] questionBranchImages)
-    {
-        questionBranchImage = questionBranchImages;
-    }
-
     public void CursorMove(int max)
     {
         if (cursorPlace >= 0 && cursorPlace < max)
@@ -34,12 +29,27 @@ public class TextWindowCursor : MonoBehaviour
             {
                 cursorPlace = Mathf.Max(cursorPlace - 1, 0);
             }
+            Vector2 cursorPosition = new Vector2(gameObjects[cursorPlace].transform.position.x - cursorOffset, 
+                gameObjects[cursorPlace].transform.position.y);
+             
+            cursorObject.transform.position = cursorPosition;
         }
-        for (int i = 0; i < max; ++i)
-        {
-            questionBranchImage[i].sprite = questionBranchSprite;
-        }
-        questionBranchImage[cursorPlace].sprite = cursorSprite;
+    }
+
+    public void EnableCursor()
+    {
+        cursorPlace = 0;
+        cursorObject.SetActive(true);
+    }
+
+    public void DisableCursor()
+    {
+        cursorObject.SetActive(false);
+    }
+
+    public void SetGameObject(GameObject[] setGameObjects)
+    {
+        gameObjects = setGameObjects;
     }
 
     public int GetCursorPlace()

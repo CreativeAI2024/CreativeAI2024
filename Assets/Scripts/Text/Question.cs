@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class Question : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI[] textMeshPro;
-    [SerializeField] private GameObject[] questionBranches;
-    private Image[] questionBranchImage;
+    [SerializeField] private QuestionBranch[] questionBranches;
+    [SerializeField] private TextWindowCursor cursor;
 
     string[][] word;
     private bool thinkingTime;
@@ -16,60 +15,48 @@ public class Question : MonoBehaviour
 
     void Start()
     {
-        
-        questionBranchImage = new Image[questionBranches.Length];
+        GameObject[] gameObjectCarrier = new GameObject[questionBranches.Length];
+        thinkingTime = false;
         for (int i = 0; i < questionBranches.Length; i++)
         {
-            questionBranches[i].SetActive(false);
-            questionBranchImage[i] = questionBranches[i].GetComponent<Image>();
+            gameObjectCarrier[i] = questionBranches[i].GetGameObjects();
         }
-        thinkingTime = false;
+        cursor.SetGameObject(gameObjectCarrier);
     }
 
     public void DisplayQuestion(string words)
     {
         TextConverter textConverter = new TextConverter();
         word = textConverter.Converter(words);
-        QuestionBranch(word[0]);
         cursorMax = Mathf.Min(word[0].Length, questionBranches.Length);
+        for (int i = 0; i < cursorMax; i++)
+        {
+            questionBranches[i].EnableQuestionBranch(word[0][i]);
+        }
+        cursor.EnableCursor();
+        thinkingTime = true;
     }
-    public int GetCursorMax()
+    
+    public void QuestionCursor()
     {
-        return cursorMax;
+        cursor.CursorMove(cursorMax);
     }
 
-    public bool GetThinkingTime()
-    {
-        return thinkingTime;
-    }
-
-    public void DisableQuestionBranches()
+    public void InitializeQuestionBranch()
     {
         for (int i = 0; i < questionBranches.Length; i++)
         {
-            questionBranches[i].SetActive(false);
-            thinkingTime = false;
+            questionBranches[i].DisableQuestionBranch();
         }
+        cursor.DisableCursor();
+        thinkingTime = false;
     }
 
-    public Image[] GetQuestionBranchImage() 
-    { 
-        return questionBranchImage; 
-    }
-
-    private void QuestionBranch(string[] str)
+    public void QuestionOutput()
     {
-        int max = Mathf.Min(str.Length, questionBranches.Length);  //テキストで指定された選択肢の数と、設置した選択肢の数の小さい方
-        for (int i = 0; i < max; i++)
+        if (thinkingTime)
         {
-            questionBranches[i].SetActive(true); //選択肢の表示
-            textMeshPro[i].text = str[i];
+            DebugLogger.Log(word[1][cursor.GetCursorPlace()]);  //仮の出力
         }
-        thinkingTime = true;
-    }
-
-    public void QuestionOutput(int cursorPlace)
-    {
-        DebugLogger.Log(word[1][cursorPlace]);  //仮の出力
     }
 }

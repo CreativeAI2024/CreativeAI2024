@@ -11,7 +11,6 @@ public class ConversationTextManager : MonoBehaviour
     [SerializeField] private Question question;
     [SerializeField] private TextAsset textAsset;
     [SerializeField] private Pause pause;
-    [SerializeField] private TextWindowCursor cursor;
     [SerializeField] private float intervalTime;
     private float unitTime;
     private InputSetting _inputSetting;
@@ -43,13 +42,10 @@ public class ConversationTextManager : MonoBehaviour
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
-                if (_inputSetting.GetDecideKeyUp()&& question.GetThinkingTime())
-                {
-                    question.QuestionOutput(cursor.GetCursorPlace());  //仮の出力
-                }
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
                 {
+                    question.QuestionOutput();  //仮の出力
                     ChangeLine(1);
                     DisplayText();
                     DebugLogger.Log("NextLine");
@@ -62,6 +58,7 @@ public class ConversationTextManager : MonoBehaviour
                 }
                 else
                 {
+                    question.QuestionOutput();  //仮の出力
                     gameObject.SetActive(false);
                     pause.UnPauseAll();
                     return;
@@ -79,10 +76,7 @@ public class ConversationTextManager : MonoBehaviour
             if (unitTime > -0.55f)//連打対策（爆速スクロール等）
                 unitTime -= 0.35f;
         }
-        if (question.GetThinkingTime())
-        {
-            cursor.CursorMove(question.GetCursorMax());
-        }
+        question.QuestionCursor();
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }
@@ -126,7 +120,7 @@ public class ConversationTextManager : MonoBehaviour
         string[] words = text.Split(':');
         //前の行の名前欄や選択肢を非表示にしておく
         nameTextDrawer.DisableNameText();
-        question.DisableQuestionBranches();
+        question.InitializeQuestionBranch();
         TextTagShifter(words);
     }
 
@@ -145,7 +139,6 @@ public class ConversationTextManager : MonoBehaviour
             else if (words[i].StartsWith("[question]"))  //[question]タグを探す
             {
                 question.DisplayQuestion(words[i]);
-                cursor.SetQuestionBranchImage(question.GetQuestionBranchImage());
             }
             else
             {
