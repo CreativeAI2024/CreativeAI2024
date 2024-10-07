@@ -1,12 +1,21 @@
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SetFirstButtonFocus : MonoBehaviour
 {
+    private bool isOnEnableFirstRun = true;
     void OnEnable()
     {
-        Focus();
+        if (isOnEnableFirstRun)
+        {
+            isOnEnableFirstRun = false;
+        }
+        else
+        {
+            Focus();
+        }
     }
     void Start()
     {
