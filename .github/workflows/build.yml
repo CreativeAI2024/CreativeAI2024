@@ -2,7 +2,7 @@ name: Windows Build
   
 on:
   push:
-    branches: brushup
+    branches: develop
   workflow_dispatch: {}
 
 # 連続して実行されたときに一つ前の実行中のジョブが停止されるようにする
