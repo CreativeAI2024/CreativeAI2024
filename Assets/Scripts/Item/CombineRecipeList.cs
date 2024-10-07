@@ -14,6 +14,8 @@ public class CombineRecipeList : ScriptableObject
     {
       recipe.Material1.IsCombinable = true;
       recipe.Material2.IsCombinable = true;
+      Debug.Log(recipe.Material1.ItemName);
+      Debug.Log(recipe.Material2.ItemName);
     }
   }
   public BaseItem GetPairItem(string itemName)

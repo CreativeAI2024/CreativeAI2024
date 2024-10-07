@@ -14,7 +14,7 @@ public class SetVarCombineMaterial : MonoBehaviour
   void Awake()
   {
     itemList = Resources.Load<ItemList>("Items/ItemList");
-    combineRecipeList = Resources.Load<CombineRecipeList>("Items/CombineRecipe/CombineRecipeList");
+    combineRecipeList = Resources.Load<CombineRecipeList>("Items/CombineRecipes/CombineRecipeList");
     thisItem = itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
     cSetCombine = new CSetCombine();
   }

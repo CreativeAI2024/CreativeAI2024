@@ -27,17 +27,15 @@ public class CombineItems : MonoBehaviour
         }
     }
 
-    private bool Combine()
+    private void Combine()
   {
-    string pairItemName = combineRecipeList.GetPairItem(materialItemName).ItemName;
+    Debug.Log("Combine() called");
+    string pairItemName = combineRecipeList.GetPairItem(materialItemName).ItemName; //error
     if (itemList.Search(pairItemName)!=null)
     {
       itemList.Add(combineRecipeList.GetCreatedItem(materialItemName).ItemName);
       itemList.Remove(materialItemName);
       itemList.Remove(pairItemName);
-      return true;
     } 
-    return false;
   }
-
 }

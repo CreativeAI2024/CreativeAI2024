@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+//TODO: confirmWindowでyes推したのに合成できていない
 //TODO: アイテムの機能作る
 //TODO:     テキスト表示機能
 //TODO: スクロール機能
@@ -27,6 +28,8 @@ public class ItemButtons : MonoBehaviour
     [SerializeField] private GameObject itemImageScreen;
     private GameObject itemWindow;
     [SerializeField] private GameObject confirmWindow;
+    [SerializeField] private CombineRecipeList combineRecipeList;
+
 
     void OnEnable()
     {
@@ -50,6 +53,7 @@ public class ItemButtons : MonoBehaviour
                 MakeItemButton(item.ItemName);
             }
         }
+        combineRecipeList.SetIsCombinable();
     }
 
     //アイテム合成の時にリストを探索する時に呼び出す
