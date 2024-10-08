@@ -8,17 +8,12 @@ public class QuestionBranch : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textMeshPro;
     [SerializeField] private GameObject questionBranch;
 
-    public GameObject GetGameObjects()
-    {
-        return questionBranch;
-    }
-
-    public void DisableQuestionBranch()
+    public void HideQuestionBranch()
     {
         questionBranch.SetActive(false);
     }
 
-    public void EnableQuestionBranch(string str)
+    public void DisplayQuestionBranchText(string str)
     {
         questionBranch.SetActive(true);  //選択肢の表示
         textMeshPro.text = str;

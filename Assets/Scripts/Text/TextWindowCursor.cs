@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TextWindowCursor : MonoBehaviour
 {
     private InputSetting _inputSetting;
     private int cursorPlace;
-    private GameObject[] gameObjects;
+    private RectTransform[] rectTransform;
     [SerializeField] private GameObject cursorObject;
     [SerializeField] private int cursorOffset;
 
@@ -29,27 +28,27 @@ public class TextWindowCursor : MonoBehaviour
             {
                 cursorPlace = Mathf.Max(cursorPlace - 1, 0);
             }
-            Vector2 cursorPosition = new Vector2(gameObjects[cursorPlace].transform.position.x - cursorOffset, 
-                gameObjects[cursorPlace].transform.position.y);
+            Vector2 cursorPosition = new Vector2(rectTransform[cursorPlace].transform.position.x - cursorOffset, 
+                rectTransform[cursorPlace].transform.position.y);
              
             cursorObject.transform.position = cursorPosition;
         }
     }
 
-    public void EnableCursor()
+    public void ReactivateCursor()
     {
         cursorPlace = 0;
         cursorObject.SetActive(true);
     }
 
-    public void DisableCursor()
+    public void HideCursor()
     {
         cursorObject.SetActive(false);
     }
 
-    public void SetGameObject(GameObject[] setGameObjects)
+    public void SetRectTransform(RectTransform[] setRectTransforms)
     {
-        gameObjects = setGameObjects;
+        rectTransform = setRectTransforms;
     }
 
     public int GetCursorPlace()

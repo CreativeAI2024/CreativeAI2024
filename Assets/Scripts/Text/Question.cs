@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Question : MonoBehaviour
 {
@@ -15,13 +13,13 @@ public class Question : MonoBehaviour
 
     void Start()
     {
-        GameObject[] gameObjectCarrier = new GameObject[questionBranches.Length];
+        RectTransform[] rectTransforms = new RectTransform[questionBranches.Length];
         thinkingTime = false;
         for (int i = 0; i < questionBranches.Length; i++)
         {
-            gameObjectCarrier[i] = questionBranches[i].GetGameObjects();
+            rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
         }
-        cursor.SetGameObject(gameObjectCarrier);
+        cursor.SetRectTransform(rectTransforms);
     }
 
     public void DisplayQuestion(string words)
@@ -31,9 +29,9 @@ public class Question : MonoBehaviour
         cursorMax = Mathf.Min(word[0].Length, questionBranches.Length);
         for (int i = 0; i < cursorMax; i++)
         {
-            questionBranches[i].EnableQuestionBranch(word[0][i]);
+            questionBranches[i].DisplayQuestionBranchText(word[0][i]);
         }
-        cursor.EnableCursor();
+        cursor.ReactivateCursor();
         thinkingTime = true;
     }
     
@@ -46,9 +44,9 @@ public class Question : MonoBehaviour
     {
         for (int i = 0; i < questionBranches.Length; i++)
         {
-            questionBranches[i].DisableQuestionBranch();
+            questionBranches[i].HideQuestionBranch();
         }
-        cursor.DisableCursor();
+        cursor.HideCursor();
         thinkingTime = false;
     }
 
