@@ -6,7 +6,6 @@ public class TextWindowCursor : MonoBehaviour
 {
     private InputSetting _inputSetting;
     private int cursorPlace;
-    private RectTransform[] rectTransform;
     [SerializeField] private GameObject cursorObject;
     [SerializeField] private int cursorOffset;
 
@@ -16,7 +15,7 @@ public class TextWindowCursor : MonoBehaviour
         cursorPlace = 0;
     }
     
-    public void CursorMove(int max)
+    public void CursorMove(int max, Vector2 targetCursorPosition)
     {
         if (cursorPlace >= 0 && cursorPlace < max)
         {
@@ -28,9 +27,7 @@ public class TextWindowCursor : MonoBehaviour
             {
                 cursorPlace = Mathf.Max(cursorPlace - 1, 0);
             }
-            Vector2 cursorPosition = new Vector2(rectTransform[cursorPlace].position.x - cursorOffset, 
-                rectTransform[cursorPlace].position.y);
-             
+            Vector2 cursorPosition = new Vector2(targetCursorPosition.x - cursorOffset, targetCursorPosition.y);
             cursorObject.transform.position = cursorPosition;
         }
     }
@@ -40,19 +37,9 @@ public class TextWindowCursor : MonoBehaviour
         cursorPlace = 0;
     }
 
-    public void EnableCursor()
+    public void SetVisibleCursor(bool isVisible)
     {
-        cursorObject.SetActive(true);
-    }
-
-    public void DisableCursor()
-    {
-        cursorObject.SetActive(false);
-    }
-
-    public void SetRectTransform(RectTransform[] setRectTransforms)
-    {
-        rectTransform = setRectTransforms;
+        cursorObject.SetActive(isVisible);
     }
 
     public int GetCursorPlace()

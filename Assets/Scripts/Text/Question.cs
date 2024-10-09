@@ -6,20 +6,19 @@ public class Question : MonoBehaviour
 {
     [SerializeField] private QuestionBranch[] questionBranches;
     [SerializeField] private TextWindowCursor cursor;
-
+    RectTransform[] rectTransforms;
     string[][] word;
     private bool thinkingTime;
     private int cursorMax;
 
     void Start()
     {
-        RectTransform[] rectTransforms = new RectTransform[questionBranches.Length];
+        rectTransforms = new RectTransform[questionBranches.Length];
         thinkingTime = false;
         for (int i = 0; i < questionBranches.Length; i++)
         {
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
         }
-        cursor.SetRectTransform(rectTransforms);
     }
 
     public void DisplayQuestion(string words)
@@ -29,26 +28,26 @@ public class Question : MonoBehaviour
         cursorMax = Mathf.Min(word[0].Length, questionBranches.Length);
         for (int i = 0; i < cursorMax; i++)
         {
-            questionBranches[i].EnableQuestionBranch();
+            questionBranches[i].SetVisibleQuestionBranch(true);
             questionBranches[i].QuestionBranchText(word[0][i]);
         }
         cursor.ResetCursorPlace();
-        cursor.EnableCursor();
+        cursor.SetVisibleCursor(true);
         thinkingTime = true;
     }
     
     public void QuestionCursor()
     {
-        cursor.CursorMove(cursorMax);
+        cursor.CursorMove(cursorMax, rectTransforms[cursor.GetCursorPlace()].position);
     }
 
     public void InitializeQuestionBranch()
     {
         for (int i = 0; i < questionBranches.Length; i++)
         {
-            questionBranches[i].DisableQuestionBranch();
+            questionBranches[i].SetVisibleQuestionBranch(false);
         }
-        cursor.DisableCursor();
+        cursor.SetVisibleCursor(false);
         thinkingTime = false;
     }
 
