@@ -1,5 +1,5 @@
-[question]yes^1|no^2|wow^3|wow^4:[image]void^TestPanel1|void^TestPanel2:こちらが会話ウィンドウのサンプルになります。基本的な動作は安定して行えるはずです。
-[question]yes^1|no^2:また、TextMeshProではリッチテキストタグが利用できます。<size=50>このように</size>文字を大きくしたり、<color=red>赤く</color>できたり、様々な工夫が出来ます。
+[image]void^TestPanel1|void^TestPanel2:こちらが会話ウィンドウのサンプルになります。基本的な動作は安定して行えるはずです。
+また、TextMeshProではリッチテキストタグが利用できます。<size=50>このように</size>文字を大きくしたり、<color=red>赤く</color>できたり、様々な工夫が出来ます。
 [image]bluePop^Panel:背景画像の変更が可能になりました。
 また、TextMeshProRubyという一般に公開されているScriptを用いることで、<r=かんたん>簡単</r>にルビ振りすることも可能です。
 [speaker]名前表示:加えて、名前表示することもできます。

@@ -16,7 +16,6 @@ public class Question : MonoBehaviour
     {
         rectTransforms = new RectTransform[questionBranches.Length];
         thinkingTime = false;
-        cursorPlace = 0;
         for (int i = 0; i < questionBranches.Length; i++)
         {
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
