@@ -78,11 +78,11 @@ public class ConversationTextManager : MonoBehaviour
         }
         if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())
         {
-            question.QuestionCursor(1);
+            question.QuestionCursorMove(1);
         }
         else if (_inputSetting.GetForwardKeyUp() || _inputSetting.GetLeftKeyUp())
         {
-            question.QuestionCursor(-1);
+            question.QuestionCursorMove(-1);
         }
 
         

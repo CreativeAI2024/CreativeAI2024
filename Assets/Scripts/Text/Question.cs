@@ -7,7 +7,6 @@ public class Question : MonoBehaviour
     [SerializeField] private QuestionBranch[] questionBranches;
     [SerializeField] private TextWindowCursor cursor;
     RectTransform[] rectTransforms;
-    private InputSetting _inputSetting;
     string[][] word;
     private bool thinkingTime;
     private int cursorMax;
@@ -22,7 +21,6 @@ public class Question : MonoBehaviour
         {
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
         }
-        _inputSetting = InputSetting.Load();
     }
 
     public void DisplayQuestion(string words)
@@ -41,21 +39,11 @@ public class Question : MonoBehaviour
         thinkingTime = true;
     }
     
-    public void QuestionCursor(int increase)
+    public void QuestionCursorMove(int increase)
     {
-        CursorPlaceChange(increase);
+        cursorPlace = Mathf.Clamp(cursorPlace + increase, 0, cursorMax - 1);
         cursor.CursorMove(rectTransforms[cursorPlace].position);
     }
-
-    private void CursorPlaceChange(int increase)
-    {//一直線に並べることを想定
-        if (cursorPlace + increase >= 0 && cursorPlace + increase < cursorMax)
-        {
-            cursorPlace += increase;
-        }
-    }
-
-
 
     public void InitializeQuestionBranch()
     {
