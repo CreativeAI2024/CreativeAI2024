@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
+
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class NameTextDrawer : MonoBehaviour
@@ -15,21 +17,19 @@ public class NameTextDrawer : MonoBehaviour
         _nameTextPanel = transform.parent.gameObject;
     }
 
-    public void DisplayNameText(string[] words)
+    public void DisplayNameText(string words)
     {
-        if (words.Length > 1)
-        {
-            NameText(words[0]);
-        }
-        else
-        {
-            _nameTextPanel.SetActive(false);
-        }
+        string word = words.Split(']')[1];  //タグを外す
+        NameText(word);
+    }
+
+    public void DisableNameText()
+    {
+        _nameTextPanel.SetActive(false);
     }
 
     private void NameText(string str)
     {
-        //���O��\������
         _nameTextPanel.SetActive(true);
         _nameTextObject.text = str;
     }
