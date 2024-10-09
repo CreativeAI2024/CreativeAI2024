@@ -7,18 +7,22 @@ public class Question : MonoBehaviour
     [SerializeField] private QuestionBranch[] questionBranches;
     [SerializeField] private TextWindowCursor cursor;
     RectTransform[] rectTransforms;
+    private InputSetting _inputSetting;
     string[][] word;
     private bool thinkingTime;
     private int cursorMax;
+    private int cursorPlace;
 
     void Start()
     {
         rectTransforms = new RectTransform[questionBranches.Length];
         thinkingTime = false;
+        cursorPlace = 0;
         for (int i = 0; i < questionBranches.Length; i++)
         {
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
         }
+        _inputSetting = InputSetting.Load();
     }
 
     public void DisplayQuestion(string words)
@@ -31,14 +35,30 @@ public class Question : MonoBehaviour
             questionBranches[i].SetVisibleQuestionBranch(true);
             questionBranches[i].QuestionBranchText(word[0][i]);
         }
-        cursor.ResetCursorPlace();
+        cursorPlace = 0;
         cursor.SetVisibleCursor(true);
         thinkingTime = true;
     }
     
     public void QuestionCursor()
     {
-        cursor.CursorMove(cursorMax, rectTransforms[cursor.GetCursorPlace()].position);
+        CursorPlaceChange();
+        cursor.CursorMove(rectTransforms[cursorPlace].position);
+    }
+
+    private void CursorPlaceChange()
+    {
+        if (cursorPlace >= 0 && cursorPlace < cursorMax)
+        {
+            if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())  //一直線に並べることを想定
+            {
+                cursorPlace = Mathf.Min(cursorPlace + 1, cursorMax - 1);
+            }
+            else if (_inputSetting.GetForwardKeyUp() || _inputSetting.GetLeftKeyUp())
+            {
+                cursorPlace = Mathf.Max(cursorPlace - 1, 0);
+            }
+        }
     }
 
     public void InitializeQuestionBranch()
@@ -55,7 +75,7 @@ public class Question : MonoBehaviour
     {
         if (thinkingTime)
         {
-            DebugLogger.Log(word[1][cursor.GetCursorPlace()]);  //仮の出力
+            DebugLogger.Log(word[1][cursorPlace]);  //仮の出力
         }
     }
 }
