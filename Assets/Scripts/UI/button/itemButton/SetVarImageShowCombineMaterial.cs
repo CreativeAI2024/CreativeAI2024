@@ -7,7 +7,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
 {
   private InputSetting _inputSetting;
   private ItemList itemList;
-  private CombineRecipeList combineRecipeList;
+  private CombineRecipeDatabase combineRecipeDatabase;
   private GameObject uiManager;
   private BaseItem thisItem;
   private Sprite itemImage;
@@ -20,7 +20,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
   void Awake()
   {
     itemList = Resources.Load<ItemList>("Items/ItemList");
-    combineRecipeList = Resources.Load<CombineRecipeList>("Items/CombineRecipes/CombineRecipeList");
+    combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
     thisItem = itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
     cSetCombine = new CSetCombine();
 }
@@ -38,7 +38,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
 
   void OnEnable()
   {
-    if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
+    if (itemList.Search(combineRecipeDatabase.GetPairItem(thisItem.ItemName).ItemName) == true)
     {
       cSetCombine.SetOpenWindowEnabled(gameObject, true);
     }
@@ -54,7 +54,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
       if (EventSystem.current.currentSelectedGameObject == gameObject)
       {
         cSetImageShow.SetImage(itemImage);
-        if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
+        if (itemList.Search(combineRecipeDatabase.GetPairItem(thisItem.ItemName).ItemName) == true)
         {
           cSetImageShow.SetNextWindow(confirmWindow);
           cSetCombine.SetCombineItemName(confirmYesButton, thisItem.ItemName);

@@ -6,12 +6,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemList", menuName = "ScriptableObject/Item/ItemList")]
 public class ItemList : ScriptableObject
 {
-    [SerializeField] private List<BaseItem> items;
-    public List<BaseItem> Items 
+    [SerializeField] private List<BaseItem> itemList;
+    private Dictionary<BaseItem, BaseItem> items;
+    public Dictionary<BaseItem, BaseItem> Items 
     { 
         get { return items; }
     }
-    public BaseItem Search(string searchedItemName)
+
+    public void Initialize()
+    {
+        items = new Dictionary<BaseItem, BaseItem>();
+        foreach(BaseItem item in itemList)
+        {
+            items.Add(item, item);
+        }
+    }
+    public BaseItem Search(string searchedItemName)//TODO: dicにする
     {
         foreach (BaseItem item in items)
         {

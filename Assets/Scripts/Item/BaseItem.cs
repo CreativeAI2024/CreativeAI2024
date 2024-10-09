@@ -11,7 +11,7 @@ public class BaseItem : ScriptableObject
     public string ItemName => itemName;
     public string Description => description;
     public int Count => count;
-    public bool IsCombinable { get; set; }
+    // public bool IsCombinable { get; set; } //TODO: Dictionaryに入っているかどうかで判定
 
     public void IncrementCount()
     {

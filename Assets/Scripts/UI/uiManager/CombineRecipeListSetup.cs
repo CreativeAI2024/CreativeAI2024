@@ -1,12 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CombineRecipeListSetup : MonoBehaviour
+public class CombineRecipeDatabaseSetup : MonoBehaviour
 {
-  [SerializeField] private CombineRecipeList combineRecipeList;
+  [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
 
   void Start()
   {
-    combineRecipeList.Setup();
+    combineRecipeDatabase.Setup();
   }
 }

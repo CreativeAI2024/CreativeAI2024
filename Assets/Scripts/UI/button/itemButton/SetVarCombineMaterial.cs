@@ -6,7 +6,7 @@ public class SetVarCombineMaterial : MonoBehaviour
 {
   private InputSetting _inputSetting;
   private ItemList itemList;
-  private CombineRecipeList combineRecipeList;
+  private CombineRecipeDatabase combineRecipeDatabase;
   private GameObject uiManager;
   private BaseItem thisItem;
   private GameObject confirmYesButton;
@@ -14,7 +14,7 @@ public class SetVarCombineMaterial : MonoBehaviour
   void Awake()
   {
     itemList = Resources.Load<ItemList>("Items/ItemList");
-    combineRecipeList = Resources.Load<CombineRecipeList>("Items/CombineRecipes/CombineRecipeList");
+    combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
     thisItem = itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
     cSetCombine = new CSetCombine();
   }
@@ -27,7 +27,7 @@ public class SetVarCombineMaterial : MonoBehaviour
 
   void OnEnable()
   {
-    if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
+    if (itemList.Search(combineRecipeDatabase.GetPairItem(thisItem.ItemName).ItemName) == true)
     {
       cSetCombine.SetOpenWindowEnabled(gameObject, true);
     }
@@ -42,7 +42,7 @@ public class SetVarCombineMaterial : MonoBehaviour
     {
       if (EventSystem.current.currentSelectedGameObject == gameObject)
       {
-        if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
+        if (itemList.Search(combineRecipeDatabase.GetPairItem(thisItem.ItemName).ItemName) == true)
         {
           cSetCombine.SetCombineItemName(confirmYesButton, thisItem.ItemName);
         }

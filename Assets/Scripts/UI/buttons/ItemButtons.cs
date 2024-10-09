@@ -91,10 +91,10 @@ public class ItemButtons : MonoBehaviour
             case BaseItem item:
                 if (item.IsCombinable/*ペアアイテム持っているかどうかを追加*/)
                 {
-                    itemButton.AddComponent<OpenWindow>();
-                    itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
-                    itemButton.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-                    itemButton.GetComponent<OpenWindow>().enabled = true;
+                    var v = itemButton.AddComponent<OpenWindow>();
+                    v.currentWindow = itemWindow;
+                    v.nextWindow = confirmWindow;
+                    v.enabled = true;
                     itemButton.AddComponent<SetVarCombineMaterial>();
                 }
                 break;
