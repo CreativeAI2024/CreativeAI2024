@@ -40,11 +40,11 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
   {
     if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
     {
-      cSetCombine.SetEnabled(gameObject, true);
+      cSetCombine.SetOpenWindowEnabled(gameObject, true);
     }
     else
     {
-      cSetCombine.SetEnabled(gameObject, false);
+      cSetCombine.SetOpenWindowEnabled(gameObject, false);
     }
   }
   void Update()
@@ -53,11 +53,11 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
     {
       if (EventSystem.current.currentSelectedGameObject == gameObject)
       {
-        itemImageScreen.GetComponent<Image>().sprite = itemImage;
+        cSetImageShow.SetImage(itemImage);
         if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
         {
           cSetImageShow.SetNextWindow(confirmWindow);
-          cSetCombine.SetItemName(confirmYesButton, thisItem.ItemName);
+          cSetCombine.SetCombineItemName(confirmYesButton, thisItem.ItemName);
         }
         else
         {

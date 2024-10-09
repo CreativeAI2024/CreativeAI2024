@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: FormarLetter
   description: A letter in the back of my pocket
   count: 1
-  isCombinable: 1
+  isCombinable: 0
   image: {fileID: 21300000, guid: 2f7d0c316bc244489b14f6c7af981fec, type: 3}

@@ -14,7 +14,7 @@ public class CombineItems : MonoBehaviour
     {
         _inputSetting = InputSetting.Load();
         itemList = Resources.Load<ItemList>("Items/ItemList");
-        combineRecipeList = Resources.Load<CombineRecipeList>("Items/CombineRecipe/CombineRecipeList");
+        combineRecipeList = Resources.Load<CombineRecipeList>("Items/CombineRecipes/CombineRecipeList");
     }
     void Update()
     {

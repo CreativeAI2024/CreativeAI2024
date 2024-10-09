@@ -28,8 +28,6 @@ public class ItemButtons : MonoBehaviour
     [SerializeField] private GameObject itemImageScreen;
     private GameObject itemWindow;
     [SerializeField] private GameObject confirmWindow;
-    [SerializeField] private CombineRecipeList combineRecipeList;
-
 
     void OnEnable()
     {
@@ -53,7 +51,6 @@ public class ItemButtons : MonoBehaviour
                 MakeItemButton(item.ItemName);
             }
         }
-        combineRecipeList.SetIsCombinable();
     }
 
     //アイテム合成の時にリストを探索する時に呼び出す
@@ -80,7 +77,7 @@ public class ItemButtons : MonoBehaviour
                 itemButton.AddComponent<OpenWindow>();
                 itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
                 itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
-                if (item.IsCombinable)
+                if (item.IsCombinable/*ペアアイテム持っているかどうかを追加*/)
                 {
                     itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
                     itemButton.AddComponent<SetVarImageShowCombineMaterial>();
@@ -92,12 +89,12 @@ public class ItemButtons : MonoBehaviour
                 }
                 break;
             case BaseItem item:
-                if (item.IsCombinable)
+                if (item.IsCombinable/*ペアアイテム持っているかどうかを追加*/)
                 {
                     itemButton.AddComponent<OpenWindow>();
                     itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
                     itemButton.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-                    itemButton.GetComponent<OpenWindow>().enabled = false;
+                    itemButton.GetComponent<OpenWindow>().enabled = true;
                     itemButton.AddComponent<SetVarCombineMaterial>();
                 }
                 break;

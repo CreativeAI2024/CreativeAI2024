@@ -29,11 +29,11 @@ public class SetVarCombineMaterial : MonoBehaviour
   {
     if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
     {
-      cSetCombine.SetEnabled(gameObject, true);
+      cSetCombine.SetOpenWindowEnabled(gameObject, true);
     }
     else
     {
-      cSetCombine.SetEnabled(gameObject, false);
+      cSetCombine.SetOpenWindowEnabled(gameObject, false);
     }
   }
   void Update()
@@ -44,7 +44,7 @@ public class SetVarCombineMaterial : MonoBehaviour
       {
         if (itemList.Search(combineRecipeList.GetPairItem(thisItem.ItemName).ItemName) == true)
         {
-          cSetCombine.SetItemName(confirmYesButton, thisItem.ItemName);
+          cSetCombine.SetCombineItemName(confirmYesButton, thisItem.ItemName);
         }
       }
     }

@@ -25,7 +25,6 @@ public class SetFirstButtonFocus : MonoBehaviour
         if (transform.childCount > 0) 
         {
             EventSystem.current.SetSelectedGameObject(transform.GetChild(0).gameObject);
-            Debug.Log("EventSystem.current.currentSelectedGameObject: "+EventSystem.current.currentSelectedGameObject);
         }
         else if (gameObject.GetComponent<Selectable>())
         {

@@ -8,7 +8,6 @@ public class BaseItem : ScriptableObject
     [SerializeField] private string itemName;
     [SerializeField, TextArea] private string description;
     [SerializeField] private int count = 1;
-    private bool isCombinable = false;
     public string ItemName => itemName;
     public string Description => description;
     public int Count => count;

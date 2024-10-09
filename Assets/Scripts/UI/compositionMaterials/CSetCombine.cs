@@ -3,11 +3,11 @@ using UnityEngine;
 public class CSetCombine
 {
   public CSetCombine(){}
-  public void SetEnabled(GameObject gameObject, bool isCombinable)
+  public void SetOpenWindowEnabled(GameObject gameObject, bool isCombinable)
   {
     gameObject.GetComponent<OpenWindow>().enabled = isCombinable;
   }
-  public void SetItemName(GameObject confirmYesButton, string itemName)
+  public void SetCombineItemName(GameObject confirmYesButton, string itemName)
   {
     confirmYesButton.GetComponent<CombineItems>().MaterialItemName = itemName;
   }

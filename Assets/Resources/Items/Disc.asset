@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Disc
   description: There is a hole on the side
   count: 1
-  isCombinable: 1
+  isCombinable: 0
