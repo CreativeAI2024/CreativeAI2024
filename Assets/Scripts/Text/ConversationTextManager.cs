@@ -76,7 +76,16 @@ public class ConversationTextManager : MonoBehaviour
             if (unitTime > -0.55f)//連打対策（爆速スクロール等）
                 unitTime -= 0.35f;
         }
-        question.QuestionCursor();
+        if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())
+        {
+            question.QuestionCursor(1);
+        }
+        else if (_inputSetting.GetForwardKeyUp() || _inputSetting.GetLeftKeyUp())
+        {
+            question.QuestionCursor(-1);
+        }
+
+        
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }

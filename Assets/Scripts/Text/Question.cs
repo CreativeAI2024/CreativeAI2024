@@ -37,29 +37,25 @@ public class Question : MonoBehaviour
         }
         cursorPlace = 0;
         cursor.SetVisibleCursor(true);
+        cursor.CursorMove(rectTransforms[cursorPlace].position);
         thinkingTime = true;
     }
     
-    public void QuestionCursor()
+    public void QuestionCursor(int increase)
     {
-        CursorPlaceChange();
+        CursorPlaceChange(increase);
         cursor.CursorMove(rectTransforms[cursorPlace].position);
     }
 
-    private void CursorPlaceChange()
-    {
-        if (cursorPlace >= 0 && cursorPlace < cursorMax)
+    private void CursorPlaceChange(int increase)
+    {//一直線に並べることを想定
+        if (cursorPlace + increase >= 0 && cursorPlace + increase < cursorMax)
         {
-            if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())  //一直線に並べることを想定
-            {
-                cursorPlace = Mathf.Min(cursorPlace + 1, cursorMax - 1);
-            }
-            else if (_inputSetting.GetForwardKeyUp() || _inputSetting.GetLeftKeyUp())
-            {
-                cursorPlace = Mathf.Max(cursorPlace - 1, 0);
-            }
+            cursorPlace += increase;
         }
     }
+
+
 
     public void InitializeQuestionBranch()
     {
