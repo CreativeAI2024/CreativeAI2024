@@ -45,7 +45,7 @@ public class ConversationTextManager : MonoBehaviour
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
                 {
-                    question.QuestionOutput();  //仮の出力
+                    //question.QuestionOutput();  //仮の出力
                     ChangeLine(1);
                     DisplayText();
                     DebugLogger.Log("NextLine");
@@ -58,7 +58,7 @@ public class ConversationTextManager : MonoBehaviour
                 }
                 else
                 {
-                    question.QuestionOutput();  //仮の出力
+                    //question.QuestionOutput();  //仮の出力
                     gameObject.SetActive(false);
                     pause.UnPauseAll();
                     return;

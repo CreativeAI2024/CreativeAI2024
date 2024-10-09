@@ -8,14 +8,12 @@ public class Question : MonoBehaviour
     [SerializeField] private TextWindowCursor cursor;
     RectTransform[] rectTransforms;
     string[][] word;
-    private bool thinkingTime;
     private int cursorMax;
     private int cursorPlace;
 
     void Start()
     {
         rectTransforms = new RectTransform[questionBranches.Length];
-        thinkingTime = false;
         for (int i = 0; i < questionBranches.Length; i++)
         {
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
@@ -35,7 +33,6 @@ public class Question : MonoBehaviour
         cursorPlace = 0;
         cursor.SetVisibleCursor(true);
         cursor.CursorMove(rectTransforms[cursorPlace].position);
-        thinkingTime = true;
     }
     
     public void QuestionCursorMove(int increase)
@@ -51,14 +48,10 @@ public class Question : MonoBehaviour
             questionBranches[i].SetVisibleQuestionBranch(false);
         }
         cursor.SetVisibleCursor(false);
-        thinkingTime = false;
     }
 
     public void QuestionOutput()
     {
-        if (thinkingTime)
-        {
-            DebugLogger.Log(word[1][cursorPlace]);  //仮の出力
-        }
+        DebugLogger.Log("output!");  //仮の出力
     }
 }
