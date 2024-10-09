@@ -28,20 +28,24 @@ public class TextWindowCursor : MonoBehaviour
             {
                 cursorPlace = Mathf.Max(cursorPlace - 1, 0);
             }
-            Vector2 cursorPosition = new Vector2(rectTransform[cursorPlace].transform.position.x - cursorOffset, 
-                rectTransform[cursorPlace].transform.position.y);
+            Vector2 cursorPosition = new Vector2(rectTransform[cursorPlace].position.x - cursorOffset, 
+                rectTransform[cursorPlace].position.y);
              
             cursorObject.transform.position = cursorPosition;
         }
     }
 
-    public void ReactivateCursor()
+    public void ResetCursorPlace()
     {
         cursorPlace = 0;
+    }
+
+    public void EnableCursor()
+    {
         cursorObject.SetActive(true);
     }
 
-    public void HideCursor()
+    public void DisableCursor()
     {
         cursorObject.SetActive(false);
     }

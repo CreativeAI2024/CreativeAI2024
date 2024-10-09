@@ -29,9 +29,11 @@ public class Question : MonoBehaviour
         cursorMax = Mathf.Min(word[0].Length, questionBranches.Length);
         for (int i = 0; i < cursorMax; i++)
         {
-            questionBranches[i].DisplayQuestionBranchText(word[0][i]);
+            questionBranches[i].EnableQuestionBranch();
+            questionBranches[i].QuestionBranchText(word[0][i]);
         }
-        cursor.ReactivateCursor();
+        cursor.ResetCursorPlace();
+        cursor.EnableCursor();
         thinkingTime = true;
     }
     
@@ -44,9 +46,9 @@ public class Question : MonoBehaviour
     {
         for (int i = 0; i < questionBranches.Length; i++)
         {
-            questionBranches[i].HideQuestionBranch();
+            questionBranches[i].DisableQuestionBranch();
         }
-        cursor.HideCursor();
+        cursor.DisableCursor();
         thinkingTime = false;
     }
 
