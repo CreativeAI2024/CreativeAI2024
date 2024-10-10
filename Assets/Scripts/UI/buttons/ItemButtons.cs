@@ -23,7 +23,8 @@ using UnityEngine;
 
 public class ItemButtons : MonoBehaviour
 {
-    [SerializeField] private ItemList itemList;
+    [SerializeField] private ItemInventory itemInventory;
+    [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     [SerializeField] private GameObject itemButtonPrefab;
     [SerializeField] private GameObject itemImageScreen;
     private GameObject itemWindow;
@@ -32,29 +33,30 @@ public class ItemButtons : MonoBehaviour
     void OnEnable()
     {
         itemWindow = transform.parent.gameObject;
-        LoadItemList();
+        LoadItemInventory();
     }
 
-    private void LoadItemList()
+    private void LoadItemInventory()
     {
         foreach (Transform child in transform)
         {
-            if (!itemList.Search(child.GetChild(0).GetComponent<TextMeshProUGUI>().text))
+            Debug.Log(child.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+            if (!itemInventory.GetItem(child.GetChild(0).GetComponent<TextMeshProUGUI>().text)) //アイテム一覧のボタンにあってアイテムリストにないボタンを確かめる
             {
                 Destroy(child.gameObject);
             }
         }
-        foreach (BaseItem item in itemList.Items)
+        foreach (BaseItem item in itemInventory.Items)
         {
             if (!Search(item.ItemName))
             {
-                MakeItemButton(item.ItemName);
+                MakeItemButton(item);
             }
         }
     }
 
     //アイテム合成の時にリストを探索する時に呼び出す
-    //上の場合でも、ItemList内を探せばいいのでは？
+    //上の場合でも、ItemInventory内を探せばいいのでは？
     private GameObject Search(string searchedButtonName)
     {
         foreach (Transform child in transform)
@@ -67,39 +69,42 @@ public class ItemButtons : MonoBehaviour
         }
         return null;
     }
-    private void MakeItemButton(string itemName)
+    private void MakeItemButton(BaseItem item)
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
-        SetButtonName(itemButton, itemName);
-        switch (itemList.Search(itemName))
+        SetButtonName(itemButton, item);
+        switch (item)//引数: ItemInventoryのforeach→item→MakeItemButtonにitemName入れる
         {
-            case ImageShowItem item:
-                itemButton.AddComponent<OpenWindow>();
-                itemButton.GetComponent<OpenWindow>().currentWindow = itemWindow;
-                itemButton.GetComponent<OpenWindow>().nextWindow = itemImageScreen;
-                if (item.IsCombinable/*ペアアイテム持っているかどうかを追加*/)
+            case ImageShowItem imageShowItem:
                 {
-                    itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-                    itemButton.AddComponent<SetVarImageShowCombineMaterial>();
+                    OpenWindow openWindow = itemButton.AddComponent<OpenWindow>();
+                    openWindow.currentWindow = itemWindow;
+                    openWindow.nextWindow = itemImageScreen;
+                    if (combineRecipeDatabase.GetPairItem(imageShowItem))
+                    {
+                        itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
+                        itemButton.AddComponent<SetVarImageShowCombineMaterial>();
+                    }
+                    else
+                    {
+                        itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
+                        itemButton.AddComponent<SetVarImageShow>();
+                    }
+                    break;
                 }
-                else
+            case BaseItem baseItem:
                 {
-                    itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
-                    itemButton.AddComponent<SetVarImageShow>();
+                    if (combineRecipeDatabase.GetPairItem(baseItem))
+                    {
+                        OpenWindow openWindow = itemButton.AddComponent<OpenWindow>();
+                        openWindow.currentWindow = itemWindow;
+                        openWindow.nextWindow = confirmWindow;
+                        openWindow.enabled = true;
+                        itemButton.AddComponent<SetVarCombineMaterial>();
+                    }
+                    break;
                 }
-                break;
-            case BaseItem item:
-                if (item.IsCombinable/*ペアアイテム持っているかどうかを追加*/)
-                {
-                    var v = itemButton.AddComponent<OpenWindow>();
-                    v.currentWindow = itemWindow;
-                    v.nextWindow = confirmWindow;
-                    v.enabled = true;
-                    itemButton.AddComponent<SetVarCombineMaterial>();
-                }
-                break;
         }
-
     }
 
 
@@ -108,8 +113,8 @@ public class ItemButtons : MonoBehaviour
         return button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
     }
 
-    private void SetButtonName(GameObject button, string buttonName)
+    private void SetButtonName(GameObject button, BaseItem buttonItem)
     {
-        button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = buttonName;
+        button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = buttonItem.ItemName;
     }
 }

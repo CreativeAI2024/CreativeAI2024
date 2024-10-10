@@ -29,21 +29,19 @@ public class CombineRecipeDatabase : ScriptableObject
     }
     catch (System.Exception)
     {
-      Debug.Log(materialItem + "'s pair item is not found.");
-      throw;
+      return null;
     }
 
   }
-  public BaseItem GetCreatedItem(string materialName)
+  public BaseItem GetCreatedItem(BaseItem materialItem)
   {
     try
     {
-      return createdItemDictionary[materialName];
+      return createdItemDictionary[materialItem];
     }
     catch (System.Exception)
     {
-      Debug.Log(materialName + "'s created item is not found.");
-      throw;
+      return null;
     }
   }
 }

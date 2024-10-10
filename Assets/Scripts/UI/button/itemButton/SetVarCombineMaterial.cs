@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class SetVarCombineMaterial : MonoBehaviour
 {
   private InputSetting _inputSetting;
-  private ItemList itemList;
+  private ItemInventory itemInventory;
   private CombineRecipeDatabase combineRecipeDatabase;
   private GameObject uiManager;
   private BaseItem thisItem;
@@ -13,9 +13,9 @@ public class SetVarCombineMaterial : MonoBehaviour
   private CSetCombine cSetCombine;
   void Awake()
   {
-    itemList = Resources.Load<ItemList>("Items/ItemList");
+    itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
     combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
-    thisItem = itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+    thisItem = itemInventory.GetItem(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);//押したボタンのテキストからアイテムを取得 かなた質問：ボタンオブジェクトにアイテムボタンを保管するスクリプト作った方がいい？
     cSetCombine = new CSetCombine();
   }
   void Start()
@@ -27,7 +27,7 @@ public class SetVarCombineMaterial : MonoBehaviour
 
   void OnEnable()
   {
-    if (itemList.Search(combineRecipeDatabase.GetPairItem(thisItem.ItemName).ItemName) == true)
+    if (itemInventory.IsContains(combineRecipeDatabase.GetPairItem(thisItem))) //ペアアイテムを持ってるか。引数：渡されたthisItem→recipeから取得
     {
       cSetCombine.SetOpenWindowEnabled(gameObject, true);
     }
@@ -42,9 +42,9 @@ public class SetVarCombineMaterial : MonoBehaviour
     {
       if (EventSystem.current.currentSelectedGameObject == gameObject)
       {
-        if (itemList.Search(combineRecipeDatabase.GetPairItem(thisItem.ItemName).ItemName) == true)
+        if (itemInventory.IsContains(combineRecipeDatabase.GetPairItem(thisItem))) //ペアアイテムを持ってるか。引数：渡されたthisItem→recipeから取得
         {
-          cSetCombine.SetCombineItemName(confirmYesButton, thisItem.ItemName);
+          cSetCombine.SetCombineItem(confirmYesButton, thisItem);
         }
       }
     }

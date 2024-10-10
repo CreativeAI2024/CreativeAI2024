@@ -4,16 +4,16 @@ using UnityEngine.EventSystems;
 public class CombineItems : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    private ItemList itemList;
+    private ItemInventory itemInventory;
     private CombineRecipeDatabase combineRecipeDatabase;
-    private string materialItemName;
-    public string MaterialItemName {
-        set {materialItemName = value;}
+    private BaseItem materialItem;
+    public BaseItem MaterialItem {
+        set {materialItem = value;}
     }
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        itemList = Resources.Load<ItemList>("Items/ItemList");
+        itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
         combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
     }
     void Update()
@@ -30,12 +30,12 @@ public class CombineItems : MonoBehaviour
     private void Combine()
   {
     Debug.Log("Combine() called");
-    string pairItemName = combineRecipeDatabase.GetPairItem(materialItemName).ItemName; //error
-    if (itemList.Search(pairItemName)!=null)
+    BaseItem pairItem = combineRecipeDatabase.GetPairItem(materialItem); //error
+    if (itemInventory.IsContains(pairItem)) //ペアアイテムを持ってるか。引数：渡されたthisItem→recipeから取得
     {
-      itemList.Add(combineRecipeDatabase.GetCreatedItem(materialItemName).ItemName);
-      itemList.Remove(materialItemName);
-      itemList.Remove(pairItemName);
+      itemInventory.Add(combineRecipeDatabase.GetCreatedItem(materialItem));
+      itemInventory.Remove(materialItem);
+      itemInventory.Remove(pairItem);
     } 
   }
 }

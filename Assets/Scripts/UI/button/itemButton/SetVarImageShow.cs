@@ -13,10 +13,9 @@ public class SetVarImageShow : MonoBehaviour
     {
         _inputSetting = InputSetting.Load();
         uiManager = GameObject.FindWithTag("UIManager");
-        ItemList itemList = Resources.Load<ItemList>("Items/ItemList");
+        ItemInventory itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
         itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
-        string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
-        itemImage = ((ImageShowItem)itemList.Search(itemName)).Image;
+        itemImage = ((ImageShowItem)itemInventory.GetItem(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text)).Image; //押したボタンのテキストからアイテムを取得 かなた質問：ボタンオブジェクトにアイテムボタンを保管するスクリプト作った方がいい？
         cSetImageShow = new CSetImageShow(itemImageScreen);
     }
     void Update()

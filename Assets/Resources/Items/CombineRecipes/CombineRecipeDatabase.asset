@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 762f80874b1534634aeccb16742a9f72, type: 3}
-  m_Name: CombineRecipeList
+  m_Name: CombineRecipeDatabase
   m_EditorClassIdentifier: 
   recipes:
   - {fileID: 11400000, guid: 22b02149597804ada95b0ac9afe25032, type: 2}

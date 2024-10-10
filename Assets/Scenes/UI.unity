@@ -641,7 +641,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7933b4f0a7834dedb6c2033125cbaca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combineRecipeList: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff, type: 2}
+  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  combineRecipeDatabase: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
+    type: 2}
 --- !u!1 &1772652030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1763179638510886709, guid: c92169478df344a9db5af581df804b92,
@@ -670,7 +672,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92,
         type: 3}
+      propertyPath: itemInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2,
+        type: 2}
+    - target: {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
       propertyPath: combineRecipeList
+      value: 
+      objectReference: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
+        type: 2}
+    - target: {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineRecipeDatabase
       value: 
       objectReference: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
         type: 2}
@@ -809,6 +823,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8000921214729339723, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

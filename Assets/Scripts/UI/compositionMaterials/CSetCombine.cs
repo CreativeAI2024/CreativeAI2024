@@ -7,8 +7,8 @@ public class CSetCombine
   {
     gameObject.GetComponent<OpenWindow>().enabled = isCombinable;
   }
-  public void SetCombineItemName(GameObject confirmYesButton, string itemName)
+  public void SetCombineItem(GameObject confirmYesButton, BaseItem item)
   {
-    confirmYesButton.GetComponent<CombineItems>().MaterialItemName = itemName;
+    confirmYesButton.GetComponent<CombineItems>().MaterialItem = item;
   }
 }

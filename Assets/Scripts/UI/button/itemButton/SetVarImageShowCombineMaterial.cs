@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SetVarImageShowCombineMaterial : MonoBehaviour
 {
   private InputSetting _inputSetting;
-  private ItemList itemList;
+  private ItemInventory itemInventory;
   private CombineRecipeDatabase combineRecipeDatabase;
   private GameObject uiManager;
   private BaseItem thisItem;
@@ -19,9 +19,9 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
 
   void Awake()
   {
-    itemList = Resources.Load<ItemList>("Items/ItemList");
+    itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
     combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
-    thisItem = itemList.Search(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
+    thisItem = itemInventory.GetItem(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
     cSetCombine = new CSetCombine();
 }
   void Start()
@@ -29,7 +29,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
     _inputSetting = InputSetting.Load();
     uiManager = GameObject.FindWithTag("UIManager");
     string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
-    itemImage = ((ImageShowItem)itemList.Search(itemName)).Image;
+    itemImage = ((ImageShowItem)itemInventory.GetItem(itemName)).Image;
     confirmWindow = uiManager.GetComponent<GameObjectHolder>().ConfirmWindow;
     confirmYesButton = uiManager.GetComponent<GameObjectHolder>().ConfirmYesButton;
     itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
@@ -38,7 +38,7 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
 
   void OnEnable()
   {
-    if (itemList.Search(combineRecipeDatabase.GetPairItem(thisItem.ItemName).ItemName) == true)
+    if (itemInventory.IsContains(combineRecipeDatabase.GetPairItem(thisItem)))
     {
       cSetCombine.SetOpenWindowEnabled(gameObject, true);
     }
@@ -54,10 +54,10 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
       if (EventSystem.current.currentSelectedGameObject == gameObject)
       {
         cSetImageShow.SetImage(itemImage);
-        if (itemList.Search(combineRecipeDatabase.GetPairItem(thisItem.ItemName).ItemName) == true)
+        if (itemInventory.IsContains(combineRecipeDatabase.GetPairItem(thisItem)))
         {
           cSetImageShow.SetNextWindow(confirmWindow);
-          cSetCombine.SetCombineItemName(confirmYesButton, thisItem.ItemName);
+          cSetCombine.SetCombineItem(confirmYesButton, thisItem);
         }
         else
         {
