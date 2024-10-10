@@ -83,12 +83,12 @@ public class ItemButtons : MonoBehaviour
                     if (combineRecipeDatabase.GetPairItem(imageShowItem))
                     {
                         itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-                        itemButton.AddComponent<SetVarImageShowCombineMaterial>();
+                        itemButton.AddComponent<SetVariablesImageShowCombineMaterial>();
                     }
                     else
                     {
                         itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
-                        itemButton.AddComponent<SetVarImageShow>();
+                        itemButton.AddComponent<SetVariablesImageShow>();
                     }
                     break;
                 }
@@ -100,7 +100,7 @@ public class ItemButtons : MonoBehaviour
                         openWindow.currentWindow = itemWindow;
                         openWindow.nextWindow = confirmWindow;
                         openWindow.enabled = true;
-                        itemButton.AddComponent<SetVarCombineMaterial>();
+                        itemButton.AddComponent<SetVariablesCombineMaterial>();
                     }
                     break;
                 }

@@ -3,41 +3,26 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SetVarImageShowCombineMaterial : MonoBehaviour
+public class SetVariablesImageShowCombineMaterial : SetVariables
 {
-  private InputSetting _inputSetting;
-  private ItemInventory itemInventory;
   private CombineRecipeDatabase combineRecipeDatabase;
-  private GameObject uiManager;
-  private BaseItem thisItem;
   private Sprite itemImage;
+  private GameObject itemImageScreen;
   private GameObject confirmWindow;
   private GameObject confirmYesButton;
-  private GameObject itemImageScreen;
   private CSetImageShow cSetImageShow;
   private CSetCombine cSetCombine;
 
-  void Awake()
+  new void Start()
   {
-    itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
+    base.Start();
     combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
-    thisItem = itemInventory.GetItem(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
-    cSetCombine = new CSetCombine();
-}
-  void Start()
-  {
-    _inputSetting = InputSetting.Load();
-    uiManager = GameObject.FindWithTag("UIManager");
-    string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
-    itemImage = ((ImageShowItem)itemInventory.GetItem(itemName)).Image;
+    itemImage = ((ImageShowItem)thisItem).Image;
+    itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
     confirmWindow = uiManager.GetComponent<GameObjectHolder>().ConfirmWindow;
     confirmYesButton = uiManager.GetComponent<GameObjectHolder>().ConfirmYesButton;
-    itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
     cSetImageShow = new CSetImageShow(itemImageScreen);
-  }
-
-  void OnEnable()
-  {
+    cSetCombine = new CSetCombine();
     if (itemInventory.IsContains(combineRecipeDatabase.GetPairItem(thisItem)))
     {
       cSetCombine.SetOpenWindowEnabled(gameObject, true);
@@ -45,6 +30,27 @@ public class SetVarImageShowCombineMaterial : MonoBehaviour
     else
     {
       cSetCombine.SetOpenWindowEnabled(gameObject, false);
+    }
+
+  }
+
+  void OnEnable()
+  {
+    if (isOnEnableFirstRun)
+    {
+      isOnEnableFirstRun = false;
+    }
+    else
+    {
+      if (itemInventory.IsContains(combineRecipeDatabase.GetPairItem(thisItem)))
+      {
+        cSetCombine.SetOpenWindowEnabled(gameObject, true);
+      }
+      else
+      {
+        cSetCombine.SetOpenWindowEnabled(gameObject, false);
+      }
+
     }
   }
   void Update()
