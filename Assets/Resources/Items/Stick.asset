@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c123c25f8480b4fc1bb6a608de5091f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: Stick
   m_EditorClassIdentifier: 
   itemName: Stick
   description: It made of Metal
   count: 1
-  pairItem: {fileID: 11400000, guid: 36d7b8717a22d401f8b5f95d41bde815, type: 2}
-  createdItem: {fileID: 11400000, guid: 9f35463909b264ef5b2add2558f90db7, type: 2}
+  isCombinable: 0

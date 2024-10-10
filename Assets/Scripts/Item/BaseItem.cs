@@ -6,11 +6,12 @@ using UnityEngine;
 public class BaseItem : ScriptableObject
 {
     [SerializeField] private string itemName;
-    public string ItemName => itemName;
     [SerializeField, TextArea] private string description;
-    public string Description => description;
     [SerializeField] private int count = 1;
+    public string ItemName => itemName;
+    public string Description => description;
     public int Count => count;
+    // public bool IsCombinable { get; set; } //TODO: Dictionaryに入っているかどうかで判定
 
     public void IncrementCount()
     {

@@ -3,12 +3,12 @@ using UnityEngine;
 public class CSetCombine
 {
   public CSetCombine(){}
-  public void SetEnabled(GameObject gameObject, bool isCombinable)
+  public void SetOpenWindowEnabled(GameObject gameObject, bool isCombinable)
   {
     gameObject.GetComponent<OpenWindow>().enabled = isCombinable;
   }
-  public void SetItemName(GameObject confirmYesButton, string itemName)
+  public void SetCombineItem(GameObject confirmYesButton, BaseItem item)
   {
-    confirmYesButton.GetComponent<Combine>().ItemName = itemName;
+    confirmYesButton.GetComponent<CombineItems>().MaterialItem = item;
   }
 }

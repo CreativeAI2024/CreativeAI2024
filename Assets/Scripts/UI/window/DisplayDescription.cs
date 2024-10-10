@@ -6,13 +6,13 @@ using UnityEngine.EventSystems;
 public class DisplayDescription : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    [SerializeField] private ItemList itemList;
-    private string focusedButtonName;
+    [SerializeField] private ItemInventory itemInventory;
+    private BaseItem focusedButton;
     private bool isOnEnableFirstRun = true;
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        SetFocusedButtonName();
+        SetFocusedButton();
         SetDescription();
     }
 
@@ -24,7 +24,7 @@ public class DisplayDescription : MonoBehaviour
         }
         else
         {
-            SetFocusedButtonName();
+            SetFocusedButton();
             SetDescription();
         }
     }
@@ -32,17 +32,17 @@ public class DisplayDescription : MonoBehaviour
     {
         if (_inputSetting.GetForwardKeyDown() || _inputSetting.GetBackKeyDown() || _inputSetting.GetLeftKeyDown() || _inputSetting.GetRightKeyDown())
         {
-            SetFocusedButtonName();
+            SetFocusedButton();
             SetDescription();
         }
     }
     private void SetDescription()
     {
-        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemList.Search(focusedButtonName).Description;
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = focusedButton.Description;//フォーカスしてるボタンから取得した名前からアイテムを取得してる
     }
 
-    private void SetFocusedButtonName()
+    private void SetFocusedButton()
     {
-        focusedButtonName = EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+        focusedButton = itemInventory.GetItem(EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
     }
 }

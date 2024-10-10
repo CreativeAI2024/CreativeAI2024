@@ -1,22 +1,18 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SetVarImageShow : MonoBehaviour
+public class SetVariablesImageShow : SetVariables
 {
-    private InputSetting _inputSetting;
-    private GameObject uiManager;
     private Sprite itemImage;
     private GameObject itemImageScreen;
     private CSetImageShow cSetImageShow;
-    void Start()
+    new void Start()
     {
-        _inputSetting = InputSetting.Load();
-        uiManager = GameObject.FindWithTag("UIManager");
-        ItemList itemList = Resources.Load<ItemList>("Items/ItemList");
+        base.Start();
+        itemImage = ((ImageShowItem)thisItem).Image;
         itemImageScreen = uiManager.GetComponent<GameObjectHolder>().ItemImageScreen;
-        string itemName = transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
-        itemImage = ((ImageShowItem)itemList.Search(itemName)).Image;
         cSetImageShow = new CSetImageShow(itemImageScreen);
     }
     void Update()

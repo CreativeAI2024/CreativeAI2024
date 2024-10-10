@@ -7,6 +7,34 @@ public class MoveCursor : MonoBehaviour
     private bool isOnEnableFirstRun = true;
     protected Selectable focusedButton;
     void OnEnable()
+
+    {
+        if (isOnEnableFirstRun)
+        {
+            isOnEnableFirstRun = false;
+        }
+        else
+        {
+            Setup();
+        }
+    }
+
+    void Start()
+    {
+        Setup();
+    }
+
+    void Update()
+    {
+        if (focusedButton.gameObject != EventSystem.current.currentSelectedGameObject)
+        {
+            ChangeCursorVisibility(focusedButton.gameObject, false);
+            FocusButton(EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>());
+            ChangeCursorVisibility(focusedButton.gameObject, true);
+        }
+    }
+
+    private void Setup()
     {
         if (isOnEnableFirstRun)
         {
@@ -21,27 +49,6 @@ public class MoveCursor : MonoBehaviour
             {
                 ChangeCursorVisibility(child.gameObject, false);
             }
-            ChangeCursorVisibility(focusedButton.gameObject, true);
-        }
-    }
-
-    void Start()
-    {
-            Debug.Log("EventSystem.current.currentSelectedGameObject: "+EventSystem.current.currentSelectedGameObject);
-            focusedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>();
-            Debug.Log("focusedButton: "+focusedButton.gameObject);
-            foreach (Transform child in transform)
-            {
-                ChangeCursorVisibility(child.gameObject, false);
-            }
-            ChangeCursorVisibility(focusedButton.gameObject, true);
-    }
-    protected void Update()
-    {
-        if (focusedButton != EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>())
-        {
-            ChangeCursorVisibility(focusedButton.gameObject, false);
-            FocusButton(EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>());
             ChangeCursorVisibility(focusedButton.gameObject, true);
         }
     }

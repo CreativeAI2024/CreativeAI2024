@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b1bdf4f98fb4b039d9a61aca5f9cf7, type: 3}
-  m_Name: FormarLetter
+  m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
+  m_Name: Disc
   m_EditorClassIdentifier: 
-  itemName: FormarLetter
-  description: A letter in the back of my pocket
+  itemName: Disc
+  description: There is a hole on the side
   count: 1
   isCombinable: 0
-  image: {fileID: 21300000, guid: 2f7d0c316bc244489b14f6c7af981fec, type: 3}
