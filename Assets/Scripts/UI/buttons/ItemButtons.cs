@@ -26,6 +26,8 @@ public class ItemButtons : MonoBehaviour
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     [SerializeField] private GameObject itemButtonPrefab;
+    [SerializeField] private GameObject imageShowButtonPrefab;
+    [SerializeField] private GameObject combineButtonPrefab;
     [SerializeField] private GameObject itemImageScreen;
     private GameObject itemWindow;
     [SerializeField] private GameObject confirmWindow;
@@ -72,16 +74,19 @@ public class ItemButtons : MonoBehaviour
     private void MakeItemButton(BaseItem item)
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
+        Transform actionWindowButtons = itemButton.transform.GetChild(1).GetChild(0);
         SetButtonName(itemButton, item);
         switch (item)//引数: ItemInventoryのforeach→item→MakeItemButtonにitemName入れる
         {
             case ImageShowItem imageShowItem:
                 {
-                    OpenWindow openWindow = itemButton.AddComponent<OpenWindow>();
+                    GameObject imageShowButton = Instantiate(imageShowButtonPrefab, actionWindowButtons);
+                    OpenWindow openWindow = imageShowButton.GetComponent<OpenWindow>();
                     openWindow.currentWindow = itemWindow;
                     openWindow.nextWindow = itemImageScreen;
                     if (combineRecipeDatabase.GetPairItem(imageShowItem))
                     {
+                        GameObject combineButton = Instantiate(combineButtonPrefab, actionWindowButtons);
                         itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
                         itemButton.AddComponent<SetVariablesImageShowCombineMaterial>();
                     }
@@ -96,10 +101,8 @@ public class ItemButtons : MonoBehaviour
                 {
                     if (combineRecipeDatabase.GetPairItem(baseItem))
                     {
-                        OpenWindow openWindow = itemButton.AddComponent<OpenWindow>();
-                        openWindow.currentWindow = itemWindow;
-                        openWindow.nextWindow = confirmWindow;
-                        openWindow.enabled = true;
+                        GameObject combineButton = Instantiate(combineButtonPrefab, actionWindowButtons);
+                        itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
                         itemButton.AddComponent<SetVariablesCombineMaterial>();
                     }
                     break;

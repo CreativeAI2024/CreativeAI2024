@@ -684,10 +684,28 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92,
         type: 3}
+      propertyPath: actionButtonPrefab
+      value: 
+      objectReference: {fileID: 2238412286224207160, guid: 151ec95e9ec4548a68f1e3b1997aef09,
+        type: 3}
+    - target: {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButtonPrefab
+      value: 
+      objectReference: {fileID: 2238412286224207160, guid: 932435505b412466e8f358b669a25f5d,
+        type: 3}
+    - target: {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
       propertyPath: combineRecipeDatabase
       value: 
       objectReference: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
         type: 2}
+    - target: {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: imageShowButtonPrefab
+      value: 
+      objectReference: {fileID: 2238412286224207160, guid: 151ec95e9ec4548a68f1e3b1997aef09,
+        type: 3}
     - target: {fileID: 4485527157223527291, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: m_Name
