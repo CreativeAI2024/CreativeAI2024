@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 [Serializable]
 [CreateAssetMenu(fileName = "ItemInventory", menuName = "ScriptableObject/Item/ItemInventory")]
 public class ItemInventory : ScriptableObject
 {
-    [SerializeField] private List<BaseItem> itemList;
-    private HashSet<BaseItem> itemSet;
-    private Dictionary<string, BaseItem> itemDictionary;
-    public List<BaseItem> Items => itemList;
+    [SerializeField] private List<Item> itemList;
+    private HashSet<Item> itemSet;
+    private Dictionary<string, Item> itemDictionary;
     public void Initialize()
     {
-        itemSet = new HashSet<BaseItem>();
-        itemDictionary = new Dictionary<string, BaseItem>();
-        foreach(BaseItem item in itemList)
+        itemSet = new HashSet<Item>();
+        itemDictionary = new Dictionary<string, Item>();
+        foreach (Item item in itemList)
         {
             if (itemSet.Add(item))
             {
@@ -23,22 +23,26 @@ public class ItemInventory : ScriptableObject
         }
     }
 
-    public BaseItem GetItem(string baseItem)
+    public Item GetItem(string Item)
     {
         try
         {
-            return itemDictionary[baseItem];
+            return itemDictionary[Item];
         }
         catch
         {
             return null;
         }
     }
-    public bool IsContains(BaseItem searchedItem)
+    public bool IsContains(Item searchedItem)
     {
         return itemSet.Contains(searchedItem);
     }
-    public void Add(BaseItem item) 
+    public ReadOnlyCollection<Item> GetItems()
+    {
+        return itemList.AsReadOnly();
+    }
+    public void Add(Item item)
     {
         if (itemSet.Contains(item))
         {
@@ -46,14 +50,14 @@ public class ItemInventory : ScriptableObject
         }
         else
         {
-            BaseItem addedItem = Resources.Load<BaseItem>("Items/"+item.ItemName);
+            Item addedItem = Resources.Load<Item>("Items/" + item.ItemName);
             itemList.Add(addedItem);
             itemSet.Add(addedItem);
             itemDictionary.Add(addedItem.ItemName, addedItem);
         }
     }
 
-    public void Remove(BaseItem item)
+    public void Remove(Item item)
     {
         if (item.Count > 1)
         {

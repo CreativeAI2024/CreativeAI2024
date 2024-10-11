@@ -1,17 +1,22 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName ="BaseItem", menuName ="ScriptableObject/Item/BaseItem")]
-public class BaseItem : ScriptableObject
+[CreateAssetMenu(fileName ="Item", menuName ="ScriptableObject/Item/Item")]
+public class Item : ScriptableObject
 {
     [SerializeField] private string itemName;
     [SerializeField, TextArea] private string description;
     [SerializeField] private int count = 1;
+    [SerializeField] private Sprite image;
+    [SerializeField] private List<string> text;
     public string ItemName => itemName;
     public string Description => description;
     public int Count => count;
-    // public bool IsCombinable { get; set; } //TODO: Dictionaryに入っているかどうかで判定
+    public Sprite Image => image;
+    public List<string> Text => text;
+
 
     public void IncrementCount()
     {

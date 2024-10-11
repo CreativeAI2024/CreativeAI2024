@@ -7,7 +7,7 @@ public class DisplayDescription : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private ItemInventory itemInventory;
-    private BaseItem focusedButton;
+    private Item focusedButton;
     private bool isOnEnableFirstRun = true;
     void Start()
     {

@@ -18,8 +18,8 @@ using UnityEngine;
 //アイテム画像は1600*900で出してもらうことを視覚班に伝える→ゲーム全体の解像度によるので保留
 //TODO: アイテム周りのクラス図を作る
 //ImageShowItem Objectは画像と、そのgetterを持っている
-//ItemWindowはButtons内のBaseItemにfor文で全てにアクセスできる
-//引数の型がBaseItemでも、実際に引数として渡される変数がそれを継承したImageShowItemクラスなら、ImageShowItemクラスとして認識される
+//ItemWindowはButtons内のItemにfor文で全てにアクセスできる
+//引数の型がItemでも、実際に引数として渡される変数がそれを継承したImageShowItemクラスなら、ImageShowItemクラスとして認識される
 
 public class ItemButtons : MonoBehaviour
 {
@@ -46,7 +46,7 @@ public class ItemButtons : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
-        foreach (BaseItem item in itemInventory.Items)
+        foreach (Item item in itemInventory.GetItems())
         {
             if (!Search(item.ItemName))
             {
@@ -69,41 +69,25 @@ public class ItemButtons : MonoBehaviour
         }
         return null;
     }
-    private void MakeItemButton(BaseItem item)
+    private void MakeItemButton(Item item)
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
         SetButtonName(itemButton, item);
-        switch (item)//引数: ItemInventoryのforeach→item→MakeItemButtonにitemName入れる
+        if (item.Image!=null && item.Text.Count!=0)
         {
-            case ImageShowItem imageShowItem:
-                {
-                    OpenWindow openWindow = itemButton.AddComponent<OpenWindow>();
-                    openWindow.currentWindow = itemWindow;
-                    openWindow.nextWindow = itemImageScreen;
-                    if (combineRecipeDatabase.GetPairItem(imageShowItem))
-                    {
-                        itemImageScreen.GetComponent<OpenWindow>().nextWindow = confirmWindow;
-                        itemButton.AddComponent<SetVariablesImageShowCombineMaterial>();
-                    }
-                    else
-                    {
-                        itemImageScreen.GetComponent<OpenWindow>().nextWindow = itemWindow;
-                        itemButton.AddComponent<SetVariablesImageShow>();
-                    }
-                    break;
-                }
-            case BaseItem baseItem:
-                {
-                    if (combineRecipeDatabase.GetPairItem(baseItem))
-                    {
-                        OpenWindow openWindow = itemButton.AddComponent<OpenWindow>();
-                        openWindow.currentWindow = itemWindow;
-                        openWindow.nextWindow = confirmWindow;
-                        openWindow.enabled = true;
-                        itemButton.AddComponent<SetVariablesCombineMaterial>();
-                    }
-                    break;
-                }
+            itemButton.AddComponent<ImageTextButton>();
+        }
+        else if (item.Image!=null)
+        {
+            itemButton.AddComponent<ImageButton>();
+        }
+        else if (item.Text.Count!=0)
+        {
+            itemButton.AddComponent<TextButton>();
+        }
+        if (combineRecipeDatabase.GetPairItem(item))
+        {
+            itemButton.AddComponent<CombineButton>();
         }
     }
 
@@ -113,7 +97,7 @@ public class ItemButtons : MonoBehaviour
         return button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
     }
 
-    private void SetButtonName(GameObject button, BaseItem buttonItem)
+    private void SetButtonName(GameObject button, Item buttonItem)
     {
         button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = buttonItem.ItemName;
     }

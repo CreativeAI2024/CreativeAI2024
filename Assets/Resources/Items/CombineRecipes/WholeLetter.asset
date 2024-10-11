@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WholeLetter
   m_EditorClassIdentifier: 
   material1: {fileID: 11400000, guid: e9a931b38fe8847449bb8abdb9c4981b, type: 2}
-  material2: {fileID: 11400000, guid: b4c7b82fb0acc4ecda99de1d3943b402, type: 2}
+  material2: {fileID: 11400000, guid: d475fe3b65c174bce9d1e951351fdca4, type: 2}
   createdItem: {fileID: 11400000, guid: f8559e2ff3dc346c4a1de4da9f5839ee, type: 2}

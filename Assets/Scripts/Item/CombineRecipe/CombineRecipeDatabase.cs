@@ -7,12 +7,12 @@ using UnityEngine;
 public class CombineRecipeDatabase : ScriptableObject
 {
   [SerializeField] private List<CombineRecipe> recipes;
-  private Dictionary<BaseItem, BaseItem> pairItemDictionary;
-  private Dictionary<BaseItem, BaseItem> createdItemDictionary;
+  private Dictionary<Item, Item> pairItemDictionary;
+  private Dictionary<Item, Item> createdItemDictionary;
   public void Initialize()
   {
-    pairItemDictionary = new Dictionary<BaseItem, BaseItem>();
-    createdItemDictionary = new Dictionary<BaseItem, BaseItem>();
+    pairItemDictionary = new Dictionary<Item, Item>();
+    createdItemDictionary = new Dictionary<Item, Item>();
     foreach (CombineRecipe recipe in recipes)
     {
       pairItemDictionary.Add(recipe.Material1, recipe.Material2);
@@ -21,7 +21,7 @@ public class CombineRecipeDatabase : ScriptableObject
       createdItemDictionary.Add(recipe.Material2, recipe.CreatedItem);
     }
   }
-  public BaseItem GetPairItem(BaseItem materialItem)
+  public Item GetPairItem(Item materialItem)
   {
     try
     {
@@ -33,7 +33,7 @@ public class CombineRecipeDatabase : ScriptableObject
     }
 
   }
-  public BaseItem GetCreatedItem(BaseItem materialItem)
+  public Item GetCreatedItem(Item materialItem)
   {
     try
     {

@@ -6,8 +6,8 @@ public class CombineItems : MonoBehaviour
     private InputSetting _inputSetting;
     private ItemInventory itemInventory;
     private CombineRecipeDatabase combineRecipeDatabase;
-    private BaseItem materialItem;
-    public BaseItem MaterialItem {
+    private Item materialItem;
+    public Item MaterialItem {
         set {materialItem = value;}
     }
     void Start()
@@ -30,7 +30,7 @@ public class CombineItems : MonoBehaviour
     private void Combine()
   {
     Debug.Log("Combine() called");
-    BaseItem pairItem = combineRecipeDatabase.GetPairItem(materialItem); //error
+    Item pairItem = combineRecipeDatabase.GetPairItem(materialItem); //error
     if (itemInventory.IsContains(pairItem)) //ペアアイテムを持ってるか。引数：渡されたthisItem→recipeから取得
     {
       itemInventory.Add(combineRecipeDatabase.GetCreatedItem(materialItem));

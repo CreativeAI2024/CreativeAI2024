@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ItemInventory
   m_EditorClassIdentifier: 
   itemList:
-  - {fileID: 11400000, guid: 9619873b4ae45493093c2b55c3339e80, type: 2}
-  - {fileID: 11400000, guid: 35c9c0ba512494f6cbc24fe700a05842, type: 2}
-  - {fileID: 11400000, guid: 928bc470fdb7143868dc7070111c3606, type: 2}
-  - {fileID: 11400000, guid: d2c4eeb8cc9814e46ae8ece9ba03e529, type: 2}
-  - {fileID: 11400000, guid: e9a931b38fe8847449bb8abdb9c4981b, type: 2}
-  - {fileID: 11400000, guid: b4c7b82fb0acc4ecda99de1d3943b402, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
