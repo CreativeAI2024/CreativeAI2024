@@ -1,25 +1,27 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CloseWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
+    private GameObjectHolder gameObjectHolder;
     [SerializeField] private GameObject itemWindow;
-    [SerializeField] private GameObject actionsWindow;
     [SerializeField] private GameObject previousWindow;
     public GameObject PreviousWindow { set { previousWindow = value; } }
     void Start()
     {
         _inputSetting = InputSetting.Load();
+        gameObjectHolder = GameObject.FindWithTag("UIManager").GetComponent<GameObjectHolder>();
     }
     void Update()
     {
         if (_inputSetting.GetCancelKeyDown() && previousWindow != null)
         {
-            if (gameObject == actionsWindow)
+            if (previousWindow == itemWindow)
             {
-                CloseActionsWindow();
+                CloseToItemWindow();
             }
             else
             {
@@ -33,16 +35,20 @@ public class CloseWindow : MonoBehaviour
         ChangeActive(gameObject, false);
         ChangeActive(previousWindow, true);
     }
-    private void CloseActionsWindow()
+    private void CloseToItemWindow()
     {
+        ChangeActive(gameObjectHolder.DisplayButton, false);
+        ChangeActive(gameObjectHolder.CombineButton, false);
         gameObject.SetActive(false);
         itemWindow.GetComponent<CloseWindow>().enabled = true;
         Transform itemButtons = itemWindow.transform.GetChild(0);
-        itemButtons.GetComponent<SetFirstButtonFocus>().Focus();
         itemButtons.GetComponent<MoveCursor>().enabled = true;
-        itemButtons.GetComponentsInChildren<Selectable>().ToList().ForEach(selectable => selectable.enabled = true);    }
-    private void ChangeActive(GameObject window, bool isActive)
+        itemButtons.GetComponentsInChildren<Selectable>().ToList().ForEach(selectable => selectable.enabled = true);
+        itemButtons.GetComponent<SetFirstButtonFocus>().Focus();
+        ChangeActive(previousWindow, true);
+    }
+    private void ChangeActive(GameObject @object, bool isActive)
     {
-        window.SetActive(isActive);
+        @object.SetActive(isActive);
     }
 }

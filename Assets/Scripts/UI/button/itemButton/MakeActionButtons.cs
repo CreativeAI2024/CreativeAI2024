@@ -6,55 +6,54 @@ using UnityEngine.UI;
 
 public class MakeActionButtons : MonoBehaviour
 {
-    private InputSetting _inputSetting;
-    private GameObject actionButtonPrefab;
-    private Transform actionButtons;
+    [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
+    [SerializeField] private GameObject displayButton;
+    [SerializeField] private GameObject combineButton;
+    [SerializeField] private GameObject itemImageScreen;
+    [SerializeField] private GameObject conversationWindow;
+    private OpenWindow displayButtonOpenWindow;
+    private ImageTextButton imageTextButtonComponent;
+    private ImageButton imageButtonComponent;
+    private TextButton textButtonComponent;
+    private CombineButton combineButtonComponent;
     private Item thisItem;
-    private CombineRecipeDatabase combineRecipeDatabase;
     public Item ThisItem { set { thisItem = value; } }
-    void Start()
+    void Awake()
     {
-        _inputSetting = InputSetting.Load();
-        GameObjectHolder gameObjectHolder = GameObject.FindWithTag("UIManager").GetComponent<GameObjectHolder>();
-        actionButtonPrefab = gameObjectHolder.ActionButtonPrefab;
-        actionButtons = gameObjectHolder.ActionButtons;
-        combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
-
+        displayButtonOpenWindow = displayButton.GetComponent<OpenWindow>();
+        imageTextButtonComponent = displayButton.GetComponent<ImageTextButton>();
+        imageButtonComponent = displayButton.GetComponent<ImageButton>();
+        textButtonComponent = displayButton.GetComponent<TextButton>();
+        combineButtonComponent = combineButton.GetComponent<CombineButton>();
     }
-    void Update()
+    void OnEnable()
     {
-        if (_inputSetting.GetDecideKeyDown())
+        if (thisItem.Image != null && thisItem.Text.Count != 0)
         {
-            if (EventSystem.current.currentSelectedGameObject == gameObject)
-            {
-                if (thisItem.Image != null && thisItem.Text.Count != 0)
-                {
-                    //Instantiateじゃなく、事前にオブジェクト配置&setActive()で切り替える方針
-                    GameObject actionButton = Instantiate(actionButtonPrefab, actionButtons);
-                    actionButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";
-                    actionButton.AddComponent<ImageTextButton>().ThisItem = thisItem;
-                }
-                else if (thisItem.Image != null)
-                {
-                    GameObject actionButton = Instantiate(actionButtonPrefab, actionButtons);
-                    actionButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";
-                    actionButton.AddComponent<ImageButton>().ThisItem = thisItem;
-                }
-                else if (thisItem.Text.Count != 0)
-                {
-                    GameObject actionButton = Instantiate(actionButtonPrefab, actionButtons);
-                    actionButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";
-                    actionButton.AddComponent<TextButton>().ThisItem = thisItem;
-                }
-                if (combineRecipeDatabase.GetPairItem(thisItem))
-                {
-                    GameObject actionButton = Instantiate(actionButtonPrefab, actionButtons);
-                    actionButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Combine";
-                    //TODO: pairItemを持ってなければselectableをfalseにする
-                    actionButton.AddComponent<CombineButton>().ThisItem = thisItem;
-                }
-
-            }
+            SetDisplayButton(conversationWindow, imageTextButtonComponent);
         }
+        else if (thisItem.Image != null)
+        {
+            SetDisplayButton(itemImageScreen, imageButtonComponent);
+        }
+        else if (thisItem.Text.Count != 0)
+        {
+            SetDisplayButton(conversationWindow, textButtonComponent);
+        }
+        if (combineRecipeDatabase.GetPairItem(thisItem))
+        {
+            combineButton.SetActive(true);
+            //TODO: pairItemを持ってなければselectableをfalseにする
+            combineButtonComponent.enabled = true;
+            combineButtonComponent.ThisItem = thisItem;
+        }
+    }
+
+    private void SetDisplayButton(GameObject window, ActionButton component)
+    {
+        displayButton.SetActive(true);
+        displayButtonOpenWindow.NextWindow = window;
+        component.enabled = true;
+        component.ThisItem = thisItem;
     }
 }

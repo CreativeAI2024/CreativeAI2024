@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class ImageButton : ActionButton
 {
-    private Sprite itemImage;
     private GameObject itemImageScreen;
+    private Image imageComponent;
+
     new void Start()
     {
         base.Start();
         itemImageScreen = gameObjectHolder.ItemImageScreen;
-        openWindow.NextWindow = itemImageScreen;
-        itemImage = thisItem.Image;
-        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";
+        imageComponent = itemImageScreen.GetComponent<Image>();
     }
     void Update()
     {
@@ -22,7 +21,8 @@ public class ImageButton : ActionButton
         {
             if (EventSystem.current.currentSelectedGameObject == gameObject)
             {
-                itemImageScreen.GetComponent<Image>().sprite = itemImage;
+                openWindow.NextWindow = itemImageScreen;
+                imageComponent.sprite = thisItem.Image;
             }
         }
     }

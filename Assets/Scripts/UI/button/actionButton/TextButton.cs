@@ -7,13 +7,11 @@ using UnityEngine.UI;
 
 public class TextButton : ActionButton
 {
-    private List<string> itemText;
     private GameObject conversationWindow;
     //会話ウィンドウはInstantiate()か、SetActive(true)で起動するか未確定。TextButtonは暫定的。
     new void Start()
     {
         base.Start();
-        itemText = thisItem.Text;
         conversationWindow = gameObjectHolder.ConversationWindow;
         openWindow.NextWindow = conversationWindow;
         transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";

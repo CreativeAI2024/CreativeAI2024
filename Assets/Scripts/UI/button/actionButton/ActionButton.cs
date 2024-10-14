@@ -12,10 +12,10 @@ abstract public class ActionButton : MonoBehaviour
     public Item ThisItem { set { thisItem = value; } }
     protected void Start()
     {
+        
         _inputSetting = InputSetting.Load();
         gameObjectHolder = GameObject.FindWithTag("UIManager").GetComponent<GameObjectHolder>();
         itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
         openWindow = transform.GetComponent<OpenWindow>();
-        openWindow.CurrentWindow = gameObjectHolder.ItemWindow;
     }
 }

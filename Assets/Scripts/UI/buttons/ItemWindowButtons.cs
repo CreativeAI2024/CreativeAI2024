@@ -37,14 +37,12 @@ public class ItemWindowButtons : MonoBehaviour
 
     private void LoadItemInventory()
     {
-        foreach (Transform child in transform)
+        foreach (Transform itemButton in transform)
         {
-            Debug.Log(child.GetChild(0).GetComponent<TextMeshProUGUI>().text);
-            if (!itemInventory.GetItem(child.GetChild(0).GetComponent<TextMeshProUGUI>().text)) //アイテム一覧のボタンにあってアイテムリストにないボタンを確かめる
+            if (!itemInventory.GetItem(itemButton.GetChild(0).GetComponent<TextMeshProUGUI>().text)) //アイテム一覧のボタンにあってアイテムリストにないボタンを確かめる
             {
-                Destroy(child.gameObject);
+                Destroy(itemButton.gameObject);
             }
-            child.GetChild(1).gameObject.SetActive(false);
         }
         foreach (Item item in itemInventory.GetItems())
         {
@@ -73,7 +71,6 @@ public class ItemWindowButtons : MonoBehaviour
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
         SetButtonName(itemButton, item);
-        itemButton.AddComponent<MakeActionButtons>().ThisItem = item;
         OpenWindow openWindow = itemButton.GetComponent<OpenWindow>();
         openWindow.CurrentWindow = transform.parent.gameObject;
         openWindow.NextWindow = actionsWindow;
@@ -87,6 +84,7 @@ public class ItemWindowButtons : MonoBehaviour
 
     private void SetButtonName(GameObject button, Item buttonItem)
     {
+        button.name = buttonItem.ItemName;
         button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = buttonItem.ItemName;
     }
 }
