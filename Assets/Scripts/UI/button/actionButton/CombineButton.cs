@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CombineButton : ItemButton
+public class CombineButton : ActionButton
 {
     private CombineRecipeDatabase combineRecipeDatabase;
     private CombineItems combineItems;
@@ -10,9 +10,8 @@ public class CombineButton : ItemButton
     {
         base.Start();
         combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
-
-
         combineItems = gameObjectHolder.ConfirmYesButton.GetComponent<CombineItems>();
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Combine";
         Ready();
     }
 

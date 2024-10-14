@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ImageButton : ItemButton
+public class ImageButton : ActionButton
 {
     private Sprite itemImage;
     private GameObject itemImageScreen;
@@ -12,8 +12,9 @@ public class ImageButton : ItemButton
     {
         base.Start();
         itemImageScreen = gameObjectHolder.ItemImageScreen;
-        openWindow.nextWindow = itemImageScreen;
+        openWindow.NextWindow = itemImageScreen;
         itemImage = thisItem.Image;
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";
     }
     void Update()
     {

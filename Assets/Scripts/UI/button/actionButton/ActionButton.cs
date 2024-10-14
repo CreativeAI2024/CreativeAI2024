@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-abstract public class ItemButton : MonoBehaviour
+abstract public class ActionButton : MonoBehaviour
 {
     protected InputSetting _inputSetting;
     protected GameObjectHolder gameObjectHolder;
@@ -9,13 +9,13 @@ abstract public class ItemButton : MonoBehaviour
     protected Item thisItem;
     protected OpenWindow openWindow;
     protected bool isOnEnableFirstRun = true;
+    public Item ThisItem { set { thisItem = value; } }
     protected void Start()
     {
         _inputSetting = InputSetting.Load();
         gameObjectHolder = GameObject.FindWithTag("UIManager").GetComponent<GameObjectHolder>();
         itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
-        thisItem = itemInventory.GetItem(transform.GetChild(0).GetComponent<TextMeshProUGUI>().text);
         openWindow = transform.GetComponent<OpenWindow>();
-        openWindow.currentWindow = gameObjectHolder.ItemWindow;
+        openWindow.CurrentWindow = gameObjectHolder.ItemWindow;
     }
 }

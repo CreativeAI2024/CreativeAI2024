@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 //TODO: confirmWindowでyes推したのに合成できていない
 //TODO: アイテムの機能作る
 //TODO:     テキスト表示機能
@@ -21,18 +23,15 @@ using UnityEngine;
 //ItemWindowはButtons内のItemにfor文で全てにアクセスできる
 //引数の型がItemでも、実際に引数として渡される変数がそれを継承したImageShowItemクラスなら、ImageShowItemクラスとして認識される
 
-public class ItemButtons : MonoBehaviour
+public class ItemWindowButtons : MonoBehaviour
 {
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     [SerializeField] private GameObject itemButtonPrefab;
-    [SerializeField] private GameObject itemImageScreen;
-    private GameObject itemWindow;
-    [SerializeField] private GameObject confirmWindow;
+    [SerializeField] private GameObject actionsWindow;
 
     void OnEnable()
     {
-        itemWindow = transform.parent.gameObject;
         LoadItemInventory();
     }
 
@@ -45,6 +44,7 @@ public class ItemButtons : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
+            child.GetChild(1).gameObject.SetActive(false);
         }
         foreach (Item item in itemInventory.GetItems())
         {
@@ -73,22 +73,10 @@ public class ItemButtons : MonoBehaviour
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
         SetButtonName(itemButton, item);
-        if (item.Image!=null && item.Text.Count!=0)
-        {
-            itemButton.AddComponent<ImageTextButton>();
-        }
-        else if (item.Image!=null)
-        {
-            itemButton.AddComponent<ImageButton>();
-        }
-        else if (item.Text.Count!=0)
-        {
-            itemButton.AddComponent<TextButton>();
-        }
-        if (combineRecipeDatabase.GetPairItem(item))
-        {
-            itemButton.AddComponent<CombineButton>();
-        }
+        itemButton.AddComponent<MakeActionButtons>().ThisItem = item;
+        OpenWindow openWindow = itemButton.GetComponent<OpenWindow>();
+        openWindow.CurrentWindow = transform.parent.gameObject;
+        openWindow.NextWindow = actionsWindow;
     }
 
 

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TextButton : ItemButton
+public class TextButton : ActionButton
 {
     private List<string> itemText;
     private GameObject conversationWindow;
@@ -15,7 +15,8 @@ public class TextButton : ItemButton
         base.Start();
         itemText = thisItem.Text;
         conversationWindow = gameObjectHolder.ConversationWindow;
-        openWindow.nextWindow = conversationWindow;
+        openWindow.NextWindow = conversationWindow;
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";
     }
     void Update()
     {

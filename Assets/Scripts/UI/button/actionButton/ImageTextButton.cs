@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+public class ImageTextButton : ActionButton
+{
+    private Sprite itemImage;
+    private List<string> itemText;
+    private GameObject conversationWindow;
+    //会話ウィンドウはInstantiate()か、SetActive(true)で起動するか未確定。TextButtonは暫定的。
+    new void Start()
+    {
+        base.Start();
+        itemImage = thisItem.Image;
+        itemText = thisItem.Text;
+        conversationWindow = gameObjectHolder.ConversationWindow;
+        openWindow.NextWindow = conversationWindow;
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";
+    }
+    void Update()
+    {
+        if (_inputSetting.GetDecideKeyDown())
+        {
+            if (EventSystem.current.currentSelectedGameObject == gameObject)
+            {
+                //会話ウィンドウに画像を渡す処理。渡し方未確定。
+                //会話ウィンドウにテキストを渡す処理。渡し方未確定。
+            }
+        }
+    }
+
+}

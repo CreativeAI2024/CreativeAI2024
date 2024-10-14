@@ -31,8 +31,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1405599829575692328}
   - {fileID: 4687923792218844569}
+  - {fileID: 1405599829575692328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -199,9 +199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edd5518ced37450bbd9a1deeaa70d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  itemInventory: {fileID: 0}
+  combineRecipeDatabase: {fileID: 0}
   itemButtonPrefab: {fileID: 7780956747717782826, guid: 0c381518c836a4af48cdd50f6c93c4d7,
     type: 3}
+  actionButtonPrefab: {fileID: 0}
+  actionButtons: {fileID: 0}
   itemImageScreen: {fileID: 0}
   confirmWindow: {fileID: 0}
 --- !u!1001 &6420393757353600852
@@ -355,4 +358,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc294ff35e4dc4232af4ea32e576a5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  itemInventory: {fileID: 0}
