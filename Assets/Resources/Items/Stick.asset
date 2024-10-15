@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stick
   m_EditorClassIdentifier: 
   itemName: Stick
-  description: It made of Metal
+  descriptionText: It is like keyhead
   count: 1
-  isCombinable: 0
+  image: {fileID: 0}
+  contentText: []

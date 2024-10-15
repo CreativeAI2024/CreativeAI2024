@@ -3,15 +3,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CombineButton : ActionButton
+public class CombineButton : ItemActionButton
 {
     private CombineRecipeDatabase combineRecipeDatabase;
     private CombineItems combineItems;
     private Selectable selectable;
     private TextMeshProUGUI buttonText;
-    new void Start()
+    void Start()
     {
-        base.Start();
+        BaseStart();
         combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
         combineItems = gameObjectHolder.ConfirmYesButton.GetComponent<CombineItems>();
         selectable = transform.GetComponent<Selectable>();
@@ -36,10 +36,6 @@ public class CombineButton : ActionButton
         {
             if (EventSystem.current.currentSelectedGameObject == gameObject)
             {
-                if (HasPairItem(thisItem)) //ペアアイテムを持ってるか。引数：渡されたthisItem→recipeから取得
-                {
-                    combineItems.MaterialItem = thisItem;
-                }
             }
         }
     }
@@ -63,5 +59,5 @@ public class CombineButton : ActionButton
     }
 
 
-    private bool HasPairItem(Item item) => itemInventory.IsContains(combineRecipeDatabase.GetPairItem(item));
+    private bool HasPairItem(Item item) => itemInventory.IsContains(combineRecipeDatabase.GetPairIngredient(item));
 }

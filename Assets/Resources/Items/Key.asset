@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   itemName: Key
-  description: Library key
+  descriptionText: It is for secret room
   count: 1
-  isCombinable: 0
+  image: {fileID: 0}
+  contentText: []

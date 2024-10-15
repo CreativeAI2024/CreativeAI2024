@@ -31,10 +31,10 @@ public class CombineItems : MonoBehaviour
     private void Combine()
     {
         Debug.Log("Combine() called");
-        Item pairItem = combineRecipeDatabase.GetPairItem(materialItem); //error
+        Item pairItem = combineRecipeDatabase.GetPairIngredient(materialItem); //error
         if (itemInventory.IsContains(pairItem)) //ペアアイテムを持ってるか。引数：渡されたthisItem→recipeから取得
         {
-            itemInventory.Add(combineRecipeDatabase.GetCreatedItem(materialItem));
+            itemInventory.Add(combineRecipeDatabase.GetResultItem(materialItem));
             itemInventory.Remove(materialItem);
             itemInventory.Remove(pairItem);
         }

@@ -5,13 +5,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ImageTextButton : ActionButton
+public class ImageTextButton : ItemActionButton
 {
     private GameObject conversationWindow;
     //会話ウィンドウはInstantiate()か、SetActive(true)で起動するか未確定。TextButtonは暫定的。
-    new void Start()
+    void Start()
     {
-        base.Start();
+        BaseStart();
         conversationWindow = gameObjectHolder.ConversationWindow;
         openWindow.NextWindow = conversationWindow;
         transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Display";

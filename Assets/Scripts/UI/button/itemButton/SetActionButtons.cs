@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MakeActionButtons : MonoBehaviour
+public class SetActionButtons : MonoBehaviour
 {
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     [SerializeField] private GameObject displayButton;
@@ -28,7 +28,7 @@ public class MakeActionButtons : MonoBehaviour
     }
     void OnEnable()
     {
-        if (thisItem.Image != null && thisItem.Text.Count != 0)
+        if (thisItem.Image != null && thisItem.ContentText.Count != 0)
         {
             SetDisplayButton(conversationWindow, imageTextButtonComponent);
         }
@@ -36,11 +36,11 @@ public class MakeActionButtons : MonoBehaviour
         {
             SetDisplayButton(itemImageScreen, imageButtonComponent);
         }
-        else if (thisItem.Text.Count != 0)
+        else if (thisItem.ContentText.Count != 0)
         {
             SetDisplayButton(conversationWindow, textButtonComponent);
         }
-        if (combineRecipeDatabase.GetPairItem(thisItem))
+        if (combineRecipeDatabase.GetPairIngredient(thisItem))
         {
             combineButton.SetActive(true);
             //TODO: pairItemを持ってなければselectableをfalseにする
@@ -49,7 +49,7 @@ public class MakeActionButtons : MonoBehaviour
         }
     }
 
-    private void SetDisplayButton(GameObject window, ActionButton component)
+    private void SetDisplayButton(GameObject window, ItemActionButton component)
     {
         displayButton.SetActive(true);
         displayButtonOpenWindow.NextWindow = window;

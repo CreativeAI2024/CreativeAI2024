@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ImageButton : ActionButton
+public class ImageButton : ItemActionButton
 {
     private GameObject itemImageScreen;
     private Image imageComponent;
 
-    new void Start()
+    void Start()
     {
-        base.Start();
+        BaseStart();
         itemImageScreen = gameObjectHolder.ItemImageScreen;
         imageComponent = itemImageScreen.GetComponent<Image>();
     }

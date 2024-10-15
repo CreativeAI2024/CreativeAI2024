@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Disc
   m_EditorClassIdentifier: 
   itemName: Disc
-  description: There is a hole on the side
+  descriptionText: There is a hole on the side
   count: 1
-  isCombinable: 0
+  image: {fileID: 0}
+  contentText: []

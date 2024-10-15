@@ -51,7 +51,7 @@ public class OpenWindow : MonoBehaviour
     }
     private void OpenActionsWindow()
     {
-        gameObjectHolder.ActionButtons.GetComponent<MakeActionButtons>().ThisItem = itemInventory.GetItem(gameObject.name);
+        gameObjectHolder.ActionButtons.GetComponent<SetActionButtons>().ThisItem = itemInventory.GetItem(gameObject.name);
         ChangeActive(nextWindow, true);
         currentWindow.GetComponent<CloseWindow>().enabled = false;
         Transform itemButtons = currentWindow.transform.GetChild(0);
@@ -83,7 +83,7 @@ public class OpenWindow : MonoBehaviour
     {
         window.SetActive(isActive);
     }
-    private void ChangeEnabled(ActionButton buttonComponent, bool isEnabled)
+    private void ChangeEnabled(ItemActionButton buttonComponent, bool isEnabled)
     {
         buttonComponent.enabled = isEnabled;
     }

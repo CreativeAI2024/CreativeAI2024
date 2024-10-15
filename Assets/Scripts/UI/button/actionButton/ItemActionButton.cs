@@ -1,7 +1,6 @@
-using TMPro;
 using UnityEngine;
 
-abstract public class ActionButton : MonoBehaviour
+abstract public class ItemActionButton : MonoBehaviour
 {
     protected InputSetting _inputSetting;
     protected GameObjectHolder gameObjectHolder;
@@ -10,7 +9,7 @@ abstract public class ActionButton : MonoBehaviour
     protected OpenWindow openWindow;
     protected bool isOnEnableFirstRun = true;
     public Item ThisItem { set { thisItem = value; } }
-    protected void Start()
+    protected void BaseStart()
     {
         
         _inputSetting = InputSetting.Load();

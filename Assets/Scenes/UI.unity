@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWindow: {fileID: 1477708230}
-  nextWindow: {fileID: 0}
+  nextWindow: {fileID: 9059777143252679121}
 --- !u!114 &2075542582
 MonoBehaviour:
   m_ObjectHideFlags: 0

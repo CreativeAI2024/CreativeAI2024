@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FormarLetter
   m_EditorClassIdentifier: 
   itemName: FormarLetter
-  description: The letter in the back of my pocket
+  descriptionText: It is in pocket
   count: 1
   image: {fileID: 21300000, guid: 2f7d0c316bc244489b14f6c7af981fec, type: 3}
-  text: []
+  contentText: []

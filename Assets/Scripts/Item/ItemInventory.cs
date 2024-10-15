@@ -9,27 +9,27 @@ public class ItemInventory : ScriptableObject
 {
     [SerializeField] private List<Item> itemList;
     private HashSet<Item> itemSet;
-    private Dictionary<string, Item> itemDictionary;
+    private Dictionary<string, Item> itemDict;
     public void Initialize()
     {
         itemSet = new HashSet<Item>();
-        itemDictionary = new Dictionary<string, Item>();
+        itemDict = new Dictionary<string, Item>();
         foreach (Item item in itemList)
         {
             if (itemSet.Add(item))
             {
-                itemDictionary.Add(item.ItemName, item);
+                itemDict.Add(item.ItemName, item);
             }
         }
     }
 
     public Item GetItem(string Item)
     {
-        try
+        if (itemDict.ContainsKey(Item))
         {
-            return itemDictionary[Item];
+            return itemDict[Item];
         }
-        catch
+        else
         {
             return null;
         }
@@ -53,7 +53,7 @@ public class ItemInventory : ScriptableObject
             Item addedItem = Resources.Load<Item>("Items/" + item.ItemName);
             itemList.Add(addedItem);
             itemSet.Add(addedItem);
-            itemDictionary.Add(addedItem.ItemName, addedItem);
+            itemDict.Add(addedItem.ItemName, addedItem);
         }
     }
 
@@ -67,7 +67,7 @@ public class ItemInventory : ScriptableObject
         {
             itemList.Remove(item);
             itemSet.Remove(item);
-            itemDictionary.Remove(item.ItemName);
+            itemDict.Remove(item.ItemName);
         }
     }
 }

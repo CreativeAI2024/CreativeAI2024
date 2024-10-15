@@ -7,15 +7,15 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     [SerializeField] private string itemName;
-    [SerializeField, TextArea] private string description;
+    [SerializeField, TextArea] private string descriptionText;
     [SerializeField] private int count = 1;
     [SerializeField] private Sprite image;
-    [SerializeField] private List<string> text;
+    [SerializeField] private List<string> contentText;
     public string ItemName => itemName;
-    public string Description => description;
+    public string DescriptionText => descriptionText;
     public int Count => count;
     public Sprite Image => image;
-    public List<string> Text => text;
+    public List<string> ContentText => contentText;
 
 
     public void IncrementCount()
