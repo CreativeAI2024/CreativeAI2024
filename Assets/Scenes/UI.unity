@@ -173,6 +173,24 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &494846794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494846785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9de2c859bb79414a90b24680a31d32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combineRecipeDatabase: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
+    type: 2}
+  displayButton: {fileID: 1137033169}
+  combineButton: {fileID: 2075542580}
+  itemImageScreen: {fileID: 1941728813}
+  conversationWindow: {fileID: 0}
 --- !u!1001 &714611302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,6 +540,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 494846790}
+    - targetCorrespondingSourceObject: {fileID: 1290780148296136670, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 494846794}
   m_SourcePrefab: {fileID: 100100000, guid: 50eb1492fb3094ed8b8aa46fae6eb800, type: 3}
 --- !u!1 &1187838436 stripped
 GameObject:

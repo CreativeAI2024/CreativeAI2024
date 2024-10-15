@@ -1,17 +1,21 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CombineButton : ActionButton
 {
     private CombineRecipeDatabase combineRecipeDatabase;
     private CombineItems combineItems;
+    private Selectable selectable;
+    private TextMeshProUGUI buttonText;
     new void Start()
     {
         base.Start();
         combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
         combineItems = gameObjectHolder.ConfirmYesButton.GetComponent<CombineItems>();
-        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Combine";
+        selectable = transform.GetComponent<Selectable>();
+        buttonText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         Ready();
     }
 
@@ -44,17 +48,18 @@ public class CombineButton : ActionButton
     {
         if (HasPairItem(thisItem))
         {
-            SetOpenWindowEnabled(true);
+            SetEnabled(true);
         }
         else
         {
-            SetOpenWindowEnabled(false);
+            SetEnabled(false);
         }
     }
 
-    private void SetOpenWindowEnabled(bool isEnabled)
+    private void SetEnabled(bool isEnabled)
     {
-        openWindow.enabled = isEnabled;
+        selectable.enabled = isEnabled;
+        buttonText.color = isEnabled ? Color.white : Color.grey;
     }
 
 
