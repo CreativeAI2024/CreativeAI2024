@@ -1,4 +1,5 @@
-using TMPro;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 //TODO: confirmWindowでyes推したのに合成できていない
 //TODO: アイテムの機能作る
@@ -25,7 +26,7 @@ public class ItemWindowButtons : MonoBehaviour
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     [SerializeField] private GameObject itemButtonPrefab;
     [SerializeField] private GameObject actionsWindow;
-
+    private Dictionary<Item, GameObject> itemButtonDict = new Dictionary<Item, GameObject>();
     void OnEnable()
     {
         LoadItemInventory();
@@ -33,55 +34,29 @@ public class ItemWindowButtons : MonoBehaviour
 
     private void LoadItemInventory()
     {
-        foreach (Transform itemButton in transform)
+        foreach (KeyValuePair<Item, GameObject> item in itemButtonDict)
         {
-            if (!itemInventory.GetItem(itemButton.GetChild(0).GetComponent<TextMeshProUGUI>().text)) //アイテム一覧のボタンにあってアイテムリストにないボタンを確かめる
+            if (!itemInventory.GetItems().Contains(item.Key))
             {
-                Destroy(itemButton.gameObject);
+                Destroy(item.Value);
             }
         }
         foreach (Item item in itemInventory.GetItems())
         {
-            if (!Search(item.ItemName))
+            if (!itemButtonDict.ContainsKey(item))
             {
-                MakeItemButton(item);
+                GameObject itemButton = MakeItemButton(item);
+                itemButtonDict.Add(item, itemButton);
             }
         }
     }
 
-    //アイテム合成の時にリストを探索する時に呼び出す
-    //上の場合でも、ItemInventory内を探せばいいのでは？
-    private GameObject Search(string searchedButtonName)
-    {
-        foreach (Transform child in transform)
-        {
-            GameObject button = child.gameObject;
-            if (GetButtonName(button).Equals(searchedButtonName))
-            {
-                return button;
-            }
-        }
-        return null;
-    }
-    private void MakeItemButton(Item item)
+    private GameObject MakeItemButton(Item item)
     {
         GameObject itemButton = Instantiate(itemButtonPrefab, transform);
-        SetButtonName(itemButton, item);
+        itemButton.GetComponent<ItemButton>().SetButtonName(item.ItemName);
         OpenWindow openWindow = itemButton.GetComponent<OpenWindow>();
-        openWindow.CurrentWindow = transform.parent.gameObject;
-        openWindow.NextWindow = actionsWindow;
-        
-    }
-
-
-    private string GetButtonName(GameObject button)
-    {
-        return button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
-    }
-
-    private void SetButtonName(GameObject button, Item buttonItem)
-    {
-        button.name = buttonItem.ItemName;
-        button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = buttonItem.ItemName;
+        openWindow.Initialize(transform.parent.gameObject, actionsWindow);
+        return itemButton;
     }
 }

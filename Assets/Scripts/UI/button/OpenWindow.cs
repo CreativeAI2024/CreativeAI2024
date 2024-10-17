@@ -3,46 +3,32 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class OpenWindow : MonoBehaviour
+public class OpenWindow : MonoBehaviour, IFocusedObject
 {
-    private InputSetting _inputSetting;
     private ItemInventory itemInventory;
-    private GameObjectHolder gameObjectHolder;
+    [SerializeField] private GameObject itemWindow;
+    [SerializeField] private GameObject itemWindowButtons;
+    [SerializeField] private GameObject actionsWindow;
+    [SerializeField] private SetActionButtons actionButtons;
     [SerializeField] private GameObject currentWindow;
     [SerializeField] private GameObject nextWindow;
-    public GameObject CurrentWindow { set { currentWindow = value; } }
+    [SerializeField] private GameObject displayButton;
+    [SerializeField] private GameObject combineButton;
+    private ImageTextButton actionImageTextButtonComponent;
+    private ImageButton actionImageButtonComponent;
+    private TextButton actionTextButtonComponent;
+    private CombineButton actionCombineButtonComponent;
     public GameObject NextWindow { set { nextWindow = value; } }
-    void Start()
-    {
-        _inputSetting = InputSetting.Load();
-        gameObjectHolder = GameObject.FindWithTag("UIManager").GetComponent<GameObjectHolder>();
-        itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
-    }
-    void Update()
-    {
-        if (_inputSetting.GetDecideKeyDown())
-        {
-            if (EventSystem.current.currentSelectedGameObject == gameObject)
-            {
 
-                if (nextWindow == gameObjectHolder.ActionsWindow)
-                {
-                    OpenActionsWindow();
-                }
-                else if (gameObjectHolder.ActionsWindow.activeSelf)
-                {
-                    OpenFromActionsWindow();
-                }
-                else if (nextWindow == gameObjectHolder.ItemWindow)
-                {
-                    OpenItemWindow();
-                }
-                else
-                {
-                    Open();
-                }
-            }
-        }
+    public void Initialize(GameObject currentWindow, GameObject nextWindow)
+    {
+        itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
+        this.currentWindow = currentWindow;
+        this.nextWindow = nextWindow;
+        actionImageTextButtonComponent = displayButton.GetComponent<ImageTextButton>();
+        actionImageButtonComponent = displayButton.GetComponent<ImageButton>();
+        actionTextButtonComponent = displayButton.GetComponent<TextButton>();
+        actionCombineButtonComponent = combineButton.GetComponent<CombineButton>();
     }
     private void Open()
     {
@@ -51,7 +37,7 @@ public class OpenWindow : MonoBehaviour
     }
     private void OpenActionsWindow()
     {
-        gameObjectHolder.ActionButtons.GetComponent<SetActionButtons>().ThisItem = itemInventory.GetItem(gameObject.name);
+        actionButtons.ThisItem = itemInventory.GetItem(gameObject.name);
         ChangeActive(nextWindow, true);
         currentWindow.GetComponent<CloseWindow>().enabled = false;
         Transform itemButtons = currentWindow.transform.GetChild(0);
@@ -61,22 +47,21 @@ public class OpenWindow : MonoBehaviour
     private void OpenFromActionsWindow()
     {
         ChangeActive(nextWindow, true);
-        ChangeEnabled(gameObjectHolder.ActionImageTextButtonComponent, false);
-        ChangeEnabled(gameObjectHolder.ActionImageButtonComponent, false);
-        ChangeEnabled(gameObjectHolder.ActionTextButtonComponent, false);
-        ChangeEnabled(gameObjectHolder.ActionCombineButtonComponent, false);
-        ChangeActive(gameObjectHolder.DisplayButton, false);
-        ChangeActive(gameObjectHolder.CombineButton, false);
-        ChangeActive(gameObjectHolder.ActionsWindow, false);
+        ChangeEnabled(actionImageTextButtonComponent, false);
+        ChangeEnabled(actionImageButtonComponent, false);
+        ChangeEnabled(actionTextButtonComponent, false);
+        ChangeEnabled(actionCombineButtonComponent, false);
+        ChangeActive(displayButton, false);
+        ChangeActive(combineButton, false);
+        ChangeActive(actionsWindow, false);
         ChangeActive(currentWindow, false);
     }
     private void OpenItemWindow()
     {
         ChangeActive(nextWindow, true);
-        gameObjectHolder.ItemWindow.GetComponent<CloseWindow>().enabled = true;
-        Transform itemButtons = gameObjectHolder.ItemWindow.transform.GetChild(0);
-        itemButtons.GetComponent<MoveCursor>().enabled = true;
-        itemButtons.GetComponentsInChildren<Selectable>().ToList().ForEach(selectable => selectable.enabled = true);
+        itemWindow.GetComponent<CloseWindow>().enabled = true;
+        itemWindowButtons.GetComponent<MoveCursor>().enabled = true;
+        itemWindowButtons.GetComponentsInChildren<Selectable>().ToList().ForEach(selectable => selectable.enabled = true);
         ChangeActive(currentWindow, false);
     }
     private void ChangeActive(GameObject window, bool isActive)
@@ -86,5 +71,25 @@ public class OpenWindow : MonoBehaviour
     private void ChangeEnabled(ItemActionButton buttonComponent, bool isEnabled)
     {
         buttonComponent.enabled = isEnabled;
+    }
+
+    public void OnDecideKeyDown()
+    {
+        if (nextWindow == actionsWindow)
+        {
+            OpenActionsWindow();
+        }
+        else if (actionsWindow.activeSelf)
+        {
+            OpenFromActionsWindow();
+        }
+        else if (nextWindow == itemWindow)
+        {
+            OpenItemWindow();
+        }
+        else
+        {
+            Open();
+        }
     }
 }

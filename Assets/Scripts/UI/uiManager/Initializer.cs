@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DatabaseInitialize : MonoBehaviour
+public class Initializer : MonoBehaviour
 {
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;

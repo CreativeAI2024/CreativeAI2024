@@ -201,9 +201,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7144813175665617860, guid: 932435505b412466e8f358b669a25f5d,
         type: 3}
+      propertyPath: actionButtons
+      value: 
+      objectReference: {fileID: 494846794}
+    - target: {fileID: -7144813175665617860, guid: 932435505b412466e8f358b669a25f5d,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: -7144813175665617860, guid: 932435505b412466e8f358b669a25f5d,
+        type: 3}
       propertyPath: currentWindow
       value: 
       objectReference: {fileID: 1477708230}
+    - target: {fileID: -7144813175665617860, guid: 932435505b412466e8f358b669a25f5d,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
     - target: {fileID: 2238412286224207160, guid: 932435505b412466e8f358b669a25f5d,
         type: 3}
       propertyPath: m_Name
@@ -360,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10e9b0d6572c4d27b6b9f90e72765ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conversationWindow: {fileID: 0}
 --- !u!114 &1137033171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ebc5997148ba4cae8da62af4e9436d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemImageScreen: {fileID: 1941728813}
+  screenImage: {fileID: 1941728819}
 --- !u!114 &1137033172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64cd8c518f4234098bf56172aecbed4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conversationWindow: {fileID: 0}
 --- !u!1001 &1187838435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,6 +437,16 @@ PrefabInstance:
       propertyPath: actionsWindow
       value: 
       objectReference: {fileID: 1187838436}
+    - target: {fileID: 5028304032791413518, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 5028304032791413518, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
     - target: {fileID: 5028304032791413518, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
         type: 3}
       propertyPath: previousWindow
@@ -1004,8 +1033,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1738106291}
   - component: {fileID: 1738106292}
-  - component: {fileID: 1738106293}
   - component: {fileID: 1738106294}
+  - component: {fileID: 1738106295}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: UIManager
@@ -1042,31 +1071,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowBox: {fileID: 1576103409}
   topWindow: {fileID: 241254450}
---- !u!114 &1738106293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738106290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a01097b834c465b9750a7a153a92bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemWindow: {fileID: 1477708230}
-  actionsWindow: {fileID: 1187838436}
-  itemImageScreen: {fileID: 1941728813}
-  confirmWindow: {fileID: 9059777143252679121}
-  confirmYesButton: {fileID: 1772652030}
-  conversationWindow: {fileID: 0}
-  displayButton: {fileID: 1137033169}
-  combineButton: {fileID: 2075542580}
-  actionImageTextButtonComponent: {fileID: 1137033172}
-  actionImageButtonComponent: {fileID: 1137033171}
-  actionTextButtonComponent: {fileID: 1137033170}
-  actionCombineButtonComponent: {fileID: 2075542582}
-  actionButtons: {fileID: 86086366}
 --- !u!114 &1738106294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,18 +1086,54 @@ MonoBehaviour:
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   combineRecipeDatabase: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
     type: 2}
+--- !u!114 &1738106295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738106290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbc3ebbd12974257a67e9a2fcfe96a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1772652030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1763179638510886709, guid: c92169478df344a9db5af581df804b92,
     type: 3}
   m_PrefabInstance: {fileID: 9084286477371792650}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1772652032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772652030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1e216a4e31948b08910339a0224ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1941728813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4751654772889326898, guid: c92169478df344a9db5af581df804b92,
     type: 3}
   m_PrefabInstance: {fileID: 9084286477371792650}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941728819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4062445007696526502, guid: c92169478df344a9db5af581df804b92,
+    type: 3}
+  m_PrefabInstance: {fileID: 9084286477371792650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941728813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2075542578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1255,8 +1295,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb45e9f3397384b77818defc5e60f055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemWindow: {fileID: 1477708230}
+  itemWindowButtons: {fileID: 9084286477371792651}
+  actionsWindow: {fileID: 1187838436}
+  actionButtons: {fileID: 494846794}
   currentWindow: {fileID: 1477708230}
   nextWindow: {fileID: 9059777143252679121}
+  displayButton: {fileID: 1137033169}
+  combineButton: {fileID: 2075542580}
 --- !u!114 &2075542582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1298,6 +1344,56 @@ PrefabInstance:
       propertyPath: actionsWindow
       value: 
       objectReference: {fileID: 1187838436}
+    - target: {fileID: 257967907158302076, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 257967907158302076, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
+    - target: {fileID: 1669763056699758754, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemWindow
+      value: 
+      objectReference: {fileID: 1477708230}
+    - target: {fileID: 1669763056699758754, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionButtons
+      value: 
+      objectReference: {fileID: 494846794}
+    - target: {fileID: 1669763056699758754, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionsWindow
+      value: 
+      objectReference: {fileID: 1187838436}
+    - target: {fileID: 1669763056699758754, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 1669763056699758754, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
+    - target: {fileID: 1669763056699758754, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemWindowButtons
+      value: 
+      objectReference: {fileID: 9084286477371792651}
+    - target: {fileID: 1669763056699758754, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionImageButtonComponent
+      value: 
+      objectReference: {fileID: 1137033171}
+    - target: {fileID: 1669763056699758754, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionImageTextButtonComponent
+      value: 
+      objectReference: {fileID: 1137033172}
     - target: {fileID: 1688101042765415898, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: m_IsActive
@@ -1313,6 +1409,16 @@ PrefabInstance:
       propertyPath: actionsWindow
       value: 
       objectReference: {fileID: 1187838436}
+    - target: {fileID: 1718207138263800241, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 1718207138263800241, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
     - target: {fileID: 2294224725009688820, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: m_Enabled
@@ -1328,6 +1434,16 @@ PrefabInstance:
       propertyPath: actionsWindow
       value: 
       objectReference: {fileID: 1187838436}
+    - target: {fileID: 2294224725009688820, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 2294224725009688820, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
     - target: {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: m_Enabled
@@ -1514,11 +1630,71 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6482792251906211933, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemWindow
+      value: 
+      objectReference: {fileID: 1477708230}
+    - target: {fileID: 6482792251906211933, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionButtons
+      value: 
+      objectReference: {fileID: 494846794}
+    - target: {fileID: 6482792251906211933, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionsWindow
+      value: 
+      objectReference: {fileID: 1187838436}
+    - target: {fileID: 6482792251906211933, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 6482792251906211933, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
+    - target: {fileID: 6482792251906211933, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemWindowButtons
+      value: 
+      objectReference: {fileID: 9084286477371792651}
+    - target: {fileID: 6650476638425956391, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemWindow
+      value: 
+      objectReference: {fileID: 1477708230}
     - target: {fileID: 6650476638425956391, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: nextWindow
       value: 
       objectReference: {fileID: 1477708230}
+    - target: {fileID: 6650476638425956391, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionButtons
+      value: 
+      objectReference: {fileID: 494846794}
+    - target: {fileID: 6650476638425956391, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionsWindow
+      value: 
+      objectReference: {fileID: 1187838436}
+    - target: {fileID: 6650476638425956391, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 6650476638425956391, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
+    - target: {fileID: 6650476638425956391, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemWindowButtons
+      value: 
+      objectReference: {fileID: 9084286477371792651}
     - target: {fileID: 6975243480806276361, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: itemWindow
@@ -1529,6 +1705,16 @@ PrefabInstance:
       propertyPath: actionsWindow
       value: 
       objectReference: {fileID: 1187838436}
+    - target: {fileID: 6975243480806276361, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 6975243480806276361, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
     - target: {fileID: 8000921214729339723, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: m_Enabled
@@ -1545,6 +1731,36 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8660432334715421561, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemWindow
+      value: 
+      objectReference: {fileID: 1477708230}
+    - target: {fileID: 8660432334715421561, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionButtons
+      value: 
+      objectReference: {fileID: 494846794}
+    - target: {fileID: 8660432334715421561, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: actionsWindow
+      value: 
+      objectReference: {fileID: 1187838436}
+    - target: {fileID: 8660432334715421561, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: combineButton
+      value: 
+      objectReference: {fileID: 2075542580}
+    - target: {fileID: 8660432334715421561, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: displayButton
+      value: 
+      objectReference: {fileID: 1137033169}
+    - target: {fileID: 8660432334715421561, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: itemWindowButtons
+      value: 
+      objectReference: {fileID: 9084286477371792651}
     - target: {fileID: 8776577858561859695, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: m_IsActive
@@ -1557,6 +1773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2810346704978712888, guid: c92169478df344a9db5af581df804b92, type: 3}
+    - {fileID: 3265845530334146300, guid: c92169478df344a9db5af581df804b92, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6106726078461848979, guid: c92169478df344a9db5af581df804b92,
@@ -1568,6 +1785,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9084286477371792652}
+    - targetCorrespondingSourceObject: {fileID: 1763179638510886709, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1772652032}
   m_SourcePrefab: {fileID: 100100000, guid: c92169478df344a9db5af581df804b92, type: 3}
 --- !u!1 &9084286477371792651 stripped
 GameObject:

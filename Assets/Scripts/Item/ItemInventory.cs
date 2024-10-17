@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -8,51 +9,37 @@ using UnityEngine;
 public class ItemInventory : ScriptableObject
 {
     [SerializeField] private List<Item> itemList;
-    private HashSet<Item> itemSet;
     private Dictionary<string, Item> itemDict;
     public void Initialize()
     {
-        itemSet = new HashSet<Item>();
         itemDict = new Dictionary<string, Item>();
         foreach (Item item in itemList)
         {
-            if (itemSet.Add(item))
-            {
-                itemDict.Add(item.ItemName, item);
-            }
+            itemDict.Add(item.ItemName, item);
         }
     }
 
     public Item GetItem(string Item)
     {
-        if (itemDict.ContainsKey(Item))
-        {
-            return itemDict[Item];
-        }
-        else
-        {
-            return null;
-        }
+        return itemDict[Item];
     }
     public bool IsContains(Item searchedItem)
     {
-        return itemSet.Contains(searchedItem);
+        return itemDict.ContainsValue(searchedItem);
     }
-    public ReadOnlyCollection<Item> GetItems()
+    public IEnumerable<Item> GetItems()
     {
-        return itemList.AsReadOnly();
+        return itemDict.Values;
     }
     public void Add(Item item)
     {
-        if (itemSet.Contains(item))
+        if (itemDict.ContainsValue(item))
         {
             item.IncrementCount();
         }
         else
         {
             Item addedItem = Resources.Load<Item>("Items/" + item.ItemName);
-            itemList.Add(addedItem);
-            itemSet.Add(addedItem);
             itemDict.Add(addedItem.ItemName, addedItem);
         }
     }
@@ -65,8 +52,6 @@ public class ItemInventory : ScriptableObject
         }
         else
         {
-            itemList.Remove(item);
-            itemSet.Remove(item);
             itemDict.Remove(item.ItemName);
         }
     }

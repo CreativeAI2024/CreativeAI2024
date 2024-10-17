@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class CloseWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    private GameObjectHolder gameObjectHolder;
     [SerializeField] private GameObject itemWindow;
     [SerializeField] private GameObject previousWindow;
+    [SerializeField] private GameObject displayButton;
+    [SerializeField] private GameObject combineButton;
     public GameObject PreviousWindow { set { previousWindow = value; } }
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        gameObjectHolder = GameObject.FindWithTag("UIManager").GetComponent<GameObjectHolder>();
     }
     void Update()
     {
@@ -36,8 +36,8 @@ public class CloseWindow : MonoBehaviour
     }
     private void CloseToItemWindow()
     {
-        ChangeActive(gameObjectHolder.DisplayButton, false);
-        ChangeActive(gameObjectHolder.CombineButton, false);
+        ChangeActive(displayButton, false);
+        ChangeActive(combineButton, false);
         gameObject.SetActive(false);
         itemWindow.GetComponent<CloseWindow>().enabled = true;
         Transform itemButtons = itemWindow.transform.GetChild(0);

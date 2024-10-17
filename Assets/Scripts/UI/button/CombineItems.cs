@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class CombineItems : MonoBehaviour
+public class CombineItems : IFocusedObject
 {
-    private InputSetting _inputSetting;
     private ItemInventory itemInventory;
     private CombineRecipeDatabase combineRecipeDatabase;
     private Item materialItem;
@@ -11,32 +9,26 @@ public class CombineItems : MonoBehaviour
     {
         set { materialItem = value; }
     }
-    void Start()
+    CombineItems()
     {
-        _inputSetting = InputSetting.Load();
         itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
         combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
     }
-    void Update()
-    {
-        if (EventSystem.current.currentSelectedGameObject == gameObject)
-        {
-            if (_inputSetting.GetDecideKeyDown())
-            {
-                Combine();
-            }
-        }
-    }
 
-    private void Combine()
+    public void Combine()
     {
         Debug.Log("Combine() called");
-        Item pairItem = combineRecipeDatabase.GetPairIngredient(materialItem); //error
-        if (itemInventory.IsContains(pairItem)) //ペアアイテムを持ってるか。引数：渡されたthisItem→recipeから取得
+        Item pairItem = combineRecipeDatabase.GetPairIngredient(materialItem);
+        if (itemInventory.IsContains(pairItem))
         {
             itemInventory.Add(combineRecipeDatabase.GetResultItem(materialItem));
             itemInventory.Remove(materialItem);
             itemInventory.Remove(pairItem);
         }
+    }
+
+    public void OnDecideKeyDown()
+    {
+        Combine();
     }
 }
