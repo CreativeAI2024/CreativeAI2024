@@ -14,6 +14,8 @@
 /[Aa]ssets/[Pp]ackages/
 /[Aa]ssets/[Tt]ext[Mm]esh [Pp]ro/[Ff]onts
 
+.DS_Store
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
@@ -29,6 +31,7 @@
 
 # Visual Studio cache directory
 .vs/
+.vscode/
 
 # Gradle cache directory
 .gradle/
