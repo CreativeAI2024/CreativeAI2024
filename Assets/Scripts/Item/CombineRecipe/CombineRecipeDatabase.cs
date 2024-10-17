@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -7,41 +8,36 @@ using UnityEngine;
 public class CombineRecipeDatabase : ScriptableObject
 {
     [SerializeField] private List<CombineRecipe> recipes;
-    private Dictionary<Item, List<Item>> pairIngredientDict;
-    private Dictionary<(Item, Item), Item> resultItemDict;
+    private Dictionary<Item, Dictionary<Item, Item>> recipeDict;
     public void Initialize()
     {
-        pairIngredientDict = new Dictionary<Item, List<Item>>();
-        resultItemDict = new Dictionary<(Item, Item), Item>();
+        recipeDict = new ();
         foreach (CombineRecipe recipe in recipes)
         {
-            SetPairIngredient(recipe.IngredientA, recipe.IngredientB);
-            SetPairIngredient(recipe.IngredientB, recipe.IngredientA);
-            resultItemDict.Add((recipe.IngredientA, recipe.IngredientB), recipe.ResultItem);
-            resultItemDict.Add((recipe.IngredientB, recipe.IngredientA), recipe.ResultItem);
+            SetPairIngredient(recipe.IngredientA, recipe.IngredientB, recipe.ResultItem);
+            SetPairIngredient(recipe.IngredientB, recipe.IngredientA, recipe.ResultItem);
         }
     }
 
-    private void SetPairIngredient(Item item, Item pair)
+    private void SetPairIngredient(Item item, Item pair, Item result)
     {
-        if (pairIngredientDict.ContainsKey(item))
+        if (!recipeDict.ContainsKey(item))
         {
-            List<Item> items = pairIngredientDict[item];
-            if (items == null)
-            {
-                items = new List<Item>();
-            }
-            items.Add(pair);
-            pairIngredientDict.Add(item, items);
+            Dictionary<Item, Item> items = new(){
+                {pair, result}
+            };
+            recipeDict.Add(item, items);
+        }else{
+            recipeDict[item].Add(pair, result);
         }
     }
     public List<Item> GetPairIngredient(Item ingredientItem)
     {
-        return pairIngredientDict[ingredientItem];
+        return recipeDict[ingredientItem].Keys.ToList();
 
     }
     public Item GetResultItem(Item ingredientA, Item ingredientB)
     {
-        return resultItemDict[(ingredientA, ingredientB)];
+        return recipeDict[ingredientA][ingredientB];
     }
 }

@@ -22,41 +22,41 @@ using UnityEngine;
 
 public class ItemWindowButtons : MonoBehaviour
 {
-    [SerializeField] private ItemInventory itemInventory;
-    [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
-    [SerializeField] private GameObject itemButtonPrefab;
-    [SerializeField] private GameObject actionsWindow;
-    private Dictionary<Item, GameObject> itemButtonDict = new Dictionary<Item, GameObject>();
-    void OnEnable()
-    {
-        LoadItemInventory();
-    }
+    // [SerializeField] private ItemInventory itemInventory;
+    // [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
+    // [SerializeField] private GameObject itemButtonPrefab;
+    // [SerializeField] private GameObject actionsWindow;
+    // private Dictionary<Item, GameObject> itemButtonDict = new Dictionary<Item, GameObject>();
+    // void OnEnable()
+    // {
+    //     LoadItemInventory();
+    // }
 
-    private void LoadItemInventory()
-    {
-        foreach (KeyValuePair<Item, GameObject> item in itemButtonDict)
-        {
-            if (!itemInventory.GetItems().Contains(item.Key))
-            {
-                Destroy(item.Value);
-            }
-        }
-        foreach (Item item in itemInventory.GetItems())
-        {
-            if (!itemButtonDict.ContainsKey(item))
-            {
-                GameObject itemButton = MakeItemButton(item);
-                itemButtonDict.Add(item, itemButton);
-            }
-        }
-    }
+    // private void LoadItemInventory()
+    // {
+    //     foreach (KeyValuePair<Item, GameObject> item in itemButtonDict)
+    //     {
+    //         if (!itemInventory.GetItems().Contains(item.Key))
+    //         {
+    //             Destroy(item.Value);
+    //         }
+    //     }
+    //     foreach (Item item in itemInventory.GetItems())
+    //     {
+    //         if (!itemButtonDict.ContainsKey(item))
+    //         {
+    //             GameObject itemButton = MakeItemButton(item);
+    //             itemButtonDict.Add(item, itemButton);
+    //         }
+    //     }
+    // }
 
-    private GameObject MakeItemButton(Item item)
-    {
-        GameObject itemButton = Instantiate(itemButtonPrefab, transform);
-        itemButton.GetComponent<ItemButton>().SetButtonName(item.ItemName);
-        OpenWindow openWindow = itemButton.GetComponent<OpenWindow>();
-        openWindow.Initialize(transform.parent.gameObject, actionsWindow);
-        return itemButton;
-    }
+    // private GameObject MakeItemButton(Item item)
+    // {
+    //     GameObject itemButton = Instantiate(itemButtonPrefab, transform);
+    //     itemButton.GetComponent<ItemButton>().SetButtonName(item.ItemName);
+    //     OpenWindow openWindow = itemButton.GetComponent<OpenWindow>();
+    //     openWindow.Initialize(transform.parent.gameObject, actionsWindow);
+    //     return itemButton;
+    // }
 }

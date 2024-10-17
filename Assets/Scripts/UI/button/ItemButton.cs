@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ItemButton : MonoBehaviour
+public class ItemButton : MonoBehaviour, IFocusedObject
 {
-    [SerializeField] private TextMeshProUGUI itemName;
-
-    // Start is called before the first frame update
-    void Start()
+    private Item item;
+    private TextMeshProUGUI itemDescriptionPanel;
+    [SerializeField] private TextMeshProUGUI button;
+    public void Initialize(Item item, TextMeshProUGUI itemDescriptionPanel)
     {
-        
+        this.item = item;
+        this.itemDescriptionPanel = itemDescriptionPanel;
+        button.text = item.ItemName;
     }
-
-    public void SetButtonName(string buttonName)
+    public void OnDirectionKeyDown()
     {
-        itemName.text = buttonName;
+        itemDescriptionPanel.text = item.DescriptionText;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SetActionButtons : MonoBehaviour
 {
+    /*
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     [SerializeField] private GameObject displayButton;
     [SerializeField] private GameObject combineButton;
@@ -55,5 +56,5 @@ public class SetActionButtons : MonoBehaviour
         displayButtonOpenWindow.NextWindow = window;
         component.enabled = true;
         component.ThisItem = thisItem;
-    }
+    }*/
 }

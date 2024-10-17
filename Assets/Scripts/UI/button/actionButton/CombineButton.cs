@@ -10,6 +10,7 @@ public class CombineButton : ItemActionButton
     [SerializeField] private CombineItems combineItems;
     private Selectable selectable;
     private TextMeshProUGUI buttonText;
+    private bool isOnEnableFirstRun = true;
     protected override void OnStart()
     {
         combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
@@ -29,7 +30,7 @@ public class CombineButton : ItemActionButton
     }
     private void Ready()
     {
-        SetEnabled(HasPairItem(thisItem));
+        SetEnabled(HasPairItem(ThisItem));
     }
 
     private void SetEnabled(bool isEnabled)
@@ -41,6 +42,6 @@ public class CombineButton : ItemActionButton
 
     public override void OnDecideKeyDown()
     {
-        combineItems.MaterialItem = thisItem;
+        combineItems.MaterialItem = ThisItem;
     }
 }
