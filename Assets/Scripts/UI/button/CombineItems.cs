@@ -10,11 +10,11 @@ public class CombineItems : IDecideCancelObject
     {
         set { materialItem = value; }
     }
-    // CombineItems()
-    // {
-    //     itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
-    //     combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
-    // }
+    public CombineItems()
+    {
+        itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
+        combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
+    }
 
     public void Combine()
     {

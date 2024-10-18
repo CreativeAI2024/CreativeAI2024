@@ -220,7 +220,6 @@ GameObject:
   - component: {fileID: 6940132261994498673}
   - component: {fileID: 465211569702203131}
   - component: {fileID: 6295523939715552179}
-  - component: {fileID: 2700355596283593465}
   m_Layer: 5
   m_Name: TopWindow
   m_TagString: Untagged
@@ -288,19 +287,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2700355596283593465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5970026061408647722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c0c931633234b2db515d5922663e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previousWindow: {fileID: 0}
 --- !u!1 &7890256601926695631
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,11 +514,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2238412286224207160, guid: 8e53c558df7c6457d9f7c13db16c38d8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5951697406167951186}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e53c558df7c6457d9f7c13db16c38d8, type: 3}
 --- !u!224 &498299640329151993 stripped
 RectTransform:
@@ -540,23 +522,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3474229049274278833}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3397544758167842441 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2238412286224207160, guid: 8e53c558df7c6457d9f7c13db16c38d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 3474229049274278833}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5951697406167951186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3397544758167842441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb45e9f3397384b77818defc5e60f055, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWindow: {fileID: 5970026061408647722}
-  nextWindow: {fileID: 0}

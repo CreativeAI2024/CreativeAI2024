@@ -11,12 +11,14 @@ public class CombineButton : ItemActionButton
     // [SerializeField] private CombineItems combineItems;
     private Selectable selectable;
     private TextMeshProUGUI buttonText;
+    CombineItems combineItems;
     private bool isOnEnableFirstRun = true;
     protected override void OnStart()
     {
         combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
         selectable = transform.GetComponent<Selectable>();
         buttonText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        combineItems = new CombineItems();
         Ready();
     }
 

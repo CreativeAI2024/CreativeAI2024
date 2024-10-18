@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5316370165442406830}
   - component: {fileID: 5474132447741233471}
   - component: {fileID: 3778422314017081513}
-  - component: {fileID: 6171522201080126084}
   m_Layer: 5
   m_Name: ItemWindow
   m_TagString: Untagged
@@ -78,19 +77,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6171522201080126084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728897525259489823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c0c931633234b2db515d5922663e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previousWindow: {fileID: 0}
 --- !u!1 &4597990086932895349
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +90,6 @@ GameObject:
   - component: {fileID: 5699055809321206734}
   - component: {fileID: 4378239186059307896}
   - component: {fileID: 3840112174388387129}
-  - component: {fileID: 7886723192490666824}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -187,26 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8396cbe639f1f462dbba1f543998e8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7886723192490666824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4597990086932895349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8edd5518ced37450bbd9a1deeaa70d73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemInventory: {fileID: 0}
-  combineRecipeDatabase: {fileID: 0}
-  itemButtonPrefab: {fileID: 7780956747717782826, guid: 0c381518c836a4af48cdd50f6c93c4d7,
-    type: 3}
-  actionButtonPrefab: {fileID: 0}
-  actionButtons: {fileID: 0}
-  itemImageScreen: {fileID: 0}
-  confirmWindow: {fileID: 0}
 --- !u!1001 &6420393757353600852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -359,3 +324,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 0}
+  textComponent: {fileID: 0}
