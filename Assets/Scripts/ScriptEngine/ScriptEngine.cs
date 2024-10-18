@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ScriptEngine : MonoBehaviour
 {
+    [SerializeField] private MapEvent mapEvent;
+    
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    
-    public void 
 }

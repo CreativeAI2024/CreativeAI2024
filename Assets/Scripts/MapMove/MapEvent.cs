@@ -15,6 +15,11 @@ public class MapEvent : MonoBehaviour
     {
         _inputSetting = InputSetting.Load();
     }
+    
+    public void Initialize()
+    {
+        // mapイベント情報を生成
+    }
 
     // Update is called once per frame
     void Update()
@@ -32,3 +37,4 @@ public class MapEvent : MonoBehaviour
         _conversationTextManager.Initiallize();
     }
 }
+
