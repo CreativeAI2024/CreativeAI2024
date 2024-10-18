@@ -39,6 +39,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.EditorConfig&quot;,
+
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -123,6 +124,7 @@
       <workItem from="1721372444082" duration="1056000" />
       <workItem from="1727857018421" duration="821000" />
       <workItem from="1728022064534" duration="1926000" />
+
     </task>
     <servers />
   </component>
