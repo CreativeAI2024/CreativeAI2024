@@ -31,9 +31,9 @@ public class CombineRecipeDatabase : ScriptableObject
             recipeDict[item].Add(pair, result);
         }
     }
-    public List<Item> GetPairIngredient(Item ingredientItem)
+    public HashSet<Item> GetPairIngredients(Item ingredientItem)
     {
-        return recipeDict[ingredientItem].Keys.ToList();
+        return recipeDict[ingredientItem].Keys.ToHashSet();
 
     }
     public Item GetResultItem(Item ingredientA, Item ingredientB)

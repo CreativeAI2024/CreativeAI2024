@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 public class CombineButton : ItemActionButton
 {
     private CombineRecipeDatabase combineRecipeDatabase;
-    [SerializeField] private CombineItems combineItems;
+    // [SerializeField] private CombineItems combineItems;
     private Selectable selectable;
     private TextMeshProUGUI buttonText;
     private bool isOnEnableFirstRun = true;
@@ -38,10 +39,17 @@ public class CombineButton : ItemActionButton
         selectable.enabled = isEnabled;
         buttonText.color = isEnabled ? Color.white : Color.grey;
     }
-    private bool HasPairItem(Item item) => itemInventory.IsContains(combineRecipeDatabase.GetPairIngredient(item));
+    private bool HasPairItem(Item item)
+    {
+        return itemInventory.IsContains(combineRecipeDatabase.GetPairIngredients(item));
+    }
 
     public override void OnDecideKeyDown()
     {
-        combineItems.MaterialItem = ThisItem;
+        // combineItems.MaterialItem = ThisItem;
+    }
+    public override void OnCancelKeyDown()
+    {
+        //ItemWindowに戻る処理
     }
 }

@@ -27,6 +27,10 @@ public class ItemInventory : ScriptableObject
     {
         return itemDict.ContainsValue(searchedItem);
     }
+    public bool IsContains (HashSet<Item> searchedItems)
+    {
+        return searchedItems.Any(x => itemDict.ContainsValue(x));
+    }
     public IEnumerable<Item> GetItems()
     {
         return itemDict.Values;

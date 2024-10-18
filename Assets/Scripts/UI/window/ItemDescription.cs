@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ItemDescriptionPanel : MonoBehaviour
+public class ItemDescription : MonoBehaviour
 {
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private TextMeshProUGUI textComponent;

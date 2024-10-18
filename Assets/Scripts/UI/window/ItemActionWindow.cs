@@ -3,10 +3,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemActionWindow : Window
+public class ItemActionWindow : MonoBehaviour
 {
-    public override void OnDecideKeyDown()
-    {
-        
-    }
 }

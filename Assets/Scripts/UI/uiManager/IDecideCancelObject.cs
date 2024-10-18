@@ -1,6 +1,5 @@
-public interface IFocusedObject
+public interface IDecideCancelObject
 {
-    public void OnDirectionKeyDown();
     public void OnDecideKeyDown();
     public void OnCancelKeyDown();
 }

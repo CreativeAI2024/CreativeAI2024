@@ -9,5 +9,6 @@ public class Initializer : MonoBehaviour
     {
         itemInventory.Initialize();
         combineRecipeDatabase.Initialize();
+        
     }
 }

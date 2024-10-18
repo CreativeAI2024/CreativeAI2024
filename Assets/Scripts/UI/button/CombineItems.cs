@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class CombineItems : IFocusedObject
+public class CombineItems : IDecideCancelObject
 {
     private ItemInventory itemInventory;
     private CombineRecipeDatabase combineRecipeDatabase;
@@ -9,21 +10,22 @@ public class CombineItems : IFocusedObject
     {
         set { materialItem = value; }
     }
-    CombineItems()
-    {
-        itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
-        combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
-    }
+    // CombineItems()
+    // {
+    //     itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
+    //     combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
+    // }
 
     public void Combine()
     {
         Debug.Log("Combine() called");
-        Item pairItem = combineRecipeDatabase.GetPairIngredient(materialItem);
+        HashSet<Item> pairItem = combineRecipeDatabase.GetPairIngredients(materialItem);
         if (itemInventory.IsContains(pairItem))
         {
-            itemInventory.Add(combineRecipeDatabase.GetResultItem(materialItem));
+            //pairItemがコレクションだからエラー出てる
+            // itemInventory.Add(combineRecipeDatabase.GetResultItem(materialItem, pairItem));
             itemInventory.Remove(materialItem);
-            itemInventory.Remove(pairItem);
+            // itemInventory.Remove(pairItem);
         }
     }
 
@@ -31,4 +33,6 @@ public class CombineItems : IFocusedObject
     {
         Combine();
     }
+    public void OnCancelKeyDown()
+    {}
 }

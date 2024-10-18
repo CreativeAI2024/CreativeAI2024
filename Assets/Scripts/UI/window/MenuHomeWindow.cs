@@ -3,6 +3,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MenuHomeWindow : Window
+public class MenuHomeWindow : MonoBehaviour
 {
 }

@@ -5,13 +5,14 @@ using System.Linq;
 using UnityEngine;
 using TMPro;
 
-public class ItemWindow : Window
+public class ItemWindow : MonoBehaviour
 {
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     [SerializeField] private ItemButton itemButtonPrefab;
     [SerializeField] private Transform itemWindowButtons;
-    [SerializeField] private TextMeshProUGUI itemDescriptionPanel;
+    [SerializeField] private ItemActionWindow itemActionWindow;
+    [SerializeField] private TextMeshProUGUI itemDescription;
     private readonly Dictionary<Item, GameObject> itemButtonDict = new();
     void OnEnable()
     {
@@ -38,7 +39,7 @@ public class ItemWindow : Window
     private GameObject MakeItemButton(Item item)
     {
         ItemButton itemButton = Instantiate(itemButtonPrefab, itemWindowButtons);
-        itemButton.Initialize(item, itemDescriptionPanel);
+        itemButton.Initialize(item, itemActionWindow, itemDescription);
         return itemButton.gameObject;
     }
 

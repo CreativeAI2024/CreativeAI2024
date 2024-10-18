@@ -7,14 +7,15 @@ public class ImageTextButton : ItemActionButton
     //会話ウィンドウはInstantiate()か、SetActive(true)で起動するか未確定。TextButtonは暫定的。
     protected override void OnStart()
     {
-        openWindow.NextWindow = conversationWindow;
     }
 
     public override void OnDecideKeyDown()
     {
         //会話ウィンドウに画像を渡す処理。渡し方未確定。
         textButton.OnDecideKeyDown();
-        //会話ウィンドウにテキストを渡す処理。渡し方未確定。
     }
-
+    public override void OnCancelKeyDown()
+    {
+        //ItemWindowに戻る
+    }
 }

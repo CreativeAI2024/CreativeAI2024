@@ -3,10 +3,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemActionWindow : Window
+public class ItemImageWindow : IDecideCancelObject
 {
-    public override void OnDecideKeyDown()
+    //戻るボタンを作る
+    //DisplayButtonの
+    public void SetImage()
+    {
+
+    }
+
+    public void OnDecideKeyDown()
     {
         
+    }
+    public void OnCancelKeyDown()
+    {
+
     }
 }
