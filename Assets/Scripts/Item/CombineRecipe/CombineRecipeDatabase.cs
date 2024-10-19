@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[Serializable]
 [CreateAssetMenu(fileName = "CombineRecipeDatabase", menuName = "ScriptableObject/Item/CombineRecipeDatabase")]
 public class CombineRecipeDatabase : ScriptableObject
 {
@@ -31,11 +30,16 @@ public class CombineRecipeDatabase : ScriptableObject
             recipeDict[item].Add(pair, result);
         }
     }
-    public HashSet<Item> GetPairIngredients(Item ingredientItem)
+    public bool HasPairIngredients(Item ingredientItem)
     {
-        return recipeDict[ingredientItem].Keys.ToHashSet();
-
+        return recipeDict.ContainsKey(ingredientItem);
     }
+    
+    public List<Item> GetPairIngredients(Item ingredientItem)
+    {
+        return recipeDict[ingredientItem].Keys.ToList();
+    }
+    
     public Item GetResultItem(Item ingredientA, Item ingredientB)
     {
         return recipeDict[ingredientA][ingredientB];

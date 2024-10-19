@@ -5,8 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/IFocusObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FlagManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FlagManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Button/ItemButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Button/ItemButton.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/kuchinashi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Items/kuchinashi.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/UI.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/CombineRecipe/CombineRecipeDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/CombineRecipe/CombineRecipeDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/CombineItems.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/CombineItems.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/ItemButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/ItemButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/CombineButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/CombineButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/ImageButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/ImageButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/ImageTextButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/ImageTextButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/ItemActionButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/ItemActionButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/TextButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/actionButton/TextButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/buttons/MoveCursor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/buttons/MoveCursor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/buttons/SetFirstButtonFocus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/buttons/SetFirstButtonFocus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/IDecideCancelObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/IDecideCancelObject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/IFocusObject.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/Initializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/Initializer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInitializer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/WindowManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/WindowManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemActionWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemActionWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/MenuHomeWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/MenuHomeWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/Window.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +47,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04af773e223344bd9a56d36a602cfd4220a00/2a/3ca783e3/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -32,14 +60,13 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/flag&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/item__fix&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.EditorConfig&quot;,
-
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -124,7 +151,9 @@
       <workItem from="1721372444082" duration="1056000" />
       <workItem from="1727857018421" duration="821000" />
       <workItem from="1728022064534" duration="1926000" />
-
+      <workItem from="1729248137688" duration="6127000" />
+      <workItem from="1729255560651" duration="9334000" />
+      <workItem from="1729303320500" duration="25299000" />
     </task>
     <servers />
   </component>

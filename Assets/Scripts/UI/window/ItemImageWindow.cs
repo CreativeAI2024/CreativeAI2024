@@ -1,23 +1,16 @@
-using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class ItemImageWindow : IDecideCancelObject
+public class ItemImageWindow : Window, IFocusObject
 {
-    //戻るボタンを作る
-    //DisplayButtonの
-    public void SetImage()
+    public void Open(Window window)
     {
-
+        base.OnDecideKeyDown(window);
     }
-
+    
     public void OnDecideKeyDown()
     {
-        
-    }
-    public void OnCancelKeyDown()
-    {
-
+        // base.OnDecideKeyDown(window);
     }
 }

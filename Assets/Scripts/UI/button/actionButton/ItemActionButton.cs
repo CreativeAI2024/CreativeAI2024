@@ -1,16 +1,26 @@
+using System;
+using TMPro;
 using UnityEngine;
 
-abstract public class ItemActionButton : MonoBehaviour, IDecideCancelObject
+public abstract class ItemActionButton : MonoBehaviour, IFocusObject
 {
-    protected ItemInventory itemInventory;
-    public Item ThisItem { protected get; set; }
-    private void Start()
+    [SerializeField] protected TextMeshProUGUI buttonText;
+    protected Item item;
+    private Action onCancel;
+    protected Window window; 
+    
+    public virtual void Initialize(Item item, string buttonText, Action onCancel, Window window)
     {
-        itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
-        OnStart();
+        this.item = item;
+        this.buttonText.text = buttonText;
+        this.onCancel = onCancel;
+        this.window = window;
     }
-
-    protected abstract void OnStart();
+    
     public abstract void OnDecideKeyDown();
-    public abstract void OnCancelKeyDown();
+    
+    public void OnCancelKeyDown()
+    {
+        onCancel?.Invoke();
+    }
 }

@@ -20,13 +20,21 @@ public class SetFirstButtonFocus : MonoBehaviour
     {
         Focus();
     }
-    public void Focus()
+    private void Focus()
     {
         if (transform.childCount > 0) 
         {
-            EventSystem.current.SetSelectedGameObject(transform.GetChild(0).gameObject);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                GameObject obj = transform.GetChild(0).gameObject;
+                if (obj.activeSelf)
+                {
+                    EventSystem.current.SetSelectedGameObject(obj);
+                    break;
+                }
+            }
         }
-        else if (gameObject.GetComponent<Selectable>())
+        else if (TryGetComponent<Selectable>(out Selectable _))
         {
             EventSystem.current.SetSelectedGameObject(gameObject);
         }

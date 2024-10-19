@@ -1,38 +1,34 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class CombineItems : IDecideCancelObject
+public class CombineItems
 {
     private ItemInventory itemInventory;
     private CombineRecipeDatabase combineRecipeDatabase;
     private Item materialItem;
-    public Item MaterialItem
+    public CombineItems(Item materialItem)
     {
-        set { materialItem = value; }
-    }
-    public CombineItems()
-    {
+        this.materialItem = materialItem;
         itemInventory = Resources.Load<ItemInventory>("Items/ItemInventory");
         combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
     }
 
-    public void Combine()
+    public void Combine(Item pairItem)
     {
         Debug.Log("Combine() called");
-        HashSet<Item> pairItem = combineRecipeDatabase.GetPairIngredients(materialItem);
         if (itemInventory.IsContains(pairItem))
         {
             //pairItemがコレクションだからエラー出てる
-            // itemInventory.Add(combineRecipeDatabase.GetResultItem(materialItem, pairItem));
             itemInventory.Remove(materialItem);
-            // itemInventory.Remove(pairItem);
+            itemInventory.Remove(pairItem);
+            itemInventory.Add(combineRecipeDatabase.GetResultItem(materialItem, pairItem));
         }
     }
-
-    public void OnDecideKeyDown()
+    
+    public bool HasPairItemInInventory(Item item)
     {
-        Combine();
+        List<Item> pairIngredients = combineRecipeDatabase.GetPairIngredients(item);
+        return pairIngredients.Any(x => itemInventory.IsContains(x));
     }
-    public void OnCancelKeyDown()
-    {}
 }

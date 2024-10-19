@@ -1,27 +1,27 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class CheckCurrentSelected : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    private GameObject currentSelected;
-
+    
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        currentSelected = EventSystem.current.currentSelectedGameObject;
     }
+    
     void Update()
     {
+        GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
         if (_inputSetting.GetDecideKeyDown())
         {
-            IDecideCancelObject focusedObject = currentSelected.GetComponent<IDecideCancelObject>();
+            IFocusObject focusedObject = currentSelected.GetComponent<IFocusObject>();
+            Debug.Log("currentSelected.name : "+currentSelected.name);
             focusedObject.OnDecideKeyDown();
         }
         else if (_inputSetting.GetCancelKeyDown())
         {
-            IDecideCancelObject focusedObject = currentSelected.GetComponent<IDecideCancelObject>();
+            IFocusObject focusedObject = currentSelected.GetComponent<IFocusObject>();
             focusedObject.OnCancelKeyDown();
         }
     }

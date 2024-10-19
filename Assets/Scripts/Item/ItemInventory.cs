@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -19,17 +17,13 @@ public class ItemInventory : ScriptableObject
         }
     }
 
-    public Item GetItem(string Item)
+    public Item GetItem(string item)
     {
-        return itemDict[Item];
+        return itemDict[item];
     }
     public bool IsContains(Item searchedItem)
     {
         return itemDict.ContainsValue(searchedItem);
-    }
-    public bool IsContains (HashSet<Item> searchedItems)
-    {
-        return searchedItems.Any(x => itemDict.ContainsValue(x));
     }
     public IEnumerable<Item> GetItems()
     {

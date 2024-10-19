@@ -7,7 +7,6 @@ public class MoveCursor : MonoBehaviour
     private bool isOnEnableFirstRun = true;
     protected Selectable focusedButton;
     void OnEnable()
-
     {
         if (isOnEnableFirstRun)
         {
@@ -47,6 +46,7 @@ public class MoveCursor : MonoBehaviour
     {
         if (focusCandidate != null)
         {
+            Debug.Log("Focus on");
             focusedButton = focusCandidate;
             focusedButton.Select();
         }
