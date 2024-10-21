@@ -18,6 +18,22 @@ public class ConversationTextManager : MonoBehaviour
     private List<string> _sentences = new();
     private int lineNumber;
 
+    /*
+    var myObject = JsonUtility.FromJson<MyClass>(textAsset.text);
+
+    var options = MessagePackSerializerOptions.Standard;
+
+    byte[] serializedData = MessagePackSerializer.Serialize(myObject, options);
+
+    var deserializedObject = MessagePackSerializer.Deserialize<MyClass>(serializedData, options);
+
+    //deserializedObject.content[linenumber].text みたいな感じで呼び出す
+
+    public void SetTextFile(TextAsset textFile)
+    {
+        textAsset = textFile;
+    }
+    */
 
     // Start is called before the first frame update
     void Start()
@@ -113,31 +129,31 @@ public class ConversationTextManager : MonoBehaviour
             DebugLogger.Log("テキストファイルが見つかりませんでした");
             return;
         }
-        using StringReader reader = new(textAsset.text);
+        using StringReader reader = new(textAsset.text);  //ここから
         while (reader.Peek() != -1)
         {
             string line = reader.ReadLine();
             if (string.IsNullOrEmpty(line)) continue;
             _sentences.Add(line);
-        }
+        }  //ここまでscriptEngine化で不要になるかも
     }
 
     private void DisplayText()
     {
         //現在の行を取得
         string text = _sentences[lineNumber];
-        string[] words = text.Split(':');
+        string[] words = text.Split(':');  //scriptEngine化で不要になるかも
         //前の行の名前欄や選択肢を非表示にしておく
         nameTextDrawer.DisableNameText();
         question.InitializeQuestionBranch();
-        TextTagShifter(words);
+        TextTagShifter(words);  //scriptEngine化で変わるかも
     }
 
-    private void TextTagShifter(string[] words)
+    private void TextTagShifter(string[] words)  //scriptEngine化で引数の型が変わるかも
     {
         for (int i = 0; i < words.Length; i++)
         {
-            if (words[i].StartsWith("[speaker]"))  //[speaker]タグを探す
+            if (words[i].StartsWith("[speaker]"))  //[speaker]タグを探す  speakerDictにIDが存在するか(仮)
             {
                 nameTextDrawer.DisplayNameText(words[i]);
             }
