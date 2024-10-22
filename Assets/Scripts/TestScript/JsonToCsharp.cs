@@ -1,42 +1,39 @@
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using MessagePack;
-using MessagePack.Resolvers;
-
-[MessagePackObject]
-public class MyClass
-{
-    [Key(0)]
-    public int Id { get; set; }
-
-    [Key(1)]
-    public string Name { get; set; }
-
-    [Key(2)]
-    public List<string> Items { get; set; }
-}
+using System.IO;
 
 public class JsonToCsharp : MonoBehaviour
 {
+    public SaveLoad saveLoadSystem; // SaveLoadSystemの参照
+
     void Start()
     {
+        // JSONファイルのパスを指定
         string filePath = Application.dataPath + "/Scripts/TestScript/example.json";
-        string jsonContent = File.ReadAllText(filePath); // JSONファイルの読み込み
 
-        // JSONをC#オブジェクトにデシリアライズ
-        var myObject = JsonUtility.FromJson<MyClass>(jsonContent);
+        // JSONファイルの内容を読み込み
+        if (!File.Exists(filePath))
+        {
+            Debug.LogError("JSON file not found: " + filePath);
+            return;
+        }
 
-        // MessagePackのシリアライズオプションを指定
-        var options = MessagePackSerializerOptions.Standard; // これを追加
+        // jsonからクラス
+        string jsonContent = File.ReadAllText(filePath);
+        Debug.Log("JSON Content: " + jsonContent);
 
-        // MyClassオブジェクトをMessagePackでシリアライズ
-        byte[] serializedData = MessagePackSerializer.Serialize(myObject, options); // オプションを追加
+        try
+        {
+            byte[] msgPackData = MessagePackSerializer.ConvertFromJson(jsonContent);
+            MyClass myClass = MessagePackSerializer.Deserialize<MyClass>(msgPackData);
 
-        // MessagePackデータをデシリアライズ
-        var deserializedObject = MessagePackSerializer.Deserialize<MyClass>(serializedData, options); // オプションを追加
-
-        // デシリアライズ結果を表示
-        Debug.Log($"Id: {deserializedObject.Id}, Name: {deserializedObject.Name}, Items: {string.Join(", ", deserializedObject.Items)}");
+            // 必要に応じて、myClassを保存する
+            saveLoadSystem.SaveAsMessagePack(myClass);
+            Debug.Log("Data converted and saved as MessagePack.");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Failed to convert JSON to MyClass: " + e.Message);
+        }
     }
 }
