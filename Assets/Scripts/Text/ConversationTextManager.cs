@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System.Runtime.CompilerServices;
-using TMPro;
 
 public class ConversationTextManager : MonoBehaviour
 {
     [SerializeField] private MainTextDrawer mainTextDrawer;
     [SerializeField] private NameTextDrawer nameTextDrawer;
+    [SerializeField] private ChangeBackground changeBackground;
+    [SerializeField] private Question question;
     [SerializeField] private TextAsset textAsset;
-
+    [SerializeField] private Pause pause;
     [SerializeField] private float intervalTime;
     private float unitTime;
     private InputSetting _inputSetting;
 
     private List<string> _sentences = new();
-    private int lineNumber = 0;
+    private int lineNumber;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,13 +45,23 @@ public class ConversationTextManager : MonoBehaviour
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
                 {
+                    //question.QuestionOutput();  //仮の出力
                     ChangeLine(1);
-                    Debug.Log("NextLine");
+                    DisplayText();
+                    DebugLogger.Log("NextLine");
                 }
                 else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
                 {
                     ChangeLine(-1);
-                    Debug.Log("BackLine");
+                    DisplayText();
+                    DebugLogger.Log("BackLine");
+                }
+                else
+                {
+                    //question.QuestionOutput();  //仮の出力
+                    gameObject.SetActive(false);
+                    pause.UnPauseAll();
+                    return;
                 }
             }
             else if (unitTime > -0.45f)
@@ -65,17 +76,27 @@ public class ConversationTextManager : MonoBehaviour
             if (unitTime > -0.55f)//連打対策（爆速スクロール等）
                 unitTime -= 0.35f;
         }
+        if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())
+        {
+            question.QuestionCursorMove(1);
+        }
+        else if (_inputSetting.GetForwardKeyUp() || _inputSetting.GetLeftKeyUp())
+        {
+            question.QuestionCursorMove(-1);
+        }
 
-        DisplayText();
-
+        
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }
 
-    private void Initiallize()
+    public void Initiallize()
     {
-        mainTextDrawer.Initiallize();
-        
+        pause.PauseAll();
+        mainTextDrawer.Initialize();
+        nameTextDrawer.Initialize();
+        lineNumber = 0;
+        _sentences.Clear();
         unitTime = 0f;
 
         //テキストファイルの読み込み。_sentencesに格納
@@ -89,7 +110,7 @@ public class ConversationTextManager : MonoBehaviour
     {
         if (textAsset == null)
         {
-            Debug.LogError("テキストファイルが見つかりませんでした");
+            DebugLogger.Log("テキストファイルが見つかりませんでした");
             return;
         }
         using StringReader reader = new(textAsset.text);
@@ -106,12 +127,33 @@ public class ConversationTextManager : MonoBehaviour
         //現在の行を取得
         string text = _sentences[lineNumber];
         string[] words = text.Split(':');
-        //名前がある場合、名前を表示。名前がない場合、名前表示を非表示にする。名前は「名前:文章」という形式で記述する。
-        mainTextDrawer.DisplayMainText(words);
-        mainTextDrawer.DisplayTextRuby();
-        if (nameTextDrawer != null)
+        //前の行の名前欄や選択肢を非表示にしておく
+        nameTextDrawer.DisableNameText();
+        question.InitializeQuestionBranch();
+        TextTagShifter(words);
+    }
+
+    private void TextTagShifter(string[] words)
+    {
+        for (int i = 0; i < words.Length; i++)
         {
-            nameTextDrawer.DisplayNameText(words);
+            if (words[i].StartsWith("[speaker]"))  //[speaker]タグを探す
+            {
+                nameTextDrawer.DisplayNameText(words[i]);
+            }
+            else if (words[i].StartsWith("[image]"))  //[image]タグを探す
+            {
+                changeBackground.ChangeImages(words[i]);
+            }
+            else if (words[i].StartsWith("[question]"))  //[question]タグを探す
+            {
+                question.DisplayQuestion(words[i]);
+            }
+            else
+            {
+                mainTextDrawer.DisplayMainText(words[i]);
+                mainTextDrawer.DisplayTextRuby();
+            }
         }
     }
 
