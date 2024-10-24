@@ -11,31 +11,14 @@ public class ConversationTextManager : MonoBehaviour
     [SerializeField] private Question question;
     [SerializeField] private TextAsset textAsset;
     [SerializeField] private Pause pause;
+    [SerializeField] private ChangeSound changeSound;
     [SerializeField] private float intervalTime;
     private float unitTime;
     private InputSetting _inputSetting;
 
-    private List<string> _sentences = new();
     private int lineNumber;
 
-    JsonAttach jsonAttach;
-
-    /*
-    var myObject = JsonUtility.FromJson<MyClass>(textAsset.text);
-
-    var options = MessagePackSerializerOptions.Standard;
-
-    byte[] serializedData = MessagePackSerializer.Serialize(myObject, options);
-
-    var deserializedObject = MessagePackSerializer.Deserialize<MyClass>(serializedData, options);
-
-    //deserializedObject.content[linenumber].text みたいな感じで呼び出す
-
-    public void SetTextFile(TextAsset textFile)
-    {
-        textAsset = textFile;
-    }
-    */
+    [SerializeField] JsonAttach jsonAttach;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +44,7 @@ public class ConversationTextManager : MonoBehaviour
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideKeyUp() && lineNumber < _sentences.Count - 1)
+                if (_inputSetting.GetDecideKeyUp() && lineNumber < jsonAttach.GetLines() - 1)
                 {
                     //question.QuestionOutput();  //仮の出力
                     ChangeLine(1);
@@ -103,7 +86,6 @@ public class ConversationTextManager : MonoBehaviour
             question.QuestionCursorMove(-1);
         }
 
-        
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }
@@ -114,81 +96,51 @@ public class ConversationTextManager : MonoBehaviour
         mainTextDrawer.Initialize();
         nameTextDrawer.Initialize();
         lineNumber = 0;
-        _sentences.Clear();
         unitTime = 0f;
 
-        //テキストファイルの読み込み。_sentencesに格納
-        LoadTextFile();
-
-        //テキストを表示
-        DisplayText();
-    }
-
-    private void LoadTextFile()
-    {
         if (textAsset == null)
         {
             DebugLogger.Log("テキストファイルが見つかりませんでした");
             return;
         }
-        /*using StringReader reader = new(textAsset.text);  //ここから
-        while (reader.Peek() != -1)
-        {
-            string line = reader.ReadLine();
-            if (string.IsNullOrEmpty(line)) continue;
-            _sentences.Add(line);
-        }  //ここまでscriptEngine化で不要になるかも*/
+
+        jsonAttach.LoadJson();
+
+        //テキストを表示
+        DisplayText();
     }
 
     private void DisplayText()
     {
-        //現在の行を取得
-        //string text = _sentences[lineNumber];
-        //string[] words = text.Split(':');  //scriptEngine化で不要になるかも
         //前の行の名前欄や選択肢を非表示にしておく
         nameTextDrawer.DisableNameText();
         question.InitializeQuestionBranch();
-        TextTagShifter();  //scriptEngine化で変わるかも
+        TextTagShifter();
     }
 
-    /*private void TextTagShifter(string[] words)  //scriptEngine化で引数の型が変わるかも
-    {
-        for (int i = 0; i < words.Length; i++)
-        {
-            if (words[i].StartsWith("[speaker]"))  //[speaker]タグを探す  speakerDictにIDが存在するか(仮)
-            {
-                nameTextDrawer.DisplayNameText(words[i]);
-            }
-            else if (words[i].StartsWith("[image]"))  //[image]タグを探す
-            {
-                changeBackground.ChangeImages(words[i]);
-            }
-            else if (words[i].StartsWith("[question]"))  //[question]タグを探す
-            {
-                question.DisplayQuestion(words[i]);
-            }
-            else
-            {
-                mainTextDrawer.DisplayMainText(words[i]);
-                mainTextDrawer.DisplayTextRuby();
-            }
-        }
-    }*/
     private void TextTagShifter()
     {
-        if (jsonAttach.GetContent(lineNumber).Speaker != null)  //[speaker]タグを探す  speakerDictにIDが存在するか(仮)
+        if (jsonAttach.GetContent(lineNumber).Speaker != null) 
         {
             nameTextDrawer.DisplayNameText(jsonAttach.GetContent(lineNumber).Speaker);
         }
-        else if (jsonAttach.GetContent(lineNumber).ChangeImage != null)  //[image]タグを探す
+        if (jsonAttach.GetContent(lineNumber).ChangeImage != null)
         {
             changeBackground.ChangeImages(jsonAttach.GetContent(lineNumber).ChangeImage);
         }
-        else if (jsonAttach.GetContent(lineNumber).QuestionData != null)  //[question]タグを探す
+        if (jsonAttach.GetContent(lineNumber).QuestionData != null)
         {
             question.DisplayQuestion(jsonAttach.GetContent(lineNumber).QuestionData);
         }
-        else
+        if (jsonAttach.GetContent(lineNumber).BGM != null)
+        {
+            changeSound.ChangeBGM(jsonAttach.GetContent(lineNumber).BGM);
+        }
+        if (jsonAttach.GetContent(lineNumber).SE != null)
+        {
+            changeSound.ChangeSE(jsonAttach.GetContent(lineNumber).SE);
+        }
+        if (jsonAttach.GetContent(lineNumber).Text != null)
         {
             mainTextDrawer.DisplayMainText(jsonAttach.GetContent(lineNumber).Text);
             mainTextDrawer.DisplayTextRuby();

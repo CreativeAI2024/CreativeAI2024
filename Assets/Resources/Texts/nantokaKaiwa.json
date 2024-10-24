@@ -1,0 +1,51 @@
+{
+  "Content": [
+    {
+      "Speaker": "nanigashi",
+      "Text": "こちらが会話ウィンドウのサンプルになります。基本的な動作は安定して行えるはずです。",
+      "ChangeImage": [
+        {
+          "Image": "Panel",
+          "Sprite": "bluePop"
+        }
+      ],
+      "BGM": "urban1"
+    },
+
+    {
+      "Speaker": "soregashi",
+      "Text": "また、TextMeshProではリッチテキストタグが利用できます。",
+      "SE": "wow1",
+      "BGM": "stop1"
+    },
+
+    {
+      "Speaker": "最後に",
+      "Text": "選択肢の表示もできます。",
+      "ChangeImage": [
+        {
+          "Image": "Panel",
+          "Sprite": "void"
+        },
+        {
+          "Image": "TestPanel1",
+          "Sprite": "1nomal"
+        }
+      ],
+      "QuestionData": [
+        {
+          "Answer": "yes",
+          "NextFlag": "nantokaFlag",
+          "NextTextFile": ""
+        },
+        {
+          "Answer": "no",
+          "NextFlag": "nantokajanaiFlag",
+          "NextTextFile": ""
+        }
+      ],
+      "BGM": "thinking1",
+      "SE": "flash1"
+    }
+  ]
+}

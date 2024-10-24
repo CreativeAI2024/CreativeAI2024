@@ -15,7 +15,6 @@ public class Content
     public string Speaker { get; set; }
     public ChangeImage[] ChangeImage { get; set; }
     public QuestionData[] QuestionData { get; set; }
-    public string QuestionFlagName { get; set; }
     public string BGM { get; set; }
     public string SE { get; set; }
 }

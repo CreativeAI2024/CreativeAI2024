@@ -19,8 +19,8 @@ public class NameTextDrawer : MonoBehaviour
 
     public void DisplayNameText(string words)
     {
-        string word = words.Split(']')[1];  //タグを外す
-        NameText(word);
+        //string word = words.Split(']')[1];  //タグを外す
+        NameText(words);
     }
 
     public void DisableNameText()

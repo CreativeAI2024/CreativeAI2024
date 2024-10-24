@@ -7,7 +7,6 @@ public class Question : MonoBehaviour
     [SerializeField] private QuestionBranch[] questionBranches;
     [SerializeField] private TextWindowCursor cursor;
     RectTransform[] rectTransforms;
-    //string[][] word;
     private int cursorMax;
     private int cursorPlace;
 
@@ -19,25 +18,8 @@ public class Question : MonoBehaviour
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
         }
     }
-
-    /*public void DisplayQuestion(string words)
-    {
-        TextConverter textConverter = new TextConverter();
-        word = textConverter.Converter(words);
-        cursorMax = Mathf.Min(word[0].Length, questionBranches.Length);
-        for (int i = 0; i < cursorMax; i++)
-        {
-            questionBranches[i].SetVisibleQuestionBranch(true);
-            questionBranches[i].QuestionBranchText(word[0][i]);
-        }
-        cursorPlace = 0;
-        cursor.SetVisibleCursor(true);
-        cursor.CursorMove(rectTransforms[cursorPlace].position);
-    }*/
     public void DisplayQuestion(QuestionData[] questionData)
     {
-        //TextConverter textConverter = new TextConverter();
-        //word = textConverter.Converter(words);
         cursorMax = Mathf.Min(questionData.Length, questionBranches.Length);
         for (int i = 0; i < cursorMax; i++)
         {

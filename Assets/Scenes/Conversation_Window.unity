@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 54060533}
   - component: {fileID: 54060532}
   - component: {fileID: 54060531}
+  - component: {fileID: 54060534}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -155,12 +156,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSourceBGM: {fileID: 54060532}
   audioClipsBGM:
-  - {fileID: 8300000, guid: e4df2f122744fb945aab8440fb763f55, type: 3}
-  - {fileID: 8300000, guid: d01006d6241f32c4eba88b768a8cd503, type: 3}
-  audioSourceSE: {fileID: 54060532}
-  audioClipsSE:
   - {fileID: 8300000, guid: 3565cd3afd7a1f34bb92aaa64ae7d7bd, type: 3}
   - {fileID: 8300000, guid: 48000248128441d439381d328dc6df5e, type: 3}
+  audioSourceSE: {fileID: 54060532}
+  audioClipsSE:
+  - {fileID: 8300000, guid: e4df2f122744fb945aab8440fb763f55, type: 3}
+  - {fileID: 8300000, guid: d01006d6241f32c4eba88b768a8cd503, type: 3}
 --- !u!82 &54060532
 AudioSource:
   m_ObjectHideFlags: 0
@@ -272,6 +273,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &54060534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54060530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53e38f3f4db1a284c82914f1dee942d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 54060531}
 --- !u!1 &237572390
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7a1ed292bd7494288a4978bea07aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 0}
+  jsonFile: {fileID: 4900000, guid: 695c45e42b4195a46954f5ad2b802eda, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +377,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,6 +651,16 @@ PrefabInstance:
       propertyPath: pause
       value: 
       objectReference: {fileID: 237572391}
+    - target: {fileID: 673614102471081624, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
+        type: 3}
+      propertyPath: jsonAttach
+      value: 
+      objectReference: {fileID: 513889555}
+    - target: {fileID: 673614102471081624, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
+        type: 3}
+      propertyPath: changeSound
+      value: 
+      objectReference: {fileID: 54060534}
     - target: {fileID: 2449838930168480606, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
         type: 3}
       propertyPath: m_Name

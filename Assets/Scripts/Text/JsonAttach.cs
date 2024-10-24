@@ -1,9 +1,6 @@
 using MessagePack;
-using Newtonsoft.Json;
-using MessagePack.Resolvers;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 public class JsonAttach : MonoBehaviour
@@ -11,14 +8,8 @@ public class JsonAttach : MonoBehaviour
     public TextAsset jsonFile;
     private TextWindowClass deserializedData;
 
-
-    void Start()
+    public void LoadJson()
     {
-        //var deserializedObject = JsonConvert.DeserializeObject<TextWindowClass>(jsonFile.text);
-
-        //var options = MessagePackSerializerOptions.Standard;
-
-
         byte[] messagePackData = MessagePackSerializer.ConvertFromJson(jsonFile.text);
 
         deserializedData = MessagePackSerializer.Deserialize<TextWindowClass>(messagePackData);
@@ -27,5 +18,10 @@ public class JsonAttach : MonoBehaviour
     public Content GetContent(int index)
     {
         return deserializedData.Content[index];
+    }
+
+    public int GetLines()
+    {
+        return deserializedData.Content.Count;
     }
 }
