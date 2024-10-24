@@ -18,6 +18,7 @@ public class ConversationTextManager : MonoBehaviour
     private List<string> _sentences = new();
     private int lineNumber;
 
+    JsonAttach jsonAttach;
 
     /*
     var myObject = JsonUtility.FromJson<MyClass>(textAsset.text);
@@ -66,7 +67,6 @@ public class ConversationTextManager : MonoBehaviour
                     ChangeLine(1);
                     DisplayText();
                     DebugLogger.Log("NextLine");
-
                 }
                 else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
                 {
@@ -103,6 +103,7 @@ public class ConversationTextManager : MonoBehaviour
             question.QuestionCursorMove(-1);
         }
 
+        
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }
@@ -130,13 +131,13 @@ public class ConversationTextManager : MonoBehaviour
             DebugLogger.Log("テキストファイルが見つかりませんでした");
             return;
         }
-        using StringReader reader = new(textAsset.text);  //ここから
+        /*using StringReader reader = new(textAsset.text);  //ここから
         while (reader.Peek() != -1)
         {
             string line = reader.ReadLine();
             if (string.IsNullOrEmpty(line)) continue;
             _sentences.Add(line);
-        }  //ここまでscriptEngine化で不要になるかも
+        }  //ここまでscriptEngine化で不要になるかも*/
     }
 
     private void DisplayText()
@@ -147,10 +148,10 @@ public class ConversationTextManager : MonoBehaviour
         //前の行の名前欄や選択肢を非表示にしておく
         nameTextDrawer.DisableNameText();
         question.InitializeQuestionBranch();
-        TextTagShifter(words);  //scriptEngine化で変わるかも
+        TextTagShifter();  //scriptEngine化で変わるかも
     }
 
-    private void TextTagShifter(string[] words)  //scriptEngine化で引数の型が変わるかも
+    /*private void TextTagShifter(string[] words)  //scriptEngine化で引数の型が変わるかも
     {
         for (int i = 0; i < words.Length; i++)
         {
@@ -171,6 +172,26 @@ public class ConversationTextManager : MonoBehaviour
                 mainTextDrawer.DisplayMainText(words[i]);
                 mainTextDrawer.DisplayTextRuby();
             }
+        }
+    }*/
+    private void TextTagShifter()
+    {
+        if (jsonAttach.GetContent(lineNumber).Speaker != null)  //[speaker]タグを探す  speakerDictにIDが存在するか(仮)
+        {
+            nameTextDrawer.DisplayNameText(jsonAttach.GetContent(lineNumber).Speaker);
+        }
+        else if (jsonAttach.GetContent(lineNumber).ChangeImage != null)  //[image]タグを探す
+        {
+            changeBackground.ChangeImages(jsonAttach.GetContent(lineNumber).ChangeImage);
+        }
+        else if (jsonAttach.GetContent(lineNumber).QuestionData != null)  //[question]タグを探す
+        {
+            question.DisplayQuestion(jsonAttach.GetContent(lineNumber).QuestionData);
+        }
+        else
+        {
+            mainTextDrawer.DisplayMainText(jsonAttach.GetContent(lineNumber).Text);
+            mainTextDrawer.DisplayTextRuby();
         }
     }
 

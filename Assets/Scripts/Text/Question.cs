@@ -7,7 +7,7 @@ public class Question : MonoBehaviour
     [SerializeField] private QuestionBranch[] questionBranches;
     [SerializeField] private TextWindowCursor cursor;
     RectTransform[] rectTransforms;
-    string[][] word;
+    //string[][] word;
     private int cursorMax;
     private int cursorPlace;
 
@@ -20,7 +20,7 @@ public class Question : MonoBehaviour
         }
     }
 
-    public void DisplayQuestion(string words)
+    /*public void DisplayQuestion(string words)
     {
         TextConverter textConverter = new TextConverter();
         word = textConverter.Converter(words);
@@ -33,8 +33,22 @@ public class Question : MonoBehaviour
         cursorPlace = 0;
         cursor.SetVisibleCursor(true);
         cursor.CursorMove(rectTransforms[cursorPlace].position);
+    }*/
+    public void DisplayQuestion(QuestionData[] questionData)
+    {
+        //TextConverter textConverter = new TextConverter();
+        //word = textConverter.Converter(words);
+        cursorMax = Mathf.Min(questionData.Length, questionBranches.Length);
+        for (int i = 0; i < cursorMax; i++)
+        {
+            questionBranches[i].SetVisibleQuestionBranch(true);
+            questionBranches[i].QuestionBranchText(questionData[i].Answer);
+        }
+        cursorPlace = 0;
+        cursor.SetVisibleCursor(true);
+        cursor.CursorMove(rectTransforms[cursorPlace].position);
     }
-    
+
     public void QuestionCursorMove(int increase)
     {
         cursorPlace = Mathf.Clamp(cursorPlace + increase, 0, cursorMax - 1);
@@ -50,8 +64,9 @@ public class Question : MonoBehaviour
         cursor.SetVisibleCursor(false);
     }
 
-    public void QuestionOutput()
+    public void QuestionOutput(int[] questionOutput)
     {
-        DebugLogger.Log("output!");  //仮の出力
+        //DebugLogger.Log("output!");  //仮の出力
+        DebugLogger.Log(questionOutput[cursorPlace]);
     }
 }
