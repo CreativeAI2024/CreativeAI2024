@@ -18,6 +18,7 @@ public class Question : MonoBehaviour
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
         }
     }
+
     public void DisplayQuestion(QuestionData[] questionData)
     {
         cursorMax = Mathf.Min(questionData.Length, questionBranches.Length);
@@ -46,9 +47,8 @@ public class Question : MonoBehaviour
         cursor.SetVisibleCursor(false);
     }
 
-    public void QuestionOutput(int[] questionOutput)
+    public int GetCursorPlace()  //カーソル動作確認用
     {
-        //DebugLogger.Log("output!");  //仮の出力
-        DebugLogger.Log(questionOutput[cursorPlace]);
+        return cursorPlace;
     }
 }

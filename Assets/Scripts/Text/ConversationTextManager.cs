@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 
 public class ConversationTextManager : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class ConversationTextManager : MonoBehaviour
     [SerializeField] private NameTextDrawer nameTextDrawer;
     [SerializeField] private ChangeBackground changeBackground;
     [SerializeField] private Question question;
-    [SerializeField] private TextAsset textAsset;
     [SerializeField] private Pause pause;
     [SerializeField] private ChangeSound changeSound;
     [SerializeField] private float intervalTime;
@@ -44,9 +42,8 @@ public class ConversationTextManager : MonoBehaviour
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideKeyUp() && lineNumber < jsonAttach.GetLines() - 1)
+                if (_inputSetting.GetDecideKeyUp() && lineNumber < jsonAttach.GetTextLines() - 1)
                 {
-                    //question.QuestionOutput();  //仮の出力
                     ChangeLine(1);
                     DisplayText();
                     DebugLogger.Log("NextLine");
@@ -59,7 +56,6 @@ public class ConversationTextManager : MonoBehaviour
                 }
                 else
                 {
-                    //question.QuestionOutput();  //仮の出力
                     gameObject.SetActive(false);
                     pause.UnPauseAll();
                     return;
@@ -97,12 +93,6 @@ public class ConversationTextManager : MonoBehaviour
         nameTextDrawer.Initialize();
         lineNumber = 0;
         unitTime = 0f;
-
-        if (textAsset == null)
-        {
-            DebugLogger.Log("テキストファイルが見つかりませんでした");
-            return;
-        }
 
         jsonAttach.LoadJson();
 

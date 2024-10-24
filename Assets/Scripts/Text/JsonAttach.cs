@@ -6,13 +6,13 @@ using UnityEngine;
 public class JsonAttach : MonoBehaviour
 {
     public TextAsset jsonFile;
-    private TextWindowClass deserializedData;
+    private TalkData deserializedData;
 
     public void LoadJson()
     {
         byte[] messagePackData = MessagePackSerializer.ConvertFromJson(jsonFile.text);
 
-        deserializedData = MessagePackSerializer.Deserialize<TextWindowClass>(messagePackData);
+        deserializedData = MessagePackSerializer.Deserialize<TalkData>(messagePackData);
     }
 
     public Content GetContent(int index)
@@ -20,8 +20,8 @@ public class JsonAttach : MonoBehaviour
         return deserializedData.Content[index];
     }
 
-    public int GetLines()
+    public int GetTextLines()
     {
-        return deserializedData.Content.Count;
+        return deserializedData.Content.Length;
     }
 }

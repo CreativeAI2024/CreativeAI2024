@@ -5,18 +5,17 @@
       "Text": "こちらが会話ウィンドウのサンプルになります。基本的な動作は安定して行えるはずです。",
       "ChangeImage": [
         {
-          "Image": "Panel",
-          "Sprite": "bluePop"
+          "ImageName": "Panel",
+          "SpriteName": "bluePop"
         }
       ],
-      "BGM": "urban1"
+      "BGM": "thinking1"
     },
 
     {
       "Speaker": "soregashi",
       "Text": "また、TextMeshProではリッチテキストタグが利用できます。",
-      "SE": "wow1",
-      "BGM": "stop1"
+      "SE": "Pa1"
     },
 
     {
@@ -24,12 +23,12 @@
       "Text": "選択肢の表示もできます。",
       "ChangeImage": [
         {
-          "Image": "Panel",
-          "Sprite": "void"
+          "ImageName": "Panel",
+          "SpriteName": "void"
         },
         {
-          "Image": "TestPanel1",
-          "Sprite": "1nomal"
+          "ImageName": "TestPanel1",
+          "SpriteName": "1nomal"
         }
       ],
       "QuestionData": [

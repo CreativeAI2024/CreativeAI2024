@@ -29,9 +29,9 @@ public class ChangeBackground : MonoBehaviour
         for (int i = 0; i < changeImage.Length; i++)
         {
             //テキストから指定されたImage,Spriteの名前とインスペクターで設定したImage,Spriteの名前が一致したとき
-            if (imagesDict.ContainsKey(changeImage[i].Image) && spritesDict.ContainsKey(changeImage[i].Sprite))
+            if (imagesDict.ContainsKey(changeImage[i].ImageName) && spritesDict.ContainsKey(changeImage[i].SpriteName))
             {
-                imagesDict[changeImage[i].Image].sprite = spritesDict[changeImage[i].Sprite];
+                imagesDict[changeImage[i].ImageName].sprite = spritesDict[changeImage[i].SpriteName];
             }
         }
     }
