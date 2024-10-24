@@ -1,0 +1,34 @@
+{
+    "Id": 1,
+    "Location": {
+        "MapName": "mapname",
+        "Position": [
+            1,
+            1
+        ]
+    },
+    "EventName": "eventname",
+    "TriggerType": 1,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "key",
+                true
+            ],
+            [
+                "key",
+                false
+            ]
+        ],
+        "NextFlag": [
+            [
+                "key",
+                true
+            ],
+            [
+                "key",
+                false
+            ]
+        ]
+    }
+}
