@@ -143,8 +143,8 @@ public class ConversationTextManager : MonoBehaviour
     private void DisplayText()
     {
         //現在の行を取得
-        string text = _sentences[lineNumber];
-        string[] words = text.Split(':');  //scriptEngine化で不要になるかも
+        //string text = _sentences[lineNumber];
+        //string[] words = text.Split(':');  //scriptEngine化で不要になるかも
         //前の行の名前欄や選択肢を非表示にしておく
         nameTextDrawer.DisableNameText();
         question.InitializeQuestionBranch();
