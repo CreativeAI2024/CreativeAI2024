@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 
-
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class NameTextDrawer : MonoBehaviour
 {

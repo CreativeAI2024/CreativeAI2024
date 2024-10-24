@@ -18,6 +18,7 @@ public class ConversationTextManager : MonoBehaviour
     private List<string> _sentences = new();
     private int lineNumber;
 
+
     /*
     var myObject = JsonUtility.FromJson<MyClass>(textAsset.text);
 
@@ -65,6 +66,7 @@ public class ConversationTextManager : MonoBehaviour
                     ChangeLine(1);
                     DisplayText();
                     DebugLogger.Log("NextLine");
+
                 }
                 else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
                 {
@@ -101,7 +103,6 @@ public class ConversationTextManager : MonoBehaviour
             question.QuestionCursorMove(-1);
         }
 
-        
         //次の行へ進むアイコンの表示非表示
         mainTextDrawer.NextLineIcon();
     }

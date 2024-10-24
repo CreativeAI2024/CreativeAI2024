@@ -75,7 +75,7 @@ public class MainTextDrawer : MonoBehaviour
         _mainTextObject.maxVisibleCharacters = 0;
         _displayedSentenceLength = 0;
     }
-    
+
     public void DisplayTextRuby()
     {
         if (TryGetComponent(out TextMeshProRuby rb))
