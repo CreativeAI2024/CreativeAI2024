@@ -30,7 +30,7 @@ public class CombineRecipeDatabase : ScriptableObject
             recipeDict[item].Add(pair, result);
         }
     }
-    public bool HasPairIngredients(Item ingredientItem)
+    public bool IsCombinable(Item ingredientItem)
     {
         return recipeDict.ContainsKey(ingredientItem);
     }

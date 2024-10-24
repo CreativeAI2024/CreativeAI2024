@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ItemActionWindow : Window
 {
-    private CombineRecipeDatabase combineRecipeDatabase;
+    [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     private Item _item;
     [SerializeField] private CombineButton combineButton;
     [SerializeField] private ImageTextButton imageTextButton;
@@ -16,7 +16,6 @@ public class ItemActionWindow : Window
     public void Initialize(Item item)
     {
         _item = item;
-        combineRecipeDatabase = Resources.Load<CombineRecipeDatabase>("Items/CombineRecipes/CombineRecipeDatabase");
     }
     
     private void OnEnable()
@@ -36,10 +35,10 @@ public class ItemActionWindow : Window
     private void MakeActionButton()
     {
         Debug.Log("_item.ContentText : "+_item.ContentText);
-        if (combineRecipeDatabase.HasPairIngredients(_item))
+        //TODO: ここを、「そもそも合成可能か」ではなく、「ペアアイテムを今持っているか」に変える。
+        if (combineRecipeDatabase.IsCombinable(_item))
         {
             combineButton.gameObject.SetActive(true);
-            //TODO: pairItemを持ってなければselectableをfalseにする
             combineButton.Initialize(_item, "Combine", base.OnCancelKeyDown, this);
             EventSystem.current.SetSelectedGameObject(combineButton.gameObject);
         }

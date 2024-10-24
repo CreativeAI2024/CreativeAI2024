@@ -145,8 +145,9 @@ GameObject:
   - component: {fileID: 3182537131731827524}
   - component: {fileID: 3165692890893580500}
   - component: {fileID: 2037350166628470905}
+  - component: {fileID: 1783471363842898040}
   m_Layer: 5
-  m_Name: ConfirmWindow
+  m_Name: CombineWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,6 +212,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1783471363842898040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199765696090946033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c2cefd66f8f624ea5b64015488466a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousWindowObj: {fileID: 0}
+  itemInventory: {fileID: 0}
+  combineRecipeDatabase: {fileID: 0}
+  itemButtonPrefab: {fileID: 0}
+  itemButtonGroup: {fileID: 2253162398614222680}
 --- !u!1001 &5401058745489503204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -485,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 3490494531567460827, guid: 4ade30aee25164f56b0b374395ff9016,
         type: 3}
       propertyPath: m_Name
-      value: Buttons
+      value: Combine Option Button Group
       objectReference: {fileID: 0}
     - target: {fileID: 7981845031574531496, guid: 4ade30aee25164f56b0b374395ff9016,
         type: 3}

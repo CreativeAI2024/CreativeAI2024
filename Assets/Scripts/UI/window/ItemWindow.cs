@@ -8,12 +8,10 @@ public class ItemWindow : Window
 {
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
-    
     [SerializeField] private ItemActionWindow itemActionWindow;
     [SerializeField] private ItemButton itemButtonPrefab;
     [SerializeField] private Transform itemButtonGroup;
     [SerializeField] private TextMeshProUGUI itemDescription;
-    
     private readonly Dictionary<Item, GameObject> itemButtonDict = new();
     
     void OnEnable()
