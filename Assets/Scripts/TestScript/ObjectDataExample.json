@@ -1,33 +1,42 @@
 {
     "Id": 1,
-    "Location": {
-        "MapName": "mapname",
-        "Position": [
-            1,
-            1
-        ]
-    },
+    "Location": [
+        {
+            "MapName": "mapname",
+            "Position": [
+                1,
+                1
+            ]
+        },
+        {
+            "MapName": "mapname2",
+            "Position": [
+                2,
+                2
+            ]
+        }
+    ],
     "EventName": "eventname",
     "TriggerType": 1,
     "FlagCondition": {
         "Flag": [
             [
-                "key",
+                "key1-1",
                 true
             ],
             [
-                "key",
-                false
+                "key1-2",
+                true
             ]
         ],
         "NextFlag": [
             [
-                "key",
+                "key2-1",
                 true
             ],
             [
-                "key",
-                false
+                "key2-2",
+                true
             ]
         ]
     }
