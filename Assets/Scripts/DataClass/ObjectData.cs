@@ -7,7 +7,7 @@ using UnityEngine;
 public class ObjectData
 {
     public int Id { get; set; }
-    public Location Location { get; set; }
+    public Location[] Location { get; set; }
     public string EventName { get; set; }
     public int TriggerType { get; set; }
     public FlagCondition FlagCondition { get; set; }
