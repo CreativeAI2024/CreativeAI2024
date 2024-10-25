@@ -20,7 +20,7 @@ public class SetFirstButtonFocus : MonoBehaviour
     {
         Focus();
     }
-    private void Focus()
+    public void Focus()
     {
         if (transform.childCount > 0) 
         {

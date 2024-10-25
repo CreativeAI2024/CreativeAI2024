@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3008471334391133427}
   - component: {fileID: 1609620507610824040}
   m_Layer: 5
-  m_Name: ActionsWindow
+  m_Name: ItemActionWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

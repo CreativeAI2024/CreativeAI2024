@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class ItemImageWindow : Window
 {
-    public void Open(Window window)
+    [SerializeField] private ItemActionWindow itemActionWindow;
+    public override void OnDecide(Window previousWindow = null)
     {
-        base.OnDecideKeyDown(window);
+        base.OnDecide(previousWindow);
+        itemActionWindow.OnCancel();
+    }
+    public override void OnCancel()
+    {
+        base.OnCancel();
+        itemActionWindow.OnCancel();
     }
 }

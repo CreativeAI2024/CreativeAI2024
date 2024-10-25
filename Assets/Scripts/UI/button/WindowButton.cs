@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WindowButton : MonoBehaviour, IFocusObject
@@ -10,11 +8,11 @@ public class WindowButton : MonoBehaviour, IFocusObject
     
     public void OnDecideKeyDown()
     {
-        nextWindow.OnDecideKeyDown(window);
+        nextWindow.OnDecide(window);
     }
     
     public void OnCancelKeyDown()
     {
-        window.OnCancelKeyDown();
+        window.OnCancel();
     }
 }

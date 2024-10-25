@@ -13,7 +13,7 @@ public class ImageButton : ItemActionButton
     {
         //ItemImageWindowを開き、screenImageを表示する処理
         EventSystem.current.SetSelectedGameObject(gameObject);
-        itemImageWindow.Open(window);
+        itemImageWindow.OnDecide(window);
         screenImage.sprite = item.Sprite;
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -8,6 +9,7 @@ public class ItemInventory : ScriptableObject
 {
     [SerializeField] private List<Item> itemList;
     private Dictionary<string, Item> itemDict;
+    [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     public void Initialize()
     {
         itemDict = new Dictionary<string, Item>();
@@ -28,6 +30,10 @@ public class ItemInventory : ScriptableObject
     public IEnumerable<Item> GetItems()
     {
         return itemDict.Values;
+    }
+    public bool HasAnyPairIngredients(Item baseItem)
+    {
+        return itemDict.Values.Any(item => combineRecipeDatabase.GetPairIngredients(baseItem).Contains(item));
     }
     public void Add(Item item)
     {

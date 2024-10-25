@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class ItemWindow : Window
 {
     [SerializeField] private ItemInventory itemInventory;
-    [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
     [SerializeField] private ItemActionWindow itemActionWindow;
     [SerializeField] private ItemButton itemButtonPrefab;
     [SerializeField] private Transform itemButtonGroup;
@@ -48,12 +47,12 @@ public class ItemWindow : Window
     private GameObject MakeItemButton(Item item)
     {
         ItemButton itemButton = Instantiate(itemButtonPrefab, itemButtonGroup);
-        itemButton.Initialize(item, itemActionWindow, OnDecide, base.OnCancelKeyDown, itemDescription);
+        itemButton.Initialize(item, itemActionWindow, OnDecide, base.OnCancel, itemDescription);
         return itemButton.gameObject;
     }
     
     private void OnDecide()
     {
-        itemActionWindow.OnDecideKeyDown(this);
+        itemActionWindow.OnDecide();
     }
 }

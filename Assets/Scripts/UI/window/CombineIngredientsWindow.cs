@@ -40,10 +40,11 @@ public class CombineIngredientsWindow : Window
     }
     private GameObject MakeButton(Item item)
     {
-        if (combineRecipeDatabase.IsCombinable(item))
+        if (item.ItemName.Equals(baseItem.ItemName)) return null;
+        if (itemInventory.HasAnyPairIngredients(item))
         {
             CombinePairItemButton combinePairItemButton = Instantiate(combinePairItemButtonPrefab, ingredientButtonGroup);
-            combinePairItemButton.Initialize(combineWindow, item, baseItem, OnDecide, base.OnCancelKeyDown);
+            combinePairItemButton.Initialize(combineWindow, item, baseItem, OnDecide, base.OnCancel);
             return combinePairItemButton.gameObject;
         }
         else
@@ -56,6 +57,6 @@ public class CombineIngredientsWindow : Window
 
     public void OnDecide()
     {
-        combineWindow.OnDecideKeyDown();
+        combineWindow.OnDecide();
     }
 }

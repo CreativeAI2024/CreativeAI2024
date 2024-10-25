@@ -6,7 +6,9 @@ using UnityEngine.EventSystems;
 
 public class ItemActionWindow : Window
 {
-    [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
+    [SerializeField] private ItemInventory itemInventory;
+    [SerializeField] private ItemWindow itemWindow;
+    [SerializeField] private SetFirstButtonFocus itemWindowButtonGroup;
     private Item _item;
     [SerializeField] private CombineButton combineButton;
     [SerializeField] private ImageTextButton imageTextButton;
@@ -16,14 +18,9 @@ public class ItemActionWindow : Window
     public void Initialize(Item item)
     {
         _item = item;
-    }
-    
-    private void OnEnable()
-    {
         ButtonInactive();
         MakeActionButton();
-    }
-    
+    }    
     private void ButtonInactive()
     {
         imageTextButton.gameObject.SetActive(false);
@@ -34,33 +31,42 @@ public class ItemActionWindow : Window
     
     private void MakeActionButton()
     {
-        Debug.Log("_item.ContentText : "+_item.ContentText);
-        //TODO: ここを、「そもそも合成可能か」ではなく、「ペアアイテムを今持っているか」に変える。
-        if (combineRecipeDatabase.IsCombinable(_item))
+        Debug.Log("_item.ContentText : "+_item.ItemName);
+        if (itemInventory.HasAnyPairIngredients(_item))
         {
+            Debug.Log(_item.ItemName+" has any pair items");
             combineButton.gameObject.SetActive(true);
-            combineButton.Initialize(_item, "Combine", base.OnCancelKeyDown, this);
+            combineButton.Initialize(_item, OnCancel, itemWindow);
             EventSystem.current.SetSelectedGameObject(combineButton.gameObject);
         }
         if (_item.Sprite != null && _item.ContentText.Any())
         {
             imageTextButton.gameObject.SetActive(true);
-            imageTextButton.Initialize(_item, "Display", base.OnCancelKeyDown, this);
+            imageTextButton.Initialize(_item, OnCancel, itemWindow);
             EventSystem.current.SetSelectedGameObject(imageTextButton.gameObject);
         }
         else if (_item.Sprite != null)
         {
             Debug.Log("2");
             imageButton.gameObject.SetActive(true);
-            imageButton.Initialize(_item, "Display", base.OnCancelKeyDown, this);
+            imageButton.Initialize(_item, OnCancel, itemWindow);
             EventSystem.current.SetSelectedGameObject(imageButton.gameObject);
         }
         else if (_item.ContentText.Any())
         {
             Debug.Log("3");
             textButton.gameObject.SetActive(true);
-            textButton.Initialize(_item, "Display", base.OnCancelKeyDown, this);
+            textButton.Initialize(_item, OnCancel, itemWindow);
             EventSystem.current.SetSelectedGameObject(textButton.gameObject);
         }
+    }
+    public void OnDecide()
+    {
+        gameObject.SetActive(true);
+    }
+    public override void OnCancel()
+    {
+        gameObject.SetActive(false);
+        itemWindowButtonGroup.Focus();
     }
 }

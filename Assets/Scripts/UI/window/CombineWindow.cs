@@ -13,8 +13,8 @@ public class CombineWindow : Window
 
     }
 
-    public void OnDecideKeyDown()
+    public void OnDecide()
     {
-        base.OnDecideKeyDown();
+        base.OnDecide();
     }
 }
