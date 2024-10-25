@@ -10,6 +10,7 @@ public class JsonAttach : MonoBehaviour
 
     public void LoadJson()
     {
+        //Application.streamingAssetsPath
         byte[] messagePackData = MessagePackSerializer.ConvertFromJson(jsonFile.text);
 
         deserializedData = MessagePackSerializer.Deserialize<TalkData>(messagePackData);
