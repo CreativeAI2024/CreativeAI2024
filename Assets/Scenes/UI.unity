@@ -700,6 +700,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5041852390176287214, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041852390176287214, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041852390176287214, guid: c92169478df344a9db5af581df804b92,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5548163417247130285, guid: c92169478df344a9db5af581df804b92,
         type: 3}
       propertyPath: m_SizeDelta.y

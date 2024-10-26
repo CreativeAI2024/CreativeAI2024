@@ -3,7 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ItemButton : MonoBehaviour, IPushedObject
+public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
 {
     [SerializeField] private TextMeshProUGUI itemName;
     private DescriptionWindow descriptionWindow;
@@ -18,7 +18,7 @@ public class ItemButton : MonoBehaviour, IPushedObject
         this.menuUI = menuUI;
     }
     
-    public void OnFocus()
+    public void OnFocused()
     {
         descriptionWindow.SetText(item.DescriptionText);
     }
