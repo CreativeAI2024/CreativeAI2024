@@ -1,34 +1,34 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ItemButton : MonoBehaviour, IFocusObject
+public class ItemButton : MonoBehaviour, IPushedObject
 {
     [SerializeField] private TextMeshProUGUI itemName;
-    private TextMeshProUGUI itemDescription;
+    private DescriptionWindow descriptionWindow;
     private Item item;
-    private ItemActionWindow itemActionWindow;
-    private Action onDecide;
-    private Action onCancel;
+    private GameObject menuUI;
     
-    public void Initialize(Item item, ItemActionWindow itemActionWindow, Action onDecide, Action onCancel, TextMeshProUGUI itemDescription)
+    public void Initialize(Item item, GameObject menuUI, DescriptionWindow descriptionWindow)
     {
         itemName.text = item.ItemName;
         this.item = item;
-        this.itemActionWindow = itemActionWindow;
-        this.onCancel = onCancel;
-        this.onDecide = onDecide;
-        this.itemDescription = itemDescription;
+        this.descriptionWindow = descriptionWindow;
+        this.menuUI = menuUI;
     }
     
+    public void OnFocus()
+    {
+        descriptionWindow.SetText(item.DescriptionText);
+    }
     public void OnDecideKeyDown()
     {
-        itemActionWindow.Initialize(item);
-        onDecide?.Invoke();
+        Debug.Log(item.ItemName+" pushed.");
     }
     
     public void OnCancelKeyDown()
     {
-        onCancel?.Invoke();
+        menuUI.SetActive(false);
     }
 }

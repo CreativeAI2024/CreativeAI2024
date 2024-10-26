@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CombinePairItemButton : MonoBehaviour, IFocusObject
+public class CombinePairItemButton : MonoBehaviour, IPushedObject
 {
     [SerializeField] private TextMeshProUGUI itemName;
     private CombineWindow combineWindow;

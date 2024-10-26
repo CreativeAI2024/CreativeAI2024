@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WindowButton : MonoBehaviour, IFocusObject
+public class WindowButton : MonoBehaviour, IPushedObject
 {
     [SerializeField] private Window window;
     

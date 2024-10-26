@@ -18,16 +18,22 @@ public class CheckCurrentSelected : MonoBehaviour
         {
             GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
             cursor.Focus(currentSelected.transform.position);
-            if (_inputSetting.GetDecideKeyDown())
+            if (_inputSetting.GetForwardKeyDown() || _inputSetting.GetBackKeyDown() || _inputSetting.GetLeftKeyDown() || _inputSetting.GetRightKeyDown())
             {
-                IFocusObject focusedObject = currentSelected.GetComponent<IFocusObject>();
-                Debug.Log("currentSelected.name : " + currentSelected.name);
-                focusedObject.OnDecideKeyDown();
+                if (currentSelected.TryGetComponent<IFocusedObject>(out var focusedObject))
+                {
+                    focusedObject.OnFocused();
+                }
+            }
+            else if (_inputSetting.GetDecideKeyDown())
+            {
+                IPushedObject pushedObject = currentSelected.GetComponent<IPushedObject>();
+                pushedObject.OnDecideKeyDown();
             }
             else if (_inputSetting.GetCancelKeyDown())
             {
-                IFocusObject focusedObject = currentSelected.GetComponent<IFocusObject>();
-                focusedObject.OnCancelKeyDown();
+                IPushedObject pushedObject = currentSelected.GetComponent<IPushedObject>();
+                pushedObject.OnCancelKeyDown();
             }
         }
     }

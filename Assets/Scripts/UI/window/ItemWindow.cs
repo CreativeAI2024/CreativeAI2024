@@ -7,10 +7,10 @@ using UnityEngine.EventSystems;
 public class ItemWindow : Window
 {
     [SerializeField] private ItemInventory itemInventory;
-    [SerializeField] private ItemActionWindow itemActionWindow;
     [SerializeField] private ItemButton itemButtonPrefab;
     [SerializeField] private Transform itemButtonGroup;
-    [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private GameObject menuUI;
+    [SerializeField] private DescriptionWindow descriptionWindow;
     private readonly Dictionary<Item, GameObject> itemButtonDict = new();
     
     void OnEnable()
@@ -47,7 +47,7 @@ public class ItemWindow : Window
     private GameObject MakeItemButton(Item item)
     {
         ItemButton itemButton = Instantiate(itemButtonPrefab, itemButtonGroup);
-        itemButton.Initialize(item, itemActionWindow, itemActionWindow.OnDecide, base.OnCancel, itemDescription);
+        itemButton.Initialize(item, menuUI, descriptionWindow);
         return itemButton.gameObject;
     }
 }

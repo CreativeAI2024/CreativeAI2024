@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class CombineExecuteButton : MonoBehaviour, IFocusObject
+public class CombineExecuteButton : MonoBehaviour, IPushedObject
 {
     [SerializeField] private ItemInventory itemInventory;
     private Item ingredientItemA;

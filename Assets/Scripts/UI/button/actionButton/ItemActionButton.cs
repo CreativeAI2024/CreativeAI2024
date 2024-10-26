@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public abstract class ItemActionButton : MonoBehaviour, IFocusObject
+public abstract class ItemActionButton : MonoBehaviour, IPushedObject
 {
     protected Item item;
     private Action onCancel;
