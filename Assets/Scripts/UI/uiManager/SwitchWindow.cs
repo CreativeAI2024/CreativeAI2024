@@ -3,15 +3,14 @@ using UnityEngine;
 public class SwitchWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    [SerializeField] private GameObject windowBox;
-    [SerializeField] private GameObject topWindow;
+    [SerializeField] private GameObject menuUI;
     // [SerializeField] private Pause pause; //何アタッチするのかわからない
     private bool _isWindowActive;
 
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        _isWindowActive = windowBox.activeInHierarchy;
+        _isWindowActive = menuUI.activeInHierarchy;
     }
     void Update()
     {
@@ -19,14 +18,14 @@ public class SwitchWindow : MonoBehaviour
         {
             SetWindowActive(!_isWindowActive);
         }
-        else if (_inputSetting.GetCancelKeyDown() && _isWindowActive && topWindow.activeSelf)
+        else if (_inputSetting.GetCancelKeyDown() && _isWindowActive && menuUI.activeSelf)
         {
             SetWindowActive(false);
         }
     }
     private void SetWindowActive(bool isActive)
     {
-        windowBox.SetActive(isActive);
+        menuUI.SetActive(isActive);
         _isWindowActive = isActive;
         if (isActive)
         {

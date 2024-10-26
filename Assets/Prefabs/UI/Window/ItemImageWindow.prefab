@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousWindowObj: {fileID: 0}
+  itemActionWindow: {fileID: 0}
 --- !u!1001 &1845953659139956373
 PrefabInstance:
   m_ObjectHideFlags: 0
