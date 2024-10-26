@@ -10,6 +10,7 @@ public class ItemWindow : Window
     [SerializeField] private ItemButton itemButtonPrefab;
     [SerializeField] private Transform itemButtonGroup;
     [SerializeField] private GameObject menuUI;
+    [SerializeField] private ItemImageWindow itemImageWindow;
     [SerializeField] private DescriptionWindow descriptionWindow;
     private readonly Dictionary<Item, GameObject> itemButtonDict = new();
     
@@ -47,7 +48,7 @@ public class ItemWindow : Window
     private GameObject MakeItemButton(Item item)
     {
         ItemButton itemButton = Instantiate(itemButtonPrefab, itemButtonGroup);
-        itemButton.Initialize(item, menuUI, descriptionWindow);
+        itemButton.Initialize(item, menuUI, itemImageWindow, descriptionWindow);
         return itemButton.gameObject;
     }
 }

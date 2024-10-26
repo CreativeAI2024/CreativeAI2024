@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ItemImageWindow : Window
+public class ItemImageWindow : MonoBehaviour
 {
-    [SerializeField] private ItemActionWindow itemActionWindow;
-    public override void OnDecide(Window previousWindow = null)
+    [SerializeField] private Image image;
+
+    public void SetImage(Sprite sprite)
     {
-        base.OnDecide(previousWindow);
-        itemActionWindow.OnCancel();
-    }
-    public override void OnCancel()
-    {
-        base.OnCancel();
-        itemActionWindow.OnCancel();
+        image.sprite = sprite;
     }
 }
