@@ -47,12 +47,7 @@ public class ItemWindow : Window
     private GameObject MakeItemButton(Item item)
     {
         ItemButton itemButton = Instantiate(itemButtonPrefab, itemButtonGroup);
-        itemButton.Initialize(item, itemActionWindow, OnDecide, base.OnCancel, itemDescription);
+        itemButton.Initialize(item, itemActionWindow, itemActionWindow.OnDecide, base.OnCancel, itemDescription);
         return itemButton.gameObject;
-    }
-    
-    private void OnDecide()
-    {
-        itemActionWindow.OnDecide();
     }
 }

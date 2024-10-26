@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class CheckCurrentSelected : MonoBehaviour
 {
     private InputSetting _inputSetting;
+    [SerializeField] private Cursor cursor;
     
     void Start()
     {
@@ -13,6 +14,7 @@ public class CheckCurrentSelected : MonoBehaviour
     void Update()
     {
         GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
+        cursor.Focus(currentSelected.transform.position);
         if (_inputSetting.GetDecideKeyDown())
         {
             IFocusObject focusedObject = currentSelected.GetComponent<IFocusObject>();

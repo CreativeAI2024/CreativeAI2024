@@ -8,7 +8,6 @@ public class ItemActionWindow : Window
 {
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private ItemWindow itemWindow;
-    [SerializeField] private SetFirstButtonFocus itemWindowButtonGroup;
     private Item _item;
     [SerializeField] private CombineButton combineButton;
     [SerializeField] private ImageTextButton imageTextButton;
@@ -67,6 +66,5 @@ public class ItemActionWindow : Window
     public override void OnCancel()
     {
         gameObject.SetActive(false);
-        itemWindowButtonGroup.Focus();
     }
 }

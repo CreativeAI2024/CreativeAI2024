@@ -54,9 +54,8 @@ public class CombineIngredientsWindow : Window
             return discombinableButton.gameObject;
         }
     }
-
-    public void OnDecide()
+    private void OnDecide()
     {
-        combineWindow.OnDecide();
+        base.OnDecide();
     }
 }
