@@ -15,8 +15,8 @@ public class ConversationTextManager : MonoBehaviour
     private InputSetting _inputSetting;
 
     private int lineNumber;
-
-    [SerializeField] JsonAttach jsonAttach;
+    TalkData talkData;
+    private string fileName = "nantokaKaiwa";
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class ConversationTextManager : MonoBehaviour
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideKeyUp() && lineNumber < jsonAttach.GetTextLines() - 1)
+                if (_inputSetting.GetDecideKeyUp() && lineNumber < talkData.Content.Length - 1)
                 {
                     ChangeLine(1);
                     DisplayText();
@@ -94,10 +94,16 @@ public class ConversationTextManager : MonoBehaviour
         lineNumber = 0;
         unitTime = 0f;
 
-        jsonAttach.LoadJson();
+        string filePath = string.Join('/', Application.streamingAssetsPath,"TalkData", fileName+".json");
+        talkData = SaveUtility.JsonToData<TalkData>(filePath);
 
         //テキストを表示
         DisplayText();
+    }
+
+    public void SetJsonFileName(string jsonFileName)
+    {
+        fileName = jsonFileName;
     }
 
     private void DisplayText()
@@ -110,29 +116,29 @@ public class ConversationTextManager : MonoBehaviour
 
     private void TextTagShifter()
     {
-        if (jsonAttach.GetContent(lineNumber).Speaker != null) 
+        if (talkData.Content[lineNumber].Speaker != null) 
         {
-            nameTextDrawer.DisplayNameText(jsonAttach.GetContent(lineNumber).Speaker);
+            nameTextDrawer.DisplayNameText(talkData.Content[lineNumber].Speaker);
         }
-        if (jsonAttach.GetContent(lineNumber).ChangeImage != null)
+        if (talkData.Content[lineNumber].ChangeImage != null)
         {
-            changeBackground.ChangeImages(jsonAttach.GetContent(lineNumber).ChangeImage);
+            changeBackground.ChangeImages(talkData.Content[lineNumber].ChangeImage);
         }
-        if (jsonAttach.GetContent(lineNumber).QuestionData != null)
+        if (talkData.Content[lineNumber].QuestionData != null)
         {
-            question.DisplayQuestion(jsonAttach.GetContent(lineNumber).QuestionData);
+            question.DisplayQuestion(talkData.Content[lineNumber].QuestionData);
         }
-        if (jsonAttach.GetContent(lineNumber).BGM != null)
+        if (talkData.Content[lineNumber].BGM != null)
         {
-            changeSound.ChangeBGM(jsonAttach.GetContent(lineNumber).BGM);
+            changeSound.ChangeBGM(talkData.Content[lineNumber].BGM);
         }
-        if (jsonAttach.GetContent(lineNumber).SE != null)
+        if (talkData.Content[lineNumber].SE != null)
         {
-            changeSound.ChangeSE(jsonAttach.GetContent(lineNumber).SE);
+            changeSound.ChangeSE(talkData.Content[lineNumber].SE);
         }
-        if (jsonAttach.GetContent(lineNumber).Text != null)
+        if (talkData.Content[lineNumber].Text != null)
         {
-            mainTextDrawer.DisplayMainText(jsonAttach.GetContent(lineNumber).Text);
+            mainTextDrawer.DisplayMainText(talkData.Content[lineNumber].Text);
             mainTextDrawer.DisplayTextRuby();
         }
     }
