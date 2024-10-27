@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class ItemWindow : Window
+public class ItemWindow : MonoBehaviour
 {
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private ItemButton itemButtonPrefab;
