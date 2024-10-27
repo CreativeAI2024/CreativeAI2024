@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: WholeLetter
   m_EditorClassIdentifier: 
-  itemName: WholeLetter
+  itemName: W_Letter
   descriptionText: hidden whole text
   count: 1
-  image: {fileID: 21300000, guid: d48a7fea634c14fb090bf6ebe6da3538, type: 3}
+  sprite: {fileID: 21300000, guid: d48a7fea634c14fb090bf6ebe6da3538, type: 3}
   contentText: []

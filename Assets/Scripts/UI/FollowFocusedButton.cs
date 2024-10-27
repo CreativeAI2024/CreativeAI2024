@@ -46,21 +46,14 @@ public class FollowFocusedButton : MonoBehaviour
         float topPosition = centerPosition - halfViewportSize;
         float bottomPosition = centerPosition + halfViewportSize;
         float buttonCenterPosition = buttonSize * nodeIndex + buttonSize / 2.0f - topPosition;
-        Debug.Log("-----------------");
-        Debug.Log("nodeCenterPosition: "+buttonCenterPosition);
-        Debug.Log("centerPosition: " + centerPosition);
-        Debug.Log("topPosition: " + topPosition);
-
         if (0 > buttonCenterPosition)
         {
-            Debug.Log("Top passed.");
             _scrollRect.verticalNormalizedPosition += normalizedButtonSize;
             return;
         }
 
         if (buttonCenterPosition > viewportSize)
         {
-            Debug.Log("Bottom passed.");
             _scrollRect.verticalNormalizedPosition -= normalizedButtonSize;
         }
     }
