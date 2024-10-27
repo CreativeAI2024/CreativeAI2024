@@ -21,7 +21,7 @@ public class PlayerControllerWithCollider : PlayerController
     {
         base.Move(vector);
 
-        _boxCollider.offset = vector * (speed * Time.deltaTime);
+        _boxCollider.offset = Time.deltaTime * 10000 * vector.normalized * speed;
     }
     
     protected override void MovePrepare()
