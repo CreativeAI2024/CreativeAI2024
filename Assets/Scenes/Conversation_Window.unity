@@ -537,16 +537,6 @@ PrefabInstance:
       propertyPath: pause
       value: 
       objectReference: {fileID: 237572391}
-    - target: {fileID: 673614102471081624, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
-        type: 3}
-      propertyPath: jsonAttach
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 673614102471081624, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
-        type: 3}
-      propertyPath: changeSound
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2449838930168480606, guid: ce7cc27dec856b0448e6e13bfa86ae4a,
         type: 3}
       propertyPath: m_Name

@@ -444,7 +444,6 @@ MonoBehaviour:
   nameTextDrawer: {fileID: 3200026706160862812}
   changeBackground: {fileID: 6645842717037051957}
   question: {fileID: 7147208104611633314}
-  textAsset: {fileID: 4900000, guid: 127dd1773ae7ada4e8b8b9981f22c8e4, type: 3}
   pause: {fileID: 0}
   intervalTime: 0.04
 --- !u!1 &2522164891504788802

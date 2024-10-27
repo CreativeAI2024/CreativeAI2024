@@ -11,7 +11,7 @@ public class ChangeBackground : MonoBehaviour
     Dictionary<string, Image> imagesDict = new Dictionary<string, Image>();
     Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < images.Length; i++)
         {
@@ -20,6 +20,14 @@ public class ChangeBackground : MonoBehaviour
         for (int i = 0; i < sprites.Length; i++)
         {
             spritesDict.Add(sprites[i].name, sprites[i]);
+        }
+    }
+
+    public void Initialize()
+    {
+        for (int i = 0; i < images.Length; i++)
+        {
+            images[i].sprite = spritesDict["void"];
         }
     }
 

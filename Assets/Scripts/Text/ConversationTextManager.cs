@@ -21,7 +21,7 @@ public class ConversationTextManager : MonoBehaviour
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        Initiallize("nantokaKaiwa");
+        //Initiallize("nantokaKaiwa");
     }
 
     // Update is called once per frame
@@ -36,7 +36,6 @@ public class ConversationTextManager : MonoBehaviour
             unitTime -= intervalTime * mainTextDrawer.GetDelayTime();
             mainTextDrawer.Typewriter();
         }
-
         // zキーが離されたとき、次の行へ移動
         if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
         {
@@ -59,6 +58,7 @@ public class ConversationTextManager : MonoBehaviour
                 {
                     gameObject.SetActive(false);
                     pause.UnPauseAll();
+                    SoundManager.Instance.StopBGM();
                     initializeFlag = false;
                     return;
                 }
@@ -88,11 +88,15 @@ public class ConversationTextManager : MonoBehaviour
         mainTextDrawer.NextLineIcon();
     }
 
-    public void Initiallize(string fileName)
+    public void Initialize(string fileName)
     {
+        if (initializeFlag)
+            return;
+        gameObject.SetActive(true);
         pause.PauseAll();
         mainTextDrawer.Initialize();
         nameTextDrawer.Initialize();
+        changeBackground.Initialize();
         lineNumber = 0;
         unitTime = 0f;
 
