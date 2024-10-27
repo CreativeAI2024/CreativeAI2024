@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             vector += Vector3.right;
         }
-        return vector * unitDistance;
+        return vector.normalized * unitDistance;
     }
 
     protected virtual void Move(Vector3 vector)
