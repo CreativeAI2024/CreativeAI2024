@@ -65,12 +65,12 @@ public class PlayerController : MonoBehaviour
         {
             vector += Vector3.right;
         }
-        return vector * unitDistance;
+        return vector.normalized * unitDistance;
     }
 
     protected virtual void Move(Vector3 vector)
     {
-        _playerTransform.position += Time.deltaTime * 10000 * vector.normalized * speed;
+        _playerTransform.position += vector * speed;
     }
 
     void MoveEnd()
