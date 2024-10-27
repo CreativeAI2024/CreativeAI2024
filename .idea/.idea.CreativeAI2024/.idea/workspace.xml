@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataClass/ObjectData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataClass/ObjectData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/savefile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestScript/savefile.json" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +21,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04af773e223344bd9a56d36a602cfd4220a00/2a/3ca783e3/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -29,12 +35,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/map",
+    "git-widget-placeholder": "feat/dataclass",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.EditorConfig",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -46,8 +53,16 @@
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/CreativeAIビルド\CreativeAI2024.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\kawak\Desktop\クリエイティブAIビルド" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.27f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.27f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\kawak\Desktop\CreativeAI2024 -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawak\Desktop\CreativeAI2024" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -55,7 +70,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.27f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.27f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\kawak\Desktop\CreativeAI2024 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawak\Desktop\CreativeAI2024" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -104,6 +119,13 @@
       <workItem from="1718680730346" duration="112000" />
       <workItem from="1718680887269" duration="1361000" />
       <workItem from="1718684207445" duration="1361000" />
+      <workItem from="1718790018074" duration="1819000" />
+      <workItem from="1718978961059" duration="75000" />
+      <workItem from="1718979063157" duration="98000" />
+      <workItem from="1718980190910" duration="94000" />
+      <workItem from="1721372444082" duration="1056000" />
+      <workItem from="1727857018421" duration="821000" />
+      <workItem from="1728022064534" duration="1926000" />
     </task>
     <servers />
   </component>

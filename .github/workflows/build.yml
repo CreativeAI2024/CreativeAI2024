@@ -1,0 +1,55 @@
+name: Windows Build
+  
+on:
+  push:
+    branches: develop
+  workflow_dispatch: {}
+
+# 連続して実行されたときに一つ前の実行中のジョブが停止されるようにする
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  unity-Build:
+    name: Run the unity build steps
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        targetPlatform:
+          - StandaloneWindows64 # Build a Windows 64-bit standalone.
+          - WebGL # WebGL.
+          
+    steps:
+      # Actionsがリポジトリにアクセスできるようにする
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      
+      # LibraryをCacheしてBuildを高速化する
+      - name: Cache Library
+        uses: actions/cache@v4.1.0
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**','ProjectSettings/**') }}
+          restore-keys: Library-
+
+      # WindowsBuildする
+      - name: Run the Windows build
+        uses: game-ci/unity-builder@v4.2.3
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: ${{ matrix.targetPlatform }}
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: 2022.3.27f1
+
+      # Build成果物をアップロードする
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: Build-${{ matrix.targetPlatform }}
+          path: build/${{ matrix.targetPlatform }}
