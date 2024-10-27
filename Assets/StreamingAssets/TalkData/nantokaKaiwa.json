@@ -9,7 +9,8 @@
           "SpriteName": "bluePop"
         }
       ],
-      "BGM": "thinking1"
+      "BGM": "thinking1",
+      "SE": "flash1"
     },
 
     {
@@ -43,7 +44,7 @@
           "NextTextFile": ""
         }
       ],
-      "BGM": "thinking1",
+      "BGM": "urban1",
       "SE": "flash1"
     }
   ]

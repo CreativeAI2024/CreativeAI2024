@@ -29,6 +29,6 @@ public class MapEvent : MonoBehaviour
     public void ConversationEvent()
     {
         _conversationTextManager.gameObject.SetActive(true);
-        _conversationTextManager.Initiallize();
+        _conversationTextManager.Initiallize("nantokaKaiwa");
     }
 }

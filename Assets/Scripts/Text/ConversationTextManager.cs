@@ -9,25 +9,26 @@ public class ConversationTextManager : MonoBehaviour
     [SerializeField] private ChangeBackground changeBackground;
     [SerializeField] private Question question;
     [SerializeField] private Pause pause;
-    [SerializeField] private ChangeSound changeSound;
     [SerializeField] private float intervalTime;
     private float unitTime;
     private InputSetting _inputSetting;
 
     private int lineNumber;
+    private bool initializeFlag = false;
     TalkData talkData;
-    private string fileName = "nantokaKaiwa";
 
     // Start is called before the first frame update
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        Initiallize();
+        Initiallize("nantokaKaiwa");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!initializeFlag) return;
+
         unitTime += Time.deltaTime;
         
         if (unitTime >= intervalTime)
@@ -58,6 +59,7 @@ public class ConversationTextManager : MonoBehaviour
                 {
                     gameObject.SetActive(false);
                     pause.UnPauseAll();
+                    initializeFlag = false;
                     return;
                 }
             }
@@ -86,7 +88,7 @@ public class ConversationTextManager : MonoBehaviour
         mainTextDrawer.NextLineIcon();
     }
 
-    public void Initiallize()
+    public void Initiallize(string fileName)
     {
         pause.PauseAll();
         mainTextDrawer.Initialize();
@@ -99,11 +101,7 @@ public class ConversationTextManager : MonoBehaviour
 
         //テキストを表示
         DisplayText();
-    }
-
-    public void SetJsonFileName(string jsonFileName)
-    {
-        fileName = jsonFileName;
+        initializeFlag = true;
     }
 
     private void DisplayText()
@@ -130,11 +128,11 @@ public class ConversationTextManager : MonoBehaviour
         }
         if (talkData.Content[lineNumber].BGM != null)
         {
-            changeSound.ChangeBGM(talkData.Content[lineNumber].BGM);
+            SoundManager.Instance.ChangeBGM(talkData.Content[lineNumber].BGM);
         }
         if (talkData.Content[lineNumber].SE != null)
         {
-            changeSound.ChangeSE(talkData.Content[lineNumber].SE);
+            SoundManager.Instance.ChangeSE(talkData.Content[lineNumber].SE);
         }
         if (talkData.Content[lineNumber].Text != null)
         {
