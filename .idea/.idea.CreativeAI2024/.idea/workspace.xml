@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/ObjectData.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataClass/ObjectData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataClass/ObjectData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/ObjectDataExample.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestScript/ObjectDataExample.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/savefile.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/savefile.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +26,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04af773e223344bd9a56d36a602cfd4220a00/2a/3ca783e3/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/EventObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -33,7 +40,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/scriptengine",
+    "git-widget-placeholder": "Merging feat/scriptengine",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -124,7 +131,6 @@
       <workItem from="1721372444082" duration="1056000" />
       <workItem from="1727857018421" duration="821000" />
       <workItem from="1728022064534" duration="1926000" />
-      <workItem from="1729236353861" duration="1812000" />
     </task>
     <servers />
   </component>
