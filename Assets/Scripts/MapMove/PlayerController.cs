@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Transform _playerTransform;
     private InputSetting _inputSetting;
     private Vector3 _lastinputVector;
+
     private void Start()
     {
         OnStart();
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
             Move(_lastinputVector);
             MoveEnd();
         }
+
     }
 
     Vector3 GetInputVector()
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
     protected virtual void MovePrepare()
     {
         _canInput = true;
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
