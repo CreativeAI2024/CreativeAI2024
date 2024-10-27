@@ -10,22 +10,10 @@ public class FollowFocusedButton : MonoBehaviour
     [SerializeField] private RectTransform _itemButtonPrefab;
     [SerializeField] private VerticalLayoutGroup _verticalLayoutGroup;
     private GameObject previousGameObject;
-    private float spacing;
-    private int buttonCount;
-    private float viewportSize;
-    private float halfViewportSize;
-    private float buttonSize;
-    private float normalizedButtonSize;
 
     void Start()
     {
         previousGameObject = EventSystem.current.currentSelectedGameObject;
-        spacing = _verticalLayoutGroup.spacing;
-        buttonCount = _contentTransform.childCount;
-        viewportSize = _viewportRectTransform.sizeDelta.y;
-        halfViewportSize = viewportSize * 0.5f;
-        buttonSize = _itemButtonPrefab.sizeDelta.y + spacing;
-        normalizedButtonSize = buttonSize/(buttonSize * buttonCount - viewportSize);
         _scrollRect.verticalNormalizedPosition = 1.0f;
     }
 
@@ -40,11 +28,16 @@ public class FollowFocusedButton : MonoBehaviour
     }
 
     void Scroll(int nodeIndex)
-    {   
+    {
+        float spacing = _verticalLayoutGroup.spacing;
+        int buttonCount = _contentTransform.childCount;
+        float viewportSize = _viewportRectTransform.sizeDelta.y;
+        float halfViewportSize = viewportSize * 0.5f;
+        float buttonSize = _itemButtonPrefab.sizeDelta.y + spacing;
+        float normalizedButtonSize = buttonSize / (buttonSize * buttonCount - viewportSize);
         float flippedScrollPosition = 1.0f - _scrollRect.verticalNormalizedPosition;
         float centerPosition = (buttonSize * buttonCount - viewportSize) * flippedScrollPosition + halfViewportSize;
         float topPosition = centerPosition - halfViewportSize;
-        float bottomPosition = centerPosition + halfViewportSize;
         float buttonCenterPosition = buttonSize * nodeIndex + buttonSize / 2.0f - topPosition;
         if (0 > buttonCenterPosition)
         {

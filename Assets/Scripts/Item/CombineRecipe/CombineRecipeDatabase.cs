@@ -34,17 +34,9 @@ public class CombineRecipeDatabase : ScriptableObject
     {
         return recipeDict.ContainsKey(ingredientItem);
     }
-    
     public List<Item> GetPairIngredients(Item ingredientItem)
     {
-        try
-        {
-            return recipeDict[ingredientItem].Keys.ToList();
-        }
-        catch
-        {
-            return new List<Item>();
-        }
+        return recipeDict[ingredientItem].Keys.ToList();
     }
     
     public Item GetResultItem(Item ingredientA, Item ingredientB)

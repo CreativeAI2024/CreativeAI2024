@@ -28,7 +28,14 @@ public class CombineItems
     
     public bool HasPairItemInInventory(Item item)
     {
-        List<Item> pairIngredients = combineRecipeDatabase.GetPairIngredients(item);
-        return pairIngredients.Any(x => itemInventory.IsContains(x));
+        if (combineRecipeDatabase.IsCombinable(item))
+        {
+            List<Item> pairIngredients = combineRecipeDatabase.GetPairIngredients(item);
+            return pairIngredients.Any(x => itemInventory.IsContains(x));
+        }
+        else
+        {
+            return false;
+        }
     }
 }

@@ -33,7 +33,14 @@ public class ItemInventory : ScriptableObject
     }
     public bool HasAnyPairIngredients(Item baseItem)
     {
-        return itemDict.Values.Any(item => combineRecipeDatabase.GetPairIngredients(baseItem).Contains(item));
+        if (combineRecipeDatabase.IsCombinable(baseItem))
+        {
+            return itemDict.Values.Any(item => combineRecipeDatabase.GetPairIngredients(baseItem).Contains(item));
+        }
+        else
+        {
+            return false;
+        }
     }
     public void Add(Item item)
     {
