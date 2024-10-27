@@ -7,6 +7,7 @@
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/IFocusObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Button/ItemButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Button/ItemButton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/kuchinashi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Items/kuchinashi.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/UI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/UI.unity" afterDir="false" />
@@ -36,6 +37,11 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/MenuHomeWindow.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/MenuHomeWindow.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/Window.cs" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataClass/ObjectData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataClass/ObjectData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/savefile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestScript/savefile.json" afterDir="false" />
+>>>>>>> e24054a22da1f3e994e40327fead81b285a6efa7
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +63,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -68,15 +75,28 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.EditorConfig&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat/dataclass",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.EditorConfig",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> e24054a22da1f3e994e40327fead81b285a6efa7
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\kawak\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\kawak\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Downloads/CreativeAIビルド\CreativeAI2024.exe" />
@@ -151,9 +171,12 @@
       <workItem from="1721372444082" duration="1056000" />
       <workItem from="1727857018421" duration="821000" />
       <workItem from="1728022064534" duration="1926000" />
+<<<<<<< HEAD
       <workItem from="1729248137688" duration="6127000" />
       <workItem from="1729255560651" duration="9334000" />
       <workItem from="1729303320500" duration="25299000" />
+=======
+>>>>>>> e24054a22da1f3e994e40327fead81b285a6efa7
     </task>
     <servers />
   </component>
