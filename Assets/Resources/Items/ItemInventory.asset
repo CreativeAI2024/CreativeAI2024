@@ -17,6 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35c9c0ba512494f6cbc24fe700a05842, type: 2}
   - {fileID: 11400000, guid: 928bc470fdb7143868dc7070111c3606, type: 2}
   - {fileID: 11400000, guid: d2c4eeb8cc9814e46ae8ece9ba03e529, type: 2}
+  - {fileID: 11400000, guid: 9f35463909b264ef5b2add2558f90db7, type: 2}
   - {fileID: 11400000, guid: e9a931b38fe8847449bb8abdb9c4981b, type: 2}
+  - {fileID: 11400000, guid: d475fe3b65c174bce9d1e951351fdca4, type: 2}
+  - {fileID: 11400000, guid: f8559e2ff3dc346c4a1de4da9f5839ee, type: 2}
   combineRecipeDatabase: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
     type: 2}
