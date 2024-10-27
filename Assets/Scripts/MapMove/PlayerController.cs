@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Move(Vector3 vector)
     {
-        _playerTransform.position += Time.deltaTime * 10000 * vector.normalized * speed;
+        _playerTransform.position += Time.deltaTime * 100 * vector.normalized * speed;
     }
 
     void MoveEnd()
