@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataClass/ObjectData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataClass/ObjectData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/savefile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestScript/savefile.json" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
