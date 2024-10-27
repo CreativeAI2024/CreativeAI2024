@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MapEvent : MonoBehaviour
 {
     public Vector2Int eventTilePosition;
-    [SerializeField] private TilePosition tilePosition;
+    [FormerlySerializedAs("playerTileInfo")] [FormerlySerializedAs("tilePosition")] [SerializeField] private TileInfo tileInfo;
     [SerializeField] private ConversationTextManager _conversationTextManager;
 
     private InputSetting _inputSetting;
@@ -25,7 +26,7 @@ public class MapEvent : MonoBehaviour
     void Update()
     {
         // 隣接するマスであったら
-        if (Vector2.Distance(tilePosition.GridPosition, eventTilePosition) <= 1 && _inputSetting.GetDecideKeyDown())
+        if (Vector2.Distance(tileInfo.GridPosition, eventTilePosition) <= 1 && _inputSetting.GetDecideKeyDown())
         {
             ConversationEvent();
         }

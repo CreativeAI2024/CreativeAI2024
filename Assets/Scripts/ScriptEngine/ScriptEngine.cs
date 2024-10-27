@@ -7,7 +7,6 @@ public class ScriptEngine : MonoBehaviour
     [SerializeField] private MapEvent mapEvent;
     
     [SerializeField] private ObjectEngine objectEngine;
-    
     [SerializeField] private MapEngine mapEngine;
     // Start is called before the first frame update
     void Start()
