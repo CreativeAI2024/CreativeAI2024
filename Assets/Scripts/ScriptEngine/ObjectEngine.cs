@@ -57,9 +57,27 @@ public class ObjectEngine : MonoBehaviour
     {
         if (_inputSetting.GetDecideKey())
         {
-            ObjectData eventObjectData = _eventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
-            if (eventObjectData is null) return;
-            if (eventObjectData) return;
+            Vector2Int[] directions = new Vector2Int[]
+            {
+                new Vector2Int(1, 0),
+                new Vector2Int(0, -1),
+                new Vector2Int(-1, 0),
+                new Vector2Int(1, 0)
+            };
+            for (int i = 0; i < 4; i++)
+            {
+                ObjectData aroundObjectData = _eventObjects[tileInfo.GridPosition.x+directions[i].x][tileInfo.GridPosition.y+directions[i].y];
+                if (aroundObjectData is null) continue;
+                if (aroundObjectData.TriggerType != 1) continue;
+                if ( /*プレイヤーの向きがイベントオブジェクトのほうを向いていなかったら*/true) continue;
+                
+                
+            }
+            ObjectData centerObjectData = _eventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
+            if (centerObjectData is not null && centerObjectData.TriggerType == 2 && FlagCheck(centerObjectData))
+            {
+                CallEvent(centerObjectData.EventName, centerObjectData.FlagCondition.NextFlag);
+            }
         }
         
         if (tileInfo.GridPosition != pastGridPosition) return;
@@ -67,12 +85,12 @@ public class ObjectEngine : MonoBehaviour
         pastGridPosition = tileInfo.GridPosition;
         ObjectData trapObjectData = _trapEventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
         if (trapObjectData is null) return;
+        if (!FlagCheck(trapObjectData)) return;
         
-        if (trapObjectData.FlagCondition.Flag.All(x => FlagManager.Instance.HasFlag(x.Key) == x.Value))
-        {
-            CallEvent(trapObjectData.EventName, trapObjectData.FlagCondition.NextFlag);
-        }
+        CallEvent(trapObjectData.EventName, trapObjectData.FlagCondition.NextFlag);
     }
+    
+    private bool FlagCheck(ObjectData objectData) => objectData.FlagCondition.Flag.All(x => FlagManager.Instance.HasFlag(x.Key) == x.Value);
     
     private void CallEvent(string eventName, KeyValuePair<string, bool>[] nextFlags)
     {
