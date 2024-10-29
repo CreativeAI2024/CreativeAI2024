@@ -42,10 +42,8 @@ public class FollowFocusedButton : MonoBehaviour
         if (0 > buttonCenterPosition)
         {
             _scrollRect.verticalNormalizedPosition += normalizedButtonSize;
-            return;
         }
-
-        if (buttonCenterPosition > viewportSize)
+        else if (buttonCenterPosition > viewportSize)
         {
             _scrollRect.verticalNormalizedPosition -= normalizedButtonSize;
         }
