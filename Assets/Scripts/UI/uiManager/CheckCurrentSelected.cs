@@ -17,24 +17,33 @@ public class CheckCurrentSelected : MonoBehaviour
         if (menuUI.activeInHierarchy)
         {
             GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
-            cursor.Focus(currentSelected.transform.position);
-            if (_inputSetting.GetForwardKeyDown() || _inputSetting.GetBackKeyDown() || _inputSetting.GetLeftKeyDown() || _inputSetting.GetRightKeyDown() || _inputSetting.GetDecideKeyDown() || _inputSetting.GetBackKeyDown() || _inputSetting.GetMenuKeyDown())
+            if (currentSelected != null)
             {
-                if (currentSelected.TryGetComponent<IFocusedObject>(out var focusedObject))
+                cursor.Focus(currentSelected.transform.position);
+                if (_inputSetting.GetForwardKeyDown() || _inputSetting.GetBackKeyDown() || _inputSetting.GetLeftKeyDown() || _inputSetting.GetRightKeyDown() || _inputSetting.GetMenuKeyDown())
                 {
-                    focusedObject.OnFocused();
+                    OnFocused(currentSelected);
+                }
+                else if (_inputSetting.GetDecideKeyDown())
+                {
+                    OnFocused(currentSelected);
+                    IPushedObject pushedObject = currentSelected.GetComponent<IPushedObject>();
+                    pushedObject.OnDecideKeyDown();
+                }
+                else if (_inputSetting.GetCancelKeyDown())
+                {
+                    OnFocused(currentSelected);
+                    IPushedObject pushedObject = currentSelected.GetComponent<IPushedObject>();
+                    pushedObject.OnCancelKeyDown();
                 }
             }
-            else if (_inputSetting.GetDecideKeyDown())
-            {
-                IPushedObject pushedObject = currentSelected.GetComponent<IPushedObject>();
-                pushedObject.OnDecideKeyDown();
-            }
-            else if (_inputSetting.GetCancelKeyDown())
-            {
-                IPushedObject pushedObject = currentSelected.GetComponent<IPushedObject>();
-                pushedObject.OnCancelKeyDown();
-            }
+        }
+    }
+    private void OnFocused(GameObject currentSelected)
+    {
+        if (currentSelected.TryGetComponent<IFocusedObject>(out var focusedObject))
+        {
+            focusedObject.OnFocused();
         }
     }
 }

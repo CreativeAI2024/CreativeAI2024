@@ -37,10 +37,7 @@ public class ItemInventory : ScriptableObject
         {
             return itemDict.Values.Any(item => combineRecipeDatabase.GetPairIngredients(baseItem).Contains(item));
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     public void Add(Item item)
     {
@@ -50,8 +47,7 @@ public class ItemInventory : ScriptableObject
         }
         else
         {
-            Item addedItem = Resources.Load<Item>("Items/" + item.ItemName);
-            itemDict.Add(addedItem.ItemName, addedItem);
+            itemDict.Add(item.ItemName, item);
         }
     }
 

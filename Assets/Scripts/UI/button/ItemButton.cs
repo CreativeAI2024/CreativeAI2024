@@ -10,12 +10,7 @@ public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
     private DescriptionWindow descriptionWindow;
     private Item item;
     private GameObject menuUI;
-    private int index;
-    public int Index => index;
-    void OnEnable()
-    {
-        index = transform.GetSiblingIndex();
-    }
+    public int Index => transform.GetSiblingIndex();
     
     public void Initialize(Item item, GameObject menuUI, ItemImageWindow itemImageWindow, DescriptionWindow descriptionWindow)
     {

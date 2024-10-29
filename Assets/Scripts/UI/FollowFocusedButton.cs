@@ -20,7 +20,7 @@ public class FollowFocusedButton : MonoBehaviour
     void Update()
     {
         GameObject currentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
-        if (previousGameObject != currentSelectedGameObject)
+        if (currentSelectedGameObject!=null && previousGameObject != currentSelectedGameObject)
         {
             previousGameObject = currentSelectedGameObject;
             Scroll(currentSelectedGameObject.GetComponent<ItemButton>().Index);
