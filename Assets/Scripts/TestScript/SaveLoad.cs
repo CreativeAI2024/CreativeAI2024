@@ -6,26 +6,26 @@ using System.Collections.Generic;
 
 public class SaveLoad : MonoBehaviour
 {
-    public string saveFilePath = "Assets/Scripts/TestScript/savefile.json"; // •Û‘¶‚·‚éJSONƒtƒ@ƒCƒ‹‚ÌƒpƒXA‚±‚ê‚ªexample.json‚Ì“à—e‚É‚È‚Á‚Ä‚¢‚ê‚Î‚¢‚¢
+    public string saveFilePath = "Assets/Scripts/TestScript/savefile.json"; // ä¿å­˜ã™ã‚‹JSONãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã€ã“ã‚ŒãŒexample.jsonã®å†…å®¹ã«ãªã£ã¦ã„ã‚Œã°ã„ã„
     public string exampleFilePath = "Assets/Scripts/TestScript/example.json";
 
-    // UI—v‘f
+    // UIè¦ç´ 
     public Button saveButton;
     public Button loadButton;
-    public MyClass myClass; // ƒf[ƒ^‚ğ•Û‘¶‚·‚é‚½‚ß‚ÌMyClassƒCƒ“ƒXƒ^ƒ“ƒX
+    public MyClass myClass; // ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹ãŸã‚ã®MyClassã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 
     void Start()
     {
-        // myClass‚ğ‰Šú‰»
+        // myClassã‚’åˆæœŸåŒ–
         //myClass = new MyClass { Id = 1, Name = "Example", Items = new List<string> { "Item1", "Item2", "Item3" } };
-        // JSONƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚Ş
-        myClass = LoadFromJson(exampleFilePath); // example.json ‚Ì“à—e‚ğ“Ç‚İ‚Ş
+        // JSONãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
+        myClass = LoadFromJson(exampleFilePath); // example.json ã®å†…å®¹ã‚’èª­ã¿è¾¼ã‚€
 
-        // ƒ{ƒ^ƒ“‚ÌƒŠƒXƒi[‚ğİ’è
+        // ãƒœã‚¿ãƒ³ã®ãƒªã‚¹ãƒŠãƒ¼ã‚’è¨­å®š
         saveButton.onClick.AddListener(() => SaveAsJson(myClass));
         loadButton.onClick.AddListener(() => {
             MyClass loadedData = LoadFromJson(saveFilePath);
-            // loadedData‚ğg—p‚µ‚ÄAUI‚È‚Ç‚É•\¦‚·‚éˆ—‚ğ’Ç‰Á
+            // loadedDataã‚’ä½¿ç”¨ã—ã¦ã€UIãªã©ã«è¡¨ç¤ºã™ã‚‹å‡¦ç†ã‚’è¿½åŠ 
             if (loadedData != null)
             {
                 Debug.Log($"Loaded Data - Id: {loadedData.Id}, Name: {loadedData.Name}, Items: {string.Join(", ", loadedData.Items)}");
@@ -34,35 +34,35 @@ public class SaveLoad : MonoBehaviour
     }
 
 
-    // ƒNƒ‰ƒX‚ğJSONŒ`®‚Å•Û‘¶‚·‚éƒƒ\ƒbƒh
+    // ã‚¯ãƒ©ã‚¹ã‚’JSONå½¢å¼ã§ä¿å­˜ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
     public void SaveAsJson(MyClass myClass)
     {
-        // MyClass‚ğMessagePackŒ`®‚ÉƒVƒŠƒAƒ‰ƒCƒY
+        // MyClassã‚’MessagePackå½¢å¼ã«ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚º
         byte[] msgPackData = MessagePackSerializer.Serialize(myClass);
 
-        // MessagePackƒf[ƒ^‚ğJSONŒ`®‚É•ÏŠ·
+        // MessagePackãƒ‡ãƒ¼ã‚¿ã‚’JSONå½¢å¼ã«å¤‰æ›
         string jsonString = MessagePackSerializer.ConvertToJson(msgPackData);
 
-        // JSONƒf[ƒ^‚ğƒtƒ@ƒCƒ‹‚É•Û‘¶
+        // JSONãƒ‡ãƒ¼ã‚¿ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜
         File.WriteAllText(saveFilePath, jsonString);
         Debug.Log("Data saved as JSON: " + saveFilePath);
     }
 
-    // JSONŒ`®‚Ìƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Şƒƒ\ƒbƒh
+    // JSONå½¢å¼ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ãƒ¡ã‚½ãƒƒãƒ‰
     public MyClass LoadFromJson(string filePath)
     {
-        // ƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚é‚©Šm”F
+        // ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹ã‹ç¢ºèª
         if (!File.Exists(filePath))
         {
             Debug.LogError("JSON file not found: " + filePath);
             return null;
         }
 
-        // ƒtƒ@ƒCƒ‹‚©‚çJSONƒf[ƒ^‚ğ“Ç‚İ‚İ
+        // ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰JSONãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿
         //string jsonContent = File.ReadAllText(saveFilePath);
         string jsonContent = File.ReadAllText(filePath);
 
-        // JSONƒf[ƒ^‚ğMessagePackŒ`®‚É•ÏŠ·‚µAMyClassƒCƒ“ƒXƒ^ƒ“ƒX‚ÉƒfƒVƒŠƒAƒ‰ƒCƒY
+        // JSONãƒ‡ãƒ¼ã‚¿ã‚’MessagePackå½¢å¼ã«å¤‰æ›ã—ã€MyClassã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ãƒ‡ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚º
         byte[] msgPackData = MessagePackSerializer.ConvertFromJson(jsonContent);
         MyClass myClass = MessagePackSerializer.Deserialize<MyClass>(msgPackData);
 
