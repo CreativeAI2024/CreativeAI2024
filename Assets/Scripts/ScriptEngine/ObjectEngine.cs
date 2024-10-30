@@ -11,10 +11,11 @@ public class ObjectEngine : MonoBehaviour
 {
     private ObjectData[][] _eventObjects;
     private ObjectData[][] _trapEventObjects;
-    [FormerlySerializedAs("playerPlayerTileInfo")] [FormerlySerializedAs("playerTilePosition")] [SerializeField] private TileInfo tileInfo;
+    
+    [SerializeField] private TileInfo tileInfo;
     [SerializeField] private string mapName;
-    [SerializeField] private ItemInventory inventory; 
-    private Vector2Int pastGridPosition;
+    //[SerializeField] private ItemInventory inventory; 
+    private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
         
     private InputSetting _inputSetting;
     private void Start()
@@ -35,6 +36,8 @@ public class ObjectEngine : MonoBehaviour
         string assetsPath = string.Join('/', Application.streamingAssetsPath, "ObjectData");
         foreach (string filePath in Directory.GetFiles(assetsPath))
         {
+            if (filePath.EndsWith(".meta")) continue;
+            
             ObjectData objectData = SaveUtility.JsonToData<ObjectData>(filePath);
             foreach (Location location in objectData.Location)
             {
@@ -55,48 +58,52 @@ public class ObjectEngine : MonoBehaviour
     
     private void Update()
     {
-        if (_inputSetting.GetDecideKey())
+        if (_inputSetting.GetDecideKeyDown())
         {
-            Vector2Int[] directions = new Vector2Int[]
+            DebugLogger.Log(tileInfo.GridPosition);
+            ObjectData aroundObjectData = _eventObjects[tileInfo.GridPosition.x + tileInfo.Direction.x][tileInfo.GridPosition.y + tileInfo.Direction.y];
+            if (Call(1, aroundObjectData))
             {
-                new Vector2Int(1, 0),
-                new Vector2Int(0, -1),
-                new Vector2Int(-1, 0),
-                new Vector2Int(1, 0)
-            };
-            for (int i = 0; i < 4; i++)
-            {
-                ObjectData aroundObjectData = _eventObjects[tileInfo.GridPosition.x+directions[i].x][tileInfo.GridPosition.y+directions[i].y];
-                if (aroundObjectData is null) continue;
-                if (aroundObjectData.TriggerType != 1) continue;
-                if ( /*プレイヤーの向きがイベントオブジェクトのほうを向いていなかったら*/true) continue;
-                
-                
+                return;
             }
             ObjectData centerObjectData = _eventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
-            if (centerObjectData is not null && centerObjectData.TriggerType == 2 && FlagCheck(centerObjectData))
+            if (Call(2, centerObjectData))
             {
-                CallEvent(centerObjectData.EventName, centerObjectData.FlagCondition.NextFlag);
+                return;
             }
         }
         
-        if (tileInfo.GridPosition != pastGridPosition) return;
+        if (_pastGridPosition == new Vector2Int(-1, -1) || tileInfo.GridPosition == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
         
-        pastGridPosition = tileInfo.GridPosition;
+        _pastGridPosition = tileInfo.GridPosition;
         ObjectData trapObjectData = _trapEventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
-        if (trapObjectData is null) return;
-        if (!FlagCheck(trapObjectData)) return;
-        
-        CallEvent(trapObjectData.EventName, trapObjectData.FlagCondition.NextFlag);
+        Call(0, trapObjectData);
     }
     
-    private bool FlagCheck(ObjectData objectData) => objectData.FlagCondition.Flag.All(x => FlagManager.Instance.HasFlag(x.Key) == x.Value);
+    private bool Call(int triggerType, ObjectData objectData)
+    {
+        if (objectData is null) return false;
+        if (objectData.TriggerType != triggerType) return false;
+        if (objectData.FlagCondition.Flag is not null && 
+            objectData.FlagCondition.Flag.Any(x => FlagManager.Instance.HasFlag(x.Key) != x.Value))
+        {
+            return false;
+        }
+        
+        CallEvent(objectData.EventName);
+        if (objectData.FlagCondition.NextFlag is not null)
+        {
+            SetNextFlag(objectData.FlagCondition.NextFlag);
+        }
+        return true;
+    }
     
-    private void CallEvent(string eventName, KeyValuePair<string, bool>[] nextFlags)
+    private void CallEvent(string eventName)
     {
         switch (eventName)
         {
             case "event1":
+                DebugLogger.Log("SAMPLE EVENT!");
                 break;
             case "event2":
                 break;
@@ -115,7 +122,10 @@ public class ObjectEngine : MonoBehaviour
             case "event9":
                 break;
         }
-        
+    }
+    
+    private void SetNextFlag(KeyValuePair<string, bool>[] nextFlags)
+    {
         foreach (KeyValuePair<string, bool> nextFlag in nextFlags)
         {
             if (nextFlag.Value)
@@ -136,7 +146,7 @@ public class ObjectEngine : MonoBehaviour
     
     private void Conversation(string fileName)
     {
-        ConversationTextManager.Instance.Initialize(fileName);
+        // ConversationTextManager.Instance.Initialize(fileName);
     }
     
     private void GetItem(int itemIndex)

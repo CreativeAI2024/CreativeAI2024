@@ -1,0 +1,14 @@
+{
+    "Id": 1,
+    "Location": [
+        {
+            "MapName": "mapname",
+            "Position": [
+                1,
+                1
+            ]
+        }
+    ],
+    "EventName": "event1",
+    "TriggerType": 2
+}
