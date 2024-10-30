@@ -32,18 +32,6 @@
           "SpriteName": "1nomal"
         }
       ],
-      "QuestionData": [
-        {
-          "Answer": "yes",
-          "NextFlag": "nantokaFlag",
-          "NextTextFile": ""
-        },
-        {
-          "Answer": "no",
-          "NextFlag": "nantokajanaiFlag",
-          "NextTextFile": ""
-        }
-      ],
       "BGM": "urban1",
       "SE": "Pa1"
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,24 +11,25 @@ public class ChangeBackground : MonoBehaviour
     [SerializeField] private Image[] images;
     Dictionary<string, Image> imagesDict = new Dictionary<string, Image>();
     Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
-
-    private void Awake()
-    {
-        for (int i = 0; i < images.Length; i++)
-        {
-            imagesDict.Add(images[i].name, images[i]);
-        }
-        for (int i = 0; i < sprites.Length; i++)
-        {
-            spritesDict.Add(sprites[i].name, sprites[i]);
-        }
-    }
-
+    
     public void Initialize()
     {
+        if (!imagesDict.Any())
+        {
+            for (int i = 0; i < images.Length; i++)
+            {
+                imagesDict.Add(images[i].name, images[i]);
+            }
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                spritesDict.Add(sprites[i].name, sprites[i]);
+            }
+        }
+        
         for (int i = 0; i < images.Length; i++)
         {
-            images[i].sprite = spritesDict["void"];
+            images[i].sprite = null;
+            images[i].color = Color.clear;
         }
     }
 
@@ -40,6 +42,9 @@ public class ChangeBackground : MonoBehaviour
             if (imagesDict.ContainsKey(changeImage[i].ImageName) && spritesDict.ContainsKey(changeImage[i].SpriteName))
             {
                 imagesDict[changeImage[i].ImageName].sprite = spritesDict[changeImage[i].SpriteName];
+                Color color;
+                ColorUtility.TryParseHtmlString("#FFFFFF80", out color);
+                imagesDict[changeImage[i].ImageName].color = color;
             }
         }
     }

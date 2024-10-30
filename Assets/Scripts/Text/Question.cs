@@ -6,11 +6,12 @@ public class Question : MonoBehaviour
 {
     [SerializeField] private QuestionBranch[] questionBranches;
     [SerializeField] private TextWindowCursor cursor;
-    RectTransform[] rectTransforms;
+    [SerializeField] private GameObject questionPanel;
+    private RectTransform[] rectTransforms;
     private int cursorMax;
     private int cursorPlace;
-
-    void Start()
+     
+    public void Initialize()
     {
         rectTransforms = new RectTransform[questionBranches.Length];
         for (int i = 0; i < questionBranches.Length; i++)
@@ -28,12 +29,16 @@ public class Question : MonoBehaviour
             questionBranches[i].QuestionBranchText(questionData[i].Answer);
         }
         cursorPlace = 0;
+        questionPanel.SetActive(true);
         cursor.SetVisibleCursor(true);
         cursor.CursorMove(rectTransforms[cursorPlace].position);
     }
 
     public void QuestionCursorMove(int increase)
     {
+        if(cursorMax - 1 <= 0) 
+            cursorMax = 1;
+
         cursorPlace = Mathf.Clamp(cursorPlace + increase, 0, cursorMax - 1);
         cursor.CursorMove(rectTransforms[cursorPlace].position);
     }
@@ -44,10 +49,11 @@ public class Question : MonoBehaviour
         {
             questionBranches[i].SetVisibleQuestionBranch(false);
         }
+        questionPanel.SetActive(false);
         cursor.SetVisibleCursor(false);
     }
 
-    public int GetCursorPlace()  //カーソル動作確認用
+    public int GetCursorPlace()
     {
         return cursorPlace;
     }

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConversationTextManager : MonoBehaviour
+public class ConversationTextManager : DontDestroySingleton<ConversationTextManager>
 {
     [SerializeField] private MainTextDrawer mainTextDrawer;
     [SerializeField] private NameTextDrawer nameTextDrawer;
     [SerializeField] private ChangeBackground changeBackground;
     [SerializeField] private Question question;
-    [SerializeField] private Pause pause;
+    [SerializeField] private GameObject contentObject;
     [SerializeField] private float intervalTime;
     private float unitTime;
     private InputSetting _inputSetting;
@@ -17,26 +17,25 @@ public class ConversationTextManager : MonoBehaviour
     private bool initializeFlag = false;
     TalkData talkData;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void Awake()
     {
+        base.Awake();
         _inputSetting = InputSetting.Load();
         //Initiallize("nantokaKaiwa");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!initializeFlag) return;
 
         unitTime += Time.deltaTime;
-        
+
         if (unitTime >= intervalTime)
         {
             unitTime -= intervalTime * mainTextDrawer.GetDelayTime();
             mainTextDrawer.Typewriter();
         }
-        // zキーが離されたとき、次の行へ移動
+
         if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
@@ -56,11 +55,21 @@ public class ConversationTextManager : MonoBehaviour
                 }
                 else
                 {
-                    gameObject.SetActive(false);
-                    pause.UnPauseAll();
                     SoundManager.Instance.StopBGM();
-                    initializeFlag = false;
-                    return;
+                    if (talkData.Content[lineNumber].QuestionData != null)
+                    {
+                        if(talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextTalkData != null)  //会話分岐
+                        {
+                            initializeFlag = false;
+                            Initialize(talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextTalkData);
+                        }
+                    }
+                    else
+                    {
+                        contentObject.SetActive(false);
+                        initializeFlag = false;
+                        return;
+                    }
                 }
             }
             else if (unitTime > -0.45f)
@@ -92,20 +101,31 @@ public class ConversationTextManager : MonoBehaviour
     {
         if (initializeFlag)
             return;
-        gameObject.SetActive(true);
-        pause.PauseAll();
+
+        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
+        talkData = SaveUtility.JsonToData<TalkData>(filePath);
+
+        lineNumber = 0;
+        unitTime = -1f;
         mainTextDrawer.Initialize();
         nameTextDrawer.Initialize();
         changeBackground.Initialize();
-        lineNumber = 0;
-        unitTime = 0f;
-
-        string filePath = string.Join('/', Application.streamingAssetsPath,"TalkData", fileName+".json");
-        talkData = SaveUtility.JsonToData<TalkData>(filePath);
+        question.Initialize();
 
         //テキストを表示
         DisplayText();
         initializeFlag = true;
+    }
+
+    public void EnableContentObject()
+    {
+        contentObject.SetActive(true);
+    }
+
+
+    public bool GetInitializeFlag()
+    {
+        return initializeFlag;
     }
 
     private void DisplayText()
@@ -118,7 +138,7 @@ public class ConversationTextManager : MonoBehaviour
 
     private void TextTagShifter()
     {
-        if (talkData.Content[lineNumber].Speaker != null) 
+        if (talkData.Content[lineNumber].Speaker != null)
         {
             nameTextDrawer.DisplayNameText(talkData.Content[lineNumber].Speaker);
         }

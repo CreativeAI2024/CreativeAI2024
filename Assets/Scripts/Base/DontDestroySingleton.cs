@@ -9,7 +9,8 @@ public class DontDestroySingleton<T> : MonoBehaviour where T : Component
         {
             if (instance == null)
             {
-                instance = (T)FindObjectOfType(typeof(T));
+                instance = (T)FindObjectOfType<T>(true);
+                DebugLogger.Log(instance, DebugLogger.Colors.Red);
                 if (instance == null)
                 {
                     SetupInstance();
@@ -20,12 +21,12 @@ public class DontDestroySingleton<T> : MonoBehaviour where T : Component
     }
     public virtual void Awake()
     {
-        RemoveDuplicates();
+        // RemoveDuplicates();
     }
     
     private static void SetupInstance()
     {
-        instance = (T)FindObjectOfType(typeof(T));
+        instance = (T)FindObjectOfType<T>(true);
         if (instance == null)
         {
             GameObject gameObj = new GameObject();
