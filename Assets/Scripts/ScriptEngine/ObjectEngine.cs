@@ -14,7 +14,8 @@ public class ObjectEngine : MonoBehaviour
     
     [SerializeField] private TileInfo tileInfo;
     [SerializeField] private string mapName;
-    //[SerializeField] private ItemInventory inventory; 
+    [SerializeField] private ItemInventory inventory;
+    [SerializeField] private ItemDatabase itemDatabase;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
         
     private InputSetting _inputSetting;
@@ -62,12 +63,12 @@ public class ObjectEngine : MonoBehaviour
         {
             DebugLogger.Log(tileInfo.GridPosition);
             ObjectData aroundObjectData = _eventObjects[tileInfo.GridPosition.x + tileInfo.Direction.x][tileInfo.GridPosition.y + tileInfo.Direction.y];
-            if (Call(1, aroundObjectData))
+            if (Call(aroundObjectData, 1, 2))
             {
                 return;
             }
             ObjectData centerObjectData = _eventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
-            if (Call(2, centerObjectData))
+            if (Call(centerObjectData, 2))
             {
                 return;
             }
@@ -77,13 +78,13 @@ public class ObjectEngine : MonoBehaviour
         
         _pastGridPosition = tileInfo.GridPosition;
         ObjectData trapObjectData = _trapEventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
-        Call(0, trapObjectData);
+        Call(trapObjectData, 0);
     }
     
-    private bool Call(int triggerType, ObjectData objectData)
+    private bool Call(ObjectData objectData, params int[] triggerType)
     {
         if (objectData is null) return false;
-        if (objectData.TriggerType != triggerType) return false;
+        if (!triggerType.Contains(objectData.TriggerType)) return false;
         if (objectData.FlagCondition.Flag is not null && 
             objectData.FlagCondition.Flag.Any(x => FlagManager.Instance.HasFlag(x.Key) != x.Value))
         {
@@ -149,9 +150,10 @@ public class ObjectEngine : MonoBehaviour
         // ConversationTextManager.Instance.Initialize(fileName);
     }
     
-    private void GetItem(int itemIndex)
+    private void GetItem(string itemName)
     {
-        
+        Item item = itemDatabase.GetItem(itemName);
+        inventory.Add(item);
     }
     
     private void CombineItem()
