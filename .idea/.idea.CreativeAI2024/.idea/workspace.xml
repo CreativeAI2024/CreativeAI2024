@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

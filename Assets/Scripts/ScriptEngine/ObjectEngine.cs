@@ -16,6 +16,7 @@ public class ObjectEngine : MonoBehaviour
     [SerializeField] private string mapName;
     [SerializeField] private ItemInventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
+    [SerializeField] private Pause pause;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
         
     private InputSetting _inputSetting;
@@ -99,29 +100,29 @@ public class ObjectEngine : MonoBehaviour
         return true;
     }
     
-    private void CallEvent(string eventName)
+    private void CallEvent(string eventString)
     {
+        string[] eventArgs = eventString.Split(' ');
+        string eventName = eventArgs[0];
         switch (eventName)
         {
-            case "event1":
-                DebugLogger.Log("SAMPLE EVENT!");
+            case "MapMove":
+                MapMove(eventArgs[1]);
                 break;
-            case "event2":
+            case "Conversation":
+                Conversation(eventArgs[1]);
                 break;
-            case "event3":
+            case "GetItem":
+                GetItem(eventArgs[1]);
                 break;
-            case "event4":
+            case "CombineItem":
+                CombineItem();
                 break;
-            case "event5":
+            case "Minigame":
+                string eventArg = eventArgs[1];
+                CallMiniGame(int.Parse(eventArgs[1]));
                 break;
-            case "event6":
-                break;
-            case "event7":
-                break;
-            case "event8":
-                break;
-            case "event9":
-                break;
+            default: throw new NotImplementedException();
         }
     }
     
@@ -147,6 +148,7 @@ public class ObjectEngine : MonoBehaviour
     
     private void Conversation(string fileName)
     {
+        pause.PauseAll();
         // ConversationTextManager.Instance.Initialize(fileName);
     }
     
@@ -161,8 +163,16 @@ public class ObjectEngine : MonoBehaviour
         
     }
     
-    private void MiniGame(int gameIndex)
+    private void CallMiniGame(int gameIndex)
     {
-        
+        switch (gameIndex)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
     }
 }

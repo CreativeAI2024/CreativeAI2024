@@ -53,24 +53,24 @@ public class PlayerController : MonoBehaviour
         {
             vector += Vector3.up;
         }
-        if (_inputSetting.GetLeftKey())
+        else if (_inputSetting.GetLeftKey())
         {
             vector += Vector3.left;
         }
-        if (_inputSetting.GetBackKey())
+        else if (_inputSetting.GetBackKey())
         {
             vector += Vector3.down;
         }
-        if (_inputSetting.GetRightKey())
+        else if (_inputSetting.GetRightKey())
         {
             vector += Vector3.right;
         }
-        return vector.normalized * unitDistance;
+        return vector * unitDistance;
     }
 
     protected virtual void Move(Vector3 vector)
     {
-        _playerTransform.position += vector.normalized * (Time.deltaTime * 10 * speed);
+        _playerTransform.position += vector.normalized * (Time.deltaTime * speed);
     }
 
     void MoveEnd()
@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
     protected virtual void MovePrepare()
     {
         _canInput = true;
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)
