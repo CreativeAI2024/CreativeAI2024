@@ -37,7 +37,6 @@ public class MapEvent : MonoBehaviour
 
     public void ConversationEvent()
     {
-        ConversationTextManager.Instance.EnableContentObject();
         pause.PauseAll();
         ConversationTextManager.Instance.Initialize(talkJsonName);
     }

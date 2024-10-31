@@ -56,12 +56,13 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                 else
                 {
                     SoundManager.Instance.StopBGM();
-                    if (talkData.Content[lineNumber].QuestionData != null)
+                    Content talkDataContent = talkData.Content[lineNumber];
+                    if (talkDataContent.QuestionData != null)
                     {
-                        if(talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextTalkData != null)  //会話分岐
+                        if(talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData != null)  //会話分岐
                         {
                             initializeFlag = false;
-                            Initialize(talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextTalkData);
+                            Initialize(talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData);
                         }
                     }
                     else
@@ -102,6 +103,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         if (initializeFlag)
             return;
 
+        contentObject.SetActive(true);
         string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
         talkData = SaveUtility.JsonToData<TalkData>(filePath);
 
@@ -117,12 +119,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         initializeFlag = true;
     }
 
-    public void EnableContentObject()
-    {
-        contentObject.SetActive(true);
-    }
-
-
     public bool GetInitializeFlag()
     {
         return initializeFlag;
@@ -133,34 +129,35 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         //前の行の名前欄や選択肢を非表示にしておく
         nameTextDrawer.DisableNameText();
         question.InitializeQuestionBranch();
-        TextTagShifter();
+        TalkDataShifter();
     }
 
-    private void TextTagShifter()
+    private void TalkDataShifter()
     {
-        if (talkData.Content[lineNumber].Speaker != null)
+        Content talkDataContent = talkData.Content[lineNumber];
+        if (talkDataContent.Speaker != null)
         {
-            nameTextDrawer.DisplayNameText(talkData.Content[lineNumber].Speaker);
+            nameTextDrawer.DisplayNameText(talkDataContent.Speaker);
         }
-        if (talkData.Content[lineNumber].ChangeImage != null)
+        if (talkDataContent.ChangeImage != null)
         {
-            changeBackground.ChangeImages(talkData.Content[lineNumber].ChangeImage);
+            changeBackground.ChangeImages(talkDataContent.ChangeImage);
         }
-        if (talkData.Content[lineNumber].QuestionData != null)
+        if (talkDataContent.QuestionData != null)
         {
-            question.DisplayQuestion(talkData.Content[lineNumber].QuestionData);
+            question.DisplayQuestion(talkDataContent.QuestionData);
         }
-        if (talkData.Content[lineNumber].BGM != null)
+        if (talkDataContent.BGM != null)
         {
-            SoundManager.Instance.ChangeBGM(talkData.Content[lineNumber].BGM);
+            SoundManager.Instance.ChangeBGM(talkDataContent.BGM);
         }
-        if (talkData.Content[lineNumber].SE != null)
+        if (talkDataContent.SE != null)
         {
-            SoundManager.Instance.ChangeSE(talkData.Content[lineNumber].SE);
+            SoundManager.Instance.ChangeSE(talkDataContent.SE);
         }
-        if (talkData.Content[lineNumber].Text != null)
+        if (talkDataContent.Text != null)
         {
-            mainTextDrawer.DisplayMainText(talkData.Content[lineNumber].Text);
+            mainTextDrawer.DisplayMainText(talkDataContent.Text);
             mainTextDrawer.DisplayTextRuby();
         }
     }
