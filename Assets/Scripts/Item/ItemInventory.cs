@@ -62,4 +62,15 @@ public class ItemInventory : ScriptableObject
             itemDict.Remove(item.ItemName);
         }
     }
+
+    public void TryCombine(Item item)
+    {
+        Item pairItem = combineRecipeDatabase.GetPairIngredients(item)[0];
+        if (IsContains(pairItem))
+        {
+            Remove(item);
+            Remove(pairItem);
+            Add(combineRecipeDatabase.GetResultItem(item, pairItem));
+        }
+    }
 }
