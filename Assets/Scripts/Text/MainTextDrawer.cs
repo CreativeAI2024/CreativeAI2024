@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class MainTextDrawer : MonoBehaviour
@@ -50,7 +49,6 @@ public class MainTextDrawer : MonoBehaviour
             string sentence = _mainTextObject.GetParsedText();
             if (_displayedSentenceLength+1 > 0 && _mainTextObject.GetParsedText().Length > _displayedSentenceLength)
             {
-                // 文字コードいじったからエラー出るかも
                 if (sentence[_displayedSentenceLength].Equals('。') || sentence[_displayedSentenceLength].Equals('！') || sentence[_displayedSentenceLength].Equals('？'))
                 {
                     return 10;

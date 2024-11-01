@@ -32,5 +32,6 @@ public struct QuestionData
 {
     public string Answer { get; set; }
     public string NextFlag { get; set; }
+    public int ChangeFlagValue { get; set; }
     public string NextTalkData { get; set; }
 }

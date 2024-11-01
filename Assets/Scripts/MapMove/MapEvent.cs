@@ -7,8 +7,9 @@ using UnityEngine.Serialization;
 public class MapEvent : MonoBehaviour
 {
     public Vector2Int eventTilePosition;
-    [FormerlySerializedAs("playerTileInfo")] [FormerlySerializedAs("tilePosition")] [SerializeField] private TileInfo tileInfo;
-    [SerializeField] private ConversationTextManager _conversationTextManager;
+    [FormerlySerializedAs("tilePosition")] [SerializeField] private TileInfo tileInfo;
+    [SerializeField] private Pause pause;
+    [SerializeField] private string talkJsonName;
 
     private InputSetting _inputSetting;
     // Start is called before the first frame update
@@ -16,26 +17,28 @@ public class MapEvent : MonoBehaviour
     {
         _inputSetting = InputSetting.Load();
     }
-    
-    public void Initialize()
-    {
-        // mapイベント情報を生成
-    }
 
     // Update is called once per frame
     void Update()
     {
-        // 隣接するマスであったら
-        if (Vector2.Distance(tileInfo.GridPosition, eventTilePosition) <= 1 && _inputSetting.GetDecideKeyDown())
+        
+        if (!ConversationTextManager.Instance.GetInitializeFlag())
         {
-            ConversationEvent();
+            // 隣接するマスであったら
+            if (Vector2.Distance(tileInfo.GridPosition, eventTilePosition) <= 1 && _inputSetting.GetDecideKeyDown())
+            {
+                ConversationEvent();
+            }
+            else
+            {
+                pause.UnPauseAll();
+            }
         }
     }
 
     public void ConversationEvent()
     {
-        _conversationTextManager.gameObject.SetActive(true);
-        _conversationTextManager.Initiallize();
+        pause.PauseAll();
+        ConversationTextManager.Instance.Initialize(talkJsonName);
     }
 }
-

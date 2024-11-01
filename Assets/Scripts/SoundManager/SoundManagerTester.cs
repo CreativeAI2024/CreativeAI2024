@@ -8,30 +8,30 @@ public class SoundManagerTester : MonoBehaviour
 {
     void Start()
     {
-        // ƒQ[ƒ€ŠJn‚ÉÅ‰‚ÌBGM‚ğÄ¶
-        SoundManager.instance.PlayBGM(1, 1f);
+        // ã‚²ãƒ¼ãƒ é–‹å§‹æ™‚ã«æœ€åˆã®BGMã‚’å†ç”Ÿ
+        SoundManager.Instance.PlayBGM(1, 1f);
     }
 
-    // ƒV[ƒ“‚ªˆÚ“®‚·‚é‚Æ‚«‚ÉABGM‚ğ•ÏX‚µ‚ÄSE‚ğÄ¶
+    // ã‚·ãƒ¼ãƒ³ãŒç§»å‹•ã™ã‚‹ã¨ãã«ã€BGMã‚’å¤‰æ›´ã—ã¦SEã‚’å†ç”Ÿ
     public async void ToSampleScene()
     {
-        SoundManager.instance.PlaySE(0, 0.5f); 
+        SoundManager.Instance.PlaySE(0, 0.5f); 
 
-        // ƒV[ƒ“‚ğ”ñ“¯Šú‚Åƒ[ƒh‚·‚é
+        // ã‚·ãƒ¼ãƒ³ã‚’éåŒæœŸã§ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
         var loadScene = SceneManager.LoadSceneAsync("SampleScene");
         loadScene.allowSceneActivation = false;
 
-        // ƒV[ƒ“‚Ìƒ[ƒh‚ªŠ®—¹‚·‚é‚Ü‚Å‘Ò‹@
+        // ã‚·ãƒ¼ãƒ³ã®ãƒ­ãƒ¼ãƒ‰ãŒå®Œäº†ã™ã‚‹ã¾ã§å¾…æ©Ÿ
         while (loadScene.progress < 0.9f)
         {
-            await Task.Yield(); // ƒtƒŒ[ƒ€‚²‚Æ‚É‘Ò‹@
+            await Task.Yield(); // ãƒ•ãƒ¬ãƒ¼ãƒ ã”ã¨ã«å¾…æ©Ÿ
         }
 
 
-        // ƒV[ƒ“‚ÌØ‚è‘Ö‚¦‚ğ‹–‰Â
+        // ã‚·ãƒ¼ãƒ³ã®åˆ‡ã‚Šæ›¿ãˆã‚’è¨±å¯
         loadScene.allowSceneActivation = true;
 
-        // ƒV[ƒ“Ø‚è‘Ö‚¦Œã‚ÉBGM‚ğÄ¶iindex 0‚ÌBGM‚ğÄ¶j
-        SoundManager.instance.PlayBGM(0, 0.7f);
+        // ã‚·ãƒ¼ãƒ³åˆ‡ã‚Šæ›¿ãˆå¾Œã«BGMã‚’å†ç”Ÿï¼ˆindex 0ã®BGMã‚’å†ç”Ÿï¼‰
+        SoundManager.Instance.PlayBGM(0, 0.7f);
     }
 }

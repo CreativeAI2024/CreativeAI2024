@@ -1,11 +1,8 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ObjectEngine : MonoBehaviour
 {
@@ -116,10 +113,13 @@ public class ObjectEngine : MonoBehaviour
                 GetItem(eventArgs[1]);;
                 break;
             case "PaperGame":
+                DebugLogger.Log("papergame");
                 break;
             case "SearchGame":
+                DebugLogger.Log("searchgame");
                 break;
             case "TimingGame":
+                DebugLogger.Log("timinggame");
                 break;
             default: throw new NotImplementedException();
         }
@@ -148,7 +148,7 @@ public class ObjectEngine : MonoBehaviour
     private void Conversation(string fileName)
     {
         pause.PauseAll();
-        // ConversationTextManager.Instance.Initialize(fileName);
+        ConversationTextManager.Instance.Initialize(fileName);
     }
     
     private void GetItem(string itemName)
