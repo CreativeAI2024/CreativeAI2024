@@ -6,6 +6,7 @@ public class SearchGameCursor : MonoBehaviour
     [SerializeField] private RectTransform canvas;
     [SerializeField] private RectTransform cursor;
     [SerializeField] private RectTransform judgePoint;
+    [SerializeField] private EventTriggerImages eventTriggerImages;
     private const float speed = 300.0f;
     private float cursorTipOffsetX;
     private float cursorTipOffsetY;
