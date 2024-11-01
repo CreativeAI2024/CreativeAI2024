@@ -63,7 +63,7 @@ public class SoundManager : DontDestroySingleton<SoundManager>
     {
         AudioClip seClip = audioClipsSE[seIndex];
         CheckAudioClip(seIndex, seClip);
-        DebugLogger.Log("Playing SE: " + seClip.name);
+        DebugLogger.Log("Playing SE: " + seClip.name, DebugLogger.Colors.Yellow);
         audioSourceSE.PlayOneShot(seClip, volume);
     }
 

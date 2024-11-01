@@ -103,6 +103,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         if (initializeFlag)
             return;
 
+        initializeFlag = true;
+
         contentObject.SetActive(true);
         string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
         talkData = SaveUtility.JsonToData<TalkData>(filePath);
@@ -116,7 +118,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         //テキストを表示
         DisplayText();
-        initializeFlag = true;
     }
 
     public bool GetInitializeFlag()
