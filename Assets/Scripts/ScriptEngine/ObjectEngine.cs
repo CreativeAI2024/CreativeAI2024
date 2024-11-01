@@ -22,7 +22,7 @@ public class ObjectEngine : MonoBehaviour
     private InputSetting _inputSetting;
     private void Start()
     {
-        _inputSetting = InputSetting.Load("Player Input Setting");
+        _inputSetting = InputSetting.Load();
     }
     
     // Start is called before the first frame update
@@ -113,14 +113,13 @@ public class ObjectEngine : MonoBehaviour
                 Conversation(eventArgs[1]);
                 break;
             case "GetItem":
-                GetItem(eventArgs[1]);
+                GetItem(eventArgs[1]);;
                 break;
-            case "CombineItem":
-                CombineItem();
+            case "PaperGame":
                 break;
-            case "Minigame":
-                string eventArg = eventArgs[1];
-                CallMiniGame(int.Parse(eventArgs[1]));
+            case "SearchGame":
+                break;
+            case "TimingGame":
                 break;
             default: throw new NotImplementedException();
         }
@@ -156,23 +155,14 @@ public class ObjectEngine : MonoBehaviour
     {
         Item item = itemDatabase.GetItem(itemName);
         inventory.Add(item);
+        CombineItem(item);
     }
     
-    private void CombineItem()
+    private void CombineItem(Item item)
     {
-        
-    }
-    
-    private void CallMiniGame(int gameIndex)
-    {
-        switch (gameIndex)
+        if (inventory.IsContains(item))
         {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
+            inventory.TryCombine(item);
         }
     }
 }

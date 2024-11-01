@@ -6,8 +6,9 @@ public static class SaveUtility
 {
     public static T JsonToData<T>(string filePath) where T : class
     {
-        //JSONƒtƒ@ƒCƒ‹‚©‚çƒf[ƒ^“Ç‚İ‚İAw’è‚µ‚½Œ^‚ÉƒfƒVƒŠƒAƒ‰ƒCƒY
-        string jsonContent = File.ReadAllText(filePath);
+        //JSONãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿èª­ã¿è¾¼ã¿ã€æŒ‡å®šã—ãŸå‹ã«ãƒ‡ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚º
+        IFileAssetLoader loader = FileAssetLoaderFactory();
+        string jsonContent = loader.LoadFileAsset(filePath);
         byte[] msgPackData = MessagePackSerializer.ConvertFromJson(jsonContent);
 
         return MessagePackSerializer.Deserialize<T>(msgPackData);
@@ -15,7 +16,7 @@ public static class SaveUtility
     
     public static void DataToJson<T>(T data, string savePath) where T : class
     {
-        //ƒf[ƒ^‚ğJSONŒ`®‚Ì•¶š—ñ‚ÉƒVƒŠƒAƒ‰ƒCƒY‚µAw’è‚µ‚½ƒpƒX‚É•Û‘¶
+        //ãƒ‡ãƒ¼ã‚¿ã‚’JSONå½¢å¼ã®æ–‡å­—åˆ—ã«ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã—ã€æŒ‡å®šã—ãŸãƒ‘ã‚¹ã«ä¿å­˜
         byte[] msgPackData = MessagePackSerializer.Serialize(data);
         string jsonContent = MessagePackSerializer.ConvertToJson(msgPackData);
         File.WriteAllText(savePath, jsonContent);
@@ -23,7 +24,7 @@ public static class SaveUtility
 
     public static T SaveFileToData<T>(string filePath) where T : class
     {
-        //w’è‚µ‚½ƒtƒ@ƒCƒ‹ƒpƒX‚©‚çƒf[ƒ^‚ğ“Ç‚İ‚İAƒfƒVƒŠƒAƒ‰ƒCƒY
+        //æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿ã€ãƒ‡ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚º
         byte[] msgPackData = File.ReadAllBytes(filePath);
 
         return MessagePackSerializer.Deserialize<T>(msgPackData);
@@ -33,5 +34,14 @@ public static class SaveUtility
     {
         byte[] msgPackData = MessagePackSerializer.Serialize(data);
         File.WriteAllBytes(savePath, msgPackData);
+    }
+    
+    private static IFileAssetLoader FileAssetLoaderFactory()
+    {
+#if UNITY_STANDALONE_WIN
+        return new StreamingFileAssetLoader();
+#elif UNITY_WEBGL
+        return new ResourcesFileAssetLoader();
+#endif
     }
 }
