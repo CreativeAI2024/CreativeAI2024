@@ -5,23 +5,26 @@ using UnityEngine;
 
 public class FlagManager : DontDestroySingleton<FlagManager>
 {
-    [SerializeField] private string[] flagList; 
     private Dictionary<string, bool> _flags;
-    private readonly string _flagFilePath = string.Join('/', Application.persistentDataPath, "FlagData.dat");
+    private readonly string _flagFilePath = string.Join('/', Application.streamingAssetsPath, "FlagDataExample.json");
+    private string _flagSaveFilePath;
     public override void Awake()
     {
         base.Awake();
-        if (!File.Exists(_flagFilePath))
+        _flagSaveFilePath = string.Join('/', Application.persistentDataPath, "FlagData.dat");
+        if (File.Exists(_flagSaveFilePath))
         {
-            FlagData flags = SaveUtility.SaveFileToData<FlagData>(_flagFilePath);
+            FlagData flags = SaveUtility.SaveFileToData<FlagData>(_flagSaveFilePath);
             _flags = flags.Flags;
         }
         else
         {
             Debug.Log("フラグデータがありませんでした");
-            foreach (string flag in flagList)
+            if (File.Exists(_flagFilePath))
             {
-                _flags.Add(flag, false);
+                FlagData flags = SaveUtility.JsonToData<FlagData>(_flagFilePath);
+                _flags = flags.Flags;
+                SaveFlag();
             }
         }
     }
@@ -43,7 +46,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
         {
             Flags = _flags
         };
-        SaveUtility.DataToSaveFile(saveFlagData, _flagFilePath);
+        SaveUtility.DataToSaveFile(saveFlagData, _flagSaveFilePath);
     }
     
     public bool HasFlag(string flagName) => _flags[flagName];
