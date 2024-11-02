@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // CollisionEnterを機能させるために必要
 [RequireComponent(typeof(Rigidbody2D))]
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _startPosition = Vector3.zero;
     private Transform _playerTransform;
     private InputSetting _inputSetting;
-    private Vector3 _lastinputVector;
+    public Vector3 LastInputVector { get; private set; }
 
     private void Start()
     {
@@ -30,17 +31,25 @@ public class PlayerController : MonoBehaviour
     {
         if (_canInput)
         {
-            _lastinputVector = GetInputVector();
-            if (_lastinputVector != Vector3.zero)
+            if (GetInputVector() != LastInputVector)
+            {
+                _playerTransform.position = _targetPosition;
+            }
+            else
+            {
+                Move(LastInputVector);
+            }
+            LastInputVector = GetInputVector();
+            if (LastInputVector != Vector3.zero)
             {
                 _canInput = false;
             }
             _startPosition = _playerTransform.position;
-            _targetPosition = _startPosition + _lastinputVector;
+            _targetPosition = _startPosition + LastInputVector;
         }
         else
         {
-            Move(_lastinputVector);
+            Move(LastInputVector);
             MoveEnd();
         }
 
@@ -65,26 +74,33 @@ public class PlayerController : MonoBehaviour
         {
             vector += Vector3.right;
         }
-        return vector * unitDistance;
+        
+        Vector3 result = Mathf.RoundToInt(vector.sqrMagnitude * 10) / 10 != 1 ? 
+            Vector3.zero : 
+            vector * unitDistance;
+        return result;
     }
 
     protected virtual void Move(Vector3 vector)
     {
-        _playerTransform.position += Time.deltaTime * 100 * vector.normalized * speed;
+        _playerTransform.position += vector.normalized * (Time.deltaTime * speed);
     }
 
     void MoveEnd()
     {
         if (Vector3.Distance(_targetPosition, _playerTransform.position) >= allowDistance) return;
-        
-        _playerTransform.position = _targetPosition;
+        /*
+        if (GetInputVector() == LastInputVector)
+        {
+            _targetPosition = _startPosition + LastInputVector;
+            return;
+        }*/
         MovePrepare();
     }
 
     protected virtual void MovePrepare()
     {
         _canInput = true;
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)

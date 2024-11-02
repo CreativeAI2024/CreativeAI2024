@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3922,9 +3922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31982af394b5b42c89216059ad80c65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowBox: {fileID: 8647051522026608294}
-  topWindow: {fileID: 27229349}
-  pause: {fileID: 708166468}
+  menuUI: {fileID: 0}
 --- !u!114 &1044699612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4026,11 +4024,148 @@ PrefabInstance:
       propertyPath: m_IncludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5792109113550638988, guid: 8ae148c830c1b9243a366d6edc66eb03,
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
         type: 3}
-      propertyPath: speed
-      value: 0.03
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1405315136}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1405315137}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1003573129}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: timeClockInterval
+      value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 543551633, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1878449068, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 662344160, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 1364871186, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterIdleSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites1.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterIdleSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 543551633, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterIdleSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1878449068, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterIdleSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 662344160, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterIdleSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 1364871186, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1613921030, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 958469977, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -554714401, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 1691117146, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites1.Array.data[0]
+      value: 
+      objectReference: {fileID: 957819478, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites1.Array.data[1]
+      value: 
+      objectReference: {fileID: 399351951, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites1.Array.data[2]
+      value: 
+      objectReference: {fileID: 1864922934, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 6629196448218237676, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: characterWalkSprites1.Array.data[3]
+      value: 
+      objectReference: {fileID: -1960887065, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
+    - target: {fileID: 8713935481170672540, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 543551633, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
+        type: 3}
     - target: {fileID: 8713935481170672540, guid: 8ae148c830c1b9243a366d6edc66eb03,
         type: 3}
       propertyPath: m_SortingOrder
@@ -4677,11 +4812,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1448456142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2293675096241241728, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
+--- !u!50 &1405315136 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4850648187054735461, guid: 8ae148c830c1b9243a366d6edc66eb03,
     type: 3}
-  m_PrefabInstance: {fileID: 437124506976818715}
+  m_PrefabInstance: {fileID: 1113119724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1405315137 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8713935481170672540, guid: 8ae148c830c1b9243a366d6edc66eb03,
+    type: 3}
+  m_PrefabInstance: {fileID: 1113119724}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1448456143 stripped
 RectTransform:
@@ -6252,8 +6393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb45e9f3397384b77818defc5e60f055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWindow: {fileID: 27229349}
-  nextWindow: {fileID: 1448456142}
 --- !u!224 &4380830612625631064 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3953210530282341960, guid: 8e53c558df7c6457d9f7c13db16c38d8,

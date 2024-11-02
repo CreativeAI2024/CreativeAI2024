@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1143177171200847528}
   - component: {fileID: 5792109113550638988}
   - component: {fileID: 7756570872455522836}
+  - component: {fileID: 6629196448218237676}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -174,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitDistance: 1
-  speed: 0.03
+  speed: 3
   allowDistance: 0.05
 --- !u!114 &7756570872455522836
 MonoBehaviour:
@@ -189,3 +190,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPositionStartDiff: {x: -0.5, y: -0.5}
+--- !u!114 &6629196448218237676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039608792375202708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3dd504e1f9bd5e48bc580f9294b13f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  characterSprites: []
