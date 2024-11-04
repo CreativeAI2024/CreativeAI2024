@@ -21,7 +21,7 @@ public class SearchGameCursor : MonoBehaviour
 
     void Update()
     {
-        cursorImage.sprite = isFocused ? handCursor : arrowCursor;
+
         if (_inputSetting.GetForwardKey() && !IsOnUpEdge())
         {
             transform.position += speed * Time.deltaTime * Vector3.up;
@@ -39,9 +39,10 @@ public class SearchGameCursor : MonoBehaviour
             transform.position += speed * Time.deltaTime * Vector3.right;
         }
     }
-    public void SetIsFocused(bool isFocused)
+    public void SetIsFocusing(bool isFocusing)
     {
-        this.isFocused = isFocused;
+        this.isFocused = isFocusing;
+        cursorImage.sprite = isFocusing ? handCursor : arrowCursor;
     }
     private bool IsOnUpEdge()
     {
