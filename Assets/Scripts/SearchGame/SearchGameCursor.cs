@@ -1,25 +1,27 @@
+using UnityEngine.UI;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class SearchGameCursor : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    [SerializeField] private RectTransform canvas;
-    [SerializeField] private RectTransform cursor;
-    [SerializeField] private RectTransform judgePoint;
-    [SerializeField] private EventTriggerImages eventTriggerImages;
-    private const float speed = 300.0f;
-    private float cursorTipOffsetX;
-    private float cursorTipOffsetY;
+    [SerializeField] private Renderer searchGame;
+    [SerializeField] private Transform cursor;
+    [SerializeField] private SpriteRenderer cursorImage;
+    [SerializeField] private Sprite arrowCursor;
+    [SerializeField] private Sprite handCursor;
+    [SerializeField] private Transform cursorTip;
+    [SerializeField] private float speed = 3.0f;
+    private bool isFocused = false;
 
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        cursorTipOffsetX = cursor.rect.height/2 - judgePoint.anchoredPosition.x;
-        cursorTipOffsetY = cursor.rect.width/2 - judgePoint.anchoredPosition.y;
     }
 
     void Update()
     {
+        cursorImage.sprite = isFocused ? handCursor : arrowCursor;
         if (_inputSetting.GetForwardKey() && !IsOnUpEdge())
         {
             transform.position += speed * Time.deltaTime * Vector3.up;
@@ -37,20 +39,24 @@ public class SearchGameCursor : MonoBehaviour
             transform.position += speed * Time.deltaTime * Vector3.right;
         }
     }
+    public void SetIsFocused(bool isFocused)
+    {
+        this.isFocused = isFocused;
+    }
     private bool IsOnUpEdge()
     {
-        return cursor.anchoredPosition.y - cursorTipOffsetY > canvas.rect.height;
+        return cursorTip.position.y > searchGame.bounds.max.y;
     }
     private bool IsOnDownEdge()
     {
-        return cursor.anchoredPosition.y - cursorTipOffsetY < 0;
+        return cursorTip.position.y < searchGame.bounds.min.y;
     }
     private bool IsOnLeftEdge()
     {
-        return cursor.anchoredPosition.x - cursorTipOffsetX < 0;
+        return cursorTip.position.x < searchGame.bounds.min.x;
     }
     private bool IsOnRightEdge()
     {
-        return cursor.anchoredPosition.x - cursorTipOffsetX > canvas.rect.width;
+        return cursorTip.position.x > searchGame.bounds.max.x;
     }
 }
