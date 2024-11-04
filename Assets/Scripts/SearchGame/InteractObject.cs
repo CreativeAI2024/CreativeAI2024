@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class EventTriggerImage : MonoBehaviour
+public class InteractObject : MonoBehaviour
 {
-    [SerializeField] private InputSetting _inputSetting;
+    private InputSetting _inputSetting;
+    private IEffect effect;
     private bool isFocused = false;
     void Start()
     {
         _inputSetting = InputSetting.Load();
+        effect = gameObject.GetComponent<IEffect>();
+        gameObject.AddComponent<PolygonCollider2D>();
     }
     void Update()
     {
         if (isFocused && _inputSetting.GetDecideKeyDown())
         {
-            Debug.Log("Clicked");
+            effect.Run();
         }
     }
     void OnTriggerEnter2D(Collider2D other)

@@ -6,7 +6,6 @@ public class SearchGameCursor : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private Renderer searchGame;
-    [SerializeField] private Transform cursor;
     [SerializeField] private SpriteRenderer cursorImage;
     [SerializeField] private Sprite arrowCursor;
     [SerializeField] private Sprite handCursor;
