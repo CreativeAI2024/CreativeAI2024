@@ -42,16 +42,19 @@
         {
           "Answer": "石狩川",
           "NextFlag": "correctFlag",
+          "ChangeFlagValue": true,
           "NextTalkData": "correct"
         },
         {
           "Answer": "天塩川",
           "NextFlag": "incorrectFlag",
+          "ChangeFlagValue": false,
           "NextTalkData": "incorrect"
         },
         {
           "Answer": "十勝川",
           "NextFlag": "incorrectFlag",
+          "ChangeFlagValue": false,
           "NextTalkData": "incorrect"
         }
       ],
