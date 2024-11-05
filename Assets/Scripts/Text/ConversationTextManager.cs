@@ -43,6 +43,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideKeyUp() && lineNumber < talkData.Content.Length - 1)
                 {
+                    ChangeFlag();
                     ChangeLine(1);
                     DisplayText();
                     DebugLogger.Log("NextLine");
@@ -59,7 +60,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                     Content talkDataContent = talkData.Content[lineNumber];
                     if (talkDataContent.QuestionData != null)
                     {
-                        if(talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData != null)  //会話分岐
+                        ChangeFlag();
+                        if (talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData != null)  //会話分岐
                         {
                             initializeFlag = false;
                             Initialize(talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData);
@@ -168,5 +170,22 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         unitTime = intervalTime;
         lineNumber += increase;
         mainTextDrawer.InitializeLine();
+    }
+
+    private void ChangeFlag()
+    {
+        Content talkDataContent = talkData.Content[lineNumber];
+        if (talkData.Content[lineNumber].QuestionData != null)
+        {
+            DebugLogger.Log(talkDataContent.QuestionData[question.GetCursorPlace()].ChangeFlagValue);
+            if (talkDataContent.QuestionData[question.GetCursorPlace()].ChangeFlagValue)
+            {
+                FlagManager.Instance.AddFlag(talkDataContent.QuestionData[question.GetCursorPlace()].NextFlag);
+            }
+            else if (!talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].ChangeFlagValue)
+            {
+                FlagManager.Instance.DeleteFlag(talkDataContent.QuestionData[question.GetCursorPlace()].NextFlag);
+            }
+        }
     }
 }
