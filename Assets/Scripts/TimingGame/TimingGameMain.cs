@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -104,6 +104,7 @@ public class TimingGameMain : MonoBehaviour
         {
             Debug.Log(CalcScoreAverage());
             SceneManager.LoadScene(nextScene);
+            //ConversationTextManager.Instance.Initialize("");
         }
     }
 

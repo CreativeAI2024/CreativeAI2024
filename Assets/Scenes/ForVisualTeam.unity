@@ -3922,9 +3922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31982af394b5b42c89216059ad80c65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowBox: {fileID: 8647051522026608294}
-  topWindow: {fileID: 27229349}
-  pause: {fileID: 708166468}
+  menuUI: {fileID: 0}
 --- !u!114 &1044699612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4677,12 +4675,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1448456142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2293675096241241728, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
-    type: 3}
-  m_PrefabInstance: {fileID: 437124506976818715}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1448456143 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6932867076371440777, guid: 50eb1492fb3094ed8b8aa46fae6eb800,
@@ -6252,8 +6244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb45e9f3397384b77818defc5e60f055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWindow: {fileID: 27229349}
-  nextWindow: {fileID: 1448456142}
 --- !u!224 &4380830612625631064 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3953210530282341960, guid: 8e53c558df7c6457d9f7c13db16c38d8,
