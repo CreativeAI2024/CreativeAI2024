@@ -18,7 +18,10 @@ public class Item : ScriptableObject
     public Sprite Sprite => sprite;
     public List<string> ContentText => contentText;
 
-
+    public bool HasContentText()
+    {
+        return ((contentText.Count!=0 || contentText[0].Length!=0));
+    }
     public void IncrementCount()
     {
         count++;

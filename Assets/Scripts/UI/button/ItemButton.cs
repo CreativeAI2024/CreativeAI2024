@@ -1,7 +1,8 @@
-using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+//TODO: 会話ウィンドウ呼び出し機能作る
+//TODO: 初回時にdescriptionとimageの読み込みできてないバグ修正
+//TODO: アイテム個数表示機能作成
 
 public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
 {
@@ -27,7 +28,10 @@ public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
     }
     public void OnDecideKeyDown()
     {
-        Debug.Log(item.ItemName+" pushed.");
+        if (item.HasContentText())
+        {
+            // ConversationTextManager.Instantiate.Initialize();
+        }
     }
     
     public void OnCancelKeyDown()
