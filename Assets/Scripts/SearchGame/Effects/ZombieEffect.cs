@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ZombieEffect : MonoBehaviour, IEffect
+public class ZombieEffect : MonoBehaviour, IEffectable
 {
-    public void Run()
+    public void PlayEffect()
     {
         Debug.Log("へんじがない。");
         Debug.Log("ただの　しかばね　のようだ。");

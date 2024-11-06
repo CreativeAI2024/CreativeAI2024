@@ -1,34 +1,35 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractObject : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    private IEffect effect;
+    private IEffectable effect;
     private bool isFocused = false;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private PolygonCollider2D polygonCollider2D;
+    private readonly List<Vector2> points = new();
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        effect = gameObject.GetComponent<IEffect>();
-        gameObject.AddComponent<PolygonCollider2D>();
+        effect = GetComponent<IEffectable>();
+        spriteRenderer.sprite.GetPhysicsShape(0, points);
+        polygonCollider2D.points = points.ToArray();
     }
     void Update()
     {
-        if (isFocused && (_inputSetting.GetDecideKeyDown() || Input.GetMouseButtonDown(0)))
+        if (!isFocused) return;
+        if (_inputSetting.GetDecideKeyDown() || Input.GetMouseButtonDown(0))
         {
-            effect.Run();
+            effect.PlayEffect();
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        ChangeIsFocused(true);
+        isFocused = true;
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        ChangeIsFocused(false);
-    }
-
-    private void ChangeIsFocused(bool isFocused)
-    {
-        this.isFocused = isFocused;
+        isFocused = false;
     }
 }
