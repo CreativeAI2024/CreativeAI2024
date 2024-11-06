@@ -43,7 +43,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideKeyUp() && lineNumber < talkData.Content.Length - 1)
                 {
-                    ChangeFlag();
+                    ChangeQuestionData();
                     ChangeLine(1);
                     DisplayText();
                     DebugLogger.Log("NextLine");
@@ -57,22 +57,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                 else
                 {
                     SoundManager.Instance.StopBGM();
-                    Content talkDataContent = talkData.Content[lineNumber];
-                    if (talkDataContent.QuestionData != null)
-                    {
-                        ChangeFlag();
-                        if (talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData != null)  //会話分岐
-                        {
-                            initializeFlag = false;
-                            Initialize(talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData);
-                        }
-                    }
-                    else
-                    {
-                        contentObject.SetActive(false);
-                        initializeFlag = false;
-                        return;
-                    }
+                    ChangeQuestionData();
+                    EndConversation();
                 }
             }
             else if (unitTime > -0.45f)
@@ -172,26 +158,49 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         mainTextDrawer.InitializeLine();
     }
 
-    private void ChangeFlag()
+    private void ChangeQuestionData()
     {
-        if (talkData.Content[lineNumber].QuestionData == null)
-            return;
-        if (talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextFlag == null)
-            return;
-
-        QuestionData talkDataContent = talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()];
-        for (int i = 0; i < talkDataContent.NextFlag.Length; i++)
+        QuestionData[] questionData = talkData.Content[lineNumber].QuestionData;
+        if (questionData != null)
         {
-            DebugLogger.Log(talkDataContent.NextFlag[i].Value);
-            DebugLogger.Log(talkDataContent.NextFlag[i].Key);
-            if (talkDataContent.NextFlag[i].Value)
+            QuestionData talkDataContent = questionData[question.GetCursorPlace()];
+            if (talkDataContent.NextFlag != null)
             {
-                FlagManager.Instance.AddFlag(talkDataContent.NextFlag[i].Key);
+                ChangeFlag(talkDataContent.NextFlag);
             }
-            else if (!talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextFlag[i].Value)
+        }
+    }
+
+    private void ChangeFlag(KeyValuePair<string, bool>[] nextFlag)
+    {
+        for (int i = 0; i < nextFlag.Length; i++)
+        {
+            string flagName = nextFlag[i].Key;
+            bool flagValue = nextFlag[i].Value;
+            DebugLogger.Log(flagName);
+            DebugLogger.Log(flagValue);
+            if (flagValue)
             {
-                FlagManager.Instance.DeleteFlag(talkDataContent.NextFlag[i].Key);
+                FlagManager.Instance.AddFlag(flagName);
             }
+            else
+            {
+                FlagManager.Instance.DeleteFlag(flagName);
+            }
+        }
+    }
+
+    private void EndConversation()
+    {
+        QuestionData[] questionData = talkData.Content[lineNumber].QuestionData;
+
+        initializeFlag = false;
+        if (questionData != null && questionData[question.GetCursorPlace()].NextTalkData != null){  //会話分岐
+            Initialize(questionData[question.GetCursorPlace()].NextTalkData);
+        }
+        else
+        {
+            contentObject.SetActive(false);
         }
     }
 }
