@@ -12,7 +12,6 @@ public class SearchGameCursor : MonoBehaviour
     [SerializeField] private Transform cursorTip;
     private Camera mainCamera;
     [SerializeField] private float speed = 3.0f;
-    private bool isFocusing = false;
     private bool isInputModeMouse = false;
     private Vector3 lastMousePosition;
 
@@ -42,19 +41,19 @@ public class SearchGameCursor : MonoBehaviour
         }
         else
         {
-            if (_inputSetting.GetForwardKey() && !IsOnUpEdge())
+            if (_inputSetting.GetForwardKey() && !IsOutUpEdge())
             {
                 transform.position += speed * Time.deltaTime * Vector3.up;
             }
-            if (_inputSetting.GetBackKey() && !IsOnDownEdge())
+            if (_inputSetting.GetBackKey() && !IsOutDownEdge())
             {
                 transform.position += speed * Time.deltaTime * Vector3.down;
             }
-            if (_inputSetting.GetLeftKey() && !IsOnLeftEdge())
+            if (_inputSetting.GetLeftKey() && !IsOutLeftEdge())
             {
                 transform.position += speed * Time.deltaTime * Vector3.left;
             }
-            if (_inputSetting.GetRightKey() && !IsOnRightEdge())
+            if (_inputSetting.GetRightKey() && !IsOutRightEdge())
             {
                 transform.position += speed * Time.deltaTime * Vector3.right;
             }
@@ -62,22 +61,26 @@ public class SearchGameCursor : MonoBehaviour
     }
     public void SetIsFocusing(bool isFocusing)
     {
-        this.isFocusing = isFocusing;
         cursorImage.sprite = isFocusing ? handCursor : arrowCursor;
     }
-    private bool IsOnUpEdge()
+    public void Reset()
+    {
+        transform.position = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -mainCamera.transform.position.z));
+        isInputModeMouse = false;
+    }
+    private bool IsOutUpEdge()
     {
         return cursorTip.position.y > searchGame.bounds.max.y;
     }
-    private bool IsOnDownEdge()
+    private bool IsOutDownEdge()
     {
         return cursorTip.position.y < searchGame.bounds.min.y;
     }
-    private bool IsOnLeftEdge()
+    private bool IsOutLeftEdge()
     {
         return cursorTip.position.x < searchGame.bounds.min.x;
     }
-    private bool IsOnRightEdge()
+    private bool IsOutRightEdge()
     {
         return cursorTip.position.x > searchGame.bounds.max.x;
     }
