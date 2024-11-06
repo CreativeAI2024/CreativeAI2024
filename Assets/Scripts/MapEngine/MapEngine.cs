@@ -5,10 +5,10 @@ using UnityEngine.Tilemaps;
 
 public class MapEngine : MonoBehaviour
 {
-    public Tilemap tilemap; // TilemapをInspectorから指定
-    public TileMapping tileMapping; // ScriptableObjectのTileMappingをInspectorから指定
+    public Tilemap tilemap;
+    public TileMapping tileMapping;
 
-    private Dictionary<char, TileBase> tileDictionary; // タイル辞書
+    private Dictionary<char, TileBase> tileDictionary;
     private MapData mapData;
 
     private void Awake()
@@ -19,7 +19,6 @@ public class MapEngine : MonoBehaviour
 
     private void InitializeTileDictionary()
     {
-        // ScriptableObjectから辞書を生成
         tileDictionary = tileMapping.ToDictionary();
     }
 
@@ -48,41 +47,42 @@ public class MapEngine : MonoBehaviour
             for (int x = 0; x < mapSize.x; x++)
             {
                 char tileChar = mapData.Tiles[y][x];
+                Vector3Int position = new Vector3Int(x, -y, 0);
 
-                PlaceSingleTile(mapData.StylesBack[y][x], x, y, "Back");
-                PlaceSingleTile(mapData.StylesMiddle[y][x], x, y, "Middle");
-                PlaceSingleTile(mapData.StylesFront[y][x], x, y, "Front");
-
-                SetCollider(tileChar, x, y);
+                PlaceSingleTile(position, "Back");
+                PlaceSingleTile(position, "Middle");
+                PlaceSingleTile(position, "Front");
+                SetCollider(position);
             }
         }
     }
 
-    private void SetCollider(char tileChar, int x, int y)
+    private void SetCollider(Vector3Int position)
     {
-        Vector3Int position = new Vector3Int(x, -y, 0);
+        char tileChar = mapData.Tiles[-position.y][position.x];
 
         if (tilemap.HasTile(position))
         {
-            if (tileChar == 'c' || tileChar == 'd' || tileChar == '-')
+            if (tileMapping.IsWalkable(tileChar))
             {
                 tilemap.SetColliderType(position, Tile.ColliderType.None);
-                Debug.Log($"通行可能: ({x}, {-y})");
+                DebugLogger.Log($"通行可能: {-position.y}{position.x}");
             }
             else
             {
                 tilemap.SetColliderType(position, Tile.ColliderType.Grid);
-                Debug.Log($"通行不可: ({x}, {-y})");
+                DebugLogger.Log($"通行不可: {-position.y}{position.x}");
             }
         }
     }
 
-    private void PlaceSingleTile(char tileChar, int x, int y, string styleType)
+    private void PlaceSingleTile(Vector3Int position, string styleType)
     {
+        char tileChar = mapData.Tiles[-position.y][position.x];
         if (tileDictionary.TryGetValue(tileChar, out TileBase tile))
         {
-            tilemap.SetTile(new Vector3Int(x, -y, 0), tile);
-            Debug.Log($"{styleType}スタイルタイル '{tileChar}' が配置されました: ({x}, {-y})");
+            tilemap.SetTile(position, tile);
+            DebugLogger.Log($"{styleType}スタイルタイル '{tileChar}' が配置されました: (position)");
         }
     }
 

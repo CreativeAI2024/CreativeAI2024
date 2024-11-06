@@ -8,14 +8,13 @@ public class TileMapping : ScriptableObject
     [System.Serializable]
     public struct TileEntry
     {
-        //MapDataの中のTileMappingのインスペクターから設定
         public char symbol;
         public TileBase tile;
     }
+    
+    [SerializeField] private TileEntry[] tileEntries;
+    [SerializeField] private List<char> walkableTileSymbols;
 
-    public TileEntry[] tileEntries; //構造体
-
-    // 辞書として使用できるように変換するメソッド
     public Dictionary<char, TileBase> ToDictionary()
     {
         var dictionary = new Dictionary<char, TileBase>();
@@ -24,5 +23,10 @@ public class TileMapping : ScriptableObject
             dictionary[entry.symbol] = entry.tile;
         }
         return dictionary;
+    }
+
+    public bool IsWalkable(char tileChar)
+    {
+        return walkableTileSymbols.Contains(tileChar);
     }
 }
