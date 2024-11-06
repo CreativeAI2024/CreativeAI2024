@@ -176,22 +176,21 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     {
         if (talkData.Content[lineNumber].QuestionData == null)
             return;
+        if (talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextFlag == null)
+            return;
 
         QuestionData talkDataContent = talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()];
-        if (talkData.Content[lineNumber].QuestionData != null)
+        for (int i = 0; i < talkDataContent.NextFlag.Length; i++)
         {
-            for (int i = 0; i < talkDataContent.NextFlag.Length; i++)
+            DebugLogger.Log(talkDataContent.NextFlag[i].Value);
+            DebugLogger.Log(talkDataContent.NextFlag[i].Key);
+            if (talkDataContent.NextFlag[i].Value)
             {
-                DebugLogger.Log(talkDataContent.NextFlag[i].Value);
-                DebugLogger.Log(talkDataContent.NextFlag[i].Key);
-                if (talkDataContent.NextFlag[i].Value)
-                {
-                    FlagManager.Instance.AddFlag(talkDataContent.NextFlag[i].Key);
-                }
-                else if (!talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextFlag[i].Value)
-                {
-                    FlagManager.Instance.DeleteFlag(talkDataContent.NextFlag[i].Key);
-                }
+                FlagManager.Instance.AddFlag(talkDataContent.NextFlag[i].Key);
+            }
+            else if (!talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextFlag[i].Value)
+            {
+                FlagManager.Instance.DeleteFlag(talkDataContent.NextFlag[i].Key);
             }
         }
     }
