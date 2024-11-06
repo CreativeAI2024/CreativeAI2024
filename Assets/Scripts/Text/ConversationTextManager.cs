@@ -174,17 +174,24 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     private void ChangeFlag()
     {
-        Content talkDataContent = talkData.Content[lineNumber];
+        if (talkData.Content[lineNumber].QuestionData == null)
+            return;
+
+        QuestionData talkDataContent = talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()];
         if (talkData.Content[lineNumber].QuestionData != null)
         {
-            DebugLogger.Log(talkDataContent.QuestionData[question.GetCursorPlace()].ChangeFlagValue);
-            if (talkDataContent.QuestionData[question.GetCursorPlace()].ChangeFlagValue)
+            for (int i = 0; i < talkDataContent.NextFlag.Length; i++)
             {
-                FlagManager.Instance.AddFlag(talkDataContent.QuestionData[question.GetCursorPlace()].NextFlag);
-            }
-            else if (!talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].ChangeFlagValue)
-            {
-                FlagManager.Instance.DeleteFlag(talkDataContent.QuestionData[question.GetCursorPlace()].NextFlag);
+                DebugLogger.Log(talkDataContent.NextFlag[i].Value);
+                DebugLogger.Log(talkDataContent.NextFlag[i].Key);
+                if (talkDataContent.NextFlag[i].Value)
+                {
+                    FlagManager.Instance.AddFlag(talkDataContent.NextFlag[i].Key);
+                }
+                else if (!talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].NextFlag[i].Value)
+                {
+                    FlagManager.Instance.DeleteFlag(talkDataContent.NextFlag[i].Key);
+                }
             }
         }
     }
