@@ -1,6 +1,4 @@
-using UnityEngine.UI;
 using UnityEngine;
-using Unity.VisualScripting;
 
 public class SearchGameCursor : MonoBehaviour
 {
