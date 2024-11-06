@@ -12,12 +12,16 @@ public class SearchGameCursor : MonoBehaviour
     [SerializeField] private float speed = 3.0f;
     private bool isInputModeMouse = false;
     private Vector3 lastMousePosition;
+    private Vector2 leftdown;
+    private Vector2 rightup;
 
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        mainCamera = Camera.main;
         lastMousePosition = Input.mousePosition;
+        mainCamera = Camera.main;
+        leftdown = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, -mainCamera.transform.position.z));
+        rightup = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -mainCamera.transform.position.z));
     }
 
     void Update()
@@ -35,26 +39,32 @@ public class SearchGameCursor : MonoBehaviour
         if (isInputModeMouse)
         {
             lastMousePosition = Input.mousePosition;
-            transform.position = mainCamera.ScreenToWorldPoint(new Vector3(lastMousePosition.x, lastMousePosition.y, -mainCamera.transform.position.z));
+            float xPosition = Mathf.Clamp(lastMousePosition.x, 0, Screen.width);
+            float yPosition = Mathf.Clamp(lastMousePosition.y, 0, Screen.height);
+            transform.position = mainCamera.ScreenToWorldPoint(new Vector3(xPosition, yPosition, -mainCamera.transform.position.z));
         }
         else
         {
-            if (_inputSetting.GetForwardKey() && !IsOutUpEdge())
+            Vector3 moveDirection = Vector3.zero;
+            if (_inputSetting.GetForwardKey())
             {
-                transform.position += speed * Time.deltaTime * Vector3.up;
+                moveDirection = Vector3.up;
             }
-            if (_inputSetting.GetBackKey() && !IsOutDownEdge())
+            if (_inputSetting.GetBackKey())
             {
-                transform.position += speed * Time.deltaTime * Vector3.down;
+                moveDirection = Vector3.down;
             }
-            if (_inputSetting.GetLeftKey() && !IsOutLeftEdge())
+            if (_inputSetting.GetLeftKey())
             {
-                transform.position += speed * Time.deltaTime * Vector3.left;
+                moveDirection = Vector3.left;
             }
-            if (_inputSetting.GetRightKey() && !IsOutRightEdge())
+            if (_inputSetting.GetRightKey())
             {
-                transform.position += speed * Time.deltaTime * Vector3.right;
+                moveDirection = Vector3.right;
             }
+            float x = Mathf.Clamp(transform.position.x + speed * Time.deltaTime * moveDirection.x, leftdown.x, rightup.x);
+            float y = Mathf.Clamp(transform.position.y + speed * Time.deltaTime * moveDirection.y, leftdown.y, rightup.y);
+            transform.position = new Vector3(x, y, 0);
         }
     }
     public void SetIsFocusing(bool isFocusing)
@@ -63,23 +73,7 @@ public class SearchGameCursor : MonoBehaviour
     }
     public void Reset()
     {
-        transform.position = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -mainCamera.transform.position.z));
+        transform.position = Vector3.zero;
         isInputModeMouse = false;
-    }
-    private bool IsOutUpEdge()
-    {
-        return cursorTip.position.y > searchGame.bounds.max.y;
-    }
-    private bool IsOutDownEdge()
-    {
-        return cursorTip.position.y < searchGame.bounds.min.y;
-    }
-    private bool IsOutLeftEdge()
-    {
-        return cursorTip.position.x < searchGame.bounds.min.x;
-    }
-    private bool IsOutRightEdge()
-    {
-        return cursorTip.position.x > searchGame.bounds.max.x;
     }
 }
