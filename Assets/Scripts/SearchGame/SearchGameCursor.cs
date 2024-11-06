@@ -10,37 +10,59 @@ public class SearchGameCursor : MonoBehaviour
     [SerializeField] private Sprite arrowCursor;
     [SerializeField] private Sprite handCursor;
     [SerializeField] private Transform cursorTip;
+    private Camera mainCamera;
     [SerializeField] private float speed = 3.0f;
-    private bool isFocused = false;
+    private bool isFocusing = false;
+    private bool isInputModeMouse = false;
+    private Vector3 lastMousePosition;
 
     void Start()
     {
         _inputSetting = InputSetting.Load();
+        mainCamera = Camera.main;
+        lastMousePosition = Input.mousePosition;
     }
 
     void Update()
     {
+        //TODO: マウスカーソル受け付けるようにする
+        if (!isInputModeMouse && lastMousePosition != Input.mousePosition)
+        {
+            isInputModeMouse = true;
+        }
+        else if (Input.anyKeyDown)
+        {
+            isInputModeMouse = false;
+        }
 
-        if (_inputSetting.GetForwardKey() && !IsOnUpEdge())
+        if (isInputModeMouse)
         {
-            transform.position += speed * Time.deltaTime * Vector3.up;
+            lastMousePosition = Input.mousePosition;
+            transform.position = mainCamera.ScreenToWorldPoint(new Vector3(lastMousePosition.x, lastMousePosition.y, -mainCamera.transform.position.z));
         }
-        if (_inputSetting.GetBackKey() && !IsOnDownEdge())
+        else
         {
-            transform.position += speed * Time.deltaTime * Vector3.down;
-        }
-        if (_inputSetting.GetLeftKey() && !IsOnLeftEdge())
-        {
-            transform.position += speed * Time.deltaTime * Vector3.left;
-        }
-        if (_inputSetting.GetRightKey() && !IsOnRightEdge())
-        {
-            transform.position += speed * Time.deltaTime * Vector3.right;
+            if (_inputSetting.GetForwardKey() && !IsOnUpEdge())
+            {
+                transform.position += speed * Time.deltaTime * Vector3.up;
+            }
+            if (_inputSetting.GetBackKey() && !IsOnDownEdge())
+            {
+                transform.position += speed * Time.deltaTime * Vector3.down;
+            }
+            if (_inputSetting.GetLeftKey() && !IsOnLeftEdge())
+            {
+                transform.position += speed * Time.deltaTime * Vector3.left;
+            }
+            if (_inputSetting.GetRightKey() && !IsOnRightEdge())
+            {
+                transform.position += speed * Time.deltaTime * Vector3.right;
+            }
         }
     }
     public void SetIsFocusing(bool isFocusing)
     {
-        this.isFocused = isFocusing;
+        this.isFocusing = isFocusing;
         cursorImage.sprite = isFocusing ? handCursor : arrowCursor;
     }
     private bool IsOnUpEdge()
