@@ -13,7 +13,7 @@ concurrency:
 jobs:
   unity-Build:
     name: Run the unity build steps
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         targetPlatform:
