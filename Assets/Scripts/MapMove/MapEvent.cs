@@ -2,12 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class MapEvent : MonoBehaviour
 {
     public Vector2Int eventTilePosition;
-    [FormerlySerializedAs("tilePosition")] [SerializeField] private TileInfo tileInfo;
+    [SerializeField] private TileInfo tileInfo;
     [SerializeField] private Pause pause;
     [SerializeField] private string talkJsonName;
 
