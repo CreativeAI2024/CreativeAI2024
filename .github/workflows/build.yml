@@ -1,8 +1,8 @@
-name: Windows Build
+name: MacOS Build
   
 on:
   push:
-    branches: develop
+    branches: feat/scriptengine
   workflow_dispatch: {}
 
 # 連続して実行されたときに一つ前の実行中のジョブが停止されるようにする
@@ -17,8 +17,7 @@ jobs:
     strategy:
       matrix:
         targetPlatform:
-          - StandaloneWindows64 # Build a Windows 64-bit standalone.
-          - WebGL # WebGL.
+          - iOS
           
     steps:
       # Actionsがリポジトリにアクセスできるようにする
@@ -43,6 +42,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
+          customParameters: '-nographics'
           targetPlatform: ${{ matrix.targetPlatform }}
           projectPath: ${{ matrix.projectPath }}
           unityVersion: 2022.3.27f1
