@@ -30,8 +30,8 @@ public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
     {
         if (item.HasContentText())
         {
+            menuUI.SetActive(false);
             ConversationTextManager.Instance.Initialize(item.ContentTextFilePath);
-            DebugLogger.Log("pause.PauseAll() called.");
         }
     }
     

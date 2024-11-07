@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-//TODO: 初回起動時に情報読み込めないバグを修正
 //TODO: 方向キー長押しで情報読み込めない仕様を修正
 
 public class ItemWindow : MonoBehaviour
@@ -16,8 +15,11 @@ public class ItemWindow : MonoBehaviour
     private readonly Dictionary<Item, GameObject> itemButtonDict = new();
     void OnEnable()
     {
+        DebugLogger.Log("itemImageWindow: "+itemImageWindow.gameObject.activeSelf);
+        DebugLogger.Log("descriptionWindow: "+descriptionWindow.gameObject.activeSelf);
         LoadItemInventory();
     }
+    
     private void LoadItemInventory()
     {
         foreach (KeyValuePair<Item, GameObject> item in itemButtonDict)
@@ -28,20 +30,16 @@ public class ItemWindow : MonoBehaviour
             }
         }
         
-        bool isFirst = true;
         foreach (Item item in itemInventory.GetItems())
         {
+            DebugLogger.Log("item: "+item.ItemName);
             if (!itemButtonDict.ContainsKey(item))
             {
                 GameObject itemButton = MakeItemButton(item);
-                if (isFirst)
-                {
-                    isFirst = false;
-                    EventSystem.current.SetSelectedGameObject(itemButton);
-                }
                 itemButtonDict.Add(item, itemButton);
             }
         }
+        EventSystem.current.SetSelectedGameObject(itemButtonGroup.GetChild(0).gameObject);
     }
     
     private GameObject MakeItemButton(Item item)
