@@ -6,51 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/clear.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/clear.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MapEngine.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MapEngine.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/GrayTile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/GrayTile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/GreenTile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/GreenTile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/PurpleTile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/PurpleTile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/RedTile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/RedTile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/YellowTile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/YellowTile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/gray.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/gray.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/green.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/green.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/purple.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/purple.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/red.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/red.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/yellow.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/yellow.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/SaveUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/SaveUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapEngine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerControllerWithCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerControllerWithCollider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TileInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TileInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/gray.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/gray.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/green.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/green.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/purple.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/purple.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/red.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/red.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/yellow.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/yellow.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MenuUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MenuUI.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +65,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Downloads/CreativeAIビルド\CreativeAI2024.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Build\CreativeAI2024.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawak\Desktop\クリエイティブAIビルド" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -188,6 +145,7 @@
       <workItem from="1730428649564" duration="6608000" />
       <workItem from="1730952624141" duration="3980000" />
       <workItem from="1730958229997" duration="2718000" />
+      <workItem from="1730965702562" duration="2294000" />
     </task>
     <servers />
   </component>
