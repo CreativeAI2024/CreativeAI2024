@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         targetPlatform:
-          - iOS
+          - StandaloneOSX
           
     steps:
       # Actionsがリポジトリにアクセスできるようにする
@@ -34,8 +34,8 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**','ProjectSettings/**') }}
           restore-keys: Library-
 
-      # WindowsBuildする
-      - name: Run the iOS build
+      # MacOSBuildする
+      - name: Run the StandaloneOSX build
         uses: game-ci/unity-builder@v4.2.3
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
