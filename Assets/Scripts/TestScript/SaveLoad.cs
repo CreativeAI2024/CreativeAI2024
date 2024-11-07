@@ -6,65 +6,76 @@ using System.Collections.Generic;
 
 public class SaveLoad : MonoBehaviour
 {
-    public string saveFilePath = "Assets/Scripts/TestScript/savefile.json"; // 保存するJSONファイルのパス、これがexample.jsonの内容になっていればいい
+    public string saveFilePath = "Assets/Scripts/TestScript/savefile.json"; // �ۑ�����JSON�t�@�C���̃p�X�A���ꂪexample.json�̓��e�ɂȂ��Ă���΂���
     public string exampleFilePath = "Assets/Scripts/TestScript/example.json";
 
-    // UI要素
+    // UI�v�f
     public Button saveButton;
     public Button loadButton;
-    public MyClass myClass; // データを保存するためのMyClassインスタンス
+    //public MyClass myClass; // �f�[�^��ۑ����邽�߂�MyClass�C���X�^���X
 
     void Start()
     {
-        // myClassを初期化
+        // myClass��������
         //myClass = new MyClass { Id = 1, Name = "Example", Items = new List<string> { "Item1", "Item2", "Item3" } };
-        // JSONファイルからデータを読み込む
-        myClass = LoadFromJson(exampleFilePath); // example.json の内容を読み込む
+        // JSON�t�@�C������f�[�^��ǂݍ���
+        //myClass = LoadFromJson(exampleFilePath); // example.json �̓��e��ǂݍ���
 
-        // ボタンのリスナーを設定
-        saveButton.onClick.AddListener(() => SaveAsJson(myClass));
+        // �{�^���̃��X�i�[��ݒ�
+        saveButton.onClick.AddListener(() => SaveAsJson());
         loadButton.onClick.AddListener(() => {
-            MyClass loadedData = LoadFromJson(saveFilePath);
-            // loadedDataを使用して、UIなどに表示する処理を追加
+            ObjectData loadedData = LoadFromJson(saveFilePath);
+            // loadedData���g�p���āAUI�Ȃǂɕ\�����鏈����ǉ�
             if (loadedData != null)
             {
-                Debug.Log($"Loaded Data - Id: {loadedData.Id}, Name: {loadedData.Name}, Items: {string.Join(", ", loadedData.Items)}");
+                Debug.Log($"Loaded Data - Id: {loadedData.Id}, Name: {loadedData.TriggerType}, Items: {string.Join(", ", loadedData.FlagCondition)}");
             }
         });
     }
 
 
-    // クラスをJSON形式で保存するメソッド
-    public void SaveAsJson(MyClass myClass)
+    // �N���X��JSON�`���ŕۑ����郁�\�b�h
+    public void SaveAsJson()
     {
-        // MyClassをMessagePack形式にシリアライズ
-        byte[] msgPackData = MessagePackSerializer.Serialize(myClass);
-
-        // MessagePackデータをJSON形式に変換
-        string jsonString = MessagePackSerializer.ConvertToJson(msgPackData);
-
-        // JSONデータをファイルに保存
-        File.WriteAllText(saveFilePath, jsonString);
+        ObjectData objectData = new ObjectData();
+        objectData.Id = 1;
+        objectData.Location = new Location[2];
+        objectData.Location[0].MapName = "mapname";
+        objectData.Location[0].Position = new Vector2Int(1, 1);
+        objectData.Location[1].MapName = "mapname2";
+        objectData.Location[1].Position = new Vector2Int(2, 2);
+        objectData.EventName = "eventname";
+        objectData.TriggerType = 1;
+        FlagCondition flagCondition = objectData.FlagCondition;
+        flagCondition.Flag = new KeyValuePair<string, bool>[2];
+        flagCondition.Flag[0] = new KeyValuePair<string, bool>("key1-1", true);
+        flagCondition.Flag[1] = new KeyValuePair<string, bool>("key1-2", true);
+        flagCondition.NextFlag = new KeyValuePair<string, bool>[2];
+        flagCondition.NextFlag[0] = new KeyValuePair<string, bool>("key2-1", true);
+        flagCondition.NextFlag[1] = new KeyValuePair<string, bool>("key2-2", true);
+        objectData.FlagCondition = flagCondition;
+        
+        SaveUtility.DataToJson(objectData, saveFilePath);
         Debug.Log("Data saved as JSON: " + saveFilePath);
     }
 
-    // JSON形式のファイルを読み込むメソッド
-    public MyClass LoadFromJson(string filePath)
+    // JSON�`���̃t�@�C����ǂݍ��ރ��\�b�h
+    public ObjectData LoadFromJson(string filePath)
     {
-        // ファイルが存在するか確認
+        // �t�@�C�������݂��邩�m�F
         if (!File.Exists(filePath))
         {
             Debug.LogError("JSON file not found: " + filePath);
             return null;
         }
 
-        // ファイルからJSONデータを読み込み
+        // �t�@�C������JSON�f�[�^��ǂݍ���
         //string jsonContent = File.ReadAllText(saveFilePath);
         string jsonContent = File.ReadAllText(filePath);
 
-        // JSONデータをMessagePack形式に変換し、MyClassインスタンスにデシリアライズ
+        // JSON�f�[�^��MessagePack�`���ɕϊ����AMyClass�C���X�^���X�Ƀf�V���A���C�Y
         byte[] msgPackData = MessagePackSerializer.ConvertFromJson(jsonContent);
-        MyClass myClass = MessagePackSerializer.Deserialize<MyClass>(msgPackData);
+        ObjectData myClass = MessagePackSerializer.Deserialize<ObjectData>(msgPackData);
 
         Debug.Log("Data loaded from JSON.");
         return myClass;

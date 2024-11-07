@@ -20,7 +20,7 @@ public class PlayerControllerWithCollider : PlayerController
     protected override void Move(Vector3 vector)
     {
         base.Move(vector);
-        _boxCollider.offset = vector * (speed * Time.deltaTime);
+        _boxCollider.offset = Time.deltaTime * 100 * vector.normalized * speed;
     }
     
     protected override void MovePrepare()
@@ -31,7 +31,6 @@ public class PlayerControllerWithCollider : PlayerController
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("asdfjlk;");
         ResetPosition();
     }
 }

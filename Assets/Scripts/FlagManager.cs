@@ -1,30 +1,54 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
 
 public class FlagManager : DontDestroySingleton<FlagManager>
 {
-    private int progressFlag = 0;
-    private int experienceFlag = 0;
-    
-    public void AddProgressFlag(int number) => AddFlag(ref progressFlag, number);
-    public void DeleteProgressFlag(int number) => DeleteFlag(ref progressFlag, number);
-    public bool HasProgressFlag(int number) => HasFlag(ref progressFlag, number);
-    
-    public void AddExperienceFlag(int number) => AddFlag(ref experienceFlag, number);
-    public void DeleteExperienceFlag(int number) => DeleteFlag(ref experienceFlag, number);
-    public bool HasExperienceFlag(int number) => HasFlag(ref experienceFlag, number);
-    
-    private void AddFlag(ref int bitFlag, int number)
+    private Dictionary<string, bool> _flags;
+    private readonly string _flagFilePath = string.Join('/', Application.streamingAssetsPath, "FlagDataExample.json");
+    private string _flagSaveFilePath;
+    public override void Awake()
     {
-        bitFlag |= 1 << number;
+        base.Awake();
+        _flagSaveFilePath = string.Join('/', Application.persistentDataPath, "FlagData.dat");
+        if (File.Exists(_flagSaveFilePath))
+        {
+            FlagData flags = SaveUtility.SaveFileToData<FlagData>(_flagSaveFilePath);
+            _flags = flags.Flags;
+        }
+        else
+        {
+            Debug.Log("フラグデータがありませんでした");
+            if (File.Exists(_flagFilePath))
+            {
+                FlagData flags = SaveUtility.JsonToData<FlagData>(_flagFilePath);
+                _flags = flags.Flags;
+                SaveFlag();
+            }
+        }
     }
     
-    private void DeleteFlag(ref int bitFlag, int number)
+    public void AddFlag(string flagName)
     {
-        bitFlag &= ~(1 << number);
+        _flags[flagName] = true;
+        SaveFlag();
+    }
+    public void DeleteFlag(string flagName)
+    {
+        _flags[flagName] = false;
+        SaveFlag();
     }
     
-    private bool HasFlag(ref int bitFlag, int number)
+    private void SaveFlag()
     {
-        return Convert.ToBoolean(bitFlag & (1 << number));
+        FlagData saveFlagData = new FlagData()
+        {
+            Flags = _flags
+        };
+        SaveUtility.DataToSaveFile(saveFlagData, _flagSaveFilePath);
     }
+    
+    public bool HasFlag(string flagName) => _flags[flagName];
 }
+

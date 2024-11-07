@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,31 +11,40 @@ public class ChangeBackground : MonoBehaviour
     [SerializeField] private Image[] images;
     Dictionary<string, Image> imagesDict = new Dictionary<string, Image>();
     Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
-
-    private void Start()
+    
+    public void Initialize()
     {
+        if (!imagesDict.Any())
+        {
+            for (int i = 0; i < images.Length; i++)
+            {
+                imagesDict.Add(images[i].name, images[i]);
+            }
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                spritesDict.Add(sprites[i].name, sprites[i]);
+            }
+        }
+        
         for (int i = 0; i < images.Length; i++)
         {
-            imagesDict.Add(images[i].name, images[i]);
-        }
-        for (int i = 0; i < sprites.Length; i++)
-        {
-            spritesDict.Add(sprites[i].name, sprites[i]);
+            images[i].sprite = null;
+            images[i].color = Color.clear;
         }
     }
 
-    public void ChangeImages(string words)
+    public void ChangeImages(ChangeImage[] changeImage)
     {
-        TextConverter textConverter = new TextConverter();
-        string[][] spriteAndImage = textConverter.Converter(words);  //spriteAndImage[0]: spriteNameの配列, spriteAndImage[1]: imageNameの配列
-
         // 各スプライトと画像の名前を初期化
-        for (int i = 0; i < spriteAndImage[0].Length; i++)
+        for (int i = 0; i < changeImage.Length; i++)
         {
             //テキストから指定されたImage,Spriteの名前とインスペクターで設定したImage,Spriteの名前が一致したとき
-            if (imagesDict.ContainsKey(spriteAndImage[1][i]) && spritesDict.ContainsKey(spriteAndImage[0][i]))
+            if (imagesDict.ContainsKey(changeImage[i].ImageName) && spritesDict.ContainsKey(changeImage[i].SpriteName))
             {
-                imagesDict[spriteAndImage[1][i]].sprite = spritesDict[spriteAndImage[0][i]];
+                imagesDict[changeImage[i].ImageName].sprite = spritesDict[changeImage[i].SpriteName];
+                Color color;
+                ColorUtility.TryParseHtmlString("#FFFFFF80", out color);
+                imagesDict[changeImage[i].ImageName].color = color;
             }
         }
     }
