@@ -1,8 +1,5 @@
 using TMPro;
 using UnityEngine;
-//TODO: 会話ウィンドウ呼び出し機能作る
-//TODO: 初回時にdescriptionとimageの読み込みできてないバグ修正
-//TODO: アイテム個数表示機能作成
 
 public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
 {
@@ -13,13 +10,24 @@ public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
     private GameObject menuUI;
     public int Index => transform.GetSiblingIndex();
     
+    void OnEnable()
+    {
+        if (itemName.text!=null && item!=null)
+        {
+            SetButtonText();
+        }        
+    }
     public void Initialize(Item item, GameObject menuUI, ItemImageWindow itemImageWindow, DescriptionWindow descriptionWindow)
     {
-        itemName.text = item.ItemName;
         this.item = item;
+        SetButtonText();
         this.itemImageWindow = itemImageWindow;
         this.descriptionWindow = descriptionWindow;
         this.menuUI = menuUI;
+    }
+    private void SetButtonText()
+    {
+        itemName.text = item.ItemName + (item.Count>2 ? " × "+item.Count : "");
     }
     public void OnFocused()
     {

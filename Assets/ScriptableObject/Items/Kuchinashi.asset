@@ -16,4 +16,4 @@ MonoBehaviour:
   descriptionText: Shinin ni KUCHINASHI
   count: 1
   sprite: {fileID: 21300000, guid: 04700a16955ba497fa0e14de767189e5, type: 3}
-  contentText: []
+  contentTextFilePath: 

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-//TODO: 方向キー長押しで情報読み込めない仕様を修正
 
 public class ItemWindow : MonoBehaviour
 {
