@@ -1,57 +1,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Linq;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 public class MapEngine : MonoBehaviour
 {
-    public Tilemap tilemap;
+    [SerializeField] private Tilemap colliderTilemap;
+    [SerializeField] private Tilemap frontTilemap;
+    [SerializeField] private Tilemap middleTilemap;
+    [SerializeField] private Tilemap backTilemap;
+    [SerializeField] private Tile clearTile;
     public TileMapping tileMapping;
-
-    private Dictionary<char, TileBase> tileDictionary;
-    private MapData mapData;
-
+    
+    [SerializeField] private MapDataController mapDataController;
+    
     private void Awake()
     {
-        InitializeTileDictionary();
         LoadMapDataFiles();
     }
-
-    private void InitializeTileDictionary()
-    {
-        tileDictionary = tileMapping.ToDictionary();
-    }
-
-    private void LoadMapDataFiles()
+    
+    public void LoadMapDataFiles()
     {
         string assetsPath = Path.Combine(Application.streamingAssetsPath, "MapData");
         string[] mapFiles = Directory.GetFiles(assetsPath, "*.json");
-        foreach (string filePath in mapFiles)
-        {
-            LoadMapData(filePath);
-        }
+        var filePath = mapFiles.FirstOrDefault(x => x.EndsWith("MapDataExample.json"));
+        mapDataController.LoadMapData(filePath);
+        PutTiles();
     }
 
-    public void LoadMapData(string filePath)
+    public void PutTiles()
     {
-        mapData = SaveUtility.JsonToData<MapData>(filePath);
-        PlaceTiles();
-    }
-
-    public void PlaceTiles()
-    {
-        Vector2Int mapSize = GetMapSize();
-
-        for (int y = 0; y < mapSize.y; y++)
+        Vector2Int mapSize = mapDataController.GetMapSize();
+        Dictionary<char, TileBase> tileDictionary = tileMapping.ToDictionary();
+        for (int x = 0; x < mapSize.x; x++)
         {
-            for (int x = 0; x < mapSize.x; x++)
+            for (int y = 0; y < mapSize.y; y++)
             {
-                char tileChar = mapData.Tiles[y][x];
-                Vector3Int position = new Vector3Int(x, -y, 0);
-
-                PlaceSingleTile(position, "Back");
-                PlaceSingleTile(position, "Middle");
-                PlaceSingleTile(position, "Front");
+                Vector3Int position = new Vector3Int(x, y, 0);
+                PutBackStyleTile(position, tileDictionary);
+                PutMiddleStyleTile(position, tileDictionary);
+                PutFrontStyleTile(position, tileDictionary);
                 SetCollider(position);
             }
         }
@@ -59,35 +49,32 @@ public class MapEngine : MonoBehaviour
 
     private void SetCollider(Vector3Int position)
     {
-        char tileChar = mapData.Tiles[-position.y][position.x];
-
-        if (tilemap.HasTile(position))
+        if (!mapDataController.IsWalkable(position))
         {
-            if (tileMapping.IsWalkable(tileChar))
-            {
-                tilemap.SetColliderType(position, Tile.ColliderType.None);
-                DebugLogger.Log($"通行可能: {-position.y}{position.x}");
-            }
-            else
-            {
-                tilemap.SetColliderType(position, Tile.ColliderType.Grid);
-                DebugLogger.Log($"通行不可: {-position.y}{position.x}");
-            }
+            colliderTilemap.SetTile(position, clearTile);
         }
     }
-
-    private void PlaceSingleTile(Vector3Int position, string styleType)
+    
+    private void PutBackStyleTile(Vector3Int position, Dictionary<char, TileBase> tileDictionary)
     {
-        char tileChar = mapData.Tiles[-position.y][position.x];
+        PutSingleTile(backTilemap, position, tileDictionary, mapDataController.GetStyleBackChar(position));
+    }
+    
+    private void PutMiddleStyleTile(Vector3Int position, Dictionary<char, TileBase> tileDictionary)
+    {
+        PutSingleTile(middleTilemap, position, tileDictionary, mapDataController.GetStyleMiddleChar(position));
+    }
+    
+    private void PutFrontStyleTile(Vector3Int position, Dictionary<char, TileBase> tileDictionary)
+    {
+        PutSingleTile(frontTilemap, position, tileDictionary, mapDataController.GetStyleFrontChar(position));
+    }
+    
+    private void PutSingleTile(Tilemap tilemap, Vector3Int position, Dictionary<char, TileBase> tileDictionary, char tileChar)
+    {
         if (tileDictionary.TryGetValue(tileChar, out TileBase tile))
         {
             tilemap.SetTile(position, tile);
-            DebugLogger.Log($"{styleType}スタイルタイル '{tileChar}' が配置されました: (position)");
         }
-    }
-
-    public Vector2Int GetMapSize()
-    {
-        return new Vector2Int(mapData.Tiles[0].Length, mapData.Tiles.Length);
     }
 }
