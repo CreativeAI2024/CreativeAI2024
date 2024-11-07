@@ -5,68 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/MapData.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MapData/MyPalette.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MapData/MyPalette.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MapData/WalkableTiles.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MapData/WalkableTiles.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/MapEngine.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/MapEngine.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/MapEngine.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/TilePrefab.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/TilePrefab.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/GrayTile.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/GrayTile.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/GreenTile.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/GreenTile.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/PurpleTile.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/PurpleTile.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/RedTile.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/RedTile.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/YellowTile.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/YellowTile.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/gray.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/gray.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/green.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/green.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/purple.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/purple.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/red.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/red.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/yellow.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Tiles/yellow.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MapEngine.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MapEngine.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapEngine.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapEngine.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/TileMapping.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/TileMapping.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/WalkableTiles.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/WalkableTiles.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/MapDataExample.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/gray.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/gray.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/green.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/green.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/purple.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/purple.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/red.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/red.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/yellow.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/yellow.jpg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/EventObject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/EventObject.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/MapDataExample.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/MapDataExample.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/MapDataExample.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Text/TextConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Text/TextConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/clear.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/clear.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MapEngine.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MapEngine.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/GrayTile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/GrayTile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/GreenTile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/GreenTile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/PurpleTile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/PurpleTile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/RedTile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/RedTile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/YellowTile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/YellowTile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/gray.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/gray.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/green.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/green.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/purple.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/purple.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/red.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/red.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/yellow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Tiles/yellow.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/SaveUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/SaveUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerControllerWithCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerControllerWithCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TileInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TileInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/gray.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/gray.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/green.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/green.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/purple.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/purple.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/red.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/red.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/yellow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/yellow.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +66,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55fbbbd17b724c15b6abe8c1a3e3289c175c00/b9/69e747e9/Time.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scenes/ForVisualTeam.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scenes/ForVisualTeam.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapEngine/MapDataController.cs.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapEngine/MapDataController.cs.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapMove/MapEvent.cs" root0="SKIP_HIGHLIGHTING" />
@@ -105,7 +89,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging feat/scriptengine&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/scriptengine&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -202,7 +186,8 @@
       <workItem from="1730328564858" duration="2536000" />
       <workItem from="1730415060746" duration="255000" />
       <workItem from="1730428649564" duration="6608000" />
-      <workItem from="1730952624141" duration="338000" />
+      <workItem from="1730952624141" duration="3980000" />
+      <workItem from="1730958229997" duration="2718000" />
     </task>
     <servers />
   </component>

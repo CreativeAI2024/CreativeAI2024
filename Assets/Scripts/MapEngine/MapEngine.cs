@@ -16,21 +16,7 @@ public class MapEngine : MonoBehaviour
     
     [SerializeField] private MapDataController mapDataController;
     
-    private void Awake()
-    {
-        LoadMapDataFiles();
-    }
-    
-    public void LoadMapDataFiles()
-    {
-        string assetsPath = Path.Combine(Application.streamingAssetsPath, "MapData");
-        string[] mapFiles = Directory.GetFiles(assetsPath, "*.json");
-        var filePath = mapFiles.FirstOrDefault(x => x.EndsWith("MapDataExample.json"));
-        mapDataController.LoadMapData(filePath);
-        PutTiles();
-    }
-
-    public void PutTiles()
+    public void Initialize()
     {
         Vector2Int mapSize = mapDataController.GetMapSize();
         Dictionary<char, TileBase> tileDictionary = tileMapping.ToDictionary();

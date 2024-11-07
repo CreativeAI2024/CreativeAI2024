@@ -16,11 +16,10 @@ MonoBehaviour:
   - symbol: 42
     tile: {fileID: 11400000, guid: a0335da9d564f8844980b14eac176e70, type: 2}
   - symbol: 45
-    tile: {fileID: 11400000, guid: 74a47d4068970004fa8c9eeee5d33bce, type: 2}
+    tile: {fileID: 0}
   - symbol: 99
     tile: {fileID: 11400000, guid: a4c651d9b220cff40a6638ce704e92e4, type: 2}
   - symbol: 100
     tile: {fileID: 11400000, guid: a0dbd8be8e8aa6e4d8f8321025861e20, type: 2}
   - symbol: 35
     tile: {fileID: 11400000, guid: 0c67efc28853338418954a112c11e2da, type: 2}
-  walkableTileSymbols: 2d0000006400

@@ -4,15 +4,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public float unitDistance = 1f;
     public float speed = 3f;
     public float allowDistance = 0.03f;
     private bool _canInput = true;
-    private Vector3 _targetPosition = Vector3.zero;
-    private Vector3 _startPosition = Vector3.zero;
+    private Vector2Int _targetPosition = Vector2Int.zero;
+    private Vector2Int _startPosition = Vector2Int.zero;
     private Transform _playerTransform;
+    [SerializeField] private TileInfo tileInfo;
     private InputSetting _inputSetting;
-    private Vector3 _lastinputVector;
+    private Vector2Int _lastinputVector;
 
     private void Start()
     {
@@ -31,53 +31,56 @@ public class PlayerController : MonoBehaviour
         if (_canInput)
         {
             _lastinputVector = GetInputVector();
-            if (_lastinputVector != Vector3.zero)
+            if (_lastinputVector != Vector2Int.zero)
             {
                 _canInput = false;
             }
-            _startPosition = _playerTransform.position;
+            _startPosition = tileInfo.GridPosition;
             _targetPosition = _startPosition + _lastinputVector;
         }
         else
         {
-            Move(_lastinputVector);
+            Move(new Vector3(_lastinputVector.x, _lastinputVector.y, 0));
             MoveEnd();
         }
 
     }
 
-    Vector3 GetInputVector()
+    Vector2Int GetInputVector()
     {
-        Vector3 vector = Vector3.zero;
+        Vector2Int vector = Vector2Int.zero;
         if (_inputSetting.GetForwardKey())
         {
-            vector += Vector3.up;
+            vector += Vector2Int.up;
         }
-        else if (_inputSetting.GetLeftKey())
+        if (_inputSetting.GetLeftKey())
         {
-            vector += Vector3.left;
+            vector += Vector2Int.left;
         }
-        else if (_inputSetting.GetBackKey())
+        if (_inputSetting.GetBackKey())
         {
-            vector += Vector3.down;
+            vector += Vector2Int.down;
         }
-        else if (_inputSetting.GetRightKey())
+        if (_inputSetting.GetRightKey())
         {
-            vector += Vector3.right;
+            vector += Vector2Int.right;
         }
-        return vector * unitDistance;
+        Vector2Int result = vector.x * vector.x + vector.y * vector.y != 1 ?
+            Vector2Int.zero : vector;
+        return result;
     }
 
     protected virtual void Move(Vector3 vector)
     {
-        _playerTransform.position += vector.normalized * (Time.deltaTime * speed);
+        _playerTransform.position += vector * (Time.deltaTime * speed);
     }
 
     void MoveEnd()
     {
-        if (Vector3.Distance(_targetPosition, _playerTransform.position) >= allowDistance) return;
+        Vector3 targetVector = new Vector3(_targetPosition.x, _targetPosition.y, 0);
+        if (Vector3.Distance(targetVector, _playerTransform.position) >= allowDistance) return;
         
-        _playerTransform.position = _targetPosition;
+        _playerTransform.position = targetVector;
         MovePrepare();
     }
 
@@ -93,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     protected void ResetPosition()
     {
-        _playerTransform.position = _startPosition;
+        _playerTransform.position = new Vector3(_startPosition.x, _startPosition.y, 0);
         MovePrepare();
     } 
 }

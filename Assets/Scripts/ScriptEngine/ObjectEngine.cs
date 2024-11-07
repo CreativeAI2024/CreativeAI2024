@@ -10,7 +10,6 @@ public class ObjectEngine : MonoBehaviour
     private ObjectData[][] _trapEventObjects;
     
     [SerializeField] private TileInfo tileInfo;
-    [SerializeField] private string mapName;
     [SerializeField] private ItemInventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
     [SerializeField] private Pause pause;
@@ -23,7 +22,7 @@ public class ObjectEngine : MonoBehaviour
     }
     
     // Start is called before the first frame update
-    public void Initialize(int width, int height)
+    public void Initialize(string mapName, int width, int height)
     {
         _eventObjects = new ObjectData[width][];
         _trapEventObjects = new ObjectData[width][];

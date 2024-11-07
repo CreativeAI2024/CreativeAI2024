@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,8 +10,11 @@ public class MapDataController : MonoBehaviour
     private MapData mapData;
     public WalkableTiles walkableTiles;
     
-    public void LoadMapData(string filePath)
+    public void LoadMapData(string fileName)
     {
+        string assetsPath = Path.Combine(Application.streamingAssetsPath, "MapData");
+        string[] mapFiles = Directory.GetFiles(assetsPath, "*.json");
+        var filePath = mapFiles.FirstOrDefault(x => x.EndsWith($"{fileName}.json"));
         mapData = SaveUtility.JsonToData<MapData>(filePath);
     }
     
