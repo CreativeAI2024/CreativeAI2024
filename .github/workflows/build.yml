@@ -1,8 +1,8 @@
-name: Windows Build
+name: MacOS Build
   
 on:
   push:
-    branches: develop
+    branches: feat/scriptengine
   workflow_dispatch: {}
 
 # 連続して実行されたときに一つ前の実行中のジョブが停止されるようにする
@@ -13,11 +13,12 @@ concurrency:
 jobs:
   unity-Build:
     name: Run the unity build steps
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         targetPlatform:
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
+          - iOS
           - WebGL # WebGL.
           
     steps:
