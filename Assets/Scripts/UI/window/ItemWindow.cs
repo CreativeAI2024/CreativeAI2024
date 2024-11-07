@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using TMPro;
 using UnityEngine.EventSystems;
+//TODO: 初回起動時に情報読み込めないバグを修正
+//TODO: 方向キー長押しで情報読み込めない仕様を修正
 
 public class ItemWindow : MonoBehaviour
 {
@@ -13,12 +14,10 @@ public class ItemWindow : MonoBehaviour
     [SerializeField] private ItemImageWindow itemImageWindow;
     [SerializeField] private DescriptionWindow descriptionWindow;
     private readonly Dictionary<Item, GameObject> itemButtonDict = new();
-    
     void OnEnable()
     {
         LoadItemInventory();
     }
-    
     private void LoadItemInventory()
     {
         foreach (KeyValuePair<Item, GameObject> item in itemButtonDict)

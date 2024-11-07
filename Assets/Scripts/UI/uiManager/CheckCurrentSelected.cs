@@ -6,10 +6,19 @@ public class CheckCurrentSelected : MonoBehaviour
     private InputSetting _inputSetting;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private Cursor cursor;
+    private GameObject currentSelected;
 
     void Start()
     {
         _inputSetting = InputSetting.Load();
+    }
+
+    void OnEnable()
+    {
+        if (currentSelected!=null)
+        {
+            EventSystem.current.SetSelectedGameObject(currentSelected);
+        }
     }
 
     void Update()
@@ -18,7 +27,7 @@ public class CheckCurrentSelected : MonoBehaviour
         {
             return;
         }
-        GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
+        currentSelected = EventSystem.current.currentSelectedGameObject;
         if (currentSelected == null)
         {
             return;

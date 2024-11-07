@@ -30,7 +30,8 @@ public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
     {
         if (item.HasContentText())
         {
-            // ConversationTextManager.Instantiate.Initialize();
+            ConversationTextManager.Instance.Initialize(item.ContentTextFilePath);
+            DebugLogger.Log("pause.PauseAll() called.");
         }
     }
     

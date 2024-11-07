@@ -46,13 +46,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1600ffdbf74010f4a9170372e9841862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSourcesBGM: {fileID: 7912600926070488735}
+  audioSourceBGM: {fileID: 7912600926070488735}
   audioClipsBGM:
   - {fileID: 8300000, guid: 172d7613a24fdbe43a7de77e092f1e43, type: 3}
   - {fileID: 8300000, guid: a71b5f40735ca0b4399a03489bca55b3, type: 3}
+  - {fileID: 8300000, guid: 48000248128441d439381d328dc6df5e, type: 3}
+  - {fileID: 8300000, guid: 3565cd3afd7a1f34bb92aaa64ae7d7bd, type: 3}
   audioSourceSE: {fileID: 8234234183171575846}
   audioClipsSE:
   - {fileID: 8300000, guid: e4df2f122744fb945aab8440fb763f55, type: 3}
+  - {fileID: 8300000, guid: d01006d6241f32c4eba88b768a8cd503, type: 3}
 --- !u!82 &7912600926070488735
 AudioSource:
   m_ObjectHideFlags: 0

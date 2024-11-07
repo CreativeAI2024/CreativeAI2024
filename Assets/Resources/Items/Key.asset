@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: Key
   m_EditorClassIdentifier: 
+  a: {fileID: 956416796633227690, guid: 809807c4accd19b47b70f38399921f72, type: 3}
   itemName: Key
   descriptionText: It is for secret room
   count: 1
   sprite: {fileID: 21300000, guid: b6642808131b04d77823f15aa5e64094, type: 3}
-  contentText: []
+  contentTextFilePath: 

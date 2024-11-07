@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
-
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class NameTextDrawer : MonoBehaviour
@@ -19,8 +17,7 @@ public class NameTextDrawer : MonoBehaviour
 
     public void DisplayNameText(string words)
     {
-        string word = words.Split(']')[1];  //タグを外す
-        NameText(word);
+        NameText(words);
     }
 
     public void DisableNameText()

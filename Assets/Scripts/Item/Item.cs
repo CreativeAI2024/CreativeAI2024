@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,16 +12,17 @@ public class Item : ScriptableObject
     [SerializeField, TextArea] private string descriptionText;
     [SerializeField] private int count = 1;
     [FormerlySerializedAs("image")] [SerializeField] private Sprite sprite;
-    [SerializeField] private List<string> contentText;
+    [SerializeField] private string contentTextFilePath;
     public string ItemName => itemName;
     public string DescriptionText => descriptionText;
     public int Count => count;
     public Sprite Sprite => sprite;
-    public List<string> ContentText => contentText;
+    public string ContentTextFilePath => contentTextFilePath;
 
     public bool HasContentText()
     {
-        return ((contentText.Count!=0 || contentText[0].Length!=0));
+        DebugLogger.Log("File.Exists(): "+File.Exists(string.Join('/', Application.streamingAssetsPath, "TalkData", contentTextFilePath + ".json")));
+        return File.Exists(string.Join('/', Application.streamingAssetsPath, "TalkData", contentTextFilePath + ".json"));
     }
     public void IncrementCount()
     {
