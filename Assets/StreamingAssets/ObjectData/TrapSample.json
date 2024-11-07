@@ -1,0 +1,28 @@
+{
+    "Id": 1,
+    "Location": [
+        {
+            "MapName": "FirstRoom",
+            "Position": [
+                2,
+                1
+            ]
+        }
+    ],
+    "EventName": "GetItem Disc",
+    "TriggerType": 0,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "GetDiscFlag",
+                false
+            ]
+        ],
+        "NextFlag": [
+            [
+                "GetDiscFlag",
+                true
+            ]
+        ]
+    }
+}

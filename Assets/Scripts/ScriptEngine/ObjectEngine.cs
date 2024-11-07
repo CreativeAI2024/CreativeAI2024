@@ -3,18 +3,21 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ObjectEngine : MonoBehaviour
 {
     private ObjectData[][] _eventObjects;
     private ObjectData[][] _trapEventObjects;
     
-    [SerializeField] private TileInfo tileInfo;
+    [FormerlySerializedAs("tileInfo")] [SerializeField] private PlayerController player;
     [SerializeField] private ItemInventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
     [SerializeField] private Pause pause;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
-        
+    private Vector2Int _oldGridPosition = new Vector2Int(-1, -1);
+    private string itemTextJson = "incorrect";
+    private bool talkFlag = false;
     private InputSetting _inputSetting;
     private void Start()
     {
@@ -58,23 +61,28 @@ public class ObjectEngine : MonoBehaviour
     {
         if (_inputSetting.GetDecideKeyDown())
         {
-            DebugLogger.Log(tileInfo.GridPosition);
-            ObjectData aroundObjectData = _eventObjects[tileInfo.GridPosition.x + tileInfo.Direction.x][tileInfo.GridPosition.y + tileInfo.Direction.y];
+            ObjectData aroundObjectData = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
             if (Call(aroundObjectData, 1, 2))
             {
+                DebugLogger.Log("eee");
                 return;
             }
-            ObjectData centerObjectData = _eventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
+            ObjectData centerObjectData = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
             if (Call(centerObjectData, 2))
             {
                 return;
             }
         }
         
-        if (_pastGridPosition == new Vector2Int(-1, -1) || tileInfo.GridPosition == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
+        if (talkFlag && !ConversationTextManager.Instance.GetInitializeFlag())
+        {
+            pause.UnPauseAll();
+            talkFlag = false;
+        }
         
-        _pastGridPosition = tileInfo.GridPosition;
-        ObjectData trapObjectData = _trapEventObjects[tileInfo.GridPosition.x][tileInfo.GridPosition.y];
+        if (player.GetGridPosition() == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
+        _pastGridPosition = player.GetGridPosition();
+        ObjectData trapObjectData = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
         Call(trapObjectData, 0);
     }
     
@@ -87,7 +95,6 @@ public class ObjectEngine : MonoBehaviour
         {
             return false;
         }
-        
         CallEvent(objectData.EventName);
         if (objectData.FlagCondition.NextFlag is not null)
         {
@@ -109,7 +116,7 @@ public class ObjectEngine : MonoBehaviour
                 Conversation(eventArgs[1]);
                 break;
             case "GetItem":
-                GetItem(eventArgs[1]);;
+                GetItem(eventArgs[1]);
                 break;
             case "PaperGame":
                 DebugLogger.Log("papergame");
@@ -146,12 +153,16 @@ public class ObjectEngine : MonoBehaviour
     
     private void Conversation(string fileName)
     {
+        DebugLogger.Log("Conversation", DebugLogger.Colors.Cyan);
         pause.PauseAll();
         ConversationTextManager.Instance.Initialize(fileName);
+        talkFlag = true;
     }
     
     private void GetItem(string itemName)
     {
+        DebugLogger.Log("GetItem", DebugLogger.Colors.Green);
+        Conversation(itemTextJson);
         Item item = itemDatabase.GetItem(itemName);
         inventory.Add(item);
         CombineItem(item);

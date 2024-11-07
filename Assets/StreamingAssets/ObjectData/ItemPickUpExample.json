@@ -2,13 +2,13 @@
     "Id": 1,
     "Location": [
         {
-            "MapName": "mapname",
+            "MapName": "FirstRoom",
             "Position": [
-                1,
-                1
+                4,
+                4
             ]
         }
     ],
-    "EventName": "event1",
+    "EventName": "GetItem Key",
     "TriggerType": 2
 }

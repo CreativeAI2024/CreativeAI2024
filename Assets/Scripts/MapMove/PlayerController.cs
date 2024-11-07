@@ -10,10 +10,11 @@ public class PlayerController : MonoBehaviour
     private Vector2Int _targetPosition = Vector2Int.zero;
     private Vector2Int _startPosition = Vector2Int.zero;
     private Transform _playerTransform;
-    [SerializeField] private TileInfo tileInfo;
     private InputSetting _inputSetting;
     private Vector2Int _lastinputVector;
-
+    
+    public Vector2Int Direction { get; private set; }
+    
     private void Start()
     {
         OnStart();
@@ -34,8 +35,9 @@ public class PlayerController : MonoBehaviour
             if (_lastinputVector != Vector2Int.zero)
             {
                 _canInput = false;
+                Direction = _lastinputVector;
             }
-            _startPosition = tileInfo.GridPosition;
+            _startPosition = GetGridPosition();
             _targetPosition = _startPosition + _lastinputVector;
         }
         else
@@ -98,5 +100,10 @@ public class PlayerController : MonoBehaviour
     {
         _playerTransform.position = new Vector3(_startPosition.x, _startPosition.y, 0);
         MovePrepare();
-    } 
+    }
+    
+    public Vector2Int GetGridPosition()
+    {
+        return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+    }
 }

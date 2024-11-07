@@ -16,6 +16,11 @@ public class FlagManager : DontDestroySingleton<FlagManager>
         {
             FlagData flags = SaveUtility.SaveFileToData<FlagData>(_flagSaveFilePath);
             _flags = flags.Flags;
+            _flags.Log();
+            foreach (var v in _flags)
+            {
+                v.Log();
+            }
         }
         else
         {

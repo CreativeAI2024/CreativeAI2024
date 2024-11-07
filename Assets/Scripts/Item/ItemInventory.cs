@@ -69,7 +69,9 @@ public class ItemInventory : ScriptableObject
 
     public void TryCombine(Item item)
     {
-        Item pairItem = combineRecipeDatabase.GetPairIngredients(item)[0];
+        List<Item> pairIngredients = combineRecipeDatabase.GetPairIngredients(item);
+        if (!pairIngredients.Any()) return;
+        Item pairItem = pairIngredients[0];
         if (IsContains(pairItem))
         {
             Remove(item);
