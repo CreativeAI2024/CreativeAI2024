@@ -17,9 +17,7 @@ jobs:
     strategy:
       matrix:
         targetPlatform:
-          - StandaloneWindows64 # Build a Windows 64-bit standalone.
           - iOS
-          - WebGL # WebGL.
           
     steps:
       # Actionsがリポジトリにアクセスできるようにする
