@@ -37,21 +37,28 @@
     {
       "Speaker": "問題",
       "Text": "この中で最も長い川は？",
-      
+
       "QuestionData": [
         {
           "Answer": "石狩川",
-          "NextFlag": "correctFlag",
+          "NextFlag": [
+            [ "correctFlag", true ],
+            [ "incorrectFlag", false ]
+          ],
           "NextTalkData": "correct"
         },
         {
           "Answer": "天塩川",
-          "NextFlag": "incorrectFlag",
+          "NextFlag": [
+            [ "incorrectFlag", true ]
+          ],
           "NextTalkData": "incorrect"
         },
         {
           "Answer": "十勝川",
-          "NextFlag": "incorrectFlag",
+          "NextFlag": [
+            [ "incorrectFlag", true ]
+          ],
           "NextTalkData": "incorrect"
         }
       ],
