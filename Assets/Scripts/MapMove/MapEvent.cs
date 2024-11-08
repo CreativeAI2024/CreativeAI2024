@@ -39,6 +39,6 @@ public class MapEvent : MonoBehaviour
     public void ConversationEvent()
     {
         pause.PauseAll();
-        ConversationTextManager.Instance.Initialize(talkJsonName,true);
+        ConversationTextManager.Instance.InitializeFromJson(talkJsonName);
     }
 }

@@ -21,7 +21,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     {
         base.Awake();
         _inputSetting = InputSetting.Load();
-        //Initiallize("nantokaKaiwa");
+        //InitializeFromString("nantokaKaiwa");
+        //InitializeFromJson("parallelTest");
     }
 
     void Update()
@@ -86,7 +87,20 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         mainTextDrawer.NextLineIcon();
     }
 
-    public void Initialize(string fileName,bool textMode = false)
+    public void InitializeFromString(string text)
+    {
+        LoadJson("nullTalk");
+        talkData.Content[0].Text = text;
+        Initialize();
+    }
+
+    public void InitializeFromJson(string fileName)
+    {
+        LoadJson(fileName);
+        Initialize();
+    }
+
+    private void Initialize()
     {
         if (initializeFlag)
             return;
@@ -94,15 +108,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         initializeFlag = true;
 
         contentObject.SetActive(true);
-        if (!textMode)
-        {
-            LoadJson(fileName);
-        }
-        else
-        {
-            LoadJson("nullTalk");
-            talkData.Content[0].Text = fileName;
-        }
 
         lineNumber = 0;
         unitTime = -1f;
@@ -214,7 +219,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         initializeFlag = false;
         if (nextTalkData != null){  //会話分岐
-            Initialize(nextTalkData);
+            InitializeFromJson(nextTalkData);
         }
         else
         {
