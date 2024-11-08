@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: kuchinashi
+  m_Name: Yuri
   m_EditorClassIdentifier: 
-  itemName: Kuchinashi
-  descriptionText: Shinin ni KUCHINASHI
-  count: 1
-  sprite: {fileID: 21300000, guid: 04700a16955ba497fa0e14de767189e5, type: 3}
-  contentText: []
+  itemName: Yuri
+  descriptionText: ara~^
+  count: 3
+  sprite: {fileID: 21300000, guid: 7445bc8978dce48c39b3c7cb0fa0720c, type: 3}
+  contentTextFilePath: 
