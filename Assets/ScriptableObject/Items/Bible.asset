@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: Yuri
+  m_Name: Bible
   m_EditorClassIdentifier: 
-  itemName: Yuri
-  descriptionText: ara~^
+  itemName: Bible
+  descriptionText: mother
   count: 1
-  image: {fileID: 21300000, guid: 7445bc8978dce48c39b3c7cb0fa0720c, type: 3}
-  contentText: []
+  sprite: {fileID: 21300000, guid: 27dab49ab2dd34d60bd0059e1693763d, type: 3}
+  contentTextFilePath: ItemContentText/bible
