@@ -86,7 +86,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         mainTextDrawer.NextLineIcon();
     }
 
-    public void Initialize(string fileName)
+    public void Initialize(string fileName,bool textMode = false)
     {
         if (initializeFlag)
             return;
@@ -94,8 +94,15 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         initializeFlag = true;
 
         contentObject.SetActive(true);
-        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
-        talkData = SaveUtility.JsonToData<TalkData>(filePath);
+        if (!textMode)
+        {
+            LoadJson(fileName);
+        }
+        else
+        {
+            LoadJson("nullTalk");
+            talkData.Content[0].Text = fileName;
+        }
 
         lineNumber = 0;
         unitTime = -1f;
@@ -107,6 +114,13 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         //テキストを表示
         DisplayText();
     }
+
+    private void LoadJson(string fileName)
+    {
+        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
+        talkData = SaveUtility.JsonToData<TalkData>(filePath);
+    }
+
 
     public bool GetInitializeFlag()
     {
