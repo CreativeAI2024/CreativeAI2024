@@ -4,70 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/FlagDataExample.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/FlagDataExample.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Images/Item/book_open_yoko.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Images/Item/book_open_yoko.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Images/SearchGame.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Bible.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuUISwitch.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuUISwitch.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/ItemContentText.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/ItemContentText/bible.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/ItemContentText/bible.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/MenuUI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/MenuUI.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapFromVisualTeam/Map.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapFromVisualTeam/Map.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Window/DescriptionWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Window/DescriptionWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Window/ItemWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Window/ItemWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/CombineRecipeDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/CombineRecipeDatabase.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/CombineRecipeDatabase.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/CombineRecipeDatabase.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/Key.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/Key.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/Key.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/Key.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/WholeLetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/WholeLetter.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/WholeLetter.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/WholeLetter.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Disc.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Disc.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Disc.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Disc.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/FormarLetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/FormarLetter.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/FormarLetter.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/FormarLetter.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemInventory.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemDatabase.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Bible.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemInventory.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemInventory.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemInventory.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Key.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Key.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Key.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Key.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/LatterLetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/LatterLetter.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/LatterLetter.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/LatterLetter.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Stick.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Stick.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Stick.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Stick.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/WholeLetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/WholeLetter.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/WholeLetter.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/WholeLetter.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Yuri.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Yuri.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Yuri.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Yuri.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/kuchinashi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Kuchinashi.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/kuchinashi.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Kuchinashi.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/MapCreateTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Develop/MapCreateTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/MenuUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Develop/MenuUI.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Cursor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Cursor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/ItemButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/ItemButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/SwitchWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/SwitchWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/FirstRoom.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/FirstRoom.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +38,7 @@
   "keyToString": {
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging feat/scriptengine",
+    "git-widget-placeholder": "develop",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -206,6 +143,7 @@
       <workItem from="1730990752881" duration="1226000" />
       <workItem from="1731046347759" duration="664000" />
       <workItem from="1731047180755" duration="1585000" />
+      <workItem from="1731051801047" duration="9000" />
     </task>
     <servers />
   </component>
