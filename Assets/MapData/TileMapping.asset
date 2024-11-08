@@ -60,7 +60,7 @@ MonoBehaviour:
   - symbol: 99
     tile: {fileID: 11400000, guid: 653575dde705e574c9523c17502bccc5, type: 2}
   - symbol: 100
-    tile: {fileID: 11400000, guid: 65b475b1b38ee96478da692d58ddc1e3, type: 2}
+    tile: {fileID: 11400000, guid: bb40ae4c55ed55e48bcd3c59a7480c68, type: 2}
   - symbol: 101
     tile: {fileID: 11400000, guid: 0a07e81c846ec7b4190c8f5d526eb2ca, type: 2}
   - symbol: 102
