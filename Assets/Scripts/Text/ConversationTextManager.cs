@@ -161,24 +161,23 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private void ChangeQuestionData()
     {
         QuestionData[] questionData = talkData.Content[lineNumber].QuestionData;
-        if (questionData != null)
-        {
-            QuestionData talkDataContent = questionData[question.GetCursorPlace()];
-            if (talkDataContent.NextFlag != null)
-            {
-                ChangeFlag(talkDataContent.NextFlag);
-            }
-        }
+        if (questionData == null) 
+            return;
+
+        var nextFlag = questionData[question.GetCursorPlace()].NextFlag;
+        if (nextFlag == null) 
+            return;
+
+        ChangeFlag(nextFlag);
     }
 
     private void ChangeFlag(KeyValuePair<string, bool>[] nextFlag)
     {
-        for (int i = 0; i < nextFlag.Length; i++)
+        foreach (KeyValuePair<string, bool> flags in nextFlag)
         {
-            string flagName = nextFlag[i].Key;
-            bool flagValue = nextFlag[i].Value;
-            DebugLogger.Log(flagName);
-            DebugLogger.Log(flagValue);
+            string flagName = flags.Key;
+            bool flagValue = flags.Value;
+            DebugLogger.Log(flagName+":"+ flagValue);
             if (flagValue)
             {
                 FlagManager.Instance.AddFlag(flagName);
@@ -193,10 +192,15 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private void EndConversation()
     {
         QuestionData[] questionData = talkData.Content[lineNumber].QuestionData;
+        string nextTalkData = null;
+        if (questionData != null)
+        {
+            nextTalkData = questionData[question.GetCursorPlace()].NextTalkData;
+        }
 
         initializeFlag = false;
-        if (questionData != null && questionData[question.GetCursorPlace()].NextTalkData != null){  //会話分岐
-            Initialize(questionData[question.GetCursorPlace()].NextTalkData);
+        if (nextTalkData != null){  //会話分岐
+            Initialize(nextTalkData);
         }
         else
         {
