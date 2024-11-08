@@ -28,17 +28,18 @@ public class CharacterMoveVisual : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 vector = (transform.position - _lastPosition).normalized;
-        _lastPosition = transform.position;
+        Vector2 vector = playerController.Direction;
+        //_lastPosition = transform.position;
         int x = Mathf.RoundToInt(vector.x);
         int y = Mathf.RoundToInt(vector.y);
         int directionIndex = 2 * x * x + x + y * y + y;
         Debug.Log(directionIndex);
-        if (playerController.LastInputVector != Vector3.zero)
+        /*
+        if (playerController.LastInputVector != Vector2Int.zero)
         {
             ChangeWalkImage(directionIndex);
-        }
-        if (vector == Vector2.zero)
+        }*/
+        if (playerController.LastInputVector == Vector2.zero)
         {
             ChangeIdleImage(_lastDirection);
             _timer = 0;
