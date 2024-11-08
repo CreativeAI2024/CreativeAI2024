@@ -1,0 +1,14 @@
+{
+    "Id": 1,
+    "Location": [
+        {
+            "MapName": "FirstRoom",
+            "Position": [
+                5,
+                2
+            ]
+        }
+    ],
+    "EventName": "Conversation correct",
+    "TriggerType": 1
+}

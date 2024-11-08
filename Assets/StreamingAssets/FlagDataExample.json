@@ -1,7 +1,5 @@
 {
     "Flags": {
-        "flag1": true,
-        "flag2": false,
-        "flag3": true
+        "GetDiscFlag": false
     }
 }

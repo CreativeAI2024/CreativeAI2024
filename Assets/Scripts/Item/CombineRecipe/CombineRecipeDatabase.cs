@@ -36,7 +36,11 @@ public class CombineRecipeDatabase : ScriptableObject
     }
     public List<Item> GetPairIngredients(Item ingredientItem)
     {
-        return recipeDict[ingredientItem].Keys.ToList();
+        if (recipeDict.TryGetValue(ingredientItem, out Dictionary<Item, Item> pairIngredient))
+        {
+            return pairIngredient.Keys.ToList();
+        }
+        return new List<Item>();
     }
     
     public Item GetResultItem(Item ingredientA, Item ingredientB)
