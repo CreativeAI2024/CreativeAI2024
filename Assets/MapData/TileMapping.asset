@@ -118,9 +118,9 @@ MonoBehaviour:
   - symbol: 72
     tile: {fileID: 11400000, guid: 65b475b1b38ee96478da692d58ddc1e3, type: 2}
   - symbol: 73
-    tile: {fileID: 11400000, guid: 07ed6e234d5ffcb4193eaa65d0ad2227, type: 2}
-  - symbol: 74
     tile: {fileID: 11400000, guid: 2d8d7bb0335001845bbd2d8abf8260b4, type: 2}
+  - symbol: 74
+    tile: {fileID: 11400000, guid: 07ed6e234d5ffcb4193eaa65d0ad2227, type: 2}
   - symbol: 75
     tile: {fileID: 11400000, guid: f6fe729043cf4a34693f59951b00c8b3, type: 2}
   - symbol: 121
