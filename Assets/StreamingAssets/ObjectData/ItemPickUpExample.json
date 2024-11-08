@@ -1,0 +1,14 @@
+{
+    "Id": 1,
+    "Location": [
+        {
+            "MapName": "FirstRoom",
+            "Position": [
+                4,
+                4
+            ]
+        }
+    ],
+    "EventName": "GetItem Key",
+    "TriggerType": 2
+}

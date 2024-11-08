@@ -1,17 +1,19 @@
 using UnityEngine;
 
+// CollisionEnterを機能させるために必要
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public float unitDistance = 1f;
     public float speed = 3f;
-    public float allowDistance = 0.05f;
-    private bool _canMove = true;
-    private Vector3 _targetPosition = Vector3.zero;
-    private Vector3 _startPosition = Vector3.zero;
-    private Rigidbody2D _myRigidbody;
+    public float allowDistance = 0.03f;
+    private bool _canInput = true;
+    private Vector2Int _targetPosition = Vector2Int.zero;
+    private Vector2Int _startPosition = Vector2Int.zero;
     private Transform _playerTransform;
     private InputSetting _inputSetting;
+    private Vector2Int _lastinputVector;
+    
+    public Vector2Int Direction { get; private set; }
     
     private void Start()
     {
@@ -20,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void OnStart()
     {
-        _myRigidbody = GetComponent<Rigidbody2D>();
         _inputSetting = InputSetting.Load();
         _playerTransform = transform;
     }
@@ -28,61 +29,66 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_canMove)
+        if (_canInput)
         {
-            Vector3 inputVector = GetInputVector();
-            if (inputVector != Vector3.zero)
+            _lastinputVector = GetInputVector();
+            if (_lastinputVector != Vector2Int.zero)
             {
-                _canMove = false;
+                _canInput = false;
+                Direction = _lastinputVector;
             }
-            InputMove(inputVector);
+            _startPosition = GetGridPosition();
+            _targetPosition = _startPosition + _lastinputVector;
         }
-        MoveEnd();
+        else
+        {
+            Move(new Vector3(_lastinputVector.x, _lastinputVector.y, 0));
+            MoveEnd();
+        }
+
     }
 
-    Vector3 GetInputVector()
+    Vector2Int GetInputVector()
     {
-        Vector3 vector = Vector3.zero;
+        Vector2Int vector = Vector2Int.zero;
         if (_inputSetting.GetForwardKey())
         {
-            vector += Vector3.up;
+            vector += Vector2Int.up;
         }
         if (_inputSetting.GetLeftKey())
         {
-            vector += Vector3.left;
+            vector += Vector2Int.left;
         }
         if (_inputSetting.GetBackKey())
         {
-            vector += Vector3.down;
+            vector += Vector2Int.down;
         }
         if (_inputSetting.GetRightKey())
         {
-            vector += Vector3.right;
+            vector += Vector2Int.right;
         }
-        vector *= unitDistance;
-        return vector;
+        Vector2Int result = vector.x * vector.x + vector.y * vector.y != 1 ?
+            Vector2Int.zero : vector;
+        return result;
     }
 
-    protected virtual void InputMove(Vector3 vector)
+    protected virtual void Move(Vector3 vector)
     {
-        _startPosition = _playerTransform.position;
-        _targetPosition = _startPosition + vector;
-        _myRigidbody.velocity = vector * speed;
+        _playerTransform.position += vector * (Time.deltaTime * speed);
     }
 
     void MoveEnd()
     {
-        if (_canMove) return;
-        if (Vector3.Distance(_targetPosition, _playerTransform.position) >= allowDistance) return;
+        Vector3 targetVector = new Vector3(_targetPosition.x, _targetPosition.y, 0);
+        if (Vector3.Distance(targetVector, _playerTransform.position) >= allowDistance) return;
         
-        _playerTransform.position = _targetPosition;
+        _playerTransform.position = targetVector;
         MovePrepare();
     }
 
     protected virtual void MovePrepare()
     {
-        _myRigidbody.velocity = Vector3.zero;
-        _canMove = true;
+        _canInput = true;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -92,7 +98,12 @@ public class PlayerController : MonoBehaviour
 
     protected void ResetPosition()
     {
-        _playerTransform.position = _startPosition;
+        _playerTransform.position = new Vector3(_startPosition.x, _startPosition.y, 0);
         MovePrepare();
-    } 
+    }
+    
+    public Vector2Int GetGridPosition()
+    {
+        return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+    }
 }
