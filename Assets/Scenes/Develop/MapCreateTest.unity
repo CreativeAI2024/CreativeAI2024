@@ -309,18 +309,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae148c830c1b9243a366d6edc66eb03, type: 3}
---- !u!114 &885127977 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7756570872455522836, guid: 8ae148c830c1b9243a366d6edc66eb03,
-    type: 3}
-  m_PrefabInstance: {fileID: 885127976}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb57924a9831ae40859d6f674c12fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1462334000 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 975195158262473547, guid: 49d27c0371ce12744bb22dab9bf2ab49,
@@ -375,9 +363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc792b5d35f76c94f86aa034b078d1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileInfo: {fileID: 885127977}
+  player: {fileID: 1724447241}
   inventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  itemDatabase: {fileID: 11400000, guid: 5e7be567e6646ae4c942f7263212adce, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 401a7bd10bda2814bbf4e58f2e2f2e68, type: 2}
   pause: {fileID: 0}
 --- !u!114 &1598217839
 MonoBehaviour:
@@ -394,7 +382,7 @@ MonoBehaviour:
   objectEngine: {fileID: 1598217838}
   mapEngine: {fileID: 1462334001}
   mapDataController: {fileID: 1462334000}
-  mapName: MapDataExample
+  mapName: FirstRoom
 --- !u!4 &1598217840
 Transform:
   m_ObjectHideFlags: 0
@@ -410,6 +398,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1724447241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5792109113550638988, guid: 8ae148c830c1b9243a366d6edc66eb03,
+    type: 3}
+  m_PrefabInstance: {fileID: 885127976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f138105fcf5d05f4c910d14ed37f4e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1816628100
 GameObject:
   m_ObjectHideFlags: 0

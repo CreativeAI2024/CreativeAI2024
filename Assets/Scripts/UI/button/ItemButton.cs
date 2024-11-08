@@ -1,6 +1,4 @@
-using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
@@ -11,11 +9,11 @@ public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
     private Item item;
     private GameObject menuUI;
     public int Index => transform.GetSiblingIndex();
-    
+
     public void Initialize(Item item, GameObject menuUI, ItemImageWindow itemImageWindow, DescriptionWindow descriptionWindow)
     {
-        itemName.text = item.ItemName;
         this.item = item;
+        itemName.text = item.ItemName;
         this.itemImageWindow = itemImageWindow;
         this.descriptionWindow = descriptionWindow;
         this.menuUI = menuUI;
@@ -27,7 +25,11 @@ public class ItemButton : MonoBehaviour, IPushedObject, IFocusedObject
     }
     public void OnDecideKeyDown()
     {
-        Debug.Log(item.ItemName+" pushed.");
+        if (item.HasContentText())
+        {
+            menuUI.SetActive(false);
+            ConversationTextManager.Instance.Initialize(item.ContentTextFilePath);
+        }
     }
     
     public void OnCancelKeyDown()

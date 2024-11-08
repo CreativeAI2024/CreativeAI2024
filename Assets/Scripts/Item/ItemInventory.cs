@@ -45,26 +45,12 @@ public class ItemInventory : ScriptableObject
     
     public void Add(Item item)
     {
-        if (itemDict.ContainsValue(item))
-        {
-            item.IncrementCount();
-        }
-        else
-        {
-            itemDict.Add(item.ItemName, item);
-        }
+        itemDict.Add(item.ItemName, item);
     }
 
     public void Remove(Item item)
     {
-        if (item.Count > 1)
-        {
-            item.DecrementCount();
-        }
-        else
-        {
-            itemDict.Remove(item.ItemName);
-        }
+        itemDict.Remove(item.ItemName);
     }
 
     public void TryCombine(Item item)

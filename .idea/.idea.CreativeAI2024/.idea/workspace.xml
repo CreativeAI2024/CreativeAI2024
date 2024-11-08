@@ -5,59 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/FlagDataExample.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FlagDataExample.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Item/book_open_yoko.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/Item/book_open_yoko.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Images/SearchGame.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Bible.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuUISwitch.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MenuUISwitch.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/ItemContentText.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/ItemContentText/bible.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/ItemContentText/bible.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Items/ItemDatabase.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Conversation_Window.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Conversation_Window.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam/Global Volume Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ForVisualTeam/Global Volume Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ItemCombine.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ItemCombine.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Labo.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Labo.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapCreateTest.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapCreateTest.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapEngine.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapEngine.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapTest.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapTest.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MenuUI.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MenuUI.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ObjectEventTest.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ObjectEventTest.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PaperGame.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PaperGame.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SoundManager.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SoundManager.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TimingGame.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TimingGame.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/FlagManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/FlagManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/CombineRecipe/CombineRecipeDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/CombineRecipe/CombineRecipeDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/MenuUI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/MenuUI.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MapFromVisualTeam/Map.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapFromVisualTeam/Map.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Window/DescriptionWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Window/DescriptionWindow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Window/ItemWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Window/ItemWindow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/CombineRecipeDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/CombineRecipeDatabase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/CombineRecipeDatabase.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/CombineRecipeDatabase.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/Key.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/Key.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/Key.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/Key.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/WholeLetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/WholeLetter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/CombineRecipes/WholeLetter.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/CombineRecipes/WholeLetter.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Disc.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Disc.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Disc.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Disc.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/FormarLetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/FormarLetter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/FormarLetter.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/FormarLetter.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemInventory.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemDatabase.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Bible.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemInventory.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/ItemInventory.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemInventory.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Key.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Key.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Key.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Key.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/LatterLetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/LatterLetter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/LatterLetter.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/LatterLetter.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Stick.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Stick.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Stick.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Stick.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/WholeLetter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/WholeLetter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/WholeLetter.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/WholeLetter.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Yuri.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Yuri.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/Yuri.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Yuri.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/kuchinashi.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Kuchinashi.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Items/kuchinashi.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/Kuchinashi.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/MapCreateTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Develop/MapCreateTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/MenuUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Develop/MenuUI.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/Item.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/ItemInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapEngine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/MapEngine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/TileMapping.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/TileMapping.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/WalkableTiles.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapEngine/WalkableTiles.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TileInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TileInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/FlagDataExample.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/FlagDataExample.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/MapDataExample.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/MapDataExample.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/ObjectData/ObjectDataExample.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/ObjectData/ObjectDataExample.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Cursor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Cursor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/ItemButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/ItemButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/SwitchWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/SwitchWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemImageWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/FirstRoom.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/MapData/FirstRoom.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,18 +80,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04af773e223344bd9a56d36a602cfd4220a00/2a/3ca783e3/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55fbbbd17b724c15b6abe8c1a3e3289c175c00/74/4cbf0f4f/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55fbbbd17b724c15b6abe8c1a3e3289c175c00/b9/69e747e9/Time.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scenes/ForVisualTeam.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scenes/ForVisualTeam.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapEngine/MapDataController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapEngine/MapDataController.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapEngine/MapDataController.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapMove/MapEvent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapMove/MapEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scenes/Develop/MenuUI.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scenes/Develop/MenuUI.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/ScriptableObject/Items/ItemDatabase.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/ScriptableObject/Items/ItemDatabase.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/ScriptableObject/Items/ItemDatabase.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/ScriptableObject/Items/ItemDatabase.asset.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/EventObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/ScriptEngine/EventObject.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/ScriptEngine/EventObject.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/ScriptEngine/EventObject.cs.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/ScriptEngine/EventObject.cs.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -94,27 +97,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/scriptengine&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.EditorConfig&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging feat/scriptengine",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.EditorConfig",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\kawak\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\kawak\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Build\CreativeAI2024.exe" />
@@ -201,6 +204,8 @@
       <workItem from="1730978613907" duration="68000" />
       <workItem from="1730983215580" duration="6798000" />
       <workItem from="1730990752881" duration="1226000" />
+      <workItem from="1731046347759" duration="664000" />
+      <workItem from="1731047180755" duration="1585000" />
     </task>
     <servers />
   </component>

@@ -1,8 +1,8 @@
-name: MacOS Build
+name: Build
   
 on:
   push:
-    branches: feat/scriptengine
+    branches: develop
   workflow_dispatch: {}
 
 # 連続して実行されたときに一つ前の実行中のジョブが停止されるようにする
@@ -18,6 +18,7 @@ jobs:
       matrix:
         targetPlatform:
           - StandaloneOSX
+          - StandaloneWindows64
           
     steps:
       # Actionsがリポジトリにアクセスできるようにする
@@ -35,7 +36,7 @@ jobs:
           restore-keys: Library-
 
       # MacOSBuildする
-      - name: Run the StandaloneOSX build
+      - name: Run the Build
         uses: game-ci/unity-builder@v4.2.3
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
