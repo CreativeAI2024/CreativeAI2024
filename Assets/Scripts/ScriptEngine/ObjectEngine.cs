@@ -155,7 +155,7 @@ public class ObjectEngine : MonoBehaviour
     {
         DebugLogger.Log("Conversation", DebugLogger.Colors.Cyan);
         pause.PauseAll();
-        ConversationTextManager.Instance.Initialize(fileName);
+        ConversationTextManager.Instance.InitializeFromJson(fileName);
         talkFlag = true;
     }
     
