@@ -6,12 +6,13 @@ public class CheckCurrentSelected : MonoBehaviour
     private InputSetting _inputSetting;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private Cursor cursor;
+    private GameObject lastSelected;
 
     void Start()
     {
         _inputSetting = InputSetting.Load();
+        lastSelected = EventSystem.current.gameObject;
     }
-
     void Update()
     {
         if (!menuUI.activeInHierarchy)
@@ -19,33 +20,28 @@ public class CheckCurrentSelected : MonoBehaviour
             return;
         }
         GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
-        if (currentSelected == null)
-        {
-            return;
-        }
-        cursor.Focus(currentSelected.transform.position);
-        if (_inputSetting.GetForwardKeyDown() || _inputSetting.GetBackKeyDown() || _inputSetting.GetLeftKeyDown() || _inputSetting.GetRightKeyDown() || _inputSetting.GetMenuKeyDown())
+        cursor.Focus(lastSelected.transform.position);
+        if (currentSelected != lastSelected)
         {
             OnFocused(currentSelected);
         }
-        else if (_inputSetting.GetDecideKeyDown())
+        if (_inputSetting.GetDecideKeyDown())
         {
-            OnFocused(currentSelected);
-            IPushedObject pushedObject = currentSelected.GetComponent<IPushedObject>();
+            OnFocused(lastSelected);
+            IPushedObject pushedObject = lastSelected.GetComponent<IPushedObject>();
             pushedObject.OnDecideKeyDown();
         }
         else if (_inputSetting.GetCancelKeyDown())
         {
-            OnFocused(currentSelected);
-            IPushedObject pushedObject = currentSelected.GetComponent<IPushedObject>();
+            OnFocused(lastSelected);
+            IPushedObject pushedObject = lastSelected.GetComponent<IPushedObject>();
             pushedObject.OnCancelKeyDown();
         }
-
-
+        lastSelected = EventSystem.current.currentSelectedGameObject;
     }
-    private void OnFocused(GameObject currentSelected)
+    private void OnFocused(GameObject selected)
     {
-        if (currentSelected.TryGetComponent<IFocusedObject>(out var focusedObject))
+        if (selected.TryGetComponent<IFocusedObject>(out var focusedObject))
         {
             focusedObject.OnFocused();
         }

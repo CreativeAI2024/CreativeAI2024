@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ConversationTextManager : DontDestroySingleton<ConversationTextManager>
@@ -21,7 +22,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     {
         base.Awake();
         _inputSetting = InputSetting.Load();
-        //Initiallize("nantokaKaiwa");
+        //InitializeFromString("nantokaKaiwa");
+        //InitializeFromJson("parallelTest");
     }
 
     void Update()
@@ -43,7 +45,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideKeyUp() && lineNumber < talkData.Content.Length - 1)
                 {
-                    ChangeFlag();
+                    ChangeQuestionData();
                     ChangeLine(1);
                     DisplayText();
                     DebugLogger.Log("NextLine");
@@ -57,22 +59,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                 else
                 {
                     SoundManager.Instance.StopBGM();
-                    Content talkDataContent = talkData.Content[lineNumber];
-                    if (talkDataContent.QuestionData != null)
-                    {
-                        ChangeFlag();
-                        if (talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData != null)  //会話分岐
-                        {
-                            initializeFlag = false;
-                            Initialize(talkDataContent.QuestionData[question.GetCursorPlace()].NextTalkData);
-                        }
-                    }
-                    else
-                    {
-                        contentObject.SetActive(false);
-                        initializeFlag = false;
-                        return;
-                    }
+                    ChangeQuestionData();
+                    EndConversation();
                 }
             }
             else if (unitTime > -0.45f)
@@ -100,7 +88,23 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         mainTextDrawer.NextLineIcon();
     }
 
-    public void Initialize(string fileName)
+    public void InitializeFromString(string text)
+    {
+        talkData = new TalkData();
+        talkData.Content = new Content[1];
+        talkData.Content[0] = new Content();
+        talkData.Content[0].Text = text;
+        Initialize();
+    }
+
+    public void InitializeFromJson(string fileName)
+    {
+        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
+        talkData = SaveUtility.JsonToData<TalkData>(filePath);
+        Initialize();
+    }
+
+    private void Initialize()
     {
         if (initializeFlag)
             return;
@@ -108,8 +112,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         initializeFlag = true;
 
         contentObject.SetActive(true);
-        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
-        talkData = SaveUtility.JsonToData<TalkData>(filePath);
 
         lineNumber = 0;
         unitTime = -1f;
@@ -172,20 +174,53 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         mainTextDrawer.InitializeLine();
     }
 
-    private void ChangeFlag()
+    private void ChangeQuestionData()
     {
-        Content talkDataContent = talkData.Content[lineNumber];
-        if (talkData.Content[lineNumber].QuestionData != null)
+        QuestionData[] questionData = talkData.Content[lineNumber].QuestionData;
+        if (questionData == null) 
+            return;
+
+        var nextFlag = questionData[question.GetCursorPlace()].NextFlag;
+        if (nextFlag == null) 
+            return;
+
+        ChangeFlag(nextFlag);
+    }
+
+    private void ChangeFlag(KeyValuePair<string, bool>[] nextFlag)
+    {
+        foreach (KeyValuePair<string, bool> flags in nextFlag)
         {
-            DebugLogger.Log(talkDataContent.QuestionData[question.GetCursorPlace()].ChangeFlagValue);
-            if (talkDataContent.QuestionData[question.GetCursorPlace()].ChangeFlagValue)
+            string flagName = flags.Key;
+            bool flagValue = flags.Value;
+            DebugLogger.Log(flagName+":"+ flagValue);
+            if (flagValue)
             {
-                FlagManager.Instance.AddFlag(talkDataContent.QuestionData[question.GetCursorPlace()].NextFlag);
+                FlagManager.Instance.AddFlag(flagName);
             }
-            else if (!talkData.Content[lineNumber].QuestionData[question.GetCursorPlace()].ChangeFlagValue)
+            else
             {
-                FlagManager.Instance.DeleteFlag(talkDataContent.QuestionData[question.GetCursorPlace()].NextFlag);
+                FlagManager.Instance.DeleteFlag(flagName);
             }
+        }
+    }
+
+    private void EndConversation()
+    {
+        QuestionData[] questionData = talkData.Content[lineNumber].QuestionData;
+        string nextTalkData = null;
+        if (questionData != null)
+        {
+            nextTalkData = questionData[question.GetCursorPlace()].NextTalkData;
+        }
+
+        initializeFlag = false;
+        if (nextTalkData != null){  //会話分岐
+            InitializeFromJson(nextTalkData);
+        }
+        else
+        {
+            contentObject.SetActive(false);
         }
     }
 }

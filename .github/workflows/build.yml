@@ -1,4 +1,4 @@
-name: Windows Build
+name: Build
   
 on:
   push:
@@ -17,8 +17,8 @@ jobs:
     strategy:
       matrix:
         targetPlatform:
-          - StandaloneWindows64 # Build a Windows 64-bit standalone.
-          - WebGL # WebGL.
+          - StandaloneOSX
+          - StandaloneWindows64
           
     steps:
       # Actionsがリポジトリにアクセスできるようにする
@@ -35,8 +35,8 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**','ProjectSettings/**') }}
           restore-keys: Library-
 
-      # WindowsBuildする
-      - name: Run the Windows build
+      # MacOSBuildする
+      - name: Run the Build
         uses: game-ci/unity-builder@v4.2.3
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
