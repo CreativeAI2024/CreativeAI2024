@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ConversationTextManager : DontDestroySingleton<ConversationTextManager>
@@ -89,14 +90,17 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     public void InitializeFromString(string text)
     {
-        LoadJson("nullTalk");
+        talkData = new TalkData();
+        talkData.Content = new Content[1];
+        talkData.Content[0] = new Content();
         talkData.Content[0].Text = text;
         Initialize();
     }
 
     public void InitializeFromJson(string fileName)
     {
-        LoadJson(fileName);
+        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
+        talkData = SaveUtility.JsonToData<TalkData>(filePath);
         Initialize();
     }
 
@@ -119,13 +123,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         //テキストを表示
         DisplayText();
     }
-
-    private void LoadJson(string fileName)
-    {
-        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
-        talkData = SaveUtility.JsonToData<TalkData>(filePath);
-    }
-
 
     public bool GetInitializeFlag()
     {
