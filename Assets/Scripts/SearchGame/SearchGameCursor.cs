@@ -8,25 +8,26 @@ public class SearchGameCursor : MonoBehaviour
     [SerializeField] private Sprite arrowCursor;
     [SerializeField] private Sprite handCursor;
     [SerializeField] private Transform cursorTip;
+    private Vector3 tipOffset;
     private Camera mainCamera;
     [SerializeField] private float speed = 3.0f;
     private bool isInputModeMouse = false;
+    private Vector2 leftDown;
+    private Vector2 rightUp;
     private Vector3 lastMousePosition;
-    private Vector2 leftdown;
-    private Vector2 rightup;
 
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        lastMousePosition = Input.mousePosition;
+        tipOffset = cursorTip.position-transform.position;
         mainCamera = Camera.main;
-        leftdown = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, -mainCamera.transform.position.z));
-        rightup = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -mainCamera.transform.position.z));
+        leftDown = mainCamera.ScreenToWorldPoint(new Vector3(0, 0, -mainCamera.transform.position.z));
+        rightUp = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -mainCamera.transform.position.z));
+        lastMousePosition = Input.mousePosition;
     }
 
     void Update()
     {
-        //TODO: マウスカーソル受け付けるようにする
         if (!isInputModeMouse && lastMousePosition != Input.mousePosition)
         {
             isInputModeMouse = true;
@@ -38,33 +39,34 @@ public class SearchGameCursor : MonoBehaviour
 
         if (isInputModeMouse)
         {
+            Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z));
+            float xPosition = Mathf.Clamp(mousePosition.x+tipOffset.x, leftDown.x, rightUp.x);
+            float yPosition = Mathf.Clamp(mousePosition.y+tipOffset.y, leftDown.y, rightUp.y);
+            transform.position = new Vector3(xPosition-tipOffset.x, yPosition-tipOffset.y, 0);
             lastMousePosition = Input.mousePosition;
-            float xPosition = Mathf.Clamp(lastMousePosition.x, 0, Screen.width);
-            float yPosition = Mathf.Clamp(lastMousePosition.y, 0, Screen.height);
-            transform.position = mainCamera.ScreenToWorldPoint(new Vector3(xPosition, yPosition, -mainCamera.transform.position.z));
         }
         else
         {
             Vector3 moveDirection = Vector3.zero;
             if (_inputSetting.GetForwardKey())
             {
-                moveDirection = Vector3.up;
+                moveDirection += Vector3.up;
             }
             if (_inputSetting.GetBackKey())
             {
-                moveDirection = Vector3.down;
+                moveDirection += Vector3.down;
             }
             if (_inputSetting.GetLeftKey())
             {
-                moveDirection = Vector3.left;
+                moveDirection += Vector3.left;
             }
             if (_inputSetting.GetRightKey())
             {
-                moveDirection = Vector3.right;
+                moveDirection += Vector3.right;
             }
-            float x = Mathf.Clamp(transform.position.x + speed * Time.deltaTime * moveDirection.x, leftdown.x, rightup.x);
-            float y = Mathf.Clamp(transform.position.y + speed * Time.deltaTime * moveDirection.y, leftdown.y, rightup.y);
-            transform.position = new Vector3(x, y, 0);
+            float xPosition = Mathf.Clamp(transform.position.x+tipOffset.x + speed * Time.deltaTime * moveDirection.x, leftDown.x, rightUp.x);
+            float yPosition = Mathf.Clamp(transform.position.y+tipOffset.y + speed * Time.deltaTime * moveDirection.y, leftDown.y, rightUp.y);
+            transform.position = new Vector3(xPosition-tipOffset.x, yPosition-tipOffset.y, 0);
         }
     }
     public void SetIsFocusing(bool isFocusing)
@@ -73,7 +75,7 @@ public class SearchGameCursor : MonoBehaviour
     }
     public void Reset()
     {
-        transform.position = Vector3.zero;
+        transform.position = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -mainCamera.transform.position.z));
         isInputModeMouse = false;
     }
 }

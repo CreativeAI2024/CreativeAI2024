@@ -558,6 +558,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SearchGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5529652224547406043, guid: 3f29adde3744846e6893516767e1deb8,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205623548664756011, guid: 3f29adde3744846e6893516767e1deb8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8366487769563831704, guid: 3f29adde3744846e6893516767e1deb8,
         type: 3}
       propertyPath: m_LocalPosition.x
