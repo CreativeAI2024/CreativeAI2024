@@ -31,6 +31,6 @@ public struct ChangeImage
 public struct QuestionData
 {
     public string Answer { get; set; }
-    public string NextFlag { get; set; }
+    public KeyValuePair<string, bool>[] NextFlag { get; set; }
     public string NextTalkData { get; set; }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4850648187054735461}
   - component: {fileID: 1143177171200847528}
   - component: {fileID: 5792109113550638988}
-  - component: {fileID: 7756570872455522836}
+  - component: {fileID: 8102794201189510991}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -173,10 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f138105fcf5d05f4c910d14ed37f4e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitDistance: 1
-  speed: 0.03
+  speed: 3
   allowDistance: 0.05
---- !u!114 &7756570872455522836
+--- !u!114 &8102794201189510991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,7 +184,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 9039608792375202708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb57924a9831ae40859d6f674c12fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: d3dd504e1f9bd5e48bc580f9294b13f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPositionStartDiff: {x: -0.5, y: -0.5}
+  playerController: {fileID: 5792109113550638988}
+  spriteRenderer: {fileID: 8713935481170672540}
+  characterIdleSprites:
+  - {fileID: 543551633, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 1878449068, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 662344160, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 1364871186, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  characterWalkSprites:
+  - {fileID: -1613921030, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 958469977, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: -554714401, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 1691117146, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  characterWalkSprites1:
+  - {fileID: 957819478, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 399351951, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 1864922934, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: -1960887065, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  timeClockInterval: 0.2
