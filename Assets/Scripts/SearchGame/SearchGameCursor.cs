@@ -3,7 +3,6 @@ using UnityEngine;
 public class SearchGameCursor : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    [SerializeField] private Renderer searchGame;
     [SerializeField] private SpriteRenderer cursorImage;
     [SerializeField] private Sprite arrowCursor;
     [SerializeField] private Sprite handCursor;
@@ -39,10 +38,7 @@ public class SearchGameCursor : MonoBehaviour
 
         if (isInputModeMouse)
         {
-            Vector3 mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z));
-            float xPosition = Mathf.Clamp(mousePosition.x+tipOffset.x, leftDown.x, rightUp.x);
-            float yPosition = Mathf.Clamp(mousePosition.y+tipOffset.y, leftDown.y, rightUp.y);
-            transform.position = new Vector3(xPosition-tipOffset.x, yPosition-tipOffset.y, 0);
+            UpdateCursorPosition(mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z)));
             lastMousePosition = Input.mousePosition;
         }
         else
@@ -64,9 +60,7 @@ public class SearchGameCursor : MonoBehaviour
             {
                 moveDirection += Vector3.right;
             }
-            float xPosition = Mathf.Clamp(transform.position.x+tipOffset.x + speed * Time.deltaTime * moveDirection.x, leftDown.x, rightUp.x);
-            float yPosition = Mathf.Clamp(transform.position.y+tipOffset.y + speed * Time.deltaTime * moveDirection.y, leftDown.y, rightUp.y);
-            transform.position = new Vector3(xPosition-tipOffset.x, yPosition-tipOffset.y, 0);
+            UpdateCursorPosition(transform.position+tipOffset + speed * Time.deltaTime * moveDirection);
         }
     }
     public void SetIsFocusing(bool isFocusing)
@@ -77,5 +71,12 @@ public class SearchGameCursor : MonoBehaviour
     {
         transform.position = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -mainCamera.transform.position.z));
         isInputModeMouse = false;
+    }
+    private void UpdateCursorPosition(Vector3 newPosition)
+    {
+            float xPosition = Mathf.Clamp(newPosition.x, leftDown.x, rightUp.x);
+            float yPosition = Mathf.Clamp(newPosition.y, leftDown.y, rightUp.y);
+            transform.position = new Vector3(xPosition-tipOffset.x, yPosition-tipOffset.y, 0);
+
     }
 }
