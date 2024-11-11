@@ -23,14 +23,17 @@ public class ItemInventory : ScriptableObject
     {
         return itemDict[item];
     }
+    
     public bool IsContains(Item searchedItem)
     {
         return itemDict.ContainsValue(searchedItem);
     }
+    
     public IEnumerable<Item> GetItems()
     {
         return itemDict.Values;
     }
+    
     public bool HasAnyPairIngredients(Item baseItem)
     {
         if (combineRecipeDatabase.IsCombinable(baseItem))
@@ -39,6 +42,7 @@ public class ItemInventory : ScriptableObject
         }
         return false;
     }
+    
     public void Add(Item item)
     {
         itemDict.Add(item.ItemName, item);
@@ -51,7 +55,9 @@ public class ItemInventory : ScriptableObject
 
     public void TryCombine(Item item)
     {
-        Item pairItem = combineRecipeDatabase.GetPairIngredients(item)[0];
+        List<Item> pairIngredients = combineRecipeDatabase.GetPairIngredients(item);
+        if (!pairIngredients.Any()) return;
+        Item pairItem = pairIngredients[0];
         if (IsContains(pairItem))
         {
             Remove(item);

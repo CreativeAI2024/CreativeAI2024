@@ -13,14 +13,117 @@ MonoBehaviour:
   m_Name: TileMapping
   m_EditorClassIdentifier: 
   tileEntries:
-  - symbol: 42
-    tile: {fileID: 11400000, guid: a0335da9d564f8844980b14eac176e70, type: 2}
   - symbol: 45
-    tile: {fileID: 11400000, guid: 74a47d4068970004fa8c9eeee5d33bce, type: 2}
+    tile: {fileID: 11400000, guid: bdde3a67cf68ee24680e5516fb38dcb1, type: 2}
+  - symbol: 126
+    tile: {fileID: 11400000, guid: db4f5bc8ffe935947a2b4653b8e5e22a, type: 2}
+  - symbol: 61
+    tile: {fileID: 11400000, guid: f60001d118a3c3d4fb4bf800b6bdeb87, type: 2}
+  - symbol: 94
+    tile: {fileID: 11400000, guid: 41f66ff87df052a4abdfef44565cd673, type: 2}
+  - symbol: 47
+    tile: {fileID: 11400000, guid: 0ff4c8933ede9304a95638bca9007428, type: 2}
+  - symbol: 33
+    tile: {fileID: 11400000, guid: a8f7b629a5ca10d4f9bba5e133d14de8, type: 2}
+  - symbol: 53
+    tile: {fileID: 11400000, guid: eaff97e1d1b1c9c4c9839210318423cf, type: 2}
+  - symbol: 52
+    tile: {fileID: 11400000, guid: f802bb86af3af3d41b6aa189e5befe61, type: 2}
+  - symbol: 54
+    tile: {fileID: 11400000, guid: 5e2f7cce7c252d644b3048b9b202a190, type: 2}
+  - symbol: 56
+    tile: {fileID: 11400000, guid: 7a481ab308f21564da4ce92861a83981, type: 2}
+  - symbol: 55
+    tile: {fileID: 11400000, guid: 139bc5ba115cc294692a5798e6189018, type: 2}
+  - symbol: 57
+    tile: {fileID: 11400000, guid: eb53425b3f7dc3d47a21f9ff24a0f883, type: 2}
+  - symbol: 50
+    tile: {fileID: 11400000, guid: 909dc418100f497498c0558ddaf461cf, type: 2}
+  - symbol: 49
+    tile: {fileID: 11400000, guid: f5a6a43e7bd2dd646b0194a2d02b6ddd, type: 2}
+  - symbol: 51
+    tile: {fileID: 11400000, guid: 4a5aa4e4df73ec74d9d08398e133dead, type: 2}
+  - symbol: 43
+    tile: {fileID: 11400000, guid: ce4fecd1fc3744f498de89dc94d3d88a, type: 2}
+  - symbol: 42
+    tile: {fileID: 11400000, guid: 87c7e32d77e2c9a4084b023d40d420d2, type: 2}
+  - symbol: 63
+    tile: {fileID: 11400000, guid: b222d73b91435424a9e3ca1dc3ab3bf3, type: 2}
+  - symbol: 76
+    tile: {fileID: 11400000, guid: 59d4e234e033ba84fb1b8ba494240d7a, type: 2}
+  - symbol: 122
+    tile: {fileID: 11400000, guid: 93ab34c1a58eb904a996c09a9772ae3f, type: 2}
+  - symbol: 98
+    tile: {fileID: 11400000, guid: d5b42b1816ffda14fb8ca1cd865b95ef, type: 2}
+  - symbol: 97
+    tile: {fileID: 11400000, guid: 1c6eb9ae74066c74793ec745fd9d8443, type: 2}
   - symbol: 99
-    tile: {fileID: 11400000, guid: a4c651d9b220cff40a6638ce704e92e4, type: 2}
+    tile: {fileID: 11400000, guid: 653575dde705e574c9523c17502bccc5, type: 2}
   - symbol: 100
-    tile: {fileID: 11400000, guid: a0dbd8be8e8aa6e4d8f8321025861e20, type: 2}
+    tile: {fileID: 11400000, guid: bb40ae4c55ed55e48bcd3c59a7480c68, type: 2}
+  - symbol: 101
+    tile: {fileID: 11400000, guid: 0a07e81c846ec7b4190c8f5d526eb2ca, type: 2}
+  - symbol: 102
+    tile: {fileID: 11400000, guid: a2f021b3a33b7a242ace1c8491f5ade4, type: 2}
+  - symbol: 103
+    tile: {fileID: 11400000, guid: 4e8673503bef8cd4783f0324dec6e993, type: 2}
+  - symbol: 104
+    tile: {fileID: 11400000, guid: 446ddc74091cf6145bd3d5a7a9c5c476, type: 2}
+  - symbol: 109
+    tile: {fileID: 11400000, guid: 953509c4926dbe84c8cecf52e0a03a55, type: 2}
+  - symbol: 108
+    tile: {fileID: 11400000, guid: de508a7a54568b24aacb534ead4da455, type: 2}
+  - symbol: 110
+    tile: {fileID: 11400000, guid: c09cd029f9cea1e4c82803b86be4b448, type: 2}
+  - symbol: 112
+    tile: {fileID: 11400000, guid: 3cad87800a15a83499efa0ee894ccf7d, type: 2}
+  - symbol: 111
+    tile: {fileID: 11400000, guid: 7c8a79dd8951b4a47b0cde60d158a23e, type: 2}
+  - symbol: 113
+    tile: {fileID: 11400000, guid: bad1b08bbbe449348beb8989feb059c3, type: 2}
+  - symbol: 106
+    tile: {fileID: 11400000, guid: 0dd6a2417d5a2df4eab8caa97fa5aee8, type: 2}
+  - symbol: 105
+    tile: {fileID: 11400000, guid: af84bd71249a78a438046a438b4c0817, type: 2}
+  - symbol: 107
+    tile: {fileID: 11400000, guid: a100b0e74f13a43458a41a147bc2ce39, type: 2}
+  - symbol: 114
+    tile: {fileID: 11400000, guid: 830f5db8267fc9b4da6ad40aed204422, type: 2}
+  - symbol: 115
+    tile: {fileID: 11400000, guid: 1fdfad05c8a0ace4f989e3174a22187f, type: 2}
+  - symbol: 116
+    tile: {fileID: 11400000, guid: 555b329bf3bb2934991ee4fc5972e407, type: 2}
+  - symbol: 117
+    tile: {fileID: 11400000, guid: 3d5a416b9adf4c6408f2d3fd48d6fa8a, type: 2}
+  - symbol: 118
+    tile: {fileID: 11400000, guid: 2f59f01048cb26a4c839fddfdee06fcc, type: 2}
+  - symbol: 65
+    tile: {fileID: 11400000, guid: 7cc35fdf480516a4985b9c30fcdc13de, type: 2}
+  - symbol: 66
+    tile: {fileID: 11400000, guid: 2d4c9840b15606140a98bf2bdc3ad7c4, type: 2}
+  - symbol: 67
+    tile: {fileID: 11400000, guid: 69206c29e8f9d124eaddda6a9290d3cb, type: 2}
+  - symbol: 68
+    tile: {fileID: 11400000, guid: 42319d9b06425ce4bb4c4c023b8ea3b3, type: 2}
+  - symbol: 69
+    tile: {fileID: 11400000, guid: 8de4bb51e1e11bb449d4a6b06c4bf419, type: 2}
+  - symbol: 70
+    tile: {fileID: 11400000, guid: cb8d85992bfe22142ae68cc6bb83f3f0, type: 2}
+  - symbol: 119
+    tile: {fileID: 11400000, guid: 40e093c39c68f79499ae74ee9e053232, type: 2}
+  - symbol: 120
+    tile: {fileID: 11400000, guid: c8d7ee6ae2e0b1240947fa785341ed66, type: 2}
+  - symbol: 71
+    tile: {fileID: 11400000, guid: f756490651214ed47bb646a05fe41c8f, type: 2}
+  - symbol: 72
+    tile: {fileID: 11400000, guid: 65b475b1b38ee96478da692d58ddc1e3, type: 2}
+  - symbol: 73
+    tile: {fileID: 11400000, guid: 2d8d7bb0335001845bbd2d8abf8260b4, type: 2}
+  - symbol: 74
+    tile: {fileID: 11400000, guid: 07ed6e234d5ffcb4193eaa65d0ad2227, type: 2}
+  - symbol: 75
+    tile: {fileID: 11400000, guid: f6fe729043cf4a34693f59951b00c8b3, type: 2}
+  - symbol: 121
+    tile: {fileID: 11400000, guid: 87400227a018db247bbafca67cf90019, type: 2}
   - symbol: 35
-    tile: {fileID: 11400000, guid: 0c67efc28853338418954a112c11e2da, type: 2}
-  walkableTileSymbols: 2d0000006400
+    tile: {fileID: 0}

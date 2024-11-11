@@ -5,19 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Title.unity
     guid: 99e549fd0878d0843acd41d90ace0e86
-  - enabled: 1
-    path: Assets/Scenes/ForVisualTeam.unity
+  - enabled: 0
+    path: Assets/Scenes/Develop/ForVisualTeam.unity
     guid: 56b757cbafa53444090425154dcb2ee3
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Develop/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: Assets/Scenes/MenuUI.unity
-    guid: 423fd098f7e0740f9a1d7e2856cd800a
+    path: Assets/Scenes/Develop/MenuUI.unity
+    guid: b2a7de4fb4cae4c41a2f7a1e5c581999
   - enabled: 0
-    path: Assets/Scenes/Labo.unity
+    path: Assets/Scenes/Develop/Labo.unity
     guid: 3d90aae69184d46b69f0426940b5b353
+  - enabled: 0
+    path: Assets/Scenes/Develop/MapCreateTest.unity
+    guid: df3fd5ece216a8348b92828fa2b94f57
+  - enabled: 1
+    path: Assets/Scenes/FirstRoom.unity
+    guid: c42e01a8c8d92214e99d55cf23935fb4
   m_configObjects: {}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ConversationTextManager : DontDestroySingleton<ConversationTextManager>
@@ -21,7 +22,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     {
         base.Awake();
         _inputSetting = InputSetting.Load();
-        //Initiallize("nantokaKaiwa");
+        //InitializeFromString("nantokaKaiwa");
+        //InitializeFromJson("parallelTest");
     }
 
     void Update()
@@ -86,7 +88,23 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         mainTextDrawer.NextLineIcon();
     }
 
-    public void Initialize(string fileName)
+    public void InitializeFromString(string text)
+    {
+        talkData = new TalkData();
+        talkData.Content = new Content[1];
+        talkData.Content[0] = new Content();
+        talkData.Content[0].Text = text;
+        Initialize();
+    }
+
+    public void InitializeFromJson(string fileName)
+    {
+        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
+        talkData = SaveUtility.JsonToData<TalkData>(filePath);
+        Initialize();
+    }
+
+    private void Initialize()
     {
         if (initializeFlag)
             return;
@@ -94,8 +112,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         initializeFlag = true;
 
         contentObject.SetActive(true);
-        string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");
-        talkData = SaveUtility.JsonToData<TalkData>(filePath);
 
         lineNumber = 0;
         unitTime = -1f;
@@ -200,7 +216,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         initializeFlag = false;
         if (nextTalkData != null){  //会話分岐
-            Initialize(nextTalkData);
+            InitializeFromJson(nextTalkData);
         }
         else
         {
