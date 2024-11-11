@@ -38,7 +38,7 @@ public class SearchGameCursor : MonoBehaviour
 
         if (isInputModeMouse)
         {
-            UpdateCursorPosition(mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z)));
+            transform.position = GetNewCursorPosition(mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z)));
             lastMousePosition = Input.mousePosition;
         }
         else
@@ -60,7 +60,7 @@ public class SearchGameCursor : MonoBehaviour
             {
                 moveDirection += Vector3.right;
             }
-            UpdateCursorPosition(transform.position+tipOffset + speed * Time.deltaTime * moveDirection);
+            transform.position = GetNewCursorPosition(transform.position+tipOffset + speed * Time.deltaTime * moveDirection);
         }
     }
     public void SetIsFocusing(bool isFocusing)
@@ -72,11 +72,11 @@ public class SearchGameCursor : MonoBehaviour
         transform.position = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, -mainCamera.transform.position.z));
         isInputModeMouse = false;
     }
-    private void UpdateCursorPosition(Vector3 newPosition)
+    private Vector3 GetNewCursorPosition(Vector3 newPosition)
     {
             float xPosition = Mathf.Clamp(newPosition.x, leftDown.x, rightUp.x);
             float yPosition = Mathf.Clamp(newPosition.y, leftDown.y, rightUp.y);
-            transform.position = new Vector3(xPosition-tipOffset.x, yPosition-tipOffset.y, 0);
+            return new Vector3(xPosition-tipOffset.x, yPosition-tipOffset.y, 0);
 
     }
 }
