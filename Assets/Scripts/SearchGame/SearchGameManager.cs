@@ -8,6 +8,7 @@ public class SearchGameManager : MonoBehaviour
     void Start()
     {
         _inputSetting = InputSetting.Load();
+        Cursor.visible = false;
     }
 
     void Update()
