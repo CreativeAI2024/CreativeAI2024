@@ -7,9 +7,35 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private Vector3 _initialPos;
     private RectTransform _rectTransform;
 
+    [SerializeField] private float speed;
+
     private void Start()
     {
         _rectTransform = this.GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+        Vector3 moveDirection = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            moveDirection += Vector3.up;
+        }
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            moveDirection += Vector3.down;
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            moveDirection += Vector3.left;
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            moveDirection += Vector3.right;
+        }
+
+        _rectTransform.position += moveDirection * speed * Time.deltaTime;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
