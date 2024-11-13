@@ -59,7 +59,7 @@ public class ObjectEngine : MonoBehaviour
     
     private void Update()
     {
-        if (_inputSetting.GetDecideKeyDown())
+        if (_inputSetting.GetDecideInputDown())
         {
             ObjectData aroundObjectData = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
             if (Call(aroundObjectData, 1, 2))
@@ -155,7 +155,7 @@ public class ObjectEngine : MonoBehaviour
     {
         DebugLogger.Log("Conversation", DebugLogger.Colors.Cyan);
         pause.PauseAll();
-        ConversationTextManager.Instance.Initialize(fileName);
+        ConversationTextManager.Instance.InitializeFromJson(fileName);
         talkFlag = true;
     }
     

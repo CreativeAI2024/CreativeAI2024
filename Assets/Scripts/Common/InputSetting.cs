@@ -67,9 +67,9 @@ public class InputSetting : ScriptableObject
     public bool GetRightKey() => GetAnyKey(rightKey);
     public bool GetRightKeyUp() => GetAnyKeyUp(rightKey);
     
-    public bool GetDecideKeyDown() => GetAnyKeyDown(decideKey);
-    public bool GetDecideKey() => GetAnyKey(decideKey);
-    public bool GetDecideKeyUp() => GetAnyKeyUp(decideKey);
+    public bool GetDecideInputDown() => GetAnyKeyDown(decideKey) || Input.GetMouseButtonDown(0);
+    public bool GetDecideInput() => GetAnyKey(decideKey) || Input.GetMouseButton(0);
+    public bool GetDecideInputUp() => GetAnyKeyUp(decideKey) || Input.GetMouseButtonUp(0);
     
     public bool GetCancelKeyDown() => GetAnyKeyDown(cancelKey);
     public bool GetCancelKey() => GetAnyKey(cancelKey);

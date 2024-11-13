@@ -6,18 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapData/TileMapping.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapFromVisualTeam.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapFromVisualTeam/Map.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapFromVisualTeam/Map.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_LowerLeft.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_LowerLeft.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_LowerLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_LowerLeft.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_LowerRight.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_LowerRight.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_LowerRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_LowerRight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_UpperLeft.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/toolShelf_UpperLeft.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/wall_light.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/wall_light.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/wall_light.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/wall_light.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/wall_light.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MapTile/MapTipFromVisual/wall_light.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Readme.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Readme.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/InputSetting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/InputSetting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/TestCombine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/TestCombine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Text/ConversationTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Text/ConversationTextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimingGame/TimingGameMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimingGame/TimingGameMain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Icons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Icons/URP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Icons/URP.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Layout.wlt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Layout.wlt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Readme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Readme.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,14 +41,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04af773e223344bd9a56d36a602cfd4220a00/2a/3ca783e3/Collider2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55fbbbd17b724c15b6abe8c1a3e3289c175c00/74/4cbf0f4f/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55fbbbd17b724c15b6abe8c1a3e3289c175c00/b9/69e747e9/Time.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scenes/Develop/MenuUI.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scenes/Develop/MenuUI.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/ScriptableObject/Items/ItemDatabase.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/ScriptableObject/Items/ItemDatabase.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/ScriptableObject/Items/ItemDatabase.asset.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/ScriptableObject/Items/ItemDatabase.asset.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/SaveUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Item/ItemDatabase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/EventObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/MapEngine/MapEngine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TileInfo.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -48,27 +57,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.EditorConfig&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat/input",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.EditorConfig",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\kawak\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\kawak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\kawak\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Downloads/新しいフォルダー (2)\CreativeAI2024.exe" />
@@ -159,6 +168,7 @@
       <workItem from="1731047180755" duration="1585000" />
       <workItem from="1731051801047" duration="9000" />
       <workItem from="1731053670140" duration="123000" />
+      <workItem from="1731054149936" duration="888000" />
     </task>
     <servers />
   </component>
