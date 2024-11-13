@@ -11,16 +11,15 @@ public class TimingSlider: MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float ascendSpeed;
     private float ascend; 
 
-    private void Update()
-    {
-        timingSlider.value += ascend;
-        fillImage.fillAmount = timingSlider.value;
-    }
-
     public void Initialize()
     {
         timingSlider = GetComponent<Slider>();
         RestartSlider();
+    }
+
+    public void AscendSlider()
+    {
+        timingSlider.value += ascend;
     }
 
     public void RestartSlider()  //スライダーが停止された後繰り返すため

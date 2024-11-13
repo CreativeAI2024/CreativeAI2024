@@ -27,15 +27,25 @@ public class TimingGame : MonoBehaviour
     
     private bool initializeFlag = false;
 
+    /*private void Start()
+    {
+        Initialize();
+    }*/
+
     void Update()
     {
         if (!initializeFlag) return;
 
         timeSchedule += Time.deltaTime;
+        if (_inputSetting.GetDecideKey())
+        {
+            timingSlider.AscendSlider();
+        }
         if (timeSchedule >= 0)
         {
-            if (_inputSetting.GetDecideKeyDown())
+            if (_inputSetting.GetDecideKeyUp())
             {
+                Debug.Log("A");
                 SaveScore();
                 timingSlider.SliderStop();
                 JudgeTextTiming();
@@ -58,7 +68,7 @@ public class TimingGame : MonoBehaviour
         timingSlider.Initialize();
         justTiming = timingBar.anchoredPosition.y / timingSlider.SliderCoordinateSpeed();  //判定の基準となる時間
         judgeText.text = "";
-        timeSchedule = 0.0f;
+        timeSchedule = -2.0f;
         attempt = 1;
     }
 

@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48371dbe08656b44b6fb1dd4a80f181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillImage: {fileID: 0}
+  fillImage: {fileID: 439528363704784827}
   ascendSpeed: 0.001
 --- !u!1 &4734954851944273505
 GameObject:
