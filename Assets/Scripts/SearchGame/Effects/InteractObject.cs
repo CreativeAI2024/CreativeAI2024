@@ -19,7 +19,7 @@ public class InteractObject : MonoBehaviour
     void Update()
     {
         if (!isFocused) return;
-        if (_inputSetting.GetDecideKeyDown() || Input.GetMouseButtonDown(0))
+        if (_inputSetting.GetDecideInputDown() || Input.GetMouseButtonDown(0))
         {
             effect.PlayEffect();
         }

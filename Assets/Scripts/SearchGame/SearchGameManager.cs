@@ -3,19 +3,37 @@ using UnityEngine;
 public class SearchGameManager : MonoBehaviour
 {
     private InputSetting _inputSetting;
+    private bool lastIsConversationWindowActive = false;
+    [SerializeField] private Pause pause;
     [SerializeField] private GameObject main;
-    [SerializeField] private SearchGameCursor searchGameCursor;
+    [SerializeField] private SearchGameCursorTip searchGameCursorTip;
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        Cursor.visible = false;
     }
 
     void Update()
     {
-        if (_inputSetting.GetCancelKeyDown())
+        if (lastIsConversationWindowActive)
         {
-            Inactivate();
+            if (!ConversationTextManager.Instance.GetInitializeFlag())
+            {
+                lastIsConversationWindowActive = false;
+                pause.UnPauseAll();
+            }
+        }
+        else
+        {
+            if (ConversationTextManager.Instance.GetInitializeFlag())
+            {
+                lastIsConversationWindowActive = true;
+                pause.PauseAll();
+            }
+            if (_inputSetting.GetCancelKeyDown())
+            {
+                Inactivate();
+            }
+
         }
     }
     public void Activate()
@@ -25,6 +43,6 @@ public class SearchGameManager : MonoBehaviour
     public void Inactivate()
     {
         main.SetActive(false);
-        searchGameCursor.Reset();
+        searchGameCursorTip.Reset();
     }
 }

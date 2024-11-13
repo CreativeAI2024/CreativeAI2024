@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ManagerTester : MonoBehaviour
 {
+    //サーチゲームの呼び出し&消しをテストするためのもの
     [SerializeField] private SearchGameManager searchGameManager;
     void Update()
     {

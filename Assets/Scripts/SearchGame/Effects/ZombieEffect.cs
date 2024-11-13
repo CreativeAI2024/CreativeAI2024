@@ -4,7 +4,7 @@ public class ZombieEffect : MonoBehaviour, IEffectable
 {
     public void PlayEffect()
     {
-        Debug.Log("へんじがない。");
-        Debug.Log("ただの　しかばね　のようだ。");
+        ConversationTextManager.Instance.InitializeFromString("Henji ga Nai. <br>Tadano Sikabane no Youda.");
+        DebugLogger.Log("Pause. ");
     }
 }
