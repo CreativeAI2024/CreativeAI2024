@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,13 +6,15 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class TimingSlider: MonoBehaviour
 {
-    private Slider timingSlider;
+    private Slider timingSlider; 
+    [SerializeField] private Image fillImage;
     [SerializeField, Range(0f, 1f)] private float ascendSpeed;
     private float ascend; 
 
     private void Update()
     {
         timingSlider.value += ascend;
+        fillImage.fillAmount = timingSlider.value;
     }
 
     public void Initialize()

@@ -6,7 +6,7 @@ using System;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class TimingGameMain : MonoBehaviour
+public class TimingGame : MonoBehaviour
 {
     [SerializeField] private TimingSlider timingSlider;
     [SerializeField] private RectTransform timingBar;
@@ -14,26 +14,23 @@ public class TimingGameMain : MonoBehaviour
     private InputSetting _inputSetting;
 
     [SerializeField] private int repeat;
-    private int attempt = 1;                    //現在の試行回数
+    private int attempt;                    //現在の試行回数
     private float timeSchedule;                 //時間制御用
 
-    [SerializeField] private string nextScene;
-    private List<float> timingResults = new();
+    //[SerializeField] private string nextScene;
+    private List<float> timingResults;
 
     [SerializeField, HeaderAttribute("単位:ms")] private float judgeGreat;  //判定その１
     [SerializeField] private float judgeGood;   //判定その２
     private float justTiming;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Initialize();
-        _inputSetting = InputSetting.Load();
-    }
+    
+    private bool initializeFlag = false;
 
-    // Update is called once per frame
     void Update()
     {
+        if (!initializeFlag) return;
+
         timeSchedule += Time.deltaTime;
         if (timeSchedule >= 0)
         {
@@ -50,11 +47,24 @@ public class TimingGameMain : MonoBehaviour
         }
     }
 
-    private void Initialize()
+    public void Initialize()
     {
+        if (initializeFlag)
+            return;
+
+        _inputSetting = InputSetting.Load();
+        timingResults = new();
+        initializeFlag = true;
         timingSlider.Initialize();
         justTiming = timingBar.anchoredPosition.y / timingSlider.SliderCoordinateSpeed();  //判定の基準となる時間
         judgeText.text = "";
+        timeSchedule = 0.0f;
+        attempt = 1;
+    }
+
+    public bool GetInitializeFlag()
+    {
+        return initializeFlag;
     }
 
     private float JustTimingDiff()  //判定とのずれ(時間)を返す
@@ -100,11 +110,11 @@ public class TimingGameMain : MonoBehaviour
             timingSlider.RestartSlider();
             timeSchedule = 0;
         }
-        else  //タイミングゲーの後は会話ウィンドウに遷移する
+        else  
         {
-            Debug.Log(CalcScoreAverage());
-            SceneManager.LoadScene(nextScene);
-            //ConversationTextManager.Instance.Initialize("");
+            //DebugLogger.Log(CalcScoreAverage());
+            initializeFlag = false;
+            ConversationTextManager.Instance.InitializeFromString(Convert.ToString(CalcScoreAverage()));
         }
     }
 
@@ -113,7 +123,7 @@ public class TimingGameMain : MonoBehaviour
         timingResults.Add(JustTimingDiffAbs());
     }
 
-    private float CalcScoreAverage()  //タイミングゲーの成績でテキストが変化するらしいのでtimingResultsの平均値を計算しておく
+    public float CalcScoreAverage()  //タイミングゲーの成績でテキストが変化するらしいのでtimingResultsの平均値を計算しておく
     {
         return timingResults.Average();
     }
