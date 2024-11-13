@@ -38,12 +38,12 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             mainTextDrawer.Typewriter();
         }
 
-        if (_inputSetting.GetDecideKeyUp() || _inputSetting.GetCancelKeyUp())
+        if (_inputSetting.GetDecideInputUp() || _inputSetting.GetCancelKeyUp())
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideKeyUp() && lineNumber < talkData.Content.Length - 1)
+                if (_inputSetting.GetDecideInputUp() && lineNumber < talkData.Content.Length - 1)
                 {
                     ChangeQuestionData();
                     ChangeLine(1);

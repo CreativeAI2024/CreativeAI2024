@@ -39,12 +39,12 @@ public class TimingGame : MonoBehaviour
         
         if (timeSchedule >= 0)
         {
-            if (_inputSetting.GetDecideKey())
+            if (_inputSetting.GetDecideInput())
             {
                 timingSlider.AscendSlider();
                 timeSchedule += Time.deltaTime;
             }
-            if (_inputSetting.GetDecideKeyUp())
+            if (_inputSetting.GetDecideInputUp())
             {
                 SaveScore();
                 timingSlider.SliderStop();
@@ -58,7 +58,7 @@ public class TimingGame : MonoBehaviour
         }
         else
         {
-            if (!_inputSetting.GetDecideKey())
+            if (!_inputSetting.GetDecideInput())
             {
                 timeSchedule += Time.deltaTime;
             }

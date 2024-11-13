@@ -25,7 +25,7 @@ public class MapEvent : MonoBehaviour
         if (!ConversationTextManager.Instance.GetInitializeFlag())
         {
             // 隣接するマスであったら
-            if (Vector2.Distance(player.GetGridPosition(), eventTilePosition) <= 1 && _inputSetting.GetDecideKeyDown())
+            if (Vector2.Distance(player.GetGridPosition(), eventTilePosition) <= 1 && _inputSetting.GetDecideInputDown())
             {
                 ConversationEvent();
             }
