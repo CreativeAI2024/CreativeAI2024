@@ -1,0 +1,32 @@
+{
+    "Id": 2,
+    "Location": {
+      "MapName": "",
+      "x": 0,
+      "y": 0
+    },
+    "EventName": "TimingGame",
+    "TriggerType": 1,
+    "FlagCondition": {
+      "Flag": [
+        {
+          "key": "Progress7",
+          "value": true
+        },
+        {
+            "key": "Progress8",
+            "value": false
+        },
+        {
+            "key": "Progress9",
+            "value": false
+        }
+      ],
+      "NextFlag": [
+        {
+            "key":"Progress7",
+            "value":false
+        }
+      ]
+    }
+  }

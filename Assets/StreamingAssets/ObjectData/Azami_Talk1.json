@@ -1,0 +1,36 @@
+{
+    "Id": 0,
+    "Location": {
+      "MapName": "",
+      "x": 0,
+      "y": 0
+    },
+    "EventName": "Conversation Azami_Talk1",
+    "TriggerType": 0,
+    "FlagCondition": {
+      "Flag": [
+        {
+          "key": "Progress2",
+          "value": true
+        },
+        {
+          "key": "Progress3",
+          "value": false
+        },
+        {
+            "key": "Azami_Talk1",
+            "value": true
+        },
+        {
+            "key": "Azami_Talk2",
+            "value": false
+        }
+      ],
+      "NextFlag": [
+        {
+            "key":"Azami_Talk2",
+            "value":true
+        }
+      ]
+    }
+  }

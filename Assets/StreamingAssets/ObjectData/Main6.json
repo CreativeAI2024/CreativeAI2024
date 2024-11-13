@@ -1,0 +1,18 @@
+{
+    "Id": 2,
+    "Location": {
+      "MapName": "reference_room",
+      "x": 0,
+      "y": 0
+    },
+    "EventName": "Conversation Main6",
+    "TriggerType": 0,
+    "FlagCondition": {
+      "Flag": [
+        {
+          "key": "Progress4",
+          "value": true
+        }
+      ]
+    }
+  }

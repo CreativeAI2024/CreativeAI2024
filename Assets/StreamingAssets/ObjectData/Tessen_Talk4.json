@@ -1,0 +1,29 @@
+{
+    "Id": 0,
+    "Location": {
+      "MapName": "",
+      "x": 0,
+      "y": 0
+    },
+    "EventName": "Conversation Tessen_Talk4",
+    "TriggerType": 0,
+    "FlagCondition": {
+      "Flag": [
+        {
+          "key": "Progress2",
+          "value": true
+        },
+        {
+          "key": "Progress3",
+          "value": false
+        },
+        {
+          "key": "Tessen_Talk4",
+          "value": true
+      }
+      Number_of_Materials>1
+    ],
+    "NextFlag": [
+    ]
+    }
+  }

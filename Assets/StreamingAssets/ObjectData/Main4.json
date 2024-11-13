@@ -1,0 +1,33 @@
+{
+    "Id": 2,
+    "Location": {
+      "MapName": "",
+      "x": 0,
+      "y": 0
+    },
+    "EventName": "Conversation Main4",
+    "TriggerType": 0,
+    "FlagCondition": {
+      "Flag": [
+        {
+          "key": "Progress2",
+          "value": true
+        },
+        {
+          "key": "Progress3",
+          "value": false
+        },
+        {
+          "key": "Symptoms2",
+          "value": false
+        }
+        Number_of_Materials = 2
+      ],
+      "NextFlag": [
+        {
+            "key":"Symptoms2",
+            "value":true
+        }
+      ]
+    }
+  }

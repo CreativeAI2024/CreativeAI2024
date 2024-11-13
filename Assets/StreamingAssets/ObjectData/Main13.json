@@ -1,0 +1,18 @@
+{
+    "Id": 2,
+    "Location": {
+      "MapName": "mirror_room",
+      "x": 0,
+      "y": 0
+    },
+    "EventName": "Conversation Main13",
+    "TriggerType": 1,
+    "FlagCondition": {
+      "Flag": [
+        {
+          "key": "Progress9",
+          "value": true
+        }
+      ]
+    }
+  }

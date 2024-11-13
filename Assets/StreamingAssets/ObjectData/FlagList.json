@@ -1,0 +1,39 @@
+{
+    "Flags":{
+        
+        "Progress0":true,
+        "Progress1":false,
+        "Progress2":false,
+        "Progress3":false,
+        "Progress4":false,
+        "Progress5":false,
+        "Progress6":false,
+        "Progress7":false,
+        "Progress8":false,
+        "Progress9":false,
+        "Progress10":false,
+
+        "Flesh":false,
+        "Blood":false,
+        "Worm":false,
+        "Organ":false,
+
+        "Symptoms1":false,
+        "Symptoms2":false,
+        "Symptoms3":false,
+
+        "Azami_Talk1":false,
+        "Azami_Talk2":false,
+        "Azami_Talk3":false,
+        "Azami_Talk4":false,
+        "Azami_Talk_END":false,
+
+        "Tessen_Talk1":false,
+        "Tessen_Talk2":false,
+        "Tessen_Talk3":false,
+        "Tessen_Talk4":false,
+        "Tessen_Talk_END":false,
+
+        "T_information":false
+    }
+}
