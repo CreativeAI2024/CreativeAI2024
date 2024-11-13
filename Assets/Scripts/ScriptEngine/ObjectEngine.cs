@@ -3,14 +3,13 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ObjectEngine : MonoBehaviour
 {
     private ObjectData[][] _eventObjects;
     private ObjectData[][] _trapEventObjects;
     
-    [FormerlySerializedAs("tileInfo")] [SerializeField] private PlayerController player;
+    [SerializeField] private PlayerController player;
     [SerializeField] private ItemInventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
     [SerializeField] private Pause pause;
@@ -61,13 +60,13 @@ public class ObjectEngine : MonoBehaviour
     {
         if (_inputSetting.GetDecideKeyDown())
         {
-            ObjectData aroundObjectData = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
+            ObjectData aroundObjectData = _eventObjects[player.GetPlayerGridPosition().x + player.Direction.x][player.GetPlayerGridPosition().y + player.Direction.y];
             if (Call(aroundObjectData, 1, 2))
             {
                 DebugLogger.Log("eee");
                 return;
             }
-            ObjectData centerObjectData = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
+            ObjectData centerObjectData = _eventObjects[player.GetPlayerGridPosition().x][player.GetPlayerGridPosition().y];
             if (Call(centerObjectData, 2))
             {
                 return;
@@ -80,9 +79,9 @@ public class ObjectEngine : MonoBehaviour
             talkFlag = false;
         }
         
-        if (player.GetGridPosition() == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
-        _pastGridPosition = player.GetGridPosition();
-        ObjectData trapObjectData = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
+        if (player.GetPlayerGridPosition() == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
+        _pastGridPosition = player.GetPlayerGridPosition();
+        ObjectData trapObjectData = _trapEventObjects[player.GetPlayerGridPosition().x][player.GetPlayerGridPosition().y];
         Call(trapObjectData, 0);
     }
     
@@ -95,7 +94,10 @@ public class ObjectEngine : MonoBehaviour
         {
             return false;
         }
-        CallEvent(objectData.EventName);
+        foreach (string eventString in objectData.EventName.Split(" | "))
+        {
+            CallEvent(eventString);
+        }
         if (objectData.FlagCondition.NextFlag is not null)
         {
             SetNextFlag(objectData.FlagCondition.NextFlag);
@@ -109,8 +111,11 @@ public class ObjectEngine : MonoBehaviour
         string eventName = eventArgs[0];
         switch (eventName)
         {
-            case "MapMove":
-                MapMove(eventArgs[1]);
+            case "PlayerMove":
+                PlayerMove(eventArgs[1]);
+                break;
+            case "SceneChange":
+                SceneChange(eventArgs[1]);
                 break;
             case "Conversation":
                 Conversation(eventArgs[1]);
@@ -146,9 +151,17 @@ public class ObjectEngine : MonoBehaviour
         }
     }
     
-    private void MapMove(string mapName)
+    private void SceneChange(string sceneName)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(mapName);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+    }
+    
+    private void PlayerMove(string movedPos)
+    {
+        string[] position = movedPos.Split(',');
+        int movedX = int.Parse(position[0]);
+        int movedY = int.Parse(position[1]);
+        player.transform.position = new Vector3(movedX, movedY, 0);
     }
     
     private void Conversation(string fileName)

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f138105fcf5d05f4c910d14ed37f4e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapDataController: {fileID: 0}
   speed: 3
   allowDistance: 0.05
 --- !u!114 &8102794201189510991
@@ -190,18 +191,18 @@ MonoBehaviour:
   playerController: {fileID: 5792109113550638988}
   spriteRenderer: {fileID: 8713935481170672540}
   characterIdleSprites:
-  - {fileID: 543551633, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: 1878449068, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: 662344160, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: 1364871186, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: -1763708617, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: -1769644570, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 1381963624, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 886654563, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
   characterWalkSprites:
-  - {fileID: -1613921030, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: 958469977, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: -554714401, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: 1691117146, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 1871264975, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 634139238, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: -258675095, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: -445356273, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
   characterWalkSprites1:
-  - {fileID: 957819478, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: 399351951, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: 1864922934, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
-  - {fileID: -1960887065, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 1039659999, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 1930328524, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: -1208994437, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  - {fileID: 259334490, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
   timeClockInterval: 0.2

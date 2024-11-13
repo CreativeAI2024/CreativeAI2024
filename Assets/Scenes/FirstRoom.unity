@@ -443,6 +443,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1143177171200847528, guid: 8ae148c830c1b9243a366d6edc66eb03,
         type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143177171200847528, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1143177171200847528, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.28
       objectReference: {fileID: 0}
@@ -503,81 +513,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5792109113550638988, guid: 8ae148c830c1b9243a366d6edc66eb03,
         type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792109113550638988, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
       propertyPath: tileInfo
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
+    - target: {fileID: 5792109113550638988, guid: 8ae148c830c1b9243a366d6edc66eb03,
         type: 3}
-      propertyPath: characterIdleSprites.Array.data[0]
+      propertyPath: mapDataController
       value: 
-      objectReference: {fileID: -1763708617, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterIdleSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: -1769644570, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterIdleSprites.Array.data[2]
-      value: 
-      objectReference: {fileID: 1381963624, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterIdleSprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 886654563, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterWalkSprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 1871264975, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterWalkSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 634139238, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterWalkSprites.Array.data[2]
-      value: 
-      objectReference: {fileID: -258675095, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterWalkSprites.Array.data[3]
-      value: 
-      objectReference: {fileID: -445356273, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterWalkSprites1.Array.data[0]
-      value: 
-      objectReference: {fileID: 1039659999, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterWalkSprites1.Array.data[1]
-      value: 
-      objectReference: {fileID: 1930328524, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterWalkSprites1.Array.data[2]
-      value: 
-      objectReference: {fileID: -1208994437, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
-    - target: {fileID: 8102794201189510991, guid: 8ae148c830c1b9243a366d6edc66eb03,
-        type: 3}
-      propertyPath: characterWalkSprites1.Array.data[3]
-      value: 
-      objectReference: {fileID: 259334490, guid: 8906ffd1bc8480242bc2fccd9b5b9957,
-        type: 3}
+      objectReference: {fileID: 1462334000}
     - target: {fileID: 8713935481170672540, guid: 8ae148c830c1b9243a366d6edc66eb03,
         type: 3}
       propertyPath: m_Size.x
@@ -858,7 +806,7 @@ MonoBehaviour:
   objectEngine: {fileID: 1598217838}
   mapEngine: {fileID: 1462334001}
   mapDataController: {fileID: 1462334000}
-  mapName: FirstRoom
+  mapName: mirror_room
 --- !u!4 &1598217840
 Transform:
   m_ObjectHideFlags: 0

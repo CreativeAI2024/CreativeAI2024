@@ -43,4 +43,11 @@ public class MapDataController : MonoBehaviour
     {
         return new Vector2Int(mapData.Tiles[0].Length, mapData.Tiles.Length);
     }
+    
+    public Vector2Int ConvertGridPosition(Vector2Int gridPosition)
+    {
+        int clampedXPos = Mathf.Clamp(gridPosition.x, 0, GetMapSize().x - 1);
+        int clampedYPos = Mathf.Clamp(gridPosition.y, 0, GetMapSize().y - 1);
+        return new Vector2Int(clampedXPos, clampedYPos);
+    }
 }
