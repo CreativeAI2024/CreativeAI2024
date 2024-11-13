@@ -36,24 +36,32 @@ public class TimingGame : MonoBehaviour
     {
         if (!initializeFlag) return;
 
-        timeSchedule += Time.deltaTime;
-        if (_inputSetting.GetDecideKey())
-        {
-            timingSlider.AscendSlider();
-        }
+        
         if (timeSchedule >= 0)
         {
+            if (_inputSetting.GetDecideKey())
+            {
+                timingSlider.AscendSlider();
+                timeSchedule += Time.deltaTime;
+            }
             if (_inputSetting.GetDecideKeyUp())
             {
-                Debug.Log("A");
                 SaveScore();
                 timingSlider.SliderStop();
                 JudgeTextTiming();
                 timeSchedule = -2.0f;
             }
-        }else if(-0.1f < timeSchedule && timeSchedule < 0)
+        }else if(-0.1f < timeSchedule && timeSchedule < -0.05f)
         {
             EndTimingGame();
+            timeSchedule += Time.deltaTime;
+        }
+        else
+        {
+            if (!_inputSetting.GetDecideKey())
+            {
+                timeSchedule += Time.deltaTime;
+            }
         }
     }
 
@@ -68,7 +76,7 @@ public class TimingGame : MonoBehaviour
         timingSlider.Initialize();
         justTiming = timingBar.anchoredPosition.y / timingSlider.SliderCoordinateSpeed();  //判定の基準となる時間
         judgeText.text = "";
-        timeSchedule = -2.0f;
+        timeSchedule = -0.04f;
         attempt = 1;
     }
 
@@ -118,7 +126,7 @@ public class TimingGame : MonoBehaviour
             attempt++;
             judgeText.text = "";
             timingSlider.RestartSlider();
-            timeSchedule = 0;
+            timeSchedule = 0.0f;
         }
         else  
         {

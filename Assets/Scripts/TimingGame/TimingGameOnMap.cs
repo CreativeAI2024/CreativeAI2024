@@ -24,7 +24,7 @@ public class TimingGameOnMap : MonoBehaviour
         if (!TimingGameManager.Instance.GetInitializeFlag())
         {
             // 隣接するマスであったら
-            if (Vector2.Distance(player.GetGridPosition(), eventTilePosition) <= 1 && _inputSetting.GetDecideKeyUp())
+            if (Vector2.Distance(player.GetGridPosition(), eventTilePosition) <= 1 && _inputSetting.GetDecideKeyDown())
             {
                 TimingGameEvent();
             }
