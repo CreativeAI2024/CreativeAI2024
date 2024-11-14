@@ -15,6 +15,10 @@ public class ComponentReferenceTest
         foreach (var obj in GetAllSceneObjects())
         {
             int missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj);
+            if (missingScriptCount > 0)
+            {
+                Debug.Log("missingScriptCount > 0 !");
+            }
             Assert.Zero(missingScriptCount, $"Missing Component: {obj.scene.name} > {obj.name}");
         }
     }
