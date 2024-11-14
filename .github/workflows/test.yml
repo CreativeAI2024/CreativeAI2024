@@ -58,11 +58,11 @@ jobs:
           path: ${{ steps.tests.outputs.artifactsPath }}
       
       - name: Check
-      - uses: LouisBrunner/checks-action@v2.0.0
-      if: always()
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        name: Check Tests
-        conclusion: ${{ job.status }}
-        output: |
-          {"summary":"${{ steps.test.outputs.summary }}"}
+        uses: LouisBrunner/checks-action@v2.0.0
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Check Tests
+          conclusion: ${{ job.status }}
+          output: |
+            {"summary":"${{ steps.test.outputs.summary }}"}
