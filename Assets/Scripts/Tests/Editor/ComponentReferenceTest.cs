@@ -12,11 +12,20 @@ public class ComponentReferenceTest
     public void ReferenceTestSimplePasses()
     {
         // Use the Assert class to test conditions
+        string scenename = "";
+        string lastobjname = "";
+        int missingScriptCountSum = 0;
         foreach (var obj in GetAllSceneObjects())
         {
             int missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj);
-            Assert.Zero(missingScriptCount, $"Missing Component: {obj.scene.name} > {obj.name}");
+            missingScriptCountSum += missingScriptCount;
+            if (missingScriptCount > 0)
+            {
+                scenename = obj.scene.name;
+                lastobjname = obj.name;
+            }
         }
+        Assert.Zero(missingScriptCountSum, $"Last Missing Component: {scenename} > {lastobjname}");
     }
     
     public static List<GameObject> GetAllSceneObjects()
