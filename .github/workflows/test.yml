@@ -2,7 +2,7 @@ name: Build
   
 on:
   push:
-    branches: develop
+    branches: feat/autotestrunner
   workflow_dispatch: {}
 
 # 連続して実行されたときに一つ前の実行中のジョブが停止されるようにする
