@@ -37,7 +37,7 @@ jobs:
 
       # Testする
       - name: Run the Test
-        uses: game-ci/unity-testrunner@v4.3.1
+        uses: game-ci/unity-test-runner@v4.3.1
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
