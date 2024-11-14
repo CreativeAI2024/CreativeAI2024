@@ -1,4 +1,4 @@
-name: Build
+name: Test
   
 on:
   push:
@@ -54,5 +54,5 @@ jobs:
         uses: actions/upload-artifact@v4.4.0
         if: always()
         with:
-          name: Test results for Unity2022.3.27f1
+          name: Test results for ${{ strategy.targetPlatform }}
           path: ${{ steps.tests.outputs.artifactsPath }}
