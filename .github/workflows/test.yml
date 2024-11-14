@@ -59,10 +59,10 @@ jobs:
       
       - name: Check
       - uses: LouisBrunner/checks-action@v2.0.0
-      if: always()
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        name: Check Tests
-        conclusion: ${{ job.status }}
-        output: |
-          {"summary":"${{ steps.test.outputs.summary }}"}
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Check Tests
+          conclusion: ${{ job.status }}
+          output: |
+            {"summary":"${{ steps.test.outputs.summary }}"}
