@@ -48,11 +48,3 @@ jobs:
           unityVersion: 2022.3.27f1
           testMode: ${{ matrix.testMode }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-
-      # Test成果物をアップロードする
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4.4.0
-        if: always()
-        with:
-          name: Test results for ${{ matrix.testMode }}
-          path: ${{ steps.tests.outputs.artifactsPath }}
