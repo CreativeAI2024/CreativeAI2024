@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-//using NUnit.Framework;
+using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ComponentReferenceTest
 {
-    /*
     // A Test behaves as an ordinary method
     [Test]
     public void ReferenceTestSimplePasses()
@@ -42,5 +41,5 @@ public class ComponentReferenceTest
         {
             FindRecursive(ref list, child.gameObject);
         }
-    }*/
+    }
 }
