@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestS/ComponentReferenceTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TestS/ComponentReferenceTest.cs" afterDir="false" />
-    </list>
+    <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +147,7 @@
       <workItem from="1731054149936" duration="888000" />
       <workItem from="1731569704541" duration="1529000" />
       <workItem from="1731591783070" duration="48000" />
-      <workItem from="1731595194759" duration="381000" />
+      <workItem from="1731595194759" duration="1044000" />
     </task>
     <servers />
   </component>

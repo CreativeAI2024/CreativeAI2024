@@ -20,6 +20,7 @@ public class ComponentReferenceTest
                 Debug.Log("missingScriptCount > 0 !");
             }
             Assert.Zero(missingScriptCount, $"Missing Component: {obj.scene.name} > {obj.name}");
+            Debug.Log("finish test!");
         }
     }
     
