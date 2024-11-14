@@ -58,7 +58,7 @@ jobs:
           path: ${{ steps.tests.outputs.artifactsPath }}
       
       - name: Check
-      - uses: LouisBrunner/checks-action@v2.0.0
+        uses: LouisBrunner/checks-action@v2.0.0
         if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
