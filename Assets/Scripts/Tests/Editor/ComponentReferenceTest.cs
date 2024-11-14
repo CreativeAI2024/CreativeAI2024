@@ -28,18 +28,6 @@ public class ComponentReferenceTest
         Assert.Zero(missingScriptCountSum, $"Last Missing Component: {scenename} > {lastobjname}");
     }
     
-    [Test]
-    public void SuccessTest()
-    {
-        Assert.Zero(0, "success!");
-    }
-    
-    [Test]
-    public void FailTest()
-    {
-        Assert.Zero(1, "failed!");
-    }
-    
     public static List<GameObject> GetAllSceneObjects()
     {
         var objs = new List<GameObject>();
