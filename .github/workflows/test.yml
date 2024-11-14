@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
   
 jobs:
-  unity-Build:
-    name: Run the unity build steps
+  unity-Test:
+    name: Run the unity test steps
     runs-on: ubuntu-latest
     strategy:
       matrix:
