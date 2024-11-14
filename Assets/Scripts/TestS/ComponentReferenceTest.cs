@@ -19,12 +19,6 @@ public class ComponentReferenceTest
         }
     }
     
-    [Test]
-    public void AbsoluteFailedTest()
-    {
-        Assert.Fail("failed!");
-    }
-    
     public static List<GameObject> GetAllSceneObjects()
     {
         var objs = new List<GameObject>();
