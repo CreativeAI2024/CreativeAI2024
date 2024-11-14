@@ -18,12 +18,12 @@ public class ComponentReferenceTest
         foreach (var obj in GetAllSceneObjects())
         {
             int missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj);
-            missingScriptCountSum += missingScriptCount;
             if (missingScriptCount > 0)
             {
                 scenename = obj.scene.name;
                 lastobjname = obj.name;
             }
+            missingScriptCountSum += missingScriptCount;
         }
         Assert.Zero(missingScriptCountSum, $"Last Missing Component: {scenename} > {lastobjname}");
     }
