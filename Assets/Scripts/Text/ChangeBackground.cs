@@ -11,7 +11,8 @@ public class ChangeBackground : MonoBehaviour
     [SerializeField] private Image[] images;
     Dictionary<string, Image> imagesDict = new Dictionary<string, Image>();
     Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
-    
+    //[SerializeField] Dictionary<string, string> statusSpriteAndFlags;  //_数字がつく前のSprite名と参照するフラグ名  例: Rei, ReiStatusFlag
+
     public void Initialize()
     {
         if (!imagesDict.Any())
@@ -42,10 +43,16 @@ public class ChangeBackground : MonoBehaviour
             if (imagesDict.ContainsKey(changeImage[i].ImageName) && spritesDict.ContainsKey(changeImage[i].SpriteName))
             {
                 imagesDict[changeImage[i].ImageName].sprite = spritesDict[changeImage[i].SpriteName];
-                Color color;
-                ColorUtility.TryParseHtmlString("#FFFFFF80", out color);
+                ColorUtility.TryParseHtmlString("#FFFFFFFF", out Color color);
                 imagesDict[changeImage[i].ImageName].color = color;
             }
+            /*else if (changeImage[i].ImageName.Equals(statusSpriteAndFlags.Keys.Any()))  //statusSpriteAndFlags.Keysに含まれる名称のとき
+            {
+                string hasStatusSpriteName = changeImage[i].SpriteName /*+ "_" + FlagManager.Instance.~~~(statusSpriteAndFlags.Values);
+                imagesDict[changeImage[i].ImageName].sprite = spritesDict[hasStatusSpriteName];
+                ColorUtility.TryParseHtmlString("#FFFFFFFF", out Color color);
+                imagesDict[changeImage[i].ImageName].color = color;
+            }*/
         }
     }
 }
