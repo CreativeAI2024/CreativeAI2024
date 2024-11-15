@@ -11,7 +11,6 @@ public class ChangeBackground : MonoBehaviour
     [SerializeField] private Image[] images;
     Dictionary<string, Image> imagesDict = new Dictionary<string, Image>();
     Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
-    //[SerializeField] Dictionary<string, string> statusSpriteAndFlags;  //_数字がつく前のSprite名と参照するフラグ名  例: Rei, ReiStatusFlag
 
     public void Initialize()
     {
@@ -34,26 +33,34 @@ public class ChangeBackground : MonoBehaviour
         }
     }
 
-    public void ChangeImages(ChangeImage[] changeImage)
+    public void ChangeImages(ChangeImage[] changeImages)
     {
         // 各スプライトと画像の名前を初期化
-        for (int i = 0; i < changeImage.Length; i++)
+        //for (int i = 0; i < changeImage.Length; i++)
+        foreach(var changeImage in changeImages) 
         {
+            string imageName = changeImage.ImageName;
+            string spriteName = changeImage.SpriteName;
             //テキストから指定されたImage,Spriteの名前とインスペクターで設定したImage,Spriteの名前が一致したとき
-            if (imagesDict.ContainsKey(changeImage[i].ImageName) && spritesDict.ContainsKey(changeImage[i].SpriteName))
+            if (imagesDict.ContainsKey(imageName))
             {
-                imagesDict[changeImage[i].ImageName].sprite = spritesDict[changeImage[i].SpriteName];
-                ColorUtility.TryParseHtmlString("#FFFFFFFF", out Color color);
-                imagesDict[changeImage[i].ImageName].color = color;
+                if (spriteName.StartsWith("Rei"))  //statusSpriteAndFlags.Keysに含まれる名称のとき
+                {
+                    ChangeSprite(imageName, $"{spriteName}_{FlagManager.Instance.ReiStatus}");
+                }else if (spritesDict.ContainsKey(spriteName))
+                {
+                    ChangeSprite(imageName, spriteName);
+                }
+
             }
-            /*else if (changeImage[i].ImageName.Equals(statusSpriteAndFlags.Keys.Any()))  //statusSpriteAndFlags.Keysに含まれる名称のとき
-            {
-                string hasStatusSpriteName = changeImage[i].SpriteName /*+ "_" + FlagManager.Instance.~~~(statusSpriteAndFlags.Values);
-                imagesDict[changeImage[i].ImageName].sprite = spritesDict[hasStatusSpriteName];
-                ColorUtility.TryParseHtmlString("#FFFFFFFF", out Color color);
-                imagesDict[changeImage[i].ImageName].color = color;
-            }*/
         }
+    }
+
+    private void ChangeSprite(string image,string sprite)
+    {
+        imagesDict[image].sprite = spritesDict[sprite];
+        ColorUtility.TryParseHtmlString("#FFFFFFFF", out Color color);
+        imagesDict[image].color = color;
     }
 }
 
