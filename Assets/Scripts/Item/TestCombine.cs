@@ -16,7 +16,7 @@ public class TestCombine : MonoBehaviour
     }
     void Update()
     {
-        if (_inputSetting.GetDecideKeyDown())
+        if (_inputSetting.GetDecideInputDown())
         {
             GetDisc();
         }

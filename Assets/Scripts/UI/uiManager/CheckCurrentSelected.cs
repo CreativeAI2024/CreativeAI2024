@@ -25,7 +25,7 @@ public class CheckCurrentSelected : MonoBehaviour
         {
             OnFocused(currentSelected);
         }
-        if (_inputSetting.GetDecideKeyDown())
+        if (_inputSetting.GetDecideInputDown())
         {
             OnFocused(lastSelected);
             IPushedObject pushedObject = lastSelected.GetComponent<IPushedObject>();
