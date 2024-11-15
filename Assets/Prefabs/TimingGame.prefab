@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillImage: {fileID: 439528363704784827}
-  ascendSpeed: 0.001
+  ascendSpeed: 0.2
 --- !u!1 &4734954851944273505
 GameObject:
   m_ObjectHideFlags: 0

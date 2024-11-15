@@ -19,7 +19,7 @@ public class TimingSlider: MonoBehaviour
 
     public void AscendSlider()
     {
-        timingSlider.value += ascend;
+        timingSlider.value += ascend * Time.deltaTime;
     }
 
     public void RestartSlider()  //スライダーが停止された後繰り返すため

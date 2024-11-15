@@ -93,6 +93,7 @@ public class TimingGame : MonoBehaviour
 
     private float JustTimingDiffAbs() //判定とのずれ(時間)を絶対値で返す
     {
+        
         return Math.Abs(JustTimingDiff());
     }
 
@@ -139,7 +140,7 @@ public class TimingGame : MonoBehaviour
 
     private void SaveScore()  //判定とのずれ(時間)を絶対値で保存する
     {
-        timingResults.Add(JustTimingDiffAbs());
+        timingResults.Add(JustTimingDiffAbs()*1000);
     }
 
     private float CalcScoreAverage()  //タイミングゲーの成績でテキストが変化するらしいのでtimingResultsの平均値を計算しておく
