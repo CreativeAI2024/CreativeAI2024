@@ -5,7 +5,7 @@
       "Text": "こちらが会話ウィンドウのサンプルになります。\n基本的な動作は安定して行えるはずです。",
       "ChangeImage": [
         {
-          "ImageName": "Panel",
+          "ImageName": "BackgroundPanel",
           "SpriteName": "bluePop"
         }
       ],
@@ -24,11 +24,11 @@
       "Text": "選択肢の表示もできます。",
       "ChangeImage": [
         {
-          "ImageName": "Panel",
+          "ImageName": "BackgroundPanel",
           "SpriteName": "void"
         },
         {
-          "ImageName": "TestPanel1",
+          "ImageName": "LeftPanel",
           "SpriteName": "1nomal"
         }
       ],
