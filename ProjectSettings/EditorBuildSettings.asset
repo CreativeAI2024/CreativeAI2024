@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Develop/MapCreateTest.unity
     guid: df3fd5ece216a8348b92828fa2b94f57
   - enabled: 1
-    path: Assets/Scenes/FirstRoom.unity
+    path: Assets/Scenes/MirrorRoom.unity
     guid: c42e01a8c8d92214e99d55cf23935fb4
   m_configObjects: {}
