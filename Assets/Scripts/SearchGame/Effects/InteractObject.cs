@@ -13,8 +13,11 @@ public class InteractObject : MonoBehaviour
     {
         _inputSetting = InputSetting.Load();
         effect = GetComponent<IEffectable>();
-        spriteRenderer.sprite.GetPhysicsShape(0, points);
-        polygonCollider2D.points = points.ToArray();
+        if (polygonCollider2D != null)
+        {
+            spriteRenderer.sprite.GetPhysicsShape(0, points);
+            polygonCollider2D.points = points.ToArray();
+        }
     }
     void Update()
     {

@@ -3,11 +3,11 @@ using UnityEngine;
 public class SearchGameCursor : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer cursorImage;
-    [SerializeField] private Sprite arrowCursor;
-    [SerializeField] private Sprite handCursor;
+    [SerializeField] private Sprite searchingCursor;
+    [SerializeField] private Sprite FoundCursor;
 
     public void SetIsFocusing(bool isFocusing)
     {
-        cursorImage.sprite = isFocusing ? handCursor : arrowCursor;
+        cursorImage.sprite = isFocusing ? FoundCursor : searchingCursor;
     }
 }
