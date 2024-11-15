@@ -14,8 +14,6 @@ public class ItemWindow : MonoBehaviour
     private readonly Dictionary<Item, GameObject> itemButtonDict = new();
     void OnEnable()
     {
-        DebugLogger.Log("itemImageWindow: "+itemImageWindow.gameObject.activeSelf);
-        DebugLogger.Log("descriptionWindow: "+descriptionWindow.gameObject.activeSelf);
         LoadItemInventory();
     }
     
@@ -31,7 +29,6 @@ public class ItemWindow : MonoBehaviour
         
         foreach (Item item in itemInventory.GetItems())
         {
-            DebugLogger.Log("item: "+item.ItemName);
             if (!itemButtonDict.ContainsKey(item))
             {
                 GameObject itemButton = MakeItemButton(item);
