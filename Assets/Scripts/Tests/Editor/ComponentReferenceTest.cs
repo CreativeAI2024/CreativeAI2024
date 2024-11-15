@@ -15,7 +15,7 @@ public class ComponentReferenceTest
         string scenename = "";
         string lastobjname = "";
         int missingScriptCountSum = 0;
-        foreach (var obj in GetAllSceneObjects())
+        foreach (var obj in Resources.FindObjectsOfTypeAll<GameObject>())
         {
             int missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj);
             if (missingScriptCount > 0)
