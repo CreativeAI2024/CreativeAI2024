@@ -23,7 +23,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         base.Awake();
         _inputSetting = InputSetting.Load();
         //InitializeFromString("nantokaKaiwa");
-        //InitializeFromJson("parallelTest");
+        InitializeFromJson("parallelTest");
     }
 
     void Update()
@@ -58,7 +58,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                 }
                 else
                 {
-                    SoundManager.Instance.StopBGM();
+                    //SoundManager.Instance.StopBGM();
                     ChangeQuestionData();
                     EndConversation();
                 }

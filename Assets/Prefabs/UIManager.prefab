@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7933b4f0a7834dedb6c2033125cbaca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDatabase: {fileID: 11400000, guid: 5e7be567e6646ae4c942f7263212adce, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 93d658e8ae2b07f4b948ddc43e48bebc, type: 2}
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   combineRecipeDatabase: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
     type: 2}
