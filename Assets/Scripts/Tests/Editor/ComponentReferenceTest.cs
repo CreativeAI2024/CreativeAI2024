@@ -12,10 +12,11 @@ public class ComponentReferenceTest
     public void ReferenceTestSimplePasses()
     {
         // Use the Assert class to test conditions
+        AssetDatabase.Refresh();
         string scenename = "";
         string lastobjname = "";
         int missingScriptCountSum = 0;
-        foreach (var obj in Resources.FindObjectsOfTypeAll<GameObject>())
+        foreach (var obj in GetAllSceneObjects())
         {
             int missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj);
             if (missingScriptCount > 0)
