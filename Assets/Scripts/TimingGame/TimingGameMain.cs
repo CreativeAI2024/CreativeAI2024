@@ -37,7 +37,7 @@ public class TimingGameMain : MonoBehaviour
         timeSchedule += Time.deltaTime;
         if (timeSchedule >= 0)
         {
-            if (_inputSetting.GetDecideKeyDown())
+            if (_inputSetting.GetDecideInputDown())
             {
                 SaveScore();
                 timingSlider.SliderStop();
