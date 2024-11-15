@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using NUnit.Framework;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -22,12 +23,12 @@ public class ComponentReferenceTest
         {
             string path = SceneUtility.GetScenePathByBuildIndex(i);
             var scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
-            Debug.Log(scene.name);
             foreach (var obj in scene.GetRootGameObjects())
             {
                 FindRecursive(ref objs, obj);
             }
         }
+        StringBuilder resultText = new StringBuilder();
         foreach (var obj in objs)
         {
             Component[] components = obj.GetComponents<Component>();
@@ -36,12 +37,11 @@ public class ComponentReferenceTest
                 if (component == null)
                 {
                     missingScriptCountSum++;
-                    scenename = obj.scene.name;
-                    lastobjname = obj.name;
+                    resultText.AppendLine($"Missing Component: {obj.scene.name} > {obj.name}");
                 }
             }
         }
-        Assert.Zero(missingScriptCountSum, $"Last Missing Component: {scenename} > {lastobjname}");
+        Assert.Zero(missingScriptCountSum, resultText.ToString());
     }
     
     private static void FindRecursive(ref List<GameObject> list, GameObject root)
