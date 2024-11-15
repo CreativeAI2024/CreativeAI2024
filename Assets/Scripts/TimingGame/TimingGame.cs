@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using System;
 using System.Linq;
-using UnityEngine.SceneManagement;
 
 public class TimingGame : MonoBehaviour
 {
@@ -24,6 +23,7 @@ public class TimingGame : MonoBehaviour
     [SerializeField] private float judgeGood;   //判定その２
     private float justTiming;
 
+    [SerializeField] TextMeshProUGUI AttemptNumber;
     
     private bool initializeFlag = false;
 
@@ -36,7 +36,6 @@ public class TimingGame : MonoBehaviour
     {
         if (!initializeFlag) return;
 
-        
         if (timeSchedule >= 0)
         {
             if (_inputSetting.GetDecideInput())
@@ -48,13 +47,14 @@ public class TimingGame : MonoBehaviour
             {
                 SaveScore();
                 timingSlider.SliderStop();
-                JudgeTextTiming();
+                //JudgeTextTiming();
                 timeSchedule = -2.0f;
             }
         }else if(-0.1f < timeSchedule && timeSchedule < -0.05f)
         {
             EndTimingGame();
             timeSchedule += Time.deltaTime;
+            AttemptNumber.text = "Attempt:<br><size=200>" + attempt + "/" + repeat + "</size>";
         }
         else
         {
@@ -78,6 +78,7 @@ public class TimingGame : MonoBehaviour
         judgeText.text = "";
         timeSchedule = -0.04f;
         attempt = 1;
+        AttemptNumber.text = "Attempt:<br><size=200>" + attempt + "/" + repeat + "</size>";
     }
 
     public bool GetInitializeFlag()
@@ -95,7 +96,7 @@ public class TimingGame : MonoBehaviour
         return Math.Abs(JustTimingDiff());
     }
 
-    private void JudgeTextTiming()  //基準に対し早いか遅いかを表示する 
+    /*private void JudgeTextTiming()  //基準に対し早いか遅いかを表示する 
     {
         if (JustTimingDiff() < 0)
         {
@@ -117,7 +118,7 @@ public class TimingGame : MonoBehaviour
         else if (JustTimingDiffAbs() < judgeGood) text += "<color=#00FF7F>Good</color>";
         else text += "<color=#0000FF>Bad</color>";
         judgeText.text = text;
-    }
+    }*/
 
     private void EndTimingGame()  //スライダーが停止された後の振る舞いを指定 rep:タイミングゲーを繰り返す回数
     {
@@ -141,7 +142,7 @@ public class TimingGame : MonoBehaviour
         timingResults.Add(JustTimingDiffAbs());
     }
 
-    public float CalcScoreAverage()  //タイミングゲーの成績でテキストが変化するらしいのでtimingResultsの平均値を計算しておく
+    private float CalcScoreAverage()  //タイミングゲーの成績でテキストが変化するらしいのでtimingResultsの平均値を計算しておく
     {
         return timingResults.Average();
     }

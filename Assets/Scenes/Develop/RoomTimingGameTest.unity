@@ -486,11 +486,22 @@ PrefabInstance:
     - target: {fileID: 6233757900128666215, guid: 3adabdce08ff301488255643da805a97,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6840677315107136924, guid: 3adabdce08ff301488255643da805a97,
         type: 3}
       propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914671014024492418, guid: 3adabdce08ff301488255643da805a97,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 27027204031222209, guid: 216a665d38a562b47966dab5e2fd9830,
+        type: 2}
+    - target: {fileID: 6914671014024492418, guid: 3adabdce08ff301488255643da805a97,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6981031872298725258, guid: 3adabdce08ff301488255643da805a97,
