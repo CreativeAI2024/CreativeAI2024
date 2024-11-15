@@ -22,6 +22,7 @@ public class ComponentReferenceTest
             {
                 scenename = obj.scene.name;
                 lastobjname = obj.name;
+                Assert.Fail($"Missing Component: {scenename} > {lastobjname}");
             }
             missingScriptCountSum += missingScriptCount;
         }
