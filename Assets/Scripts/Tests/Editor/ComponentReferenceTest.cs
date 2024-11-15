@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TestTools;
 
 public class ComponentReferenceTest
 {
@@ -15,32 +16,32 @@ public class ComponentReferenceTest
         string scenename = "";
         string lastobjname = "";
         int missingScriptCountSum = 0;
-        foreach (var obj in GetAllSceneObjects())
-        {
-            int missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj);
-            if (missingScriptCount > 0)
-            {
-                scenename = obj.scene.name;
-                lastobjname = obj.name;
-            }
-            missingScriptCountSum += missingScriptCount;
-        }
-        Assert.Zero(missingScriptCountSum, $"Last Missing Component: {scenename} > {lastobjname}");
-    }
-    
-    public static List<GameObject> GetAllSceneObjects()
-    {
         var objs = new List<GameObject>();
-        var count = SceneManager.sceneCount;
+        var count = SceneManager.sceneCountInBuildSettings;
         for (var i = 0; i < count; i++)
         {
-            var scene = SceneManager.GetSceneAt(i);
+            string path = SceneUtility.GetScenePathByBuildIndex(i);
+            var scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
+            Debug.Log(scene.name);
             foreach (var obj in scene.GetRootGameObjects())
             {
                 FindRecursive(ref objs, obj);
             }
         }
-        return objs;
+        foreach (var obj in objs)
+        {
+            Component[] components = obj.GetComponents<Component>();
+            foreach (Component component in components)
+            {
+                if (component == null)
+                {
+                    missingScriptCountSum++;
+                    scenename = obj.scene.name;
+                    lastobjname = obj.name;
+                }
+            }
+        }
+        Assert.Zero(missingScriptCountSum, $"Last Missing Component: {scenename} > {lastobjname}");
     }
     
     private static void FindRecursive(ref List<GameObject> list, GameObject root)
