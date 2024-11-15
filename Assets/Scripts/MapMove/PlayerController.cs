@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // CollisionEnterを機能させるために必要
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector2Int _startPosition = Vector2Int.zero;
     private Transform _playerTransform;
     private InputSetting _inputSetting;
-    private Vector2Int _lastinputVector;
+    public Vector2Int LastInputVector { get; private set; }
     
     public Vector2Int Direction { get; private set; }
     
@@ -31,18 +32,18 @@ public class PlayerController : MonoBehaviour
     {
         if (_canInput)
         {
-            _lastinputVector = GetInputVector();
-            if (_lastinputVector != Vector2Int.zero)
+            LastInputVector = GetInputVector();
+            if (LastInputVector != Vector2Int.zero)
             {
                 _canInput = false;
-                Direction = _lastinputVector;
+                Direction = LastInputVector;
             }
             _startPosition = GetGridPosition();
-            _targetPosition = _startPosition + _lastinputVector;
+            _targetPosition = _startPosition + LastInputVector;
         }
         else
         {
-            Move(new Vector3(_lastinputVector.x, _lastinputVector.y, 0));
+            Move(new Vector3(LastInputVector.x, LastInputVector.y, 0));
             MoveEnd();
         }
 
