@@ -19,7 +19,6 @@ public class Item : ScriptableObject
 
     public bool HasContentText()
     {
-        DebugLogger.Log("File.Exists(): "+File.Exists(string.Join('/', Application.streamingAssetsPath, "TalkData", contentTextFilePath + ".json")));
         return File.Exists(string.Join('/', Application.streamingAssetsPath, "TalkData", contentTextFilePath + ".json"));
     }
 }
