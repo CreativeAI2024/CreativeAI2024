@@ -6,7 +6,7 @@ using UnityEngine;
 public class FlagManager : DontDestroySingleton<FlagManager>
 {
     private Dictionary<string, bool> _flags;
-    private readonly string _flagFilePath = string.Join('/', Application.streamingAssetsPath, "FlagDataExample.json");
+    private readonly string _flagFilePath = string.Join('/', Application.streamingAssetsPath, "FlagList.json");
     private string _flagSaveFilePath;
     public override void Awake()
     {
