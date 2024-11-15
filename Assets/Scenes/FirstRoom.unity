@@ -897,7 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 885127978}
   inventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  itemDatabase: {fileID: 11400000, guid: 401a7bd10bda2814bbf4e58f2e2f2e68, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 93d658e8ae2b07f4b948ddc43e48bebc, type: 2}
   pause: {fileID: 1106138974}
 --- !u!114 &1598217839
 MonoBehaviour:
