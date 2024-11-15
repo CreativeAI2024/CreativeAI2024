@@ -22,10 +22,13 @@ public class ComponentReferenceTest
             {
                 if (component == null)
                 {
-                    // 欠損したスクリプトのコンポーネントを発見
-                    missingScriptCountSum++;
+                    //missingScriptCountSum++;
                     scenename = obj.scene.name;
                     lastobjname = obj.name;
+                }
+                else
+                {
+                    missingScriptCountSum++;
                 }
             }/*
             int missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj);
