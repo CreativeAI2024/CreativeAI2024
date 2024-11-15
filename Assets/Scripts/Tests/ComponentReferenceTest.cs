@@ -62,6 +62,7 @@ public class ComponentReferenceTest
         {
             string path = SceneUtility.GetScenePathByBuildIndex(i);
             var scene = SceneManager.GetSceneByPath(path);
+            EditorSceneManager.OpenScene("Assets/Scenes/Scene2.unity", OpenSceneMode.Additive);
             //yield return SceneManager.LoadSceneAsync(i);
             //var scene = SceneManager.GetActiveScene();
             Debug.Log(scene.name);
