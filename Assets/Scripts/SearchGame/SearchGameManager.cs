@@ -14,26 +14,26 @@ public class SearchGameManager : MonoBehaviour
 
     void Update()
     {
-        // if (lastIsConversationWindowActive)
-        // {
-        //     if (!ConversationTextManager.Instance.GetInitializeFlag())
-        //     {
-        //         lastIsConversationWindowActive = false;
-        //         pause.UnPauseAll();
-        //     }
-        // }
-        // else
-        // {
-        //     if (ConversationTextManager.Instance.GetInitializeFlag())
-        //     {
-        //         lastIsConversationWindowActive = true;
-        //         pause.PauseAll();
-        //     }
-        //     if (_inputSetting.GetCancelKeyDown())
-        //     {
-        //         Inactivate();
-        //     }
-        // }
+        if (lastIsConversationWindowActive)
+        {
+            if (!ConversationTextManager.Instance.GetInitializeFlag())
+            {
+                lastIsConversationWindowActive = false;
+                pause.UnPauseAll();
+            }
+        }
+        else
+        {
+            if (ConversationTextManager.Instance.GetInitializeFlag())
+            {
+                lastIsConversationWindowActive = true;
+                pause.PauseAll();
+            }
+            if (_inputSetting.GetCancelKeyDown())
+            {
+                Inactivate();
+            }
+        }
     }
     public void Activate()
     {
