@@ -71,6 +71,9 @@ public class ComponentReferenceTest
                     
                     var fileId = serializedProp.FindPropertyRelative("m_FileID");
                     if (fileId == null || fileId.intValue == 0) continue;
+                    
+                    if (serializedProp.propertyPath.Equals("m_fontAsset") || serializedProp.propertyPath.Equals("m_sharedMaterial")) continue;// fontをgitignoreに入れているので飛ばす
+                    
                     missingSerializeFieldCount++;
                     resultText.AppendLine($"Missing Component SerializeField: {obj.scene.name} > {obj.name} > {component.name} > {serializedProp.propertyPath}");
                 }
