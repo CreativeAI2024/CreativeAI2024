@@ -241,6 +241,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a18a89c0a68fb470195af23a6ae86c3b, type: 3}
+--- !u!4 &389570032 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4160821045265918383, guid: a18a89c0a68fb470195af23a6ae86c3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 389570031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &391875105
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 6233757900128666215, guid: 3adabdce08ff301488255643da805a97,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6840677315107136924, guid: 3adabdce08ff301488255643da805a97,
         type: 3}
@@ -670,12 +676,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!224 &836091117 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1366734700851715521, guid: a18a89c0a68fb470195af23a6ae86c3b,
-    type: 3}
-  m_PrefabInstance: {fileID: 389570031}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &885127976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1639,7 +1639,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 836091117}
+  - {fileID: 389570032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
