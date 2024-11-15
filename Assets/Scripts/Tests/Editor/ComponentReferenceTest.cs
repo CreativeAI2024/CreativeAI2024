@@ -12,12 +12,22 @@ public class ComponentReferenceTest
     public void ReferenceTestSimplePasses()
     {
         // Use the Assert class to test conditions
-        AssetDatabase.Refresh();
         string scenename = "";
         string lastobjname = "";
         int missingScriptCountSum = 0;
         foreach (var obj in GetAllSceneObjects())
         {
+            Component[] components = obj.GetComponents<Component>();
+            foreach (Component component in components)
+            {
+                if (component == null)
+                {
+                    // 欠損したスクリプトのコンポーネントを発見
+                    missingScriptCountSum++;
+                    scenename = obj.scene.name;
+                    lastobjname = obj.name;
+                }
+            }/*
             int missingScriptCount = GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(obj);
             if (missingScriptCount > 0)
             {
@@ -25,7 +35,7 @@ public class ComponentReferenceTest
                 lastobjname = obj.name;
                 Assert.Fail($"Missing Component: {scenename} > {lastobjname}");
             }
-            missingScriptCountSum += missingScriptCount;
+            missingScriptCountSum += missingScriptCount;*/
         }
         Assert.Zero(missingScriptCountSum, $"Last Missing Component: {scenename} > {lastobjname}");
     }
