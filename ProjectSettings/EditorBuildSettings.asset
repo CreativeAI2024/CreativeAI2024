@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuUI.unity
     guid: b2a7de4fb4cae4c41a2f7a1e5c581999
   - enabled: 0
-    path: Assets/Scenes/Develop/Labo.unity
-    guid: 3d90aae69184d46b69f0426940b5b353
-  - enabled: 0
     path: Assets/Scenes/Develop/MapCreateTest.unity
     guid: df3fd5ece216a8348b92828fa2b94f57
   - enabled: 1
