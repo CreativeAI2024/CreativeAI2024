@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6106726078461848979}
   - component: {fileID: 3995808759879896507}
   m_Layer: 5
-  m_Name: MenuUIWindows
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,43 +210,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1337623818280017242, guid: 1e2918022bb764f9f9d38c47bbbf3f2c,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8393189178685446769}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2918022bb764f9f9d38c47bbbf3f2c, type: 3}
---- !u!1 &1438936617255898795 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1337623818280017242, guid: 1e2918022bb764f9f9d38c47bbbf3f2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 101349667584447473}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8393189178685446769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438936617255898795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc294ff35e4dc4232af4ea32e576a5eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 5041852390176287214}
---- !u!114 &5041852390176287214 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4940540005057624607, guid: 1e2918022bb764f9f9d38c47bbbf3f2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 101349667584447473}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &5472000533692581005 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5375155565314381692, guid: 1e2918022bb764f9f9d38c47bbbf3f2c,
@@ -643,11 +608,6 @@ PrefabInstance:
       propertyPath: itemActionWindow
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 5835739034850782771, guid: 069adab3407a14a22934ad6dc0e207be,
-        type: 3}
-      propertyPath: descriptionWindow
-      value: 
-      objectReference: {fileID: 8393189178685446769}
     - target: {fileID: 7784938966900267030, guid: 069adab3407a14a22934ad6dc0e207be,
         type: 3}
       propertyPath: m_AnchorMax.x
