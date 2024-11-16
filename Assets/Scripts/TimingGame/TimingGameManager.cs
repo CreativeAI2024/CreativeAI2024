@@ -20,10 +20,7 @@ public class TimingGameManager : DontDestroySingleton<TimingGameManager>
         if (!timingGame.GetInitializeFlag())
         {
             timingGameObject.SetActive(false);
-            if (ConversationTextManager.Instance.OnConversationEnd)
-            {
-                initializeFlag = false;
-            }
+            ConversationTextManager.Instance.OnConversationEnd += EndTimingGame;
         }
     }
 
@@ -40,6 +37,11 @@ public class TimingGameManager : DontDestroySingleton<TimingGameManager>
     public bool GetInitializeFlag()
     {
         return initializeFlag;
+    }
+
+    private void EndTimingGame()
+    {
+        initializeFlag = false;
     }
 
 }
