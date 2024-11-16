@@ -18,7 +18,7 @@ public class GameStart : MonoBehaviour
 
     private void Update()
     {
-        if (_inputSetting.GetDecideKey() && EventSystem.current.currentSelectedGameObject == gameObject)
+        if (_inputSetting.GetDecideInput() && EventSystem.current.currentSelectedGameObject == gameObject)
         {
             
         }

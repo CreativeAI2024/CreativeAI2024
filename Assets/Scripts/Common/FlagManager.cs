@@ -7,6 +7,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
 {
     private Dictionary<string, bool> _flags;
     private readonly string _flagFilePath = string.Join('/', Application.streamingAssetsPath, "FlagList.json");
+    public int ReiStatus { get; private set; }
     private string _flagSaveFilePath;
     public override void Awake()
     {
@@ -16,7 +17,6 @@ public class FlagManager : DontDestroySingleton<FlagManager>
         {
             FlagData flags = SaveUtility.SaveFileToData<FlagData>(_flagSaveFilePath);
             _flags = flags.Flags;
-            _flags.Log();
             foreach (var v in _flags)
             {
                 v.Log();
@@ -32,6 +32,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
                 SaveFlag();
             }
         }
+        ReiStatus = PlayerPrefs.GetInt("ReiStatus",0);
     }
     
     public void AddFlag(string flagName)
@@ -55,5 +56,11 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     }
     
     public bool HasFlag(string flagName) => _flags[flagName];
+
+    public void SetReiStatus(int status)
+    {
+        PlayerPrefs.SetInt("ReiStatus", status);
+        ReiStatus = status;
+    }
 }
 

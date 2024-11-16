@@ -13,6 +13,11 @@ public class ObjectEngine : MonoBehaviour
     [SerializeField] private ItemInventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
     [SerializeField] private Pause pause;
+    
+    [SerializeField] private MapEngine mapEngine;
+    [SerializeField] private MapDataController mapDataController;
+    
+    [SerializeField] private string mapName;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
     private Vector2Int _oldGridPosition = new Vector2Int(-1, -1);
     private string itemTextJson = "incorrect";
@@ -21,10 +26,22 @@ public class ObjectEngine : MonoBehaviour
     private void Start()
     {
         _inputSetting = InputSetting.Load();
+        
+        mapDataController.LoadMapData(mapName);
+        mapEngine.Initialize();
+        int width = mapDataController.GetMapSize().x;
+        int height = mapDataController.GetMapSize().y;
+        mapDataController.SetChange(ResetAction);
+        Initialize(mapName, width, height);
+    }
+    
+    private void ResetAction()
+    {
+        Initialize(mapName, mapDataController.GetMapSize().x, mapDataController.GetMapSize().y);
     }
     
     // Start is called before the first frame update
-    public void Initialize(string mapName, int width, int height)
+    private void Initialize(string mapName, int width, int height)
     {
         _eventObjects = new ObjectData[width][];
         _trapEventObjects = new ObjectData[width][];
@@ -58,12 +75,11 @@ public class ObjectEngine : MonoBehaviour
     
     private void Update()
     {
-        if (_inputSetting.GetDecideKeyDown())
+        if (_inputSetting.GetDecideInputDown())
         {
             ObjectData aroundObjectData = _eventObjects[player.GetPlayerGridPosition().x + player.Direction.x][player.GetPlayerGridPosition().y + player.Direction.y];
             if (Call(aroundObjectData, 1, 2))
             {
-                DebugLogger.Log("eee");
                 return;
             }
             ObjectData centerObjectData = _eventObjects[player.GetPlayerGridPosition().x][player.GetPlayerGridPosition().y];
@@ -132,6 +148,11 @@ public class ObjectEngine : MonoBehaviour
             case "TimingGame":
                 DebugLogger.Log("timinggame");
                 break;
+            case "TileModify":
+                string[] positionStr = eventArgs[3].Split(',');
+                Vector2Int position = new Vector2Int(int.Parse(positionStr[0]), int.Parse(positionStr[1]));
+                TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position, eventArgs[4].ToCharArray()[0]);
+                break;
             default: throw new NotImplementedException();
         }
     }
@@ -168,7 +189,7 @@ public class ObjectEngine : MonoBehaviour
     {
         DebugLogger.Log("Conversation", DebugLogger.Colors.Cyan);
         pause.PauseAll();
-        ConversationTextManager.Instance.Initialize(fileName);
+        ConversationTextManager.Instance.InitializeFromJson(fileName);
         talkFlag = true;
     }
     
@@ -187,5 +208,11 @@ public class ObjectEngine : MonoBehaviour
         {
             inventory.TryCombine(item);
         }
+    }
+    
+    private void TileModify(string mapName, MapDataController.TileLayer layer, Vector2Int position, char tipSign)
+    {
+        mapDataController.ChangeMapTile(mapName, layer, position, tipSign);
+        mapDataController.ApplyMapChange();
     }
 }

@@ -5,8 +5,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a22d556-44c8-40e8-8929-6975aed2c1f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/FirstRoom.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/FirstRoom.unity.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/InitTestScene638672691966385087.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/InitTestScene638672755773015938.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor/ComponentReferenceTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CreativeAI2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TextWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TextWindow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TextWindow.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TextWindow.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI_old.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/MenuUI/MenuUI_old.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InitTestScene638672755773015938.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UIManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UIManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Readme.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Readme.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/Conversation_Window.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Develop/Conversation_Window.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/ForVisualTeam.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/ForVisualTeam.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InitTestScene638672691966385087.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/MapCreateTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Develop/MapCreateTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Develop/MenuUI.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Develop/MenuUI.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MirrorRoom.scenetemplate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MirrorRoom.scenetemplate.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MirrorRoom.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MirrorRoom.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObject/Items/ItemDatabase.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/FlagManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/FlagManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common/InputSetting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common/InputSetting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item/TestCombine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item/TestCombine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/MapEngine/MapDataController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/MapEngine/MapDataController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ScriptEngine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/MyClass.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/MyClass.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor/ComponentReferenceTest.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/ObjectDataExample.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/ObjectDataExample.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/SaveLoad.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/TalkDataExample.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/TalkDataExample.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/example.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TestScript/example.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Text/ChangeBackground.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Text/ChangeBackground.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Text/ConversationTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Text/ConversationTextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimingGame/TimingGameMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimingGame/TimingGameMain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/button/ItemButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/button/ItemButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/uiManager/CheckCurrentSelected.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/window/ItemWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/nantokaKaiwa.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/nantokaKaiwa.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/parallelTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/TalkData/parallelTest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Icons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Icons/URP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Icons/URP.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Layout.wlt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Layout.wlt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Readme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Readme.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +87,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55fbbbd17b724c15b6abe8c1a3e3289c175c00/b9/69e747e9/Time.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/55fbbbd17b724c15b6abe8c1a3e3289c175c00/c2/2e4a7322/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e79fb6b8b9ab474b8f0398fed96fa2af955c00/7c/60019b29/GameObjectUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/Common/FlagManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/Common/FlagManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/SaveUtility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Item/ItemDatabase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapMove/MapEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MapMove/MapEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/kawak/Desktop/CreativeAI2024/Assets/Scripts/MapMove/MapEvent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/EventObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/MapEngine/MapEngine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptEngine/ObjectEngine.cs" root0="FORCE_HIGHLIGHTING" />
@@ -43,7 +112,8 @@
   &quot;keyToString&quot;: {
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/story&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;1.034568&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging feat/story&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -62,7 +132,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Downloads/新しいフォルダー (2)\CreativeAI2024.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/Build\CreativeAI2024.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kawak\Desktop\クリエイティブAIビルド" />
       <option name="PASS_PARENT_ENVS" value="1" />
