@@ -6,6 +6,7 @@ using UnityEngine;
 public class FlagManager : DontDestroySingleton<FlagManager>
 {
     private Dictionary<string, bool> _flags;
+    public int ReiStatus { get; private set; }
     private readonly string _flagFilePath = string.Join('/', Application.streamingAssetsPath, "FlagDataExample.json");
     private string _flagSaveFilePath;
     public override void Awake()
@@ -32,6 +33,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
                 SaveFlag();
             }
         }
+        ReiStatus = PlayerPrefs.GetInt("ReiStatus",0);
     }
     
     public void AddFlag(string flagName)
@@ -55,5 +57,11 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     }
     
     public bool HasFlag(string flagName) => _flags[flagName];
+
+    public void SetReiStatus(int status)
+    {
+        PlayerPrefs.SetInt("ReiStatus", status);
+        ReiStatus = status;
+    }
 }
 
