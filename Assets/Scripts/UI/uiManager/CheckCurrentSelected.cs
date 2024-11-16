@@ -5,7 +5,7 @@ public class CheckCurrentSelected : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject menuUI;
-    [SerializeField] private Cursor cursor;
+    [SerializeField] private MenuUICursor cursor;
     private GameObject lastSelected;
 
     void Start()

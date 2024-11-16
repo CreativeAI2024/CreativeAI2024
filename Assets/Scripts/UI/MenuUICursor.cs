@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Cursor : MonoBehaviour
+public class MenuUICursor : MonoBehaviour
 {
     public void Focus(Vector3 destination)
     {
