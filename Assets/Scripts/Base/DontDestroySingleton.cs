@@ -20,6 +20,7 @@ public class DontDestroySingleton<T> : MonoBehaviour where T : Component
     }
     public virtual void Awake()
     {
+        DebugLogger.Log(typeof(T));
         RemoveDuplicates();
     }
     
