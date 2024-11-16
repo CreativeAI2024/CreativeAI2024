@@ -5,8 +5,8 @@
       "Text": "北海道上川郡上川町の河東郡上士幌町との境界にある大雪山系石狩岳の西斜面に源を発し、ここから上川盆地、石狩平野を経て石狩市で石狩湾へと注ぐ。この間に上川地方（塩狩峠以南）・空知地方・石狩地方の22の市町村を通過する。",
       "ChangeImage": [
         {
-          "ImageName": "LeftPanel",
-          "SpriteName": "Rei"
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "bluePop"
         }
       ],
       "BGM": "thinking1",

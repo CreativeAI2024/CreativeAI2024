@@ -55,6 +55,7 @@ public class ObjectEngine : MonoBehaviour
                 }
             }
         }
+        ConversationTextManager.Instance.OnConversationEnd += pause.UnPauseAll;
     }
     
     private void Update()
@@ -72,12 +73,6 @@ public class ObjectEngine : MonoBehaviour
             {
                 return;
             }
-        }
-        
-        if (talkFlag && !ConversationTextManager.Instance.GetInitializeFlag())
-        {
-            pause.UnPauseAll();
-            talkFlag = false;
         }
         
         if (player.GetGridPosition() == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
