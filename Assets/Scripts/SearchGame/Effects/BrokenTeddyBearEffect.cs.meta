@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/SearchGame/Effects/BrokenTeddyBearEffect.cs.meta
+guid: 3ed4e51f83bfc4cebb0068096899c0b5
+========
+guid: 8e067db35914a2847b02bc93bb608533
+>>>>>>>> 435375ea78cd1418ab073e6ba758541c313da0e0:Assets/Scripts/Tests/Editor/ComponentReferenceTest.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
