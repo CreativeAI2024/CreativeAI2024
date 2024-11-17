@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: Yuri
   m_EditorClassIdentifier: 
-  itemName: Yuri
-  descriptionText: ara~^
-  count: 3
+  itemName: "\u767E\u5408"
+  descriptionText: "\u9593\u306B\u5165\u308B\u306A"
   sprite: {fileID: 21300000, guid: 7445bc8978dce48c39b3c7cb0fa0720c, type: 3}
   contentTextFilePath: 
