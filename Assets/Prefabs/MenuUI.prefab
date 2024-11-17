@@ -274,8 +274,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScripts:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1135746764339961644}
+  - {fileID: 807300881604969642}
+  - {fileID: 391039611161667759}
   - {fileID: 7898760402459442629}
   - {fileID: 1682440499713030}
   - {fileID: 1887802649546726616}
