@@ -1,5 +1,11 @@
 {
-    "Flags": {
-        "GetDiscFlag": false
-    }
+  "Flags": {
+    "GetDiscFlag": false,
+    "PreTimingGame1": true,
+    "PreTimingGame2": false,
+    "StartTimingGame1": false,
+    "StartTimingGame2": false,
+    "SuccessTimingGame1": false,
+    "SuccessTimingGame2": false
+  }
 }

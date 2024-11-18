@@ -1,7 +1,7 @@
 {
-    "Flags": {
-        "flag1": true,
-        "flag2": false,
-        "flag3": true
-    }
+  "Flags": {
+    "flag1": true,
+    "flag2": false,
+    "flag3": true
+  }
 }

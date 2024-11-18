@@ -17,13 +17,17 @@ public class TimingGame : MonoBehaviour
 
     private List<float> timingResults;
 
+    [SerializeField, HeaderAttribute("単位:ms")] private float judgeSuccess;
     /*[SerializeField, HeaderAttribute("単位:ms")] private float judgeGreat;  //判定その１
     [SerializeField] private float judgeGood;   //判定その２*/
     private float justTiming;
+    private bool successFlag;
 
     [SerializeField] TextMeshProUGUI AttemptNumber;  //試行回数表示用
 
     private bool initializeFlag = false;
+    bool endFlag = false;
+    private int timingGameNumber;
 
     /*private void Start()
     {
@@ -67,12 +71,22 @@ public class TimingGame : MonoBehaviour
         if (initializeFlag)
             return;
 
+        if (FlagManager.Instance.HasFlag("StartTimingGame1"))
+        {
+            timingGameNumber = 1;
+        }
+        else if (FlagManager.Instance.HasFlag("StartTimingGame2"))
+        {
+            timingGameNumber = 2;
+        }
         _inputSetting = InputSetting.Load();
         timingResults = new();
         initializeFlag = true;
+        endFlag = false;
         timingSlider.Initialize();
         justTiming = timingBar.anchoredPosition.y / timingSlider.SliderCoordinateSpeed();  //判定の基準となる時間
         timeSchedule = -0.04f;
+        successFlag = false;
         attempt = 1;
         DisplayAttemptNumberText();
     }
@@ -104,7 +118,16 @@ public class TimingGame : MonoBehaviour
         else  
         {
             initializeFlag = false;
-            ConversationTextManager.Instance.InitializeFromString(Convert.ToString(CalcScoreAverage()));
+            endFlag = true;
+            if (CalcScoreAverage() <= judgeSuccess)
+            {
+                successFlag = true;
+            }
+            else
+            {
+                successFlag = false;
+            }
+            ConversationTextManager.Instance.InitializeFromString($"result:{Convert.ToString(CalcScoreAverage())}<br>{timingGameNumber}");
         }
     }
 
@@ -121,5 +144,15 @@ public class TimingGame : MonoBehaviour
     private void DisplayAttemptNumberText()
     {
         AttemptNumber.text = $"Attempt:<br><size=200>{attempt}/{repeat}</size>";
+    }
+
+    public bool GetSuccessFlag()
+    {
+        return successFlag;
+    }
+
+    public bool GetEndFlag()
+    {
+        return endFlag;
     }
 }

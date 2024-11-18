@@ -953,6 +953,7 @@ MonoBehaviour:
   timingSlider: {fileID: 689765593209257427}
   timingBar: {fileID: 4045771884713700671}
   repeat: 3
+  judgeSuccess: 100
   AttemptNumber: {fileID: 6914671014024492418}
 --- !u!1 &6759433081406679225
 GameObject:

@@ -1,0 +1,18 @@
+{
+  "Id": 1,
+  "Location": [
+    {
+      "MapName": "FirstRoom",
+      "Position": [
+        2,
+        2
+      ]
+    }
+  ],
+  "EventName": "Conversation TimingGameStart1",
+  "TriggerType": 2,
+  "FlagCondition": {
+    "Flag": ["PreTimingGame1" ,true],
+    "NextFlag": ["StartTimingGame1",true]
+  }
+}
