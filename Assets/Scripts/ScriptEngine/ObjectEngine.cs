@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObjectEngine : MonoBehaviour
 {
@@ -17,7 +18,8 @@ public class ObjectEngine : MonoBehaviour
     [SerializeField] private MapEngine mapEngine;
     [SerializeField] private MapDataController mapDataController;
     
-    [SerializeField] private string mapName;
+    private static Queue<string> s_events = new Queue<string>();
+    private string mapName;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
     private Vector2Int _oldGridPosition = new Vector2Int(-1, -1);
     private string itemTextJson = "incorrect";
@@ -26,13 +28,12 @@ public class ObjectEngine : MonoBehaviour
     private void Start()
     {
         _inputSetting = InputSetting.Load();
-        
+        mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(mapName);
         mapEngine.Initialize();
-        int width = mapDataController.GetMapSize().x;
-        int height = mapDataController.GetMapSize().y;
         mapDataController.SetChange(ResetAction);
-        Initialize(mapName, width, height);
+        ResetAction();
+        CallEvent();
     }
     
     private void ResetAction()
@@ -110,10 +111,12 @@ public class ObjectEngine : MonoBehaviour
         {
             return false;
         }
-        foreach (string eventString in objectData.EventName.Split(" | "))
+        string[] eventNames = objectData.EventName.Split(" | ");
+        foreach (string eventName in eventNames)
         {
-            CallEvent(eventString);
+            s_events.Enqueue(eventName);
         }
+        CallEvent();
         if (objectData.FlagCondition.NextFlag is not null)
         {
             SetNextFlag(objectData.FlagCondition.NextFlag);
@@ -121,39 +124,44 @@ public class ObjectEngine : MonoBehaviour
         return true;
     }
     
-    private void CallEvent(string eventString)
+    private void CallEvent()
     {
-        string[] eventArgs = eventString.Split(' ');
-        string eventName = eventArgs[0];
-        switch (eventName)
+        while (s_events.Any())
         {
-            case "PlayerMove":
-                PlayerMove(eventArgs[1]);
-                break;
-            case "SceneChange":
-                SceneChange(eventArgs[1]);
-                break;
-            case "Conversation":
-                Conversation(eventArgs[1]);
-                break;
-            case "GetItem":
-                GetItem(eventArgs[1]);
-                break;
-            case "PaperGame":
-                DebugLogger.Log("papergame");
-                break;
-            case "SearchGame":
-                DebugLogger.Log("searchgame");
-                break;
-            case "TimingGame":
-                DebugLogger.Log("timinggame");
-                break;
-            case "TileModify":
-                string[] positionStr = eventArgs[3].Split(',');
-                Vector2Int position = new Vector2Int(int.Parse(positionStr[0]), int.Parse(positionStr[1]));
-                TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position, eventArgs[4].ToCharArray()[0]);
-                break;
-            default: throw new NotImplementedException();
+            var eve = s_events.Dequeue();
+            string[] eventArgs = eve.Split(' ');
+            string eventName = eventArgs[0];
+            switch (eventName)
+            {
+                case "PlayerMove":
+                    PlayerMove(eventArgs[1]);
+                    break;
+                case "ChangeScene":
+                    SceneChange(eventArgs[1]);
+                    return;// シーンをまたいだ処理はキューに追加してシーン変更後に実行するため、先に呼ばれないように関数を抜ける
+                case "Conversation":
+                    Conversation(eventArgs[1]);
+                    break;
+                case "GetItem":
+                    GetItem(eventArgs[1]);
+                    break;
+                case "PaperGame":
+                    DebugLogger.Log("papergame");
+                    break;
+                case "SearchGame":
+                    DebugLogger.Log("searchgame");
+                    break;
+                case "TimingGame":
+                    DebugLogger.Log("timinggame");
+                    break;
+                case "TileModify":
+                    string[] positionStr = eventArgs[3].Split(',');
+                    Vector2Int position = new Vector2Int(int.Parse(positionStr[0]), int.Parse(positionStr[1]));
+                    TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position,
+                        eventArgs[4].ToCharArray()[0]);
+                    break;
+                default: throw new NotImplementedException();
+            }
         }
     }
     
@@ -174,7 +182,7 @@ public class ObjectEngine : MonoBehaviour
     
     private void SceneChange(string sceneName)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName);
     }
     
     private void PlayerMove(string movedPos)

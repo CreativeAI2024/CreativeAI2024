@@ -17,6 +17,8 @@
         "Blood":false,
         "Worm":false,
         "Organ":false,
+        
+        "Knife":false,
 
         "Symptoms1":false,
         "Symptoms2":false,
@@ -32,8 +34,15 @@
         "Tessen_Talk2":false,
         "Tessen_Talk3":false,
         "Tessen_Talk4":false,
+        "Tessen_Talk4_key":false,
         "Tessen_Talk_END":false,
 
-        "T_information":false
+        "T_eat":false,
+        "T_information":false,
+        "T_killed":false,
+
+
+        "Broken_A":false,
+        "Broken_B":false
     }
 }

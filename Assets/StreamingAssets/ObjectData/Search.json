@@ -1,0 +1,31 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName": "ItemB_room",
+      "Position": [
+        2,
+        2
+      ]
+    }
+  ],
+  "EventName": "SearchGame",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress2",
+        true
+      ],
+      [
+        "Progress3",
+        false
+      ],
+      [
+        "Blood",
+        false
+      ]
+    ],
+    "NextFlag": []
+  }
+}
