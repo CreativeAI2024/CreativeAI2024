@@ -44,6 +44,7 @@ public class ObjectEngine : MonoBehaviour
     // Start is called before the first frame update
     private void Initialize(string mapName, int width, int height)
     {
+        ConversationTextManager.Instance.OnConversationEnd += UnPause;
         _eventObjects = new ObjectData[width][];
         _trapEventObjects = new ObjectData[width][];
         for (int i = 0; i < width; i++)
@@ -78,28 +79,31 @@ public class ObjectEngine : MonoBehaviour
     {
         if (_inputSetting.GetDecideInputDown())
         {
-            ObjectData aroundObjectData = _eventObjects[player.GetPlayerGridPosition().x + player.Direction.x][player.GetPlayerGridPosition().y + player.Direction.y];
-            if (Call(aroundObjectData, 1, 2))
+            if (!mapDataController.IsGridPositionOutOfRange(player.GetGridPosition() + player.Direction))
             {
-                return;
+                ObjectData aroundObjectData = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
+                if (Call(aroundObjectData, 1, 2))
+                {
+                    return;
+                }
             }
-            ObjectData centerObjectData = _eventObjects[player.GetPlayerGridPosition().x][player.GetPlayerGridPosition().y];
+            
+            ObjectData centerObjectData = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
             if (Call(centerObjectData, 2))
             {
                 return;
             }
         }
         
-        if (talkFlag && !ConversationTextManager.Instance.GetInitializeFlag())
-        {
-            pause.UnPauseAll();
-            talkFlag = false;
-        }
-        
-        if (player.GetPlayerGridPosition() == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
-        _pastGridPosition = player.GetPlayerGridPosition();
-        ObjectData trapObjectData = _trapEventObjects[player.GetPlayerGridPosition().x][player.GetPlayerGridPosition().y];
+        if (player.GetGridPosition() == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
+        _pastGridPosition = player.GetGridPosition();
+        ObjectData trapObjectData = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
         Call(trapObjectData, 0);
+    }
+    
+    private void UnPause()
+    {
+        pause.UnPauseAll();
     }
     
     private bool Call(ObjectData objectData, params int[] triggerType)

@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
                 _canInput = false;
                 Direction = LastInputVector;
             }
-            _startPosition = GetPlayerGridPosition();
+            _startPosition = GetGridPosition();
             _targetPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
         }
         else
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         MovePrepare();
     }
     
-    public Vector2Int GetPlayerGridPosition()
+    public Vector2Int GetGridPosition()
     {
         return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
     }
