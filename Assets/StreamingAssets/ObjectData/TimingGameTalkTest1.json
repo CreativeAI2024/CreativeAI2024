@@ -4,15 +4,15 @@
     {
       "MapName": "FirstRoom",
       "Position": [
-        2,
-        2
+        8,
+        8
       ]
     }
   ],
-  "EventName": "Conversation TimingGameStart1",
+  "EventName": "Conversation TimingGameTest/TimingGameStart1",
   "TriggerType": 2,
   "FlagCondition": {
-    "Flag": ["PreTimingGame1" ,true],
-    "NextFlag": ["StartTimingGame1",true]
+    "Flag": [ "PreTimingGame1", true ],
+    "NextFlag": [ "StartTimingGame1", true ]
   }
 }
