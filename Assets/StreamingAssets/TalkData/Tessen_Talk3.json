@@ -1,0 +1,20 @@
+{
+    "Content": [
+        {
+            "Speaker": "テッセン",
+            "Text": "さっきから館を歩き回って、何をしているんだい？",
+            "QuestionData": [
+                {
+                    "Answer": "薬の材料を集めているの",
+                    "NextFlag": "",
+                    "NextTalkData": ""
+                },
+                {
+                    "Answer": "何でもないよ。探索しているだけ",
+                    "NextFlag": "",
+                    "NextTalkData": ""
+                }
+            ]
+        }
+    ]
+}

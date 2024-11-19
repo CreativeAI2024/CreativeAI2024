@@ -1,0 +1,30 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "itemA_room",
+      "Position": [
+        9,
+        7
+      ]
+    },
+    {
+      "MapName": "itemA_room_broken",
+      "Position": [
+        9,
+        7
+      ]
+    }
+  ],
+  "EventName": "Conversation Book5",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [],
+    "NextFlag": [
+      [
+        "T_information",
+        true
+      ]
+    ]
+  }
+}

@@ -31,7 +31,7 @@ public class GameStart : MonoBehaviour
         {
             Debug.Log("Go Saving Scene!");
             //�����Ɏ��̃V�[���ւ������߂�����
-            SceneManager.LoadScene("ForVisualTeam");
+            SceneManager.LoadScene("mirror_room");
             firstPush = true;
         }
     }
