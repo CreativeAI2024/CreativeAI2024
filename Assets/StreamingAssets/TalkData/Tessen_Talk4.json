@@ -1,0 +1,33 @@
+{
+  "Content": [
+    {
+      "Speaker": "テッセン",
+      "Text": "レイ"
+    },
+    {
+      "Speaker": "レイ",
+      "Text": "？！…ああ"
+    },
+    {
+      "Speaker": "テッセン",
+      "Text": "調子はどうかな？",
+      "QuestionData": [
+        {
+          "Answer": "悪くないよ",
+          "NextFlag": "",
+          "NextTalkData": ""
+        },
+        {
+          "Answer": "あまり良くないかも",
+          "NextFlag": "",
+          "NextTalkData": ""
+        },
+        {
+          "Answer": "……",
+          "NextFlag": "",
+          "NextTalkData": ""
+        }
+      ]
+    }
+  ]
+}

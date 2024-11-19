@@ -7,38 +7,30 @@ public class CharacterMoveVisual : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [FormerlySerializedAs("characterSprites")] [SerializeField] private Sprite[] characterIdleSprites;
+    [SerializeField] private Sprite[] characterIdleSprites;
     [SerializeField] private Sprite[] characterWalkSprites;
     [SerializeField] private Sprite[] characterWalkSprites1;
     [SerializeField] private float timeClockInterval = 0.2f;
     private Sprite[][] _characterWalkSprites;
     private int _walkClock = 0;
     private float _timer = 0;
-    Vector3 _lastPosition;
     int _lastDirection = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
-        _characterWalkSprites = new Sprite[2][];
+        _characterWalkSprites = new Sprite[4][];
         _characterWalkSprites[0] = characterWalkSprites;
-        _characterWalkSprites[1] = characterWalkSprites1;
-        _lastPosition = transform.position;
+        _characterWalkSprites[1] = characterIdleSprites;
+        _characterWalkSprites[2] = characterWalkSprites1;
+        _characterWalkSprites[3] = characterIdleSprites;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 vector = playerController.Direction;
-        //_lastPosition = transform.position;
-        int x = Mathf.RoundToInt(vector.x);
-        int y = Mathf.RoundToInt(vector.y);
-        int directionIndex = 2 * x * x + x + y * y + y;
-        Debug.Log(directionIndex);
-        /*
-        if (playerController.LastInputVector != Vector2Int.zero)
-        {
-            ChangeWalkImage(directionIndex);
-        }*/
+        Vector2 direction = playerController.Direction;
+        int directionIndex = GetDirectionIndex(direction);
         if (playerController.LastInputVector == Vector2.zero)
         {
             ChangeIdleImage(_lastDirection);
@@ -48,28 +40,33 @@ public class CharacterMoveVisual : MonoBehaviour
         {
             if (_timer == 0)
             {
-                ChangeWalkImage(directionIndex);
+                ChangeWalkingImage(directionIndex);
             }
             if (timeClockInterval < _timer)
             {
                 _timer -= timeClockInterval;
                 _walkClock++;
-                ChangeWalkImage(directionIndex);
+                ChangeWalkingImage(directionIndex);
             }
             _timer += Time.deltaTime;
-            Debug.Log(directionIndex);
             _lastDirection = directionIndex;
         }
     }
     
-    void ChangeWalkImage(int directionIndex)
+    private int GetDirectionIndex(Vector2 direction)
     {
-        spriteRenderer.sprite = _characterWalkSprites[_walkClock % 2][directionIndex];
+        int x = Mathf.RoundToInt(direction.x);
+        int y = Mathf.RoundToInt(direction.y);
+        return 2 * x * x + x + y * y + y;
     }
     
-    void ChangeIdleImage(int directionIndex)
+    private void ChangeWalkingImage(int directionIndex)
     {
-        Debug.Log(directionIndex);
+        spriteRenderer.sprite = _characterWalkSprites[_walkClock % _characterWalkSprites.Length][directionIndex];
+    }
+    
+    private void ChangeIdleImage(int directionIndex)
+    {
         spriteRenderer.sprite = characterIdleSprites[directionIndex];
     }
 }
