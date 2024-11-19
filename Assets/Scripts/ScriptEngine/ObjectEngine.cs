@@ -19,17 +19,15 @@ public class ObjectEngine : MonoBehaviour
     [SerializeField] private MapDataController mapDataController;
     
     private static Queue<string> s_events = new Queue<string>();
-    private string mapName;
+    private string _mapName;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
     private Vector2Int _oldGridPosition = new Vector2Int(-1, -1);
-    private string itemTextJson = "incorrect";
-    private bool talkFlag = false;
     private InputSetting _inputSetting;
     private void Start()
     {
         _inputSetting = InputSetting.Load();
-        mapName = SceneManager.GetActiveScene().name;
-        mapDataController.LoadMapData(mapName);
+        _mapName = SceneManager.GetActiveScene().name;
+        mapDataController.LoadMapData(_mapName);
         mapEngine.Initialize();
         mapDataController.SetChange(ResetAction);
         ResetAction();
@@ -38,7 +36,7 @@ public class ObjectEngine : MonoBehaviour
     
     private void ResetAction()
     {
-        Initialize(mapName, mapDataController.GetMapSize().x, mapDataController.GetMapSize().y);
+        Initialize(_mapName, mapDataController.GetMapSize().x, mapDataController.GetMapSize().y);
     }
     
     // Start is called before the first frame update
@@ -202,13 +200,13 @@ public class ObjectEngine : MonoBehaviour
         DebugLogger.Log("Conversation", DebugLogger.Colors.Cyan);
         pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromJson(fileName);
-        talkFlag = true;
     }
     
     private void GetItem(string itemName)
     {
         DebugLogger.Log("GetItem", DebugLogger.Colors.Green);
-        Conversation(itemTextJson);
+        pause.PauseAll();
+        ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
         Item item = itemDatabase.GetItem(itemName);
         inventory.Add(item);
         CombineItem(item);
