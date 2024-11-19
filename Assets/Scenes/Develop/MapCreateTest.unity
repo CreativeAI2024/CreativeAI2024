@@ -309,30 +309,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae148c830c1b9243a366d6edc66eb03, type: 3}
---- !u!114 &1462334000 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 975195158262473547, guid: 49d27c0371ce12744bb22dab9bf2ab49,
-    type: 3}
-  m_PrefabInstance: {fileID: 2085017734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8263e2cf6d9de479fabe67d1fc5d23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1462334001 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3037817891265192710, guid: 49d27c0371ce12744bb22dab9bf2ab49,
-    type: 3}
-  m_PrefabInstance: {fileID: 2085017734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0589860fcbfdb6549b708c22786e5d7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1598217837
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +318,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1598217840}
-  - component: {fileID: 1598217839}
   - component: {fileID: 1598217838}
   m_Layer: 0
   m_Name: GameObject
@@ -367,22 +342,9 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
   pause: {fileID: 0}
---- !u!114 &1598217839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598217837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ab3b3ae7e27404889d6a01699539bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectEngine: {fileID: 1598217838}
-  mapEngine: {fileID: 1462334001}
-  mapDataController: {fileID: 1462334000}
-  mapName: FirstRoom
+  mapEngine: {fileID: 0}
+  mapDataController: {fileID: 0}
+  mapName: 
 --- !u!4 &1598217840
 Transform:
   m_ObjectHideFlags: 0

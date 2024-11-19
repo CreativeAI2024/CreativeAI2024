@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: Disc
   m_EditorClassIdentifier: 
-  itemName: Disc
-  descriptionText: There is a hole on the side
-  count: 1
+  itemName: "\u30C7\u30A3\u30B9\u30AF"
+  descriptionText: "\u5074\u9762\u306B\u7A74\u304C\u3042\u308B"
   sprite: {fileID: 21300000, guid: 923ddeaaba17e496ba684182b91d7ac3, type: 3}
-  contentText: []
+  contentTextFilePath: 

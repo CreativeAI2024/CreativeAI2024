@@ -23,7 +23,6 @@ public struct Location
 [MessagePackObject(true)]
 public struct FlagCondition
 {
-    public int ConditionType { get; set; }
     public KeyValuePair<string, bool>[] Flag { get; set; }
     public KeyValuePair<string, bool>[] NextFlag { get; set; }
 }

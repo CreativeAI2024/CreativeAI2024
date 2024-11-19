@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // CollisionEnterを機能させるために必要
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private MapDataController mapDataController;
     public float speed = 3f;
     public float allowDistance = 0.03f;
     private bool _canInput = true;
@@ -39,11 +39,11 @@ public class PlayerController : MonoBehaviour
                 Direction = LastInputVector;
             }
             _startPosition = GetGridPosition();
-            _targetPosition = _startPosition + LastInputVector;
+            _targetPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
         }
         else
         {
-            Move(new Vector3(LastInputVector.x, LastInputVector.y, 0));
+            Move();
             MoveEnd();
         }
 
@@ -73,9 +73,10 @@ public class PlayerController : MonoBehaviour
         return result;
     }
 
-    protected virtual void Move(Vector3 vector)
+    protected virtual void Move()
     {
-        _playerTransform.position += vector * (Time.deltaTime * speed);
+        Vector3 targetPosition = _playerTransform.position + new Vector3(LastInputVector.x, LastInputVector.y, 0);
+        _playerTransform.position = Vector3.MoveTowards(_playerTransform.position, targetPosition, Time.deltaTime * speed);
     }
 
     void MoveEnd()
