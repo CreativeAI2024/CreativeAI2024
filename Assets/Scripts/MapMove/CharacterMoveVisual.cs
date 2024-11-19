@@ -33,7 +33,7 @@ public class CharacterMoveVisual : MonoBehaviour
         int x = Mathf.RoundToInt(vector.x);
         int y = Mathf.RoundToInt(vector.y);
         int directionIndex = 2 * x * x + x + y * y + y;
-        Debug.Log(directionIndex);
+        //Debug.Log(directionIndex);
         /*
         if (playerController.LastInputVector != Vector2Int.zero)
         {
@@ -57,7 +57,7 @@ public class CharacterMoveVisual : MonoBehaviour
                 ChangeWalkImage(directionIndex);
             }
             _timer += Time.deltaTime;
-            Debug.Log(directionIndex);
+            //Debug.Log(directionIndex);
             _lastDirection = directionIndex;
         }
     }
@@ -69,7 +69,7 @@ public class CharacterMoveVisual : MonoBehaviour
     
     void ChangeIdleImage(int directionIndex)
     {
-        Debug.Log(directionIndex);
+        //Debug.Log(directionIndex);
         spriteRenderer.sprite = characterIdleSprites[directionIndex];
     }
 }
