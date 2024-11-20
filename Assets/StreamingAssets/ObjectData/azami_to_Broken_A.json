@@ -1,0 +1,23 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "azami_room",
+      "Position": [
+        4,
+        9
+      ]
+    }
+  ],
+  "EventName": "ChangeScene itemA_room_broken | PlayerMove 4,1",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Broken_A",
+        true
+      ]
+    ],
+    "NextFlag": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "itemB_room",
+      "Position": [
+        4,
+        9
+      ]
+    },
+    {
+      "MapName": "itemB_room_broken",
+      "Position": [
+        4,
+        9
+      ]
+    }
+  ],
+  "EventName": "ChangeScene reference_room | PlayerMove 4,1",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [],
+    "NextFlag": []
+  }
+}

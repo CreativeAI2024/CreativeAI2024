@@ -1,0 +1,36 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName": "reference_room",
+      "Position": [
+        2,
+        2
+      ]
+    }
+  ],
+  "EventName": "Conversation Main7",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress5",
+        true
+      ],
+      [
+        "Progress6",
+        false
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Progress5",
+        false
+      ],
+      [
+        "Progress6",
+        true
+      ]
+    ]
+  }
+}

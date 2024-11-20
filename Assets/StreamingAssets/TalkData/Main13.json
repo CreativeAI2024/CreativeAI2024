@@ -1,0 +1,79 @@
+{
+    "content":[
+        {
+            "text":"気が付くと、衣料品売り場の姿見の前にいた。",
+            "ChangeImage": [
+                {
+                    "ImageName": "imagename2-1",
+                    "SpriteName": "spritename2-1"
+                },
+                {
+                    "ImageName": "imagename2-2",
+                    "SpriteName": "spritename2-2"
+                }
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "text":"買い物客の声が今までの出来事が嘘だったかのように賑やかだ。",
+            "ChangeImage": [
+                {
+                    "ImageName": "imagename2-1",
+                    "SpriteName": "spritename2-1"
+                },
+                {
+                    "ImageName": "imagename2-2",
+                    "SpriteName": "spritename2-2"
+                }
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "text":"アザミは今頃無事だろうか。それを確かめる手段はもうない。",
+            "ChangeImage": [
+                {
+                    "ImageName": "imagename2-1",
+                    "SpriteName": "spritename2-1"
+                },
+                {
+                    "ImageName": "imagename2-2",
+                    "SpriteName": "spritename2-2"
+                }
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "text":"…………",
+            "ChangeImage": [
+                {
+                    "ImageName": "imagename2-1",
+                    "SpriteName": "spritename2-1"
+                },
+                {
+                    "ImageName": "imagename2-2",
+                    "SpriteName": "spritename2-2"
+                }
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "text":"ふと足元を見ると見覚えのないバッグが落ちていた",
+            "ChangeImage": [
+                {
+                    "ImageName": "imagename2-1",
+                    "SpriteName": "spritename2-1"
+                },
+                {
+                    "ImageName": "imagename2-2",
+                    "SpriteName": "spritename2-2"
+                }
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
+        }
+    ]
+}

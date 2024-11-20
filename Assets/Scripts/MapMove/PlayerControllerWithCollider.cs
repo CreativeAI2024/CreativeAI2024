@@ -17,10 +17,10 @@ public class PlayerControllerWithCollider : PlayerController
         _boxCollider = GetComponent<BoxCollider2D>();
     }
 
-    protected override void Move(Vector3 vector)
+    protected override void Move()
     {
-        base.Move(vector);
-        _boxCollider.offset = vector * (Time.deltaTime * speed);
+        base.Move();
+        _boxCollider.offset = (Vector2)LastInputVector * (Time.deltaTime * speed);
     }
     
     protected override void MovePrepare()
