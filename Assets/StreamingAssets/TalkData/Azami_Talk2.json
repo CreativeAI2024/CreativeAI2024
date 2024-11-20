@@ -1,0 +1,28 @@
+{
+  "Content": [
+    {
+      "Speaker": "レイ",
+      "Text": "ねぇ、アザミってどういう奴？"
+    },
+    {
+      "Speaker": "アザミ",
+      "Text": "……アイツは、よくわからない奴だよ"
+    },
+    {
+      "Speaker": "アザミ",
+      "Text": "そもそも俺らとは価値観がまるで違うんだ。アイツには近づかない方がいいぞ",
+      "QuestionData": [
+        {
+          "Answer": "……わかった",
+          "NextFlag": "",
+          "NextTalkData": ""
+        },
+        {
+          "Answer": "そんな……きっと仲良くできるよ",
+          "NextFlag": "",
+          "NextTalkData": ""
+        }
+      ]
+    }
+  ]
+}

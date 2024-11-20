@@ -1,0 +1,65 @@
+{
+    "Content": [
+        {
+            "Speaker": "レイ",
+            "Text": "ヒカルー、この服ヒカルに似合いそうじゃない？",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei1"
+                }
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "えー！まじっすか？ワンピースなんて全然着たことないけど……",
+            "BGM": "2bgm2",
+            "SE": "2se2"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "そうなの？じゃあ、これは？",
+            "BGM": "2bgm2",
+            "SE": "2se2"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "あ、これならアタシでも着れそう！",
+            "BGM": "2bgm2",
+            "SE": "2se2"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "鏡どこだろ……？",
+            "BGM": "2bgm2",
+            "SE": "2se2"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "あ、コッチに姿見あるよ",
+            "BGM": "2bgm2",
+            "SE": "2se2"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "ほんとだ！どれどれ……？",
+            "BGM": "2bgm2",
+            "SE": "2se2"
+        },
+        {
+            "Text": "2人が姿見に近づく",
+            "BGM": "2bgm2",
+            "SE": "2se2"
+        },
+        {
+            "Text": "",
+            "SE": "2se2"
+        }
+    ]
+}

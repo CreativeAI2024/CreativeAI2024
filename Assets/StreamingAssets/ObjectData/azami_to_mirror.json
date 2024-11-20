@@ -1,0 +1,25 @@
+{
+    "Id": 0,
+    "Location": [
+        {
+            "MapName": "azami_room",
+            "Position": [
+                4,
+                0
+            ]
+        },
+        {
+            "MapName": "azami_room",
+            "Position": [
+                5,
+                0
+            ]
+        }
+    ],
+    "EventName": "ChangeScene mirror_room | PlayerMove 4,7",
+    "TriggerType": 0,
+    "FlagCondition": {
+        "Flag": [],
+        "NextFlag": []
+    }
+}

@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 99e549fd0878d0843acd41d90ace0e86
+  - enabled: 1
+    path: Assets/Scenes/mirror_room.unity
+    guid: c42e01a8c8d92214e99d55cf23935fb4
+  - enabled: 1
+    path: Assets/Scenes/azami_room.unity
+    guid: 1378adfdb02c64f4cba69dbaf368bd75
+  - enabled: 1
+    path: Assets/Scenes/itemA_room.unity
+    guid: 1b7961bb1664997428e439f32630076e
+  - enabled: 1
+    path: Assets/Scenes/itemB_room.unity
+    guid: c5e5f5bc2e5af7d44873878ac99990e1
+  - enabled: 1
+    path: Assets/Scenes/reference_room.unity
+    guid: 424211fdc4a71944ca16f6ac7b494690
+  - enabled: 1
+    path: Assets/Scenes/tessen_room.unity
+    guid: cad76efb487c78b4ba6375b5666c3684
   m_configObjects: {}

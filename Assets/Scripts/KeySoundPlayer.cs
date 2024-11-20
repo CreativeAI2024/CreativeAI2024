@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.UI;
-
 using UnityEngine.EventSystems;
 
 public class KeySoundPlayer : MonoBehaviour
@@ -25,17 +23,20 @@ public class KeySoundPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            // 現在のボタンインデックスをデクリメント
+
             currentButtonIndex--;
             if (currentButtonIndex < 0)
                 currentButtonIndex = buttons.Length - 1;
             SelectButton(currentButtonIndex);
 
+            // 選択音を再生
             PlaySelectSound();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            // �����L�[�Ŏ��̃{�^����I��
+            // 現在のボタンインデックスをインクリメント
             currentButtonIndex++;
             if (currentButtonIndex >= buttons.Length)
                 currentButtonIndex = 0;
@@ -45,8 +46,9 @@ public class KeySoundPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            // Z�L�[�Ō��ݑI������Ă���{�^�����N���b�N
-            buttons[currentButtonIndex].onClick.Invoke();
+            // Zキーが押された場合、現在のボタンをクリック
+            //'Button' does not contain a definition for 'onClick' and no accessible extension method 'onClick' accepting a first argument of type 'Button' could be found (are you missing a using directive or an assembly reference?)CS1061
+            //buttons[currentButtonIndex].onClick.Invoke();
         }
     }
 

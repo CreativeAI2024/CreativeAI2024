@@ -1,0 +1,40 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName": "reference_room",
+      "Position": [
+        2,
+        2
+      ]
+    }
+  ],
+  "EventName": "TimingGame",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress3",
+        true
+      ],
+      [
+        "Progress4",
+        false
+      ],
+      [
+        "Progress5",
+        false
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Progress2",
+        false
+      ],
+      [
+        "Progress3",
+        false
+      ]
+    ]
+  }
+}
