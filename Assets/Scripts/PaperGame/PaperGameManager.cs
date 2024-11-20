@@ -12,6 +12,7 @@ public class PaperGameManager : DontDestroySingleton<PaperGameManager>
     {
         base.Awake();
         _inputSetting = InputSetting.Load();
+        Initialize();
     }
     // Update is called once per frame
     void Update()

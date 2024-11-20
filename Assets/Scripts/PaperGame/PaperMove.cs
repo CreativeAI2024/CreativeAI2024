@@ -24,7 +24,7 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
         if (_inputSetting.GetRightKey())
             moveDirection += Vector3.right;
 
-        Vector3 newPosition = transform.position + moveDirection * speed * Time.deltaTime;
+        Vector3 newPosition = transform.position + moveDirection.normalized * speed * Time.deltaTime;
         transform.position = ClampToScreen(newPosition);
     }
 

@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1839735485 &63089521 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 7753607223690526146, guid: 49d27c0371ce12744bb22dab9bf2ab49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2085017734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1839735485 &154745890 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 177687494444778665, guid: 49d27c0371ce12744bb22dab9bf2ab49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2085017734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &391875105
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +730,11 @@ PrefabInstance:
       propertyPath: tileInfo
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5792109113550638988, guid: 8ae148c830c1b9243a366d6edc66eb03,
+        type: 3}
+      propertyPath: mapDataController
+      value: 
+      objectReference: {fileID: 1462334000}
     - target: {fileID: 8713935481170672540, guid: 8ae148c830c1b9243a366d6edc66eb03,
         type: 3}
       propertyPath: m_Size.x
@@ -807,6 +824,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1839735485 &1287874189 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 1974347116033169273, guid: 49d27c0371ce12744bb22dab9bf2ab49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2085017734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1462334000 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 975195158262473547, guid: 49d27c0371ce12744bb22dab9bf2ab49,
@@ -817,18 +840,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b8263e2cf6d9de479fabe67d1fc5d23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1462334001 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3037817891265192710, guid: 49d27c0371ce12744bb22dab9bf2ab49,
-    type: 3}
-  m_PrefabInstance: {fileID: 2085017734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0589860fcbfdb6549b708c22786e5d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1548886784
@@ -880,6 +891,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1839735485 &1568859578 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 3188582603593409770, guid: 49d27c0371ce12744bb22dab9bf2ab49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2085017734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1585255521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -984,6 +1001,8 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
   pause: {fileID: 1106138974}
+  mapEngine: {fileID: 0}
+  mapDataController: {fileID: 0}
 --- !u!114 &1598217839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,13 +1012,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1598217837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ab3b3ae7e27404889d6a01699539bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 0589860fcbfdb6549b708c22786e5d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectEngine: {fileID: 1598217838}
-  mapEngine: {fileID: 1462334001}
+  colliderTilemap: {fileID: 1287874189}
+  frontTilemap: {fileID: 63089521}
+  middleTilemap: {fileID: 154745890}
+  backTilemap: {fileID: 1568859578}
+  clearTile: {fileID: 11400000, guid: 0702332183b8e4a509042ac29a7ed3b3, type: 2}
+  tileMapping: {fileID: 11400000, guid: 6c280859c7d80e4459e2aba6f36b8049, type: 2}
   mapDataController: {fileID: 1462334000}
-  mapName: FirstRoom
 --- !u!4 &1598217840
 Transform:
   m_ObjectHideFlags: 0
