@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -864,6 +864,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7912600926070488735, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912600926070488735, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234234183171575846, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ade10af2c2497b45b1be8df6084a5ca, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e0415b7dc9202a488de9be360921257, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7760b2ce9b68f154093c00a574992ea1, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e50dcc88c267c764cb54f10e1914fc16, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: a4c4de8fb642e1944babbe0dd4875075, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: b36ce7b7127e1dd44abdab1f47f451d7, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: acc8ebd9512d3bd4bafcb3222b8c98ec, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 967b17e84aa62ff48b60d448e2976e4d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
