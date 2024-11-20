@@ -1,0 +1,18 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "",
+      "Position": [
+        2,
+        2
+      ]
+    }
+  ],
+  "EventName": "Conversation Book3",
+  "TriggerType": 2,
+  "FlagCondition": {
+    "Flag": [],
+    "NextFlag": []
+  }
+}

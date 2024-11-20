@@ -215,7 +215,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         initializeFlag = false;
-        _onConversationStart?.Invoke();
+        _onConversationEnd?.Invoke();
         if (nextTalkData != null){  //会話分岐
             InitializeFromJson(nextTalkData);
         }
