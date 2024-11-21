@@ -2,15 +2,15 @@
   "Id": 0,
   "Location": [
     {
-      "MapName": "",
+      "MapName": "reference_room",
       "Position": [
         2,
-        2
+        11
       ]
     }
   ],
-  "EventName": "Conversation Book2",
-  "TriggerType": 2,
+  "EventName": "Conversation Book2 | GetItem Book2",
+  "TriggerType": 1,
   "FlagCondition": {
     "Flag": [],
     "NextFlag": []

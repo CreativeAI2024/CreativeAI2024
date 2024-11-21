@@ -16,7 +16,7 @@
       ]
     }
   ],
-  "EventName": "ChangeScene reference_room | PlayerMove 4,1",
+  "EventName": "ChangeScene reference_room,4,1",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [],

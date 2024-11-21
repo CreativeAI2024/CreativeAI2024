@@ -16,7 +16,7 @@
             ]
         }
     ],
-    "EventName": "ChangeScene mirror_room | PlayerMove 4,7",
+    "EventName": "ChangeScene mirror_room,4,7",
     "TriggerType": 0,
     "FlagCondition": {
         "Flag": [],
