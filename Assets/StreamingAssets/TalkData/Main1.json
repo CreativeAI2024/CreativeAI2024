@@ -1,209 +1,82 @@
 {
     "Content": [
         {
-            "speaker": "？？？",
-            "Text": "目が覚めたか",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
-            "BGM": "bgm2",
-            "SE": "se2"
+            "Speaker":"レイ",
+            "Text":"暗くてよく見えな……"
         },
         {
-            "Speaker": "レイ",
-            "Text": "…………",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Speaker":"ヒカル",
+            "Text":"先輩！？どうしたんす……"
+        },
+        {
+            "Text":"……"
+        },
+        {
+            "Text":"…………"
+        },
+        {
+            "Text":"………………"
         },
         {
             "Speaker": "？？？",
-            "Text": "俺の名前はアザミだ。……お前、名前は？",
+            "Text": "目が覚めたか",
             "ChangeImage": [
                 {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
                 },
                 {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
                 }
             ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "BGM": "MysteryConfFear"
         },
         {
             "Speaker": "レイ",
-            "Text": "…………レイ",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Text": "…………"
+        },
+        {
+            "Speaker": "？？？",
+            "Text": "俺の名前はアザミだ。……お前、名前は？"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "…………レイ"
         },
         {
             "Speaker": "アザミ",
-            "Text": "そうか、レイ……お前はこの世界に迷い込んでしまった。\nこのままでは狂ってしまう。これを見ろ",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Text": "そうか、レイ……お前はこの世界に迷い込んでしまった。\nこのままでは狂ってしまう。これを見ろ"
         },
         {
             "Speaker": "アザミ",
-            "Text": "……ッ!!",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Text": "……ッ!!"
         },
         {
             "Speaker": "アザミ",
-            "Text": "元に戻すには薬がいる。お前には材料を集めて欲しい",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Text": "元に戻すには薬がいる。お前には材料を集めて欲しい"
         },
         {
-            "Text": "アザミは肥大化した手で1枚の紙を渡してくる",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Text": "アザミは肥大化した手で1枚の紙を渡してくる"
         },
         {
-            "Text": "見ると、紙には薬のレシピが書かれていた",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Text": "見ると、紙には薬のレシピが書かれていた"
         },
         {
             "Speaker": "アザミ",
-            "Text": "出来るだけ急いでくれ。お前達もバケモノになってしまう前に…",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Text": "出来るだけ急いでくれ。お前達もバケモノになってしまう前に…"
         },
         {
             "Text": "アザミは一方的に話し、そして部屋から去っていった",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "SE": "se2"
         },
         {
-            "speaker":"レイ",
-            "Text": "ちょ、ちょっと待ってよ！",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Speaker":"レイ",
+            "Text": "ちょ、ちょっと待ってよ！"
         },
         {
-            "speaker":"レイ",
-            "Text": "……行っちゃった……何なのよ……もう",
-            "ChangeImage": [
-                {
-                    "ImageName": "2imagename2-1",
-                    "SpriteName": "2spritename2-1"
-                },
-                {
-                    "ImageName": "2imagename2-2",
-                    "SpriteName": "2spritename2-2"
-                }
-            ],
-            "BGM": "2bgm2",
-            "SE": "2se2"
+            "Speaker":"レイ",
+            "Text": "……行っちゃった……何なのよ……もう"
         }
     ]
 }

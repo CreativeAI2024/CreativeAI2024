@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main1",
+  "EventName": "Conversation Main1 | ChangeScene azami_room,4,1",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [
@@ -20,6 +20,10 @@
       [
         "Progress2",
         false
+      ],
+      [
+        "Azami_Attack",
+        true
       ]
     ],
     "NextFlag": [
@@ -34,6 +38,10 @@
       [
         "Azami_Talk1",
         true
+      ],
+      [
+        "Azami_Attack",
+        false
       ]
     ]
   }

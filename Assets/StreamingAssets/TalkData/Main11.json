@@ -2,7 +2,17 @@
   "Content": [
     {
       "Speaker": "レイ",
-      "Text": "薬、完成したねアザミ！"
+      "Text": "薬、完成したねアザミ！",
+      "ChangeImage": [
+        {
+            "ImageName": "RightPanel",
+            "SpriteName": "Azami_1"
+        },
+        {
+            "ImageName": "LeftPanel",
+            "SpriteName": "rei"
+        }
+    ]
     },
     {
       "Speaker": "アザミ",

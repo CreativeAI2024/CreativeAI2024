@@ -4,8 +4,8 @@
     {
       "MapName": "reference_room",
       "Position": [
-        2,
-        2
+        8,
+        19
       ]
     }
   ],
@@ -16,6 +16,10 @@
       [
         "Progress4",
         true
+      ],
+      [
+        "Azami_Peace",
+        false
       ]
     ]
   }
