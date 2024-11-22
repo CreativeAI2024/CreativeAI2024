@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: Key
+  m_Name: Tessen'sOrgan
   m_EditorClassIdentifier: 
-  itemName: "\u9375"
-  descriptionText: "\u8ABF\u5408\u5BA4\u306E\u9375\u7A74\u3068\u5408\u3044\u305D\u3046\u306A\u306A\u9375\u3002"
-  sprite: {fileID: 21300000, guid: f2f089f85b9c64e71a6822f09b747ab4, type: 3}
+  itemName: "\u30C6\u30C3\u30BB\u30F3\u306E\u5185\u81D3"
+  descriptionText: "\u307E\u3060\u751F\u6696\u304B\u3044\u5185\u8535\u3002\u30D6\u30C4\u5207\u308C\u305F\u89E6\u624B\u304B\u3089\u6DB2\u4F53\u304C\u5782\u308C\u3066\u3044\u308B\u3002"
+  sprite: {fileID: 21300000, guid: b914137dde98541dfa020ac86a5dc56c, type: 3}
   contentTextFilePath: 
