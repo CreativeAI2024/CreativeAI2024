@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: FormarLetter
+  m_Name: BugCorpse
   m_EditorClassIdentifier: 
-  itemName: "\u624B\u7D19\u306E\u524D\u534A"
-  descriptionText: "\u30DD\u30B1\u30C3\u30C8\u306E\u5965\u306B\u3042\u3063\u305F\u306E\u306B\u6C17\u3065\u304B\u306A\u304B\u3063\u305F"
-  sprite: {fileID: 21300000, guid: 2f7d0c316bc244489b14f6c7af981fec, type: 3}
+  itemName: 
+  descriptionText: 
+  sprite: {fileID: 0}
   contentTextFilePath: 
