@@ -41,6 +41,18 @@ public class MapDataController : MonoBehaviour
         {
             SoundManager.Instance.PlayBGM(3, 1f);
         }
+        if(mapName == "azami_room")
+        {
+            SoundManager.Instance.PlayBGM(4, 1f);
+        }
+        if(mapName == "itemA_room")
+        {
+            SoundManager.Instance.PlayBGM(5, 1f);
+        }
+        if(mapName == "itemB_room")
+        {
+            SoundManager.Instance.PlayBGM(6, 1f);
+        }
         
         if (!mapDictionary.ContainsKey(mapName))
         {
