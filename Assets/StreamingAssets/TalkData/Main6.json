@@ -1,93 +1,46 @@
 {
     "content":[
         {
-            "speaker":"アザミ",
-            "text":"レイ、薬は完成したのか？",
+            "Speaker":"アザミ",
+            "Text":"レイ、薬は完成したのか？",
             "ChangeImage": [
                 {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
                 },
                 {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
                 }
             ],
+            "BGM": "Joy"
+        },
+        {
+            "Speaker":"レイ",
+            "Text":"！！アザミ……！",
             "BGM": "bgm2",
             "SE": "se2"
         },
         {
-            "speaker":"レイ",
-            "text":"！！アザミ……！",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
+            "Speaker":"レイ",
+            "Text":"キミが見た通りさ！レシピ通りの材料で作ったから、うまくできたよ",
             "BGM": "bgm2",
             "SE": "se2"
         },
         {
-            "speaker":"レイ",
-            "text":"キミが見た通りさ！レシピ通りの材料で作ったから、うまくできたよ",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
+            "Speaker":"アザミ",
+            "Text":"……そうか",
             "BGM": "bgm2",
             "SE": "se2"
         },
         {
-            "speaker":"アザミ",
-            "text":"……そうか",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
+            "Speaker":"レイ",
+            "Text":"でも、出来た薬が一人分にしか",
             "BGM": "bgm2",
             "SE": "se2"
         },
         {
-            "speaker":"レイ",
-            "text":"でも、出来た薬が一人分にしか",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
-            "BGM": "bgm2",
-            "SE": "se2"
-        },
-        {
-            "text":"レイが振り返ると、アザミが鈍器を振りかぶっていた",
-            "ChangeImage": [
-                {
-                    "ImageName": "Panel",
-                    "SpriteName": "black"
-                }
-            ],
+            "Text":"レイが振り返ると、アザミが鈍器を振りかぶっていた",
             "BGM": "bgm2",
             "SE": "impact"
         },

@@ -16,7 +16,7 @@
       ]
     }
   ],
-  "EventName": "ChangeScene itemB_room | PlayerMove 4,1",
+  "EventName": "ChangeScene itemB_room,4,1",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [

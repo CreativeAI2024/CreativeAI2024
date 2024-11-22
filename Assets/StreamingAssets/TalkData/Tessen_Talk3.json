@@ -3,16 +3,26 @@
         {
             "Speaker": "テッセン",
             "Text": "さっきから館を歩き回って、何をしているんだい？",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Tessen"
+                },
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "rei"
+                }
+            ],
             "QuestionData": [
                 {
                     "Answer": "薬の材料を集めているの",
                     "NextFlag": "",
-                    "NextTalkData": ""
+                    "NextTalkData": "Tessen_Talk3_1"
                 },
                 {
                     "Answer": "何でもないよ。探索しているだけ",
                     "NextFlag": "",
-                    "NextTalkData": ""
+                    "NextTalkData": "Tessen_Talk3_2"
                 }
             ]
         }

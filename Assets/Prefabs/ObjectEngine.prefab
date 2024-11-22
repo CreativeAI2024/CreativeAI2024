@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc792b5d35f76c94f86aa034b078d1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmoDebugTexture: {fileID: 2800000, guid: 131585a5b0dc5487eb9ae82f510e2f8b, type: 3}
   player: {fileID: 0}
   inventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}

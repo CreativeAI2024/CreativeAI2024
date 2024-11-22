@@ -4,8 +4,8 @@
     {
       "MapName": "reference_room",
       "Position": [
-        2,
-        2
+        8,
+        19
       ]
     }
   ],
@@ -20,9 +20,17 @@
       [
         "Progress6",
         false
+      ],
+      [
+        "Azami_Peace",
+        true
       ]
     ],
     "NextFlag": [
+      [
+        "Progress4",
+        false
+      ],
       [
         "Progress5",
         false

@@ -2,7 +2,18 @@
   "Content": [
     {
       "Speaker": "レイ",
-      "Text": "ねぇ、アザミってどういう奴？"
+      "Text": "ねぇ、テッセンってどういう奴？",
+      "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                }
+            ],
+            "BGM":"MysteryConfFear"
     },
     {
       "Speaker": "アザミ",
@@ -14,7 +25,7 @@
       "QuestionData": [
         {
           "Answer": "……わかった",
-          "NextFlag": "",
+          "NextFlag": ["Azami_Peace", true],
           "NextTalkData": ""
         },
         {

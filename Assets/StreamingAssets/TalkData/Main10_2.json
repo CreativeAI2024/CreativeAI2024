@@ -1,137 +1,59 @@
 {
     "content": [
         {
-            "text":"レイはナイフを持つ手を降ろした",
+            "Text":"レイはナイフを持つ手を降ろした",
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "Text":"降ろしてしまった",
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "Text":"突然、レイの体は吹き飛ばされ、扉に叩きつけられる",
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "Text":"何が起きたのか分からず、呆然としているとテッセンの爪が赤く染まっていた",
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "Text":"意識が遠くなっていく",
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "Text":"レイはいともたやすく殺されたのだ",
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "Speaker":"テッセン",
+            "Text":"あっけないな",
             "ChangeImage": [
                 {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Tessen"
                 }
             ],
             "BGM": "bgm2",
             "SE": "se2"
         },
         {
-            "text":"降ろしてしまった",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
+            "Speaker":"テッセン",
+            "Text":"こんなもの、必要ないね",
             "BGM": "bgm2",
             "SE": "se2"
         },
         {
-            "text":"突然、レイの体は吹き飛ばされ、扉に叩きつけられる",
+            "Text":"意識が途切れるその瞬間、ガラスの割れる音がした",
             "ChangeImage": [
                 {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
-            "BGM": "bgm2",
-            "SE": "se2"
-        },
-        {
-            "text":"何が起きたのか分からず、呆然としているとテッセンの爪が赤く染まっていた",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
-            "BGM": "bgm2",
-            "SE": "se2"
-        },
-        {
-            "text":"意識が遠くなっていく",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
-            "BGM": "bgm2",
-            "SE": "se2"
-        },
-        {
-            "text":"レイはいともたやすく殺されたのだ",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
-            "BGM": "bgm2",
-            "SE": "se2"
-        },
-        {
-            "speaker":"テッセン",
-            "text":"あっけないな",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
-            "BGM": "bgm2",
-            "SE": "se2"
-        },
-        {
-            "speaker":"テッセン",
-            "text":"こんなもの、必要ないね",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
-            "BGM": "bgm2",
-            "SE": "se2"
-        },
-        {
-            "text":"意識が途切れるその瞬間、ガラスの割れる音がした",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
                 }
             ],
             "BGM": "bgm2",

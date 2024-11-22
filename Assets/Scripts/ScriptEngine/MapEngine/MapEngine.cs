@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using System.IO;
 using System.Linq;
@@ -31,6 +33,28 @@ public class MapEngine : MonoBehaviour
                 SetCollider(position);
             }
         }
+    }
+    
+    [Conditional("UNITY_EDITOR")]
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < mapDataController.GetMapSize().y; i++)
+        {
+            for (int j = 0; j < mapDataController.GetMapSize().x; j++)
+            {
+                if (!mapDataController.IsWalkable(new Vector3Int(j, i, 0)))
+                {
+                    Gizmos.color = Color.white;
+                    DrawRect(new Rect(j-0.5f, i-0.5f, 1, 1));
+                }
+            }
+        }
+    }
+    
+    [Conditional("UNITY_EDITOR")]
+    void DrawRect(Rect rect)
+    {
+        Gizmos.DrawWireCube(new Vector3(rect.center.x, rect.center.y, 0.01f), new Vector3(rect.size.x, rect.size.y, 0.01f));
     }
 
     private void SetCollider(Vector3Int position)
