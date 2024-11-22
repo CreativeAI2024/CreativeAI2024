@@ -41,6 +41,7 @@ public class MapDataController : MonoBehaviour
         {
             SoundManager.Instance.PlayBGM(3, 1f);
         }
+        
         if (!mapDictionary.ContainsKey(mapName))
         {
             mapDictionary.Add(mapName, new Queue<(TileLayer, Vector2Int, char)>());

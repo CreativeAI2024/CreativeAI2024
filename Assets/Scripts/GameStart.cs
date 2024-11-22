@@ -32,7 +32,8 @@ public class GameStart : MonoBehaviour
         {
             Debug.Log("Go Saving Scene!");
             //�����Ɏ��̃V�[���ւ������߂�����
-            SceneManager.LoadScene("mirror_room");
+            //SceneManager.LoadScene("mirror_room");
+            SceneManager.LoadScene("VolumeControl");
             SoundManager.Instance.PlaySE(1, 1f);
             firstPush = true;
         }
