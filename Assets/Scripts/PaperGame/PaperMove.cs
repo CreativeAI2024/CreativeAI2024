@@ -30,7 +30,7 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
 
         if (_inputSetting.GetCancelKey())
         {
-            //SceneManager.LoadScene("");  //仮置き
+            SceneManager.LoadScene("itemB_room");
         }
 
         Vector3 newPosition = transform.position + speed * Time.deltaTime * moveDirection.normalized;
