@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5a0dc62c0c54847ab2bfeaed30e5d7, type: 3}
   m_Name: bugJar
   m_EditorClassIdentifier: 
-  ingredientA: {fileID: 0}
-  ingredientB: {fileID: 0}
-  resultItem: {fileID: 0}
+  ingredientA: {fileID: 11400000, guid: 637fa2ecbde41fc438c0ad49569d328f, type: 2}
+  ingredientB: {fileID: 11400000, guid: 4378c348bd912c24cb305ebea5eeab19, type: 2}
+  resultItem: {fileID: 11400000, guid: c078b9732e573cd4593b1a1fd49f6da5, type: 2}
