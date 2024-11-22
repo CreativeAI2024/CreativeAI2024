@@ -1,0 +1,36 @@
+{
+    "Id": 2,
+    "Location": [
+        {
+            "MapName": "ItemB_room",
+            "Position": [
+                4,
+                5
+            ]
+        }
+    ],
+    "EventName": "GetItem Blood | Conversation Blood_get",
+    "TriggerType": 3,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "Progress2",
+                true
+            ],
+            [
+                "Progress3",
+                false
+            ],
+            [
+                "Blood",
+                false
+            ]
+        ],
+        "NextFlag": [
+            [
+                "Blood",
+                true
+            ]
+        ]
+    }
+}

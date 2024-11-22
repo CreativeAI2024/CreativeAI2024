@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "EventName": "ChangeScene itemA_room | PlayerMove 14,3",
+  "EventName": "ChangeScene itemA_room,14,3",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [

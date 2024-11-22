@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main2",
+  "EventName": "Conversation Main2 | GetItem Flesh",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [

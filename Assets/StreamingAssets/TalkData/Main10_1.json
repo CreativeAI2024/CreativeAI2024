@@ -1,77 +1,33 @@
 {
     "content":[
         {
-            "text":"レイは手に持ったナイフで一思いに突き刺す",
+            "Text":"レイは手に持ったナイフで一思いに突き刺す",
             "ChangeImage": [
                 {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
                 }
             ],
             "BGM": "bgm2",
             "SE": "knife"
         },
         {
-            "text":"一心不乱に突き立てる。肉はとても硬く深くまでは刺さらない",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
+            "Text":"一心不乱に突き立てる。肉はとても硬く深くまでは刺さらない",
             "BGM": "bgm2",
             "SE": "knife"
         },
         {
-            "text":"次第にナイフの手から血が出るが、それでもナイフを刺し続ける",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
+            "Text":"次第にナイフの手から血が出るが、それでもナイフを刺し続ける",
             "BGM": "bgm2",
             "SE": "knife"
         },
         {
-            "text":"テッセンは悲鳴の一つも上げることなく静かに死んだ",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
+            "Text":"テッセンは悲鳴の一つも上げることなく静かに死んだ",
             "BGM": "bgm2",
             "SE": "knife"
         },
         {
-            "text":"内臓を手に入れた",
-            "ChangeImage": [
-                {
-                    "ImageName": "imagename2-1",
-                    "SpriteName": "spritename2-1"
-                },
-                {
-                    "ImageName": "imagename2-2",
-                    "SpriteName": "spritename2-2"
-                }
-            ],
+            "Text":"内臓を手に入れた",
             "BGM": "bgm2",
             "SE": "se2"
         }

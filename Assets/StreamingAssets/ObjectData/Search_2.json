@@ -1,0 +1,57 @@
+{
+    "Id": 2,
+    "Location": [
+      {
+        "MapName": "ItemA_room",
+        "Position": [
+          0,
+          7
+        ]
+      },
+      {
+        "MapName":"ItemA_room",
+        "Position":[
+          1,
+          7
+        ]
+      },
+      {
+        "MapName": "ItemA_room_broken",
+        "Position": [
+          0,
+          7
+        ]
+      },
+      {
+        "MapName":"ItemA_room_broken",
+        "Position":[
+          1,
+          7
+        ]
+      }
+    ],
+    "EventName": "Conversation Search2 | SearchGame",
+    "TriggerType": 1,
+    "FlagCondition": {
+      "Flag": [
+        [
+          "Progress2",
+          true
+        ]
+      ],
+      "NextFlag": [
+          [
+              "StartSearchGame1",
+              false
+          ],
+          [
+              "StartSearchGame2",
+              false
+          ],
+          [
+              "StartSearchGame3",
+              false
+          ]
+      ]
+    }
+  }
