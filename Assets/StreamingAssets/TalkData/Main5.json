@@ -1,5 +1,5 @@
 {
-    "content":[
+    "Content":[
         {
             "Speaker": "レイ",
             "Text": "…………",
@@ -16,7 +16,17 @@
             "Text" :"……美味しそう"
         },
         {
-            "Text": "引き寄せられるかのように肉塊へ歩いていく"
+            "Text": "引き寄せられるかのように肉塊へ歩いていく",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
         },
         {
             "Text": "手で器用に肉を千切り口へと運ぶ"

@@ -2,11 +2,39 @@
     "Content": [
         {
             "Speaker":"レイ",
-            "Text":"暗くてよく見えな……"
+            "Text":"暗くてよく見えな……",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
         },
         {
             "Speaker":"ヒカル",
-            "Text":"先輩！？どうしたんす……"
+            "Text":"先輩！？どうしたんす……",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
         },
         {
             "Text":"……"

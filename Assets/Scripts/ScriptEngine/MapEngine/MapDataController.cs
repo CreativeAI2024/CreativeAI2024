@@ -111,6 +111,11 @@ public class MapDataController : MonoBehaviour
         return new Vector2Int(mapData.Tiles[0].Length, mapData.Tiles.Length);
     }
     
+    public bool HasMapData()
+    {
+        return mapData.Tiles.Length > 0;
+    }
+    
     public bool IsGridPositionOutOfRange(Vector2Int gridPosition)
     {
         return gridPosition.x < 0 || GetMapSize().x <= gridPosition.x || 

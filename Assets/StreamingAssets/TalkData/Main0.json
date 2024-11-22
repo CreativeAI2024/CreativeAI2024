@@ -6,11 +6,15 @@
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "hikaru"
+                    "SpriteName": "null"
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
                 }
             ]
         },
@@ -47,7 +51,21 @@
         },
         {
             "Speaker":"ヒカル",
-            "Text":"……先輩？……先輩！起きてくださいよ！先輩！"
+            "Text":"……先輩？……先輩！起きてくださいよ！先輩！",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"null"
+                }
+            ]
         },
         {
             "Speaker":"レイ",

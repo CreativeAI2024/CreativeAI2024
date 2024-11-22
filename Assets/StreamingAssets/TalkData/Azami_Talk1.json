@@ -4,16 +4,16 @@
       "Speaker": "レイ",
       "Text": "アザミってさ、いつからこの世界にいるの？",
       "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "Azami_0"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
-                }
-            ],
-            "BGM":"MysteryConfFear"
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "Azami_0"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "Rei"
+        }
+      ],
+      "BGM": "MysteryConfFear"
     },
     {
       "Speaker": "アザミ",

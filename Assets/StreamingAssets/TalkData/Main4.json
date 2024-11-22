@@ -34,6 +34,24 @@
         {
             "Speaker": "レイ",
             "Text": "うるさい…！！！！"
+            
+        },
+        {
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
+            "SE":""
         },
         {
             "Speaker": "アザミ",
@@ -45,7 +63,21 @@
         },
         {
             "Speaker": "アザミ",
-            "Text": "おい、しっかりしろ！"
+            "Text": "おい、しっかりしろ！",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"null"
+                }
+            ]
         },
         {
             "Speaker": "レイ",

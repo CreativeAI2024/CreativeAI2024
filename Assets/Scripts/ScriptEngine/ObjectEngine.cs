@@ -5,13 +5,15 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 public class ObjectEngine : MonoBehaviour
 {
-    public Texture gizmoDebugTexture;
+    // public Texture gizmoDebugTexture;
     private List<ObjectData>[][] _eventObjects;
     private List<ObjectData>[][] _trapEventObjects;
     
@@ -19,7 +21,8 @@ public class ObjectEngine : MonoBehaviour
     [SerializeField] private ItemInventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
     [SerializeField] private Pause pause;
-    
+    [SerializeField] private Image transitionImage;
+    [SerializeField] private float fadeTime = 1f;
     [SerializeField] private MapEngine mapEngine;
     [SerializeField] private MapDataController mapDataController;
     
@@ -49,7 +52,6 @@ public class ObjectEngine : MonoBehaviour
     // Start is called before the first frame update
     private void Initialize(string mapName, int width, int height)
     {
-        ConversationTextManager.Instance.OnConversationEnd += UnPause;
         _eventObjects = new List<ObjectData>[width][];
         _trapEventObjects = new List<ObjectData>[width][];
         for (int i = 0; i < width; i++)
@@ -88,6 +90,7 @@ public class ObjectEngine : MonoBehaviour
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
     {
+        return;
         for (int i = 0; i < mapDataController.GetMapSize().y; i++)
         {
             for (int j = 0; j < mapDataController.GetMapSize().x; j++)
@@ -202,7 +205,11 @@ public class ObjectEngine : MonoBehaviour
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
                 conversationFlag = true;
-                ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
+                ConversationTextManager.Instance.OnConversationEnd += () =>
+                {
+                    UnPause();
+                    conversationFlag = false;
+                };
                 Conversation(eventArgs[1]);
                 await UniTask.WaitUntil(() => !conversationFlag);
                 break;
@@ -250,8 +257,13 @@ public class ObjectEngine : MonoBehaviour
     
     private async UniTask SceneChange(string sceneName)
     {
-        ConversationTextManager.Instance.OnConversationEnd -= UnPause;
-        await SceneManager.LoadSceneAsync(sceneName).ToUniTask();
+        var operation = SceneManager.LoadSceneAsync(sceneName);
+        /*
+        operation.allowSceneActivation = false;
+        transitionImage.DOFade(1, fadeTime)
+            .OnComplete(() => operation.allowSceneActivation = true)
+            .SetLink(gameObject);*/
+        await operation.ToUniTask();
     }
     
     private void PlayerMove(Vector2Int moved)
@@ -268,8 +280,8 @@ public class ObjectEngine : MonoBehaviour
     private void GetItem(string itemName)
     {
         pause.PauseAll();
-        ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
         Item item = itemDatabase.GetItem(itemName);
+        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
         inventory.Add(item);
         CombineItem(item);
     }

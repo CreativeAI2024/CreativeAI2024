@@ -116,6 +116,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         initializeFlag = true;
         _onConversationStart?.Invoke();
+        _onConversationStart = null;
         contentObject.SetActive(true);
 
         lineNumber = 0;
@@ -216,6 +217,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         initializeFlag = false;
         _onConversationEnd?.Invoke();
+        _onConversationEnd = null;
         if (nextTalkData != null){  //会話分岐
             InitializeFromJson(nextTalkData);
         }

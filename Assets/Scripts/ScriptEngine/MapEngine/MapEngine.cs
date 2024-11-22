@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using System.IO;
-using System.Linq;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 public class MapEngine : MonoBehaviour
@@ -38,6 +35,7 @@ public class MapEngine : MonoBehaviour
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
     {
+        return;
         for (int i = 0; i < mapDataController.GetMapSize().y; i++)
         {
             for (int j = 0; j < mapDataController.GetMapSize().x; j++)
