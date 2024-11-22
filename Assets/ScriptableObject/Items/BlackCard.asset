@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: Key
+  m_Name: BlackCard
   m_EditorClassIdentifier: 
-  itemName: "\u9375"
-  descriptionText: "\u8ABF\u5408\u5BA4\u306E\u9375\u7A74\u3068\u5408\u3044\u305D\u3046\u306A\u306A\u9375\u3002"
-  sprite: {fileID: 21300000, guid: f2f089f85b9c64e71a6822f09b747ab4, type: 3}
+  itemName: "\u9ED2\u3044\u30AB\u30FC\u30C9"
+  descriptionText: "\u7A74\u306E\u958B\u3044\u305F\u30AB\u30FC\u30C9\u3002\u7A74\u306E\u6A2A\u306B\u56DB\u65B9\u5411\u306E\u77E2\u5370\u304C\u66F8\u304B\u308C\u3066\u3044\u308B\u3002"
+  sprite: {fileID: 21300000, guid: 401129f52d8574d369b982be4f8d1f01, type: 3}
   contentTextFilePath: 

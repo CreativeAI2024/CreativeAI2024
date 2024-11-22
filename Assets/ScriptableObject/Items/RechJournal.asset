@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: Key
+  m_Name: RechJournal
   m_EditorClassIdentifier: 
-  itemName: "\u9375"
-  descriptionText: "\u8ABF\u5408\u5BA4\u306E\u9375\u7A74\u3068\u5408\u3044\u305D\u3046\u306A\u306A\u9375\u3002"
-  sprite: {fileID: 21300000, guid: f2f089f85b9c64e71a6822f09b747ab4, type: 3}
-  contentTextFilePath: 
+  itemName: "\u7814\u7A76\u65E5\u8A8C"
+  descriptionText: "\u6C5A\u308C\u304C\u76EE\u7ACB\u3064\u3002\u30CE\u30FC\u30C8\u306E\u7AEF\u306B\u300CA.N\u300D\u3068\u66F8\u304B\u308C\u3066\u3044\u308B\u3002"
+  sprite: {fileID: 21300000, guid: 12f9b0a936dbc47738ae73d7cd1d242f, type: 3}
+  contentTextFilePath: ItemContentText/Book4

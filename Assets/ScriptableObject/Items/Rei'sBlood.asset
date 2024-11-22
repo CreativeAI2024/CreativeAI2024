@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: Key
+  m_Name: Rei'sBlood
   m_EditorClassIdentifier: 
-  itemName: "\u9375"
-  descriptionText: "\u8ABF\u5408\u5BA4\u306E\u9375\u7A74\u3068\u5408\u3044\u305D\u3046\u306A\u306A\u9375\u3002"
-  sprite: {fileID: 21300000, guid: f2f089f85b9c64e71a6822f09b747ab4, type: 3}
+  itemName: "\u30EC\u30A4\u306E\u8840"
+  descriptionText: "\u900F\u660E\u306E\u5BB9\u5668\u306B\u30EC\u30A4\u306E\u8840\u304C\u5165\u3063\u3066\u3044\u308B\u3002"
+  sprite: {fileID: 21300000, guid: 5aa18938626f7449a860de7ff984195a, type: 3}
   contentTextFilePath: 

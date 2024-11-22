@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762f80874b1534634aeccb16742a9f72, type: 3}
-  m_Name: CombineRecipeDatabase
+  m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
+  m_Name: EmptyJar
   m_EditorClassIdentifier: 
-  recipes:
-  - {fileID: 11400000, guid: 59f208c179e564fcaa3c7dec36374db2, type: 2}
+  itemName: "\u7A7A\u306E\u74F6"
+  descriptionText: "\u7A7A\u3063\u307D\u306E\u74F6\u3002"
+  sprite: {fileID: 21300000, guid: 33adde3b79dc94cee807553884c3ae31, type: 3}
+  contentTextFilePath: 
