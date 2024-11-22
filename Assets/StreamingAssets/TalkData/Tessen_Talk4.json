@@ -2,7 +2,17 @@
   "Content": [
     {
       "Speaker": "テッセン",
-      "Text": "レイ"
+      "Text": "レイ",
+      "ChangeImage": [
+        {
+            "ImageName": "LeftPanel",
+            "SpriteName": "Tessen"
+        },
+        {
+            "ImageName": "RightPanel",
+            "SpriteName": "rei"
+        }
+    ]
     },
     {
       "Speaker": "レイ",
@@ -15,17 +25,17 @@
         {
           "Answer": "悪くないよ",
           "NextFlag": "",
-          "NextTalkData": ""
+          "NextTalkData": "Tessen_Talk4_1"
         },
         {
           "Answer": "あまり良くないかも",
           "NextFlag": "",
-          "NextTalkData": ""
+          "NextTalkData": "Tessen_Talk4_2"
         },
         {
           "Answer": "……",
           "NextFlag": "",
-          "NextTalkData": ""
+          "NextTalkData": "Tessen_Talk4_3"
         }
       ]
     }

@@ -2,7 +2,18 @@
   "Content": [
     {
       "Speaker": "レイ",
-      "Text": "このレシピってどうしたの？"
+      "Text": "このレシピってどうしたの？",
+      "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                }
+            ],
+            "BGM":"MysteryConfFear"
     },
     {
       "Speaker": "アザミ",

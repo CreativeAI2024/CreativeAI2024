@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: CombineRecipeDatabase
   m_EditorClassIdentifier: 
   recipes:
-  - {fileID: 11400000, guid: 22b02149597804ada95b0ac9afe25032, type: 2}
-  - {fileID: 11400000, guid: 06408cdf90fc344f288332959e371182, type: 2}
-  - {fileID: 11400000, guid: 6944d43b1d411c64488c9d2867ad1077, type: 2}
+  - {fileID: 11400000, guid: 59f208c179e564fcaa3c7dec36374db2, type: 2}

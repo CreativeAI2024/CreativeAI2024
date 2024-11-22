@@ -2,7 +2,17 @@
   "Content": [
     {
       "Speaker": "テッセン",
-      "Text": "へー、探検……"
+      "Text": "へー、探検……",
+      "ChangeImage": [
+        {
+            "ImageName": "LeftPanel",
+            "SpriteName": "Tessen"
+        },
+        {
+            "ImageName": "RightPanel",
+            "SpriteName": "rei"
+        }
+    ]
     },
     {
       "Speaker": "テッセン",

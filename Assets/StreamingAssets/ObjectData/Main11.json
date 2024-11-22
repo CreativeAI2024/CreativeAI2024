@@ -4,13 +4,13 @@
     {
       "MapName": "reference_room",
       "Position": [
-        2,
-        2
+        8,
+        19
       ]
     }
   ],
   "EventName": "Conversation Main11",
-  "TriggerType": 1,
+  "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [

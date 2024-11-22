@@ -17,10 +17,6 @@ public class FlagManager : DontDestroySingleton<FlagManager>
         {
             FlagData flags = SaveUtility.SaveFileToData<FlagData>(_flagSaveFilePath);
             _flags = flags.Flags;
-            foreach (var v in _flags)
-            {
-                v.Log();
-            }
         }
         else
         {
@@ -61,6 +57,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     {
         PlayerPrefs.SetInt("ReiStatus", status);
         ReiStatus = status;
+        _flags[$"symptom{status + 1}"] = true;
     }
 }
 

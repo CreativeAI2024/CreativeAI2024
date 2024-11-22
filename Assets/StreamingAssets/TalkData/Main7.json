@@ -2,7 +2,14 @@
   "Content": [
     {
       "Speaker": "レイ",
-      "Text": "で、できたー！やっと完成した！"
+      "Text": "で、できたー！やっと完成した！",
+      "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                }
+              ],
+              "BGM":"Joy"
     },
     {
       "Speaker": "レイ",
@@ -10,11 +17,37 @@
     },
     {
       "Speaker": "アザミ",
-      "Text": "レイ、薬はできたかい？"
+      "Text": "レイ",
+      "ChangeImage": [
+        {
+            "ImageName": "RightPanel",
+            "SpriteName": "Azami_1"
+        },
+        {
+            "ImageName": "LeftPanel",
+            "SpriteName": "rei"
+        }
+    ]
     },
     {
       "Speaker": "レイ",
-      "Text": "ああ、アザミ...！もちろんできたよ！…でも…"
+      "Text": "ああ、アザミ...！……って、その姿は……"
+    },
+    {
+      "Speaker":"アザミ",
+      "Text":"あー、これか。…キミが薬を作っている間に、俺の体がまた化け物に近づいてしまってね。"
+    },
+    {
+      "Speaker":"レイ",
+      "Text":"…………"
+    },
+    {
+      "Speaker":"アザミ",
+      "Text":"それより今は……。薬はできたのかい？"
+    },
+    {
+      "Speaker":"レイ",
+      "Text":"……もちろん、できたよ！……でも……"
     },
     {
       "Speaker": "アザミ",
