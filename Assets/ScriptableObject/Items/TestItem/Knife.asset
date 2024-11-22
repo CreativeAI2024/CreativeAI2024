@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: itemB
+  m_Name: Knife
   m_EditorClassIdentifier: 
-  itemName: itemB
-  descriptionText: itemB
+  itemName: Knife
+  descriptionText: Knife
   sprite: {fileID: 21300000, guid: 974d21a7b36f69046825f40c267d4376, type: 3}
   contentTextFilePath: 

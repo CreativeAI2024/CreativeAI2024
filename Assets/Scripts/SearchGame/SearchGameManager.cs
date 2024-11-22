@@ -30,10 +30,6 @@ public class SearchGameManager : MonoBehaviour
         if (_inputSetting.GetCancelKeyDown())
         {
             Inactivate();
-        }else if (itemDict.Values.All(interactiveItem => !interactiveItem.activeSelf))
-        {
-            ConversationTextManager.Instance.InitializeFromString("There are no items.");
-            ConversationTextManager.Instance.OnConversationEnd += Inactivate;
         }
         foreach (var item in itemDict) {
             if (itemInventory.IsContains(item.Key))
@@ -41,7 +37,11 @@ public class SearchGameManager : MonoBehaviour
                 item.Value.SetActive(false);
             }
         }
-
+        itemInventory.TryCombine(itemInventory.GetItem("Worm"));
+        if (itemInventory.IsContains(itemInventory.GetItem("Worm")))
+        {
+            ConversationTextManager.Instance.InitializeFromString($"{itemInventory.GetItem("Worm").ItemName}を手に入れた<br>{itemInventory.GetItem("Worm").DescriptionText}");
+        }
     }
 
     private void Pause()
