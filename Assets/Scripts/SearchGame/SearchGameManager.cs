@@ -13,6 +13,7 @@ public class SearchGameManager : MonoBehaviour
     [SerializeField] private GameObject[] interactiveItems;
     private Dictionary<Item, GameObject> itemDict;
     [SerializeField] private ItemInventory itemInventory;
+    [SerializeField] private ItemDatabase itemDatabase;
     void Start()
     {
         _inputSetting = InputSetting.Load(); 
@@ -31,16 +32,22 @@ public class SearchGameManager : MonoBehaviour
         {
             Inactivate();
         }
-        foreach (var item in itemDict) {
+        foreach (var item in itemDict)
+        {
             if (itemInventory.IsContains(item.Key))
             {
                 item.Value.SetActive(false);
             }
         }
-        itemInventory.TryCombine(itemInventory.GetItem("Worm"));
-        if (itemInventory.IsContains(itemInventory.GetItem("Worm")))
+        itemInventory.TryCombine(itemDatabase.GetItem("Worm"));
+        if (itemInventory.IsContains(itemDatabase.GetItem("Worm")))
         {
             ConversationTextManager.Instance.InitializeFromString($"{itemInventory.GetItem("Worm").ItemName}を手に入れた<br>{itemInventory.GetItem("Worm").DescriptionText}");
+            FlagManager.Instance.AddFlag("Worm");
+        }
+        if (itemInventory.IsContains(itemDatabase.GetItem("Knife")))
+        {
+            FlagManager.Instance.AddFlag("Knife");
         }
     }
 

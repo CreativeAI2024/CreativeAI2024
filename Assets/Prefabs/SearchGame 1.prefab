@@ -189,6 +189,7 @@ MonoBehaviour:
   - {fileID: 7584543140181595942}
   - {fileID: 6980504486743529522}
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
 --- !u!1 &1369951876392548342
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +786,7 @@ GameObject:
   - component: {fileID: 8085897706090279201}
   - component: {fileID: 1065779092786660101}
   m_Layer: 0
-  m_Name: WalkingDead(Example)
+  m_Name: Jar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,7 +848,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 974d21a7b36f69046825f40c267d4376, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2a830da8a93a11489124e3e0fdee4d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -894,7 +895,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 6.71, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -921,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e28c49c3f4641bb99ff4158a88a463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 2029459544578583920}
+  spriteRenderer: {fileID: 2444370698209879541}
   polygonCollider2D: {fileID: 1062029779704450206}
 --- !u!114 &1065779092786660101
 MonoBehaviour:
@@ -951,7 +952,7 @@ GameObject:
   - component: {fileID: 6566142415236899778}
   - component: {fileID: 2947188441317127854}
   m_Layer: 0
-  m_Name: BrokenTeddyBear(Example)
+  m_Name: Bug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

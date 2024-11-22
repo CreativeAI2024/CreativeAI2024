@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8288953366553369897}
   - component: {fileID: 2002142559653747799}
   - component: {fileID: 7519438356364126511}
-  - component: {fileID: 4525299561844890771}
+  - component: {fileID: 6742779746196541581}
   m_Layer: 0
-  m_Name: BrokenTeddyBear(Example)
+  m_Name: Book4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 69409165241221984}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.18, y: 1.0647771, z: 0.022056583}
+  m_LocalPosition: {x: -9.18, y: -3.4, z: 0.022056583}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 8288953366553369897}
   polygonCollider2D: {fileID: 2002142559653747799}
---- !u!114 &4525299561844890771
+--- !u!114 &6742779746196541581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,9 +161,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 69409165241221984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed4e51f83bfc4cebb0068096899c0b5, type: 3}
+  m_Script: {fileID: 11500000, guid: d4b993dbbe3a49f4eadd943181396266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  item: {fileID: 11400000, guid: 037accbcaf253314db19beb4f80d4632, type: 2}
 --- !u!1 &1032859084133051817
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,9 +178,9 @@ GameObject:
   - component: {fileID: 7807708950797435307}
   - component: {fileID: 2249619189805868916}
   - component: {fileID: 5245041538577192918}
-  - component: {fileID: 3922494078286840426}
+  - component: {fileID: 5327331218131160840}
   m_Layer: 0
-  m_Name: WalkingDead(Example)
+  m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 1032859084133051817}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.23, y: -1.43, z: 0.022056583}
+  m_LocalPosition: {x: 5.85, y: 5.87, z: 0.022056583}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -316,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 8288953366553369897}
   polygonCollider2D: {fileID: 2249619189805868916}
---- !u!114 &3922494078286840426
+--- !u!114 &5327331218131160840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -325,9 +327,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032859084133051817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188a786a3e02441389a9a8847e2bd4df, type: 3}
+  m_Script: {fileID: 11500000, guid: d4b993dbbe3a49f4eadd943181396266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  item: {fileID: 11400000, guid: 037accbcaf253314db19beb4f80d4632, type: 2}
 --- !u!1 &1196871696803368926
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5743e27c5bbc54ce09199dc66cc66ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchGameManager: {fileID: 4447017107032740179}
 --- !u!114 &4447017107032740179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +478,14 @@ MonoBehaviour:
   pause: {fileID: 706852394817954068}
   main: {fileID: 8712291645763975103}
   cursorTip: {fileID: 7044691058804436066}
+  items:
+  - {fileID: 11400000, guid: 302120581e5731445abf668319b8aa37, type: 2}
+  - {fileID: 11400000, guid: 037accbcaf253314db19beb4f80d4632, type: 2}
+  interactiveItems:
+  - {fileID: 69409165241221984}
+  - {fileID: 1032859084133051817}
+  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
 --- !u!1 &2781721073508468520
 GameObject:
   m_ObjectHideFlags: 0

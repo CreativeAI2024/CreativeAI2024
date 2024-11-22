@@ -12,16 +12,11 @@ public class SearchGameChanger : MonoBehaviour
         {
             searchGame.SetActive(false);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if (FlagManager.Instance.HasFlag("StartSearchGame1"))
         {
             searchGames[0].SetActive(true);
         }
-        else if(FlagManager.Instance.HasFlag("StartSearchGame2"))
+        else if (FlagManager.Instance.HasFlag("StartSearchGame2"))
         {
             searchGames[1].SetActive(true);
         }

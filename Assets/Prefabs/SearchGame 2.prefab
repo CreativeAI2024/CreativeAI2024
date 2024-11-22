@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1113487089218951862
 Transform:
   m_ObjectHideFlags: 0
@@ -277,7 +277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5743e27c5bbc54ce09199dc66cc66ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchGameManager: {fileID: 8584317804792188791}
 --- !u!114 &8584317804792188791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +292,14 @@ MonoBehaviour:
   pause: {fileID: 5355921018260739541}
   main: {fileID: 1240396358443521}
   cursorTip: {fileID: 5818327951935578146}
+  items:
+  - {fileID: 11400000, guid: 2ae4fda3e38f4df48a133b93133674d7, type: 2}
+  - {fileID: 11400000, guid: 037accbcaf253314db19beb4f80d4632, type: 2}
+  interactiveItems:
+  - {fileID: 2756246485427764747}
+  - {fileID: 6326504358296892411}
+  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
 --- !u!1 &2721140826956422045
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,9 +396,9 @@ GameObject:
   - component: {fileID: 6461389199201316198}
   - component: {fileID: 2585382112499891758}
   - component: {fileID: 6531592275026246974}
-  - component: {fileID: 5886027209131532186}
+  - component: {fileID: 5425800158077867031}
   m_Layer: 0
-  m_Name: BrokenTeddyBear(Example)
+  m_Name: Book1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,7 +413,7 @@ Transform:
   m_GameObject: {fileID: 2756246485427764747}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.18, y: 1.0647771, z: 0.022056583}
+  m_LocalPosition: {x: -9.18, y: 5.95, z: 0.022056583}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -529,7 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6461389199201316198}
   polygonCollider2D: {fileID: 2585382112499891758}
---- !u!114 &5886027209131532186
+--- !u!114 &5425800158077867031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -538,9 +545,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2756246485427764747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed4e51f83bfc4cebb0068096899c0b5, type: 3}
+  m_Script: {fileID: 11500000, guid: d4b993dbbe3a49f4eadd943181396266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  item: {fileID: 11400000, guid: 2ae4fda3e38f4df48a133b93133674d7, type: 2}
 --- !u!1 &3373354130545588798
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,9 +795,9 @@ GameObject:
   - component: {fileID: 7704645155825333183}
   - component: {fileID: 4758959531084241651}
   - component: {fileID: 4032545910099823785}
-  - component: {fileID: 6063944914529470064}
+  - component: {fileID: 2435956977086597934}
   m_Layer: 0
-  m_Name: WalkingDead(Example)
+  m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -803,7 +812,7 @@ Transform:
   m_GameObject: {fileID: 6326504358296892411}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.23, y: -1.43, z: 0.022056583}
+  m_LocalPosition: {x: 8.48, y: -2, z: 0.022056583}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -926,7 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6461389199201316198}
   polygonCollider2D: {fileID: 4758959531084241651}
---- !u!114 &6063944914529470064
+--- !u!114 &2435956977086597934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -935,9 +944,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6326504358296892411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188a786a3e02441389a9a8847e2bd4df, type: 3}
+  m_Script: {fileID: 11500000, guid: d4b993dbbe3a49f4eadd943181396266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  item: {fileID: 11400000, guid: 037accbcaf253314db19beb4f80d4632, type: 2}
 --- !u!1 &8641173334438879675
 GameObject:
   m_ObjectHideFlags: 0
