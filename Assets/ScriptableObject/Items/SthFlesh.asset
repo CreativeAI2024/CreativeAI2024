@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: SthFlesh
   m_EditorClassIdentifier: 
-  itemName: 
-  descriptionText: 
-  sprite: {fileID: 0}
+  itemName: "\u30CA\u30CB\u30AB\u306E\u8089"
+  descriptionText: "\u3050\u3061\u3083\u3050\u3061\u3083\u306B\u56FA\u3081\u305F\u30CA\u30CB\u30AB\u306E\u52D5\u7269\u306E\u8089\u3002"
+  sprite: {fileID: 21300000, guid: 4cacb73f7d42b428d9ab2fa4589e02b3, type: 3}
   contentTextFilePath: 

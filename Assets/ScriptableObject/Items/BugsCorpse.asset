@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: Knife
+  m_Name: BugsCorpse
   m_EditorClassIdentifier: 
-  itemName: "\u30CA\u30A4\u30D5"
-  descriptionText: "\u5207\u308C\u5473\u306E\u60AA\u305D\u3046\u306A\u30CA\u30A4\u30D5\u3002"
-  sprite: {fileID: 21300000, guid: 0434c1327d0124bf09a97588600b449a, type: 3}
+  itemName: "\u866B\u306E\u6B7B\u9AB8"
+  descriptionText: "\u8718\u86DB\u3068\u8776\u306E\u6B7B\u9AB8\u304C\u6DF7\u3056\u3063\u3066\u3044\u308B\u3002"
+  sprite: {fileID: 21300000, guid: 6fbc9abd26dde4d979b9f0c30372a3a2, type: 3}
   contentTextFilePath: 
