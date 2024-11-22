@@ -16,7 +16,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Book5",
+  "EventName": "Conversation Book5 | GetItem Book5",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [],

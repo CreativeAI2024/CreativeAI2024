@@ -4,8 +4,29 @@
     {
       "MapName": "tessen_room",
       "Position": [
-        2,
-        2
+        9,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        6
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        6
       ]
     }
   ],

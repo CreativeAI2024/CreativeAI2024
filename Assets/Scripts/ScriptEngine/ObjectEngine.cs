@@ -1,14 +1,19 @@
 using System;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using System.Diagnostics;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 public class ObjectEngine : MonoBehaviour
 {
-    private ObjectData[][] _eventObjects;
-    private ObjectData[][] _trapEventObjects;
+    public Texture gizmoDebugTexture;
+    private List<ObjectData>[][] _eventObjects;
+    private List<ObjectData>[][] _trapEventObjects;
     
     [SerializeField] private PlayerController player;
     [SerializeField] private ItemInventory inventory;
@@ -18,10 +23,12 @@ public class ObjectEngine : MonoBehaviour
     [SerializeField] private MapEngine mapEngine;
     [SerializeField] private MapDataController mapDataController;
     
-    private static Queue<string> s_events = new Queue<string>();
     private string _mapName;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
-    private Vector2Int _oldGridPosition = new Vector2Int(-1, -1);
+    private bool conversationFlag = false;
+    private bool changeSceneFlag = false;
+    private bool runFlag = false;
+    private static Vector2Int changedPos = new Vector2Int(4, 2);
     private InputSetting _inputSetting;
     private void Start()
     {
@@ -31,7 +38,7 @@ public class ObjectEngine : MonoBehaviour
         mapEngine.Initialize();
         mapDataController.SetChange(ResetAction);
         ResetAction();
-        CallEvent();
+        PlayerMove(changedPos);
     }
     
     private void ResetAction()
@@ -43,12 +50,17 @@ public class ObjectEngine : MonoBehaviour
     private void Initialize(string mapName, int width, int height)
     {
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
-        _eventObjects = new ObjectData[width][];
-        _trapEventObjects = new ObjectData[width][];
+        _eventObjects = new List<ObjectData>[width][];
+        _trapEventObjects = new List<ObjectData>[width][];
         for (int i = 0; i < width; i++)
         {
-            _eventObjects[i] = new ObjectData[height];
-            _trapEventObjects[i] = new ObjectData[height];
+            _eventObjects[i] = new List<ObjectData>[height];
+            _trapEventObjects[i] = new List<ObjectData>[height];
+            for (int j = 0; j < height; j++)
+            {
+                _eventObjects[i][j] = new List<ObjectData>(4);
+                _trapEventObjects[i][j] = new List<ObjectData>(4);
+            }
         }
         string assetsPath = string.Join('/', Application.streamingAssetsPath, "ObjectData");
         foreach (string filePath in Directory.GetFiles(assetsPath))
@@ -63,40 +75,70 @@ public class ObjectEngine : MonoBehaviour
                 // 自動発動イベント
                 if (objectData.TriggerType == 0)
                 {
-                    _trapEventObjects[location.Position.x][location.Position.y] = objectData;
+                    _trapEventObjects[location.Position.x][location.Position.y].Add(objectData);
                 }
                 else
                 {
-                    _eventObjects[location.Position.x][location.Position.y] = objectData;
+                    _eventObjects[location.Position.x][location.Position.y].Add(objectData);
                 }
             }
         }
     }
     
-    private void Update()
+    [Conditional("UNITY_EDITOR")]
+    private void OnDrawGizmos()
     {
-        if (_inputSetting.GetDecideInputDown())
+        for (int i = 0; i < mapDataController.GetMapSize().y; i++)
         {
-            if (!mapDataController.IsGridPositionOutOfRange(player.GetGridPosition() + player.Direction))
+            for (int j = 0; j < mapDataController.GetMapSize().x; j++)
             {
-                ObjectData aroundObjectData = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
-                if (Call(aroundObjectData, 1, 2))
+                if (_trapEventObjects[j][i].Any())
                 {
-                    return;
+                    Gizmos.color = Color.yellow;
+                    DrawRect(new Rect(j-0.5f, i-0.5f, 1, 1));
+                }
+                else if (_eventObjects[j][i].Any())
+                {
+                    Gizmos.color = Color.green;
+                    DrawRect(new Rect(j-0.5f, i-0.5f, 1, 1));
                 }
             }
-            
-            ObjectData centerObjectData = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
-            if (Call(centerObjectData, 2))
+        }
+    }
+    
+    [Conditional("UNITY_EDITOR")]
+    void DrawRect(Rect rect)
+    {
+        Gizmos.DrawWireCube(new Vector3(rect.center.x, rect.center.y, 0.01f), new Vector3(rect.size.x, rect.size.y, 0.01f));
+    }
+    
+    private async void Update()
+    {
+        if (conversationFlag) return;
+        if (_inputSetting.GetDecideInputDown())
+        {
+            List<ObjectData> aroundObjectDatas = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
+            runFlag = false;
+            foreach (ObjectData aroundObjectData in aroundObjectDatas)
             {
-                return;
+                await Call(aroundObjectData, 1, 2);
+            }
+            
+            if (runFlag) return;
+            List<ObjectData> centerObjectDatas = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
+            foreach (ObjectData centerObjectData in centerObjectDatas)
+            {
+                await Call(centerObjectData, 2, 3);
             }
         }
         
         if (player.GetGridPosition() == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
         _pastGridPosition = player.GetGridPosition();
-        ObjectData trapObjectData = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
-        Call(trapObjectData, 0);
+        List<ObjectData> trapObjectDatas = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
+        foreach (ObjectData trapObjectData in trapObjectDatas)
+        {
+            await Call(trapObjectData, 0);
+        }
     }
     
     private void UnPause()
@@ -104,66 +146,90 @@ public class ObjectEngine : MonoBehaviour
         pause.UnPauseAll();
     }
     
-    private bool Call(ObjectData objectData, params int[] triggerType)
+    private async UniTask Call(ObjectData objectData, params int[] triggerType)
     {
-        if (objectData is null) return false;
-        if (!triggerType.Contains(objectData.TriggerType)) return false;
-        if (objectData.FlagCondition.Flag is not null && 
-            objectData.FlagCondition.Flag.Any(x => FlagManager.Instance.HasFlag(x.Key) != x.Value))
-        {
-            return false;
-        }
+        if (objectData is null) return;
+        if (!triggerType.Contains(objectData.TriggerType)) return;
         string[] eventNames = objectData.EventName.Split(" | ");
+        changeSceneFlag = false;
         foreach (string eventName in eventNames)
         {
-            s_events.Enqueue(eventName);
+            foreach (var x in objectData.FlagCondition.Flag)
+            {
+                DebugLogger.Log(x.Key+" : expected: "+x.Value+" : actual:"+ FlagManager.Instance.HasFlag(x.Key), DebugLogger.Colors.Blue);
+            }
+            if (objectData.FlagCondition.Flag is not null && objectData.FlagCondition.Flag.Any(x => FlagManager.Instance.HasFlag(x.Key) != x.Value))
+            {
+                return; // continue;
+            }
+            runFlag = true;
+            await CallEvent(eventName);
         }
-        CallEvent();
         if (objectData.FlagCondition.NextFlag is not null)
         {
             SetNextFlag(objectData.FlagCondition.NextFlag);
         }
-        return true;
+        if (changeSceneFlag) return;
+        List<ObjectData> trapObjectDatas = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
+        DebugLogger.Log("end");
+        foreach (ObjectData trapObjectData in trapObjectDatas)
+        {
+            await Call(trapObjectData, 0);// フラグで制御されてるとはいえ再帰的になっているので要注意
+        }
     }
     
-    private void CallEvent()
+    private async UniTask CallEvent(string eventName)
     {
-        while (s_events.Any())
+        Debug.Log("called");
+        string[] eventArgs = eventName.Split(' ');
+        string eventKey = eventArgs[0];
+        Debug.Log(eventKey + " : " + SceneManager.GetActiveScene().name);
+        switch (eventKey)
         {
-            var eve = s_events.Dequeue();
-            string[] eventArgs = eve.Split(' ');
-            string eventName = eventArgs[0];
-            switch (eventName)
-            {
-                case "PlayerMove":
-                    PlayerMove(eventArgs[1]);
-                    break;
-                case "ChangeScene":
-                    SceneChange(eventArgs[1]);
-                    return;// シーンをまたいだ処理はキューに追加してシーン変更後に実行するため、先に呼ばれないように関数を抜ける
-                case "Conversation":
-                    Conversation(eventArgs[1]);
-                    break;
-                case "GetItem":
-                    GetItem(eventArgs[1]);
-                    break;
-                case "PaperGame":
-                    DebugLogger.Log("papergame");
-                    break;
-                case "SearchGame":
-                    DebugLogger.Log("searchgame");
-                    break;
-                case "TimingGame":
-                    DebugLogger.Log("timinggame");
-                    break;
-                case "TileModify":
-                    string[] positionStr = eventArgs[3].Split(',');
-                    Vector2Int position = new Vector2Int(int.Parse(positionStr[0]), int.Parse(positionStr[1]));
-                    TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position,
-                        eventArgs[4].ToCharArray()[0]);
-                    break;
-                default: throw new NotImplementedException();
-            }
+            case "PlayerMove":
+                DebugLogger.Log("PlayerMove", DebugLogger.Colors.Green);
+                string[] pos = eventArgs[1].Split(',');
+                Vector2Int moved = new Vector2Int(int.Parse(pos[0]), int.Parse(pos[1]));
+                PlayerMove(moved);
+                break;
+            case "ChangeScene":
+                DebugLogger.Log("ChangeScene", DebugLogger.Colors.Green);
+                string[] args = eventArgs[1].Split(',');
+                changedPos = new Vector2Int(int.Parse(args[1]), int.Parse(args[2]));
+                changeSceneFlag = true;
+                await SceneChange(args[0]);
+                break;
+            case "Conversation":
+                DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
+                conversationFlag = true;
+                ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
+                Conversation(eventArgs[1]);
+                await UniTask.WaitUntil(() => !conversationFlag);
+                break;
+            case "GetItem":
+                DebugLogger.Log("GetItem", DebugLogger.Colors.Green);
+                GetItem(eventArgs[1]);
+                break;
+            case "PaperGame":
+                DebugLogger.Log("PaperGame", DebugLogger.Colors.Green);
+                await SceneChange("PaperGame");
+                break;
+            case "SearchGame":
+                DebugLogger.Log("SearchGame", DebugLogger.Colors.Green);
+                await SceneChange("SearchGame");
+                break;
+            case "TimingGame":
+                DebugLogger.Log("TimingGame", DebugLogger.Colors.Green);
+                await SceneChange("TimingGame");
+                break;
+            case "TileModify":
+                DebugLogger.Log("TileModify", DebugLogger.Colors.Green);
+                string[] positionStr = eventArgs[3].Split(',');
+                Vector2Int position = new Vector2Int(int.Parse(positionStr[0]), int.Parse(positionStr[1]));
+                TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position,
+                    eventArgs[4].ToCharArray()[0]);
+                break;
+            default: throw new NotImplementedException();
         }
     }
     
@@ -182,29 +248,25 @@ public class ObjectEngine : MonoBehaviour
         }
     }
     
-    private void SceneChange(string sceneName)
+    private async UniTask SceneChange(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        ConversationTextManager.Instance.OnConversationEnd -= UnPause;
+        await SceneManager.LoadSceneAsync(sceneName).ToUniTask();
     }
     
-    private void PlayerMove(string movedPos)
+    private void PlayerMove(Vector2Int moved)
     {
-        string[] position = movedPos.Split(',');
-        int movedX = int.Parse(position[0]);
-        int movedY = int.Parse(position[1]);
-        player.transform.position = new Vector3(movedX, movedY, 0);
+        player.transform.position = new Vector3(moved.x, moved.y, 0);
     }
     
     private void Conversation(string fileName)
     {
-        DebugLogger.Log("Conversation", DebugLogger.Colors.Cyan);
         pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromJson(fileName);
     }
     
     private void GetItem(string itemName)
     {
-        DebugLogger.Log("GetItem", DebugLogger.Colors.Green);
         pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
         Item item = itemDatabase.GetItem(itemName);

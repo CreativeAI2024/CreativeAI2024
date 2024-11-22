@@ -1,28 +1,38 @@
 {
-    "content":[
+    "Content":[
         {
-            "speaker":"レイ",
-            "text":"アザミってどういう人？"
+            "Speaker":"レイ",
+            "Text":"アザミってどういう人？",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Tessen"
+                },
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "rei"
+                }
+            ]
         },
         {
-            "speaker":"テッセン",
-            "text":"アザミ？……面白い人だよ"
+            "Speaker":"テッセン",
+            "Text":"アザミ？……面白い人だよ"
         },
         {
-            "speaker":"レイ",
-            "text":"面白い？"
+            "Speaker":"レイ",
+            "Text":"面白い？"
         },
         {
-            "speaker":"テッセン",
-            "text":"そう、必死にここから出ようと頑張っている姿が愛おしくってね"
+            "Speaker":"テッセン",
+            "Text":"そう、必死にここから出ようと頑張っている姿が愛おしくってね"
         },
         {
-            "speaker":"テッセン",
-            "text":"どうせ、ここから出られるわけないのに"
+            "Speaker":"テッセン",
+            "Text":"どうせ、ここから出られるわけないのに"
         },
         {
-            "speaker":"レイ",
-            "text":"…………"
+            "Speaker":"レイ",
+            "Text":"…………"
         }
     ]
 }

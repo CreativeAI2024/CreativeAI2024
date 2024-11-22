@@ -2,7 +2,17 @@
     "Content": [
         {
             "Speaker": "テッセン",
-            "Text": "へー、薬の材料ね"
+            "Text": "へー、薬の材料ね",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Tessen"
+                },
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "rei"
+                }
+            ]
         },
         {
             "Speaker": "テッセン",
@@ -14,7 +24,7 @@
         },
         {
             "Speaker": "レイ",
-            "Text": "？"
+            "Text": "?"
         }
     ]
 }
