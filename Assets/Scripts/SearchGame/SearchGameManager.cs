@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SearchGameManager : MonoBehaviour
 {
@@ -6,9 +9,18 @@ public class SearchGameManager : MonoBehaviour
     [SerializeField] private Pause pause;
     [SerializeField] private GameObject main;
     [SerializeField] private SearchGameCursorTip cursorTip;
+    [SerializeField] private Item[] items;
+    [SerializeField] private GameObject[] interactiveItems;
+    private Dictionary<Item, GameObject> itemDict;
+    [SerializeField] private ItemInventory itemInventory;
     void Start()
     {
-        _inputSetting = InputSetting.Load();
+        _inputSetting = InputSetting.Load(); 
+        itemDict = new Dictionary<Item, GameObject>();
+        for (int i = 0; i < items.Length; i++)
+        {
+            itemDict[items[i]] = interactiveItems[i];
+        }
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
     }
@@ -18,7 +30,18 @@ public class SearchGameManager : MonoBehaviour
         if (_inputSetting.GetCancelKeyDown())
         {
             Inactivate();
+        }else if (itemDict.Values.All(interactiveItem => !interactiveItem.activeSelf))
+        {
+            ConversationTextManager.Instance.InitializeFromString("There are no items.");
+            ConversationTextManager.Instance.OnConversationEnd += Inactivate;
         }
+        foreach (var item in itemDict) {
+            if (itemInventory.IsContains(item.Key))
+            {
+                item.Value.SetActive(false);
+            }
+        }
+
     }
 
     private void Pause()
@@ -40,5 +63,17 @@ public class SearchGameManager : MonoBehaviour
     {
         main.SetActive(false);
         cursorTip.Reset();
+        switch (gameObject.name)
+        {
+            case "SearchGame 1":
+                SceneManager.LoadScene("itemA_room");
+                break;
+            case "SearchGame 2":
+                SceneManager.LoadScene("itemA_room");
+                break;
+            case "SearchGame 3":
+                SceneManager.LoadScene("itemB_room");
+                break;
+        }
     }
 }
