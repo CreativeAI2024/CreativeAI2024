@@ -277,7 +277,6 @@ GameObject:
   - component: {fileID: 4223012542730454846}
   - component: {fileID: 7788802222353108198}
   - component: {fileID: 8244059244806942473}
-  - component: {fileID: 4143418587914383416}
   m_Layer: 5
   m_Name: PaperGame
   m_TagString: Untagged
@@ -406,20 +405,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4143418587914383416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5975356874407393299}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a574e213c9b0d54fabb2f3d682b3b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paperGameObject: {fileID: 7232116941612578472}
-  paperMove: {fileID: 7816810499604837990}
 --- !u!1 &6605105318373098992
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8752211648150964092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -659,7 +644,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5434443023495187974
 MonoBehaviour:
   m_ObjectHideFlags: 0

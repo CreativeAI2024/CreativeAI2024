@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
@@ -7,9 +8,12 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
     private Vector3 _offset;
     [SerializeField] private float speed;
     private InputSetting _inputSetting;
-
-    private SpriteRenderer _spriteRenderer;
     private Vector2 _imageSize;
+
+    private void Start()
+    {
+        Initialize();
+    }
 
     private void Update()
     {
@@ -24,7 +28,12 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
         if (_inputSetting.GetRightKey())
             moveDirection += Vector3.right;
 
-        Vector3 newPosition = transform.position + moveDirection.normalized * speed * Time.deltaTime;
+        if (_inputSetting.GetCancelKey())
+        {
+            //SceneManager.LoadScene("");  //仮置き
+        }
+
+        Vector3 newPosition = transform.position + speed * Time.deltaTime * moveDirection.normalized;
         transform.position = ClampToScreen(newPosition);
     }
 
@@ -33,28 +42,20 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
         _mainCamera = Camera.main;
         _inputSetting = InputSetting.Load();
 
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        Sprite sprite = _spriteRenderer.sprite;
-        //_imageSize = _spriteRenderer.bounds.size / transform.localScale;  // 画像のサイズ（幅、高さ）を取得
-        //DebugLogger.Log((_spriteRenderer.bounds.size.x) + ":" + (_spriteRenderer.bounds.size.y));
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Rect spriteRect = spriteRenderer.sprite.rect;
 
-        _imageSize.x = sprite.rect.width;  // 画像のサイズ（幅、高さ）を取得
-        _imageSize.y = sprite.rect.height;  // 画像のサイズ（幅、高さ）を取得
-        //DebugLogger.Log((_imageSize.x) + ":" + (_imageSize.y));
-
-
+        _imageSize.x = spriteRect.width;  // 画像のサイズ（幅、高さ）を取得
+        _imageSize.y = spriteRect.height;  // 画像のサイズ（幅、高さ）を取得
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Vector3 mouseWorldPos = _mainCamera.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, -_mainCamera.transform.position.z));
-        //_offset = transform.position - mouseWorldPos;
         _offset = transform.position - new Vector3(eventData.position.x, eventData.position.y, -_mainCamera.transform.position.z);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Vector3 mouseWorldPos = _mainCamera.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, -_mainCamera.transform.position.z));
         Vector3 newPosition = new Vector3(eventData.position.x, eventData.position.y, -_mainCamera.transform.position.z) - _offset;
         transform.position = ClampToScreen(newPosition);
     }
@@ -64,11 +65,8 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
         Vector3 minScreenBounds = _mainCamera.ScreenToWorldPoint(new Vector3(0, 0, -_mainCamera.transform.position.z));
         Vector3 maxScreenBounds = _mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -_mainCamera.transform.position.z));
 
-        //float clampedX = Mathf.Clamp(position.x, minScreenBounds.x + _imageSize.x / 2, maxScreenBounds.x - _imageSize.x / 2);
-        //float clampedY = Mathf.Clamp(position.y, minScreenBounds.y + _imageSize.y / 2, maxScreenBounds.y - _imageSize.y / 2);
         float clampedX = Mathf.Clamp(position.x, 0 + _imageSize.x / 2, Screen.width - _imageSize.x / 2);
         float clampedY = Mathf.Clamp(position.y, 0 + _imageSize.y / 2, Screen.height - _imageSize.y / 2);
-        //DebugLogger.Log((minScreenBounds.x) + ":" + (maxScreenBounds.x));
 
         return new Vector3(clampedX, clampedY, position.z);
     }
