@@ -1249,7 +1249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31982af394b5b42c89216059ad80c65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuUI: {fileID: 6261210613205064336}
+  main: {fileID: 6261210613205064336}
+  followFocusedButton: {fileID: 1682440499713030}
 --- !u!114 &8339290748435545528
 MonoBehaviour:
   m_ObjectHideFlags: 0

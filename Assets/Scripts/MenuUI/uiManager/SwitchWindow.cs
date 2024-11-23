@@ -3,7 +3,8 @@ using UnityEngine;
 public class SwitchWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
-    [SerializeField] private GameObject menuUI;
+    [SerializeField] private GameObject main;
+    [SerializeField] private FollowFocusedButton followFocusedButton;
 
     void Start()
     {
@@ -13,15 +14,16 @@ public class SwitchWindow : MonoBehaviour
     {
         if (_inputSetting.GetMenuKeyDown())
         {
-            SetWindowActive(!menuUI.activeInHierarchy);
+            SetWindowActive(!main.activeInHierarchy);
         }
-        else if (_inputSetting.GetCancelKeyDown() && menuUI.activeInHierarchy)
+        else if (_inputSetting.GetCancelKeyDown() && main.activeInHierarchy)
         {
             SetWindowActive(false);
         }
     }
     private void SetWindowActive(bool isActive)
     {
-        menuUI.SetActive(isActive);
+        main.SetActive(isActive);
+        followFocusedButton.ScrollToTop();
     }
 }
