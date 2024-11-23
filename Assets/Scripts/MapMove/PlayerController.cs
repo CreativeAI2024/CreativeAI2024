@@ -13,9 +13,9 @@ public class PlayerController : MonoBehaviour
     private Transform _playerTransform;
     private InputSetting _inputSetting;
     public Vector2Int LastInputVector { get; private set; }
-    
+
     public Vector2Int Direction { get; private set; }
-    
+
     private void Start()
     {
         OnStart();
@@ -27,18 +27,32 @@ public class PlayerController : MonoBehaviour
         _playerTransform = transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_canInput)
         {
             LastInputVector = GetInputVector();
+            _startPosition = GetGridPosition();
             if (LastInputVector != Vector2Int.zero)
             {
-                _canInput = false;
                 Direction = LastInputVector;
+                if (LastInputVector == Vector2Int.up)
+                {
+                    _canInput = _startPosition.y == mapDataController.GetMapSize().y - 1;
+                }
+                else if (LastInputVector == Vector2Int.left)
+                {
+                    _canInput = _startPosition.x == 0;
+                }
+                else if (LastInputVector == Vector2Int.down)
+                {
+                    _canInput = _startPosition.y == 0;
+                }
+                else if (LastInputVector == Vector2Int.right)
+                {
+                    _canInput = _startPosition.x == mapDataController.GetMapSize().x - 1;
+                }
             }
-            _startPosition = GetGridPosition();
             _targetPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
         }
         else
@@ -83,7 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 targetVector = new Vector3(_targetPosition.x, _targetPosition.y, 0);
         if (Vector3.Distance(targetVector, _playerTransform.position) >= allowDistance) return;
-        
+
         _playerTransform.position = targetVector;
         MovePrepare();
     }
@@ -103,7 +117,7 @@ public class PlayerController : MonoBehaviour
         _playerTransform.position = new Vector3(_startPosition.x, _startPosition.y, 0);
         MovePrepare();
     }
-    
+
     public Vector2Int GetGridPosition()
     {
         return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
