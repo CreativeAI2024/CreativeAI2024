@@ -149,7 +149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4179123885095222229
 Transform:
   m_ObjectHideFlags: 0
@@ -158,8 +158,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794945697834125576}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1700842, y: 4.209554, z: 0.044113167}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.91364, y: 3.2551792, z: -34.911465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -183,8 +183,8 @@ MonoBehaviour:
   main: {fileID: 1369951876392548342}
   cursorTip: {fileID: 977857614303754878}
   items:
-  - {fileID: 11400000, guid: 637fa2ecbde41fc438c0ad49569d328f, type: 2}
-  - {fileID: 11400000, guid: 4378c348bd912c24cb305ebea5eeab19, type: 2}
+  - {fileID: 11400000, guid: 43cc9aa292bf4434fae97ba7ce2f394f, type: 2}
+  - {fileID: 11400000, guid: 76dd699543e1840d6aa12fb71fee36ca, type: 2}
   interactiveItems:
   - {fileID: 7584543140181595942}
   - {fileID: 6980504486743529522}
@@ -802,7 +802,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.12, y: 3.11, z: 0.022056583}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8907457170901127413}
@@ -903,12 +903,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.03125, y: 0.03125}
-      - {x: -0.03125, y: -0.0234375}
-      - {x: 0.0078125, y: -0.0234375}
-      - {x: 0.0234375, y: -0.0078125}
-      - {x: 0.0234375, y: 0.015625}
-      - {x: 0.015625, y: 0.03125}
+    - - {x: -0.05451778, y: 0.77581626}
+      - {x: -0.5138346, y: 0.5666009}
+      - {x: -0.7758151, y: 0.041712105}
+      - {x: -0.54130465, y: -0.47948384}
+      - {x: -0.0026234984, y: -0.7757219}
+      - {x: 0.4874385, y: -0.51414216}
+      - {x: 0.80373865, y: -0.0005749762}
+      - {x: 0.531559, y: 0.5730797}
   m_UseDelaunayMesh: 0
 --- !u!114 &8085897706090279201
 MonoBehaviour:
@@ -937,7 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  item: {fileID: 11400000, guid: 4378c348bd912c24cb305ebea5eeab19, type: 2}
+  item: {fileID: 11400000, guid: 76dd699543e1840d6aa12fb71fee36ca, type: 2}
 --- !u!1 &7584543140181595942
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +970,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -14.55, y: 4.23, z: 0.022056583}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8907457170901127413}
@@ -1014,7 +1016,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 974d21a7b36f69046825f40c267d4376, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2a830da8a93a11489124e3e0fdee4d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1061,7 +1063,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 3.55, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1069,12 +1071,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.03125, y: 0.03125}
-      - {x: -0.03125, y: -0.0234375}
-      - {x: 0.0078125, y: -0.0234375}
-      - {x: 0.0234375, y: -0.0078125}
-      - {x: 0.0234375, y: 0.015625}
-      - {x: 0.015625, y: 0.03125}
+    - - {x: -0.05451778, y: 0.77581626}
+      - {x: -0.5138346, y: 0.5666009}
+      - {x: -0.7758151, y: 0.041712105}
+      - {x: -0.54130465, y: -0.47948384}
+      - {x: -0.0026234984, y: -0.7757219}
+      - {x: 0.4874385, y: -0.51414216}
+      - {x: 0.80373865, y: -0.0005749762}
+      - {x: 0.531559, y: 0.5730797}
   m_UseDelaunayMesh: 0
 --- !u!114 &6566142415236899778
 MonoBehaviour:
@@ -1103,4 +1107,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  item: {fileID: 11400000, guid: 637fa2ecbde41fc438c0ad49569d328f, type: 2}
+  item: {fileID: 11400000, guid: 43cc9aa292bf4434fae97ba7ce2f394f, type: 2}

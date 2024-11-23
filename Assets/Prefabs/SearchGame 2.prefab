@@ -239,7 +239,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1113487089218951862}
-  - component: {fileID: 6253001682066008772}
   - component: {fileID: 8584317804792188791}
   m_Layer: 0
   m_Name: SearchGame 2
@@ -256,8 +255,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2174357098706261893}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1700842, y: 4.209554, z: 0.044113167}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.91364, y: 3.2551792, z: -34.911465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -265,18 +264,6 @@ Transform:
   - {fileID: 2450816490636288372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6253001682066008772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2174357098706261893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5743e27c5bbc54ce09199dc66cc66ff5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8584317804792188791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,8 +280,8 @@ MonoBehaviour:
   main: {fileID: 1240396358443521}
   cursorTip: {fileID: 5818327951935578146}
   items:
-  - {fileID: 11400000, guid: 2ae4fda3e38f4df48a133b93133674d7, type: 2}
-  - {fileID: 11400000, guid: 037accbcaf253314db19beb4f80d4632, type: 2}
+  - {fileID: 11400000, guid: 451be431fa8aa48dabc4b9759204896a, type: 2}
+  - {fileID: 11400000, guid: 742aeb78a5db64cf7893d942d06eb5ad, type: 2}
   interactiveItems:
   - {fileID: 2756246485427764747}
   - {fileID: 6326504358296892411}
@@ -396,9 +383,9 @@ GameObject:
   - component: {fileID: 6461389199201316198}
   - component: {fileID: 2585382112499891758}
   - component: {fileID: 6531592275026246974}
-  - component: {fileID: 5425800158077867031}
+  - component: {fileID: 3012790774811937307}
   m_Layer: 0
-  m_Name: Book1
+  m_Name: HistoryBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +401,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9.18, y: 5.95, z: 0.022056583}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2450816490636288372}
@@ -460,7 +447,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 974d21a7b36f69046825f40c267d4376, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2a830da8a93a11489124e3e0fdee4d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -507,7 +494,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 3.55, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -515,12 +502,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.03125, y: 0.03125}
-      - {x: -0.03125, y: -0.0234375}
-      - {x: 0.0078125, y: -0.0234375}
-      - {x: 0.0234375, y: -0.0078125}
-      - {x: 0.0234375, y: 0.015625}
-      - {x: 0.015625, y: 0.03125}
+    - - {x: -0.05451778, y: 0.77581626}
+      - {x: -0.5138346, y: 0.5666009}
+      - {x: -0.7758151, y: 0.041712105}
+      - {x: -0.54130465, y: -0.47948384}
+      - {x: -0.0026234984, y: -0.7757219}
+      - {x: 0.4874385, y: -0.51414216}
+      - {x: 0.80373865, y: -0.0005749762}
+      - {x: 0.531559, y: 0.5730797}
   m_UseDelaunayMesh: 0
 --- !u!114 &6531592275026246974
 MonoBehaviour:
@@ -536,7 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6461389199201316198}
   polygonCollider2D: {fileID: 2585382112499891758}
---- !u!114 &5425800158077867031
+--- !u!114 &3012790774811937307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -545,11 +534,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2756246485427764747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b993dbbe3a49f4eadd943181396266, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a55a80799a7dbf4298ce4b6bc8d9f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  item: {fileID: 11400000, guid: 2ae4fda3e38f4df48a133b93133674d7, type: 2}
+  item: {fileID: 11400000, guid: 451be431fa8aa48dabc4b9759204896a, type: 2}
+  jsonFile: Book1_get
 --- !u!1 &3373354130545588798
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +803,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.48, y: -2, z: 0.022056583}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2450816490636288372}
@@ -859,7 +849,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 974d21a7b36f69046825f40c267d4376, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2a830da8a93a11489124e3e0fdee4d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -906,7 +896,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 6.71, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -914,12 +904,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.03125, y: 0.03125}
-      - {x: -0.03125, y: -0.0234375}
-      - {x: 0.0078125, y: -0.0234375}
-      - {x: 0.0234375, y: -0.0078125}
-      - {x: 0.0234375, y: 0.015625}
-      - {x: 0.015625, y: 0.03125}
+    - - {x: -0.05451778, y: 0.77581626}
+      - {x: -0.5138346, y: 0.5666009}
+      - {x: -0.7758151, y: 0.041712105}
+      - {x: -0.54130465, y: -0.47948384}
+      - {x: -0.0026234984, y: -0.7757219}
+      - {x: 0.4874385, y: -0.51414216}
+      - {x: 0.80373865, y: -0.0005749762}
+      - {x: 0.531559, y: 0.5730797}
   m_UseDelaunayMesh: 0
 --- !u!114 &4032545910099823785
 MonoBehaviour:
@@ -933,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e28c49c3f4641bb99ff4158a88a463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 6461389199201316198}
+  spriteRenderer: {fileID: 7704645155825333183}
   polygonCollider2D: {fileID: 4758959531084241651}
 --- !u!114 &2435956977086597934
 MonoBehaviour:
@@ -948,7 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  item: {fileID: 11400000, guid: 037accbcaf253314db19beb4f80d4632, type: 2}
+  item: {fileID: 11400000, guid: 742aeb78a5db64cf7893d942d06eb5ad, type: 2}
 --- !u!1 &8641173334438879675
 GameObject:
   m_ObjectHideFlags: 0
