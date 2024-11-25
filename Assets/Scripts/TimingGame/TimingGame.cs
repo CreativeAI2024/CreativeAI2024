@@ -17,9 +17,8 @@ public class TimingGame : MonoBehaviour
 
     private List<float> timingResults;
 
-    [SerializeField, HeaderAttribute("単位:ms")] private float judgeSuccess;
-    /*[SerializeField, HeaderAttribute("単位:ms")] private float judgeGreat;  //判定その１
-    [SerializeField] private float judgeGood;   //判定その２*/
+    [SerializeField, HeaderAttribute("単位:ms")] private float judgeGreat;  //判定その１
+    [SerializeField] private float judgeGood;   //判定その２
     private float justTiming;
     private bool successFlag;
 
@@ -28,11 +27,6 @@ public class TimingGame : MonoBehaviour
     private bool initializeFlag = false;
     bool endFlag = false;
     private int timingGameNumber;
-
-    /*private void Start()
-    {
-        Initialize();
-    }*/
 
     void Update()
     {
@@ -118,16 +112,25 @@ public class TimingGame : MonoBehaviour
         else  
         {
             initializeFlag = false;
-            endFlag = true;
-            if (CalcScoreAverage() <= judgeSuccess)
+            if (CalcScoreAverage() <= judgeGood)
             {
                 successFlag = true;
+                if (CalcScoreAverage() <= judgeGreat)
+                {
+                    ConversationTextManager.Instance.InitializeFromString("とてもうまくできた。");
+                }
+                else
+                {
+                    ConversationTextManager.Instance.InitializeFromString("少しミスしたが、問題ない。");
+                }
             }
             else
             {
                 successFlag = false;
+                ConversationTextManager.Instance.InitializeFromString("…………………………………………");
             }
-            ConversationTextManager.Instance.InitializeFromString($"result:{Convert.ToString(CalcScoreAverage())}<br>{timingGameNumber}");
+            endFlag = true;
+            DebugLogger.Log($"result:{Convert.ToString(CalcScoreAverage())}:{timingGameNumber}");
         }
     }
 

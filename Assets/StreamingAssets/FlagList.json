@@ -43,6 +43,9 @@
 
 
         "Broken_A":false,
-        "Broken_B":false
+        "Broken_B":false,
+
+        "StartTimingGame1": false,
+        "StartTimingGame2": false
     }
 }

@@ -1,68 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class TimingGameManager : DontDestroySingleton<TimingGameManager>
+public class TimingGameManager : MonoBehaviour
 {
     [SerializeField] TimingGame timingGame;
-    [SerializeField] private GameObject timingGameObject;
-    bool initializeFlag = false;
-
-    public override void Awake()
-    {
-        base.Awake();
-    }
+    [SerializeField] GameObject timingGameObject;
 
     void Update()
     {
-        if ((FlagManager.Instance.HasFlag("StartTimingGame1") ^ FlagManager.Instance.HasFlag("StartTimingGame2")) && !timingGame.GetInitializeFlag())
-        {
-            Initialize(); 
-        }
         if (timingGame.GetEndFlag())
         {
-            timingGameObject.SetActive(false);
-            ConversationTextManager.Instance.OnConversationEnd += EndTimingGame;
+            EndTimingGame();
+        }
+        if ((FlagManager.Instance.HasFlag("StartTimingGame1") ^ FlagManager.Instance.HasFlag("StartTimingGame2")))
+        {
+            Initialize(); 
         }
     }
 
     public void Initialize()
     {
-        if (initializeFlag)
-            return;
-
-        initializeFlag = true;
         timingGameObject.SetActive(true);
         timingGame.Initialize();
     }
 
-    public bool GetInitializeFlag()
-    {
-        return initializeFlag;
-    }
-
     private void EndTimingGame()
     {
-        initializeFlag = false;
-        EndTimingGameFlag("StartTimingGame1", "SuccessTimingGame1");
-        EndTimingGameFlag("StartTimingGame2", "SuccessTimingGame2");
-        DebugLogger.Log($"{FlagManager.Instance.HasFlag("SuccessTimingGame1")}:{FlagManager.Instance.HasFlag("SuccessTimingGame2")}");
+        TimingGameSuccessFlag();
+        timingGameObject.SetActive(false);
         FlagManager.Instance.DeleteFlag("StartTimingGame1");
         FlagManager.Instance.DeleteFlag("StartTimingGame2");
+        DebugLogger.Log($"{FlagManager.Instance.HasFlag("Progress9")}:{FlagManager.Instance.HasFlag("Progress8")}");
+        SceneManager.LoadScene("reference_room");
     }
 
-    private void EndTimingGameFlag(string startFlagName, string addFlagName)
+    private void TimingGameSuccessFlag()
     {
-        if (!FlagManager.Instance.HasFlag(startFlagName))
+        if (!FlagManager.Instance.HasFlag("StartTimingGame2"))
             return;
 
         if (timingGame.GetSuccessFlag())
         {
-            FlagManager.Instance.AddFlag(addFlagName);
+            FlagManager.Instance.AddFlag("Progress9");
         }
         else
         {
-            FlagManager.Instance.DeleteFlag(addFlagName);
+            FlagManager.Instance.AddFlag("Progress8");
         }
     }
 }
