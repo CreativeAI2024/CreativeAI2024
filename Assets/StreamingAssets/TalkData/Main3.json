@@ -2,7 +2,18 @@
     "Content": [
         {
             "Speaker": "ヒカル",
-            "Text": "よし！１つ目の材料が見つかった！"
+            "Text": "よし！１つ目の材料が見つかった！",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                }
+            ],
+            "BGM": "GroIntenseDest"
         },
         {
             "Speaker": "ヒカル",
@@ -50,7 +61,17 @@
         },
         {
             "Speaker": "アザミ",
-            "Text": "何だ？何があ……"
+            "Text": "何だ？何があ……",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                }
+            ]
         },
         {
             "Speaker": "レイ",

@@ -37,10 +37,12 @@
         "Tessen_Talk4_key":false,
         "Tessen_Talk_END":false,
 
+        "Azami_Attack":true,
+        "Azami_Peace":false,
+
         "T_eat":false,
         "T_information":false,
         "T_killed":false,
-
 
         "Broken_A":false,
         "Broken_B":false,

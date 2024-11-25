@@ -2,14 +2,14 @@
   "Id": 2,
   "Location": [
     {
-      "MapName": "ItemA_room",
+      "MapName": "ItemB_room",
       "Position": [
         2,
-        2
+        8
       ]
     }
   ],
-  "EventName": "SearchGame",
+  "EventName": "PaperGame",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [

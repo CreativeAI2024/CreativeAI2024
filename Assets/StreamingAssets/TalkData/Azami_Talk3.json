@@ -2,7 +2,18 @@
   "Content": [
     {
       "Speaker": "レイ",
-      "Text": "そういえば、なんでアタシが薬の材料を集めてるの？アザミは自分で集めれば、すぐ帰れたんじゃ……"
+      "Text": "そういえば、なんでアタシが薬の材料を集めてるの？アザミは自分で集めれば、すぐ帰れたんじゃ……",
+      "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                }
+            ],
+            "BGM":"MysteryConfFear"
     },
     {
       "Speaker": "アザミ",

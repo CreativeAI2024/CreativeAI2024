@@ -1,0 +1,43 @@
+{
+    "Id": 2,
+    "Location": [
+      {
+        "MapName":"ItemA_room",
+        "Position":[
+          0,
+          3
+        ]
+      },
+      {
+        "MapName":"ItemA_room",
+        "Position":[
+          1,
+          3
+        ]
+      }
+    ],
+    "EventName": "Conversation Search1 | SearchGame",
+    "TriggerType": 1,
+    "FlagCondition": {
+      "Flag": [
+        [
+          "Progress2",
+          true
+        ]
+      ],
+      "NextFlag": [
+          [
+              "StartSearchGame1",
+              false
+          ],
+          [
+              "StartSearchGame2",
+              false
+          ],
+          [
+              "StartSearchGame3",
+              false
+          ]
+      ]
+    }
+  }

@@ -2,7 +2,18 @@
     "Content": [
         {
             "Speaker": "アザミ",
-            "Text": "薬の材料は集まってるか？"
+            "Text": "薬の材料は集まってるか？",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "rei"
+                }
+            ],
+            "BGM":"IntenseDest"
         },
         {
             "Speaker": "レイ",

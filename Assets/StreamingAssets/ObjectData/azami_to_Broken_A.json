@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "ChangeScene itemA_room_broken | PlayerMove 4,1",
+  "EventName": "ChangeScene itemA_room_broken,4,1",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [

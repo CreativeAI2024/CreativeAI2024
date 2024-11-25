@@ -2,10 +2,10 @@
   "Id": 2,
   "Location": [
     {
-      "MapName": "reference_room",
-      "Position": [
-        2,
-        2
+      "MapName":"reference_room",
+      "Position":[
+        8,
+        18
       ]
     }
   ],
@@ -34,7 +34,15 @@
       [
         "Progress3",
         false
+      ],
+      [
+        "Progress4",
+        true
+      ],
+      [
+        "Progress5",
+        true
       ]
-    ]
+  ]
   }
 }

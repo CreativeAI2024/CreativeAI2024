@@ -9,10 +9,17 @@
             ]
         }
     ],
-    "EventName": "ChangeScene azami_room | PlayerMove 4,1",
+    "EventName": "ChangeScene azami_room,4,1",
     "TriggerType": 1,
     "FlagCondition": {
-        "Flag": [],
-        "NextFlag": []
+        "Flag": [
+            [
+                "Azami_Attack",
+                false
+            ]
+        ],
+        "NextFlag": [
+            
+        ]
     }
 }

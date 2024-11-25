@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "EventName": "ChangeScene tessen_room_kill | PlayerMove 1,6",
+  "EventName": "ChangeScene tessen_room_kill,1,6",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
