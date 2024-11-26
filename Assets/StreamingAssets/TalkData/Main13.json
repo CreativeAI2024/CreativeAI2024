@@ -1,8 +1,22 @@
 {
-    "content":[
+    "Content":[
         {
             "Text":"気が付くと、衣料品売り場の姿見の前にいた。",
-            "BGM": "MusicBox"
+            "BGM": "MusicBox",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
         },
         {
             "Text":"買い物客の声が今までの出来事が嘘だったかのように賑やかだ。"

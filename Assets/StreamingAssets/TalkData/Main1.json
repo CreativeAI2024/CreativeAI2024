@@ -2,11 +2,41 @@
     "Content": [
         {
             "Speaker":"レイ",
-            "Text":"暗くてよく見えな……"
+            "Text":"暗くてよく見えな……",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
+            "SE":"cutupmeat"
         },
         {
             "Speaker":"ヒカル",
-            "Text":"先輩！？どうしたんす……"
+            "Text":"やめて！お願いだから、近づかないで……",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
+            "SE":"snake1"
         },
         {
             "Text":"……"
@@ -27,7 +57,7 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM": "MysteryConfFear"
@@ -68,7 +98,7 @@
         },
         {
             "Text": "アザミは一方的に話し、そして部屋から去っていった",
-            "SE": "se2"
+            "SE": "snake1"
         },
         {
             "Speaker":"レイ",

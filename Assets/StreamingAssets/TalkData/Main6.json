@@ -1,5 +1,5 @@
 {
-    "content":[
+    "Content":[
         {
             "Speaker":"アザミ",
             "Text":"レイ、薬は完成したのか？",
@@ -10,7 +10,7 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM": "Joy"
@@ -41,14 +41,28 @@
         },
         {
             "Text":"レイが振り返ると、アザミが鈍器を振りかぶっていた",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
             "BGM": "bgm2",
-            "SE": "impact"
+            "SE": "stabknife"
         },
         {
-            "SE": "lookFor"
+            "SE": "exploreluggage1"
         },
         {
-            "SE": "footsteps"
+            "SE": "footsteps2"
         }
     ]
 }

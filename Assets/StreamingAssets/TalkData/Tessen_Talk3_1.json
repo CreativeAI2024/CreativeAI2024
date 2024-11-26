@@ -10,7 +10,7 @@
                 },
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ]
         },
@@ -24,7 +24,7 @@
         },
         {
             "Speaker": "レイ",
-            "Text": "?"
+            "Text": "？"
         }
     ]
 }

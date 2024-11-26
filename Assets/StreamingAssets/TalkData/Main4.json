@@ -10,10 +10,16 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM":"IntenseDest"
+        },
+        {
+            "Text":"早くここから出るぞ"
+        },
+        {
+            "Text":"ヒカル、死んだんだってね"
         },
         {
             "Speaker": "レイ",
@@ -34,6 +40,24 @@
         {
             "Speaker": "レイ",
             "Text": "うるさい…！！！！"
+            
+        },
+        {
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
+            "SE":"destroythings"
         },
         {
             "Speaker": "アザミ",
@@ -45,7 +69,21 @@
         },
         {
             "Speaker": "アザミ",
-            "Text": "おい、しっかりしろ！"
+            "Text": "おい、しっかりしろ！",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"null"
+                }
+            ]
         },
         {
             "Speaker": "レイ",

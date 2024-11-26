@@ -10,7 +10,7 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM": "GroIntenseDest"
@@ -53,7 +53,8 @@
         },
         {
             "Speaker": "レイ",
-            "Text": "こっちに来るな！！"
+            "Text": "こっちに来るな！！",
+            "SE":"blow3"
         },
         {
             "Speaker": "レイ",
@@ -69,7 +70,7 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ]
         },
@@ -103,7 +104,8 @@
         },
         {
             "Speaker": "アザミ",
-            "Text": "…………"
+            "Text": "…………",
+            "SE":"snake1"
         }
     ]
 }

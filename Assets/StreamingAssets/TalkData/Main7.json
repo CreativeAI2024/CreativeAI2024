@@ -6,7 +6,7 @@
       "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
               ],
               "BGM":"Joy"
@@ -25,7 +25,7 @@
         },
         {
             "ImageName": "LeftPanel",
-            "SpriteName": "rei"
+            "SpriteName": "Rei"
         }
     ]
     },

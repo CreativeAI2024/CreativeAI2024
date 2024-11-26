@@ -10,7 +10,7 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM":"MysteryConfFear"
@@ -25,13 +25,12 @@
       "QuestionData": [
         {
           "Answer": "……わかった",
-          "NextFlag": ["Azami_Peace", true],
-          "NextTalkData": ""
+          "NextFlag": [
+            ["Azami_Peace", true]
+          ]
         },
         {
-          "Answer": "そんな……きっと仲良くできるよ",
-          "NextFlag": "",
-          "NextTalkData": ""
+          "Answer": "そんな……きっと仲良くできるよ"
         }
       ]
     }

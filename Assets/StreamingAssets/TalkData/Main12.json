@@ -1,5 +1,5 @@
 {
-    "content":[
+    "Content":[
         {
             "Speaker":"レイ",
             "Text":"今度こそ、できた……",
@@ -10,7 +10,7 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM":"Joy"

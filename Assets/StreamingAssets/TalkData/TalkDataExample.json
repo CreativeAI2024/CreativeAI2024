@@ -1,0 +1,60 @@
+{
+    "Content": [
+        {
+            "Speaker": "speaker2",
+            "Text": "text2",
+            "ChangeImage": [
+                {
+                    "ImageName": "imagename2-1",
+                    "SpriteName": "spritename2-1"
+                },
+                {
+                    "ImageName": "imagename2-2",
+                    "SpriteName": "spritename2-2"
+                }
+            ],
+            "QuestionData": [
+                {
+                    "Answer": "answer2-1",
+                    "NextFlag": "nextflag2-1",
+                    "NextTalkData": "nexttalkdata2-1"
+                },
+                {
+                    "Answer": "answer2-2",
+                    "NextFlag": "nextflag2-2",
+                    "NextTalkData": "nexttalkdata2-2"
+                }
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
+        },
+        {
+            "Speaker": "2speaker2",
+            "Text": "2text2",
+            "ChangeImage": [
+                {
+                    "ImageName": "2imagename2-1",
+                    "SpriteName": "2spritename2-1"
+                },
+                {
+                    "ImageName": "2imagename2-2",
+                    "SpriteName": "2spritename2-2"
+                }
+            ],
+            "QuestionData": [
+                {
+                    "Answer": "2answer2-1",
+                    "NextFlag": "2nextflag2-1",
+                    "NextTalkData": "2nexttalkdata2-1"
+                },
+                {
+                    "Answer": "2answer2-2",
+                    "NextFlag": "2nextflag2-2",
+                    "NextTalkData": "2nexttalkdata2-2"
+                }
+            ],
+            "BGM": "2bgm2",
+            "SE": "2se2"
+        }
+    ]
+}
