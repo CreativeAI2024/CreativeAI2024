@@ -30,8 +30,8 @@
       ]
     }
   ],
-  "EventName": "Conversation Main2 | GetItem Flesh",
-  "TriggerType": 0,
+  "EventName": "GetItem SthFlesh",
+  "TriggerType": 1,
   "FlagCondition": {
     "Flag": [
       [

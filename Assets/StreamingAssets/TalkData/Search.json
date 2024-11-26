@@ -1,0 +1,23 @@
+{
+    "Content": [
+        {
+            "Speaker": "レイ",
+            "Text": "ここには何かありそうだ。探してみようか？",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ],
+            "QuestionData": [
+                {
+                    "Answer": "探してみる",
+                    "NextFlag":[["Search", true]]
+                },
+                {
+                    "Answer": "やめておく"
+                }
+            ]
+        }
+    ]
+}

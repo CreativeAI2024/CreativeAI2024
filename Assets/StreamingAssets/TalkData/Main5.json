@@ -6,7 +6,7 @@
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM":"GroCalm"
@@ -29,10 +29,12 @@
             ]
         },
         {
-            "Text": "手で器用に肉を千切り口へと運ぶ"
+            "Text": "手で器用に肉を千切り口へと運ぶ",
+            "SE":"cutupmeat"
         },
         {
-            "Text": "柔らかい肉を噛み千切り、口の中に鉄錆の香ばしい臭いが広がる"
+            "Text": "柔らかい肉を噛み千切り、口の中に鉄錆の香ばしい臭いが広がる",
+            "SE":"mogumogu"
         },
         {
             "Text": "どろりとした液体を飲み干し、憑りつかれたように食事を続ける"

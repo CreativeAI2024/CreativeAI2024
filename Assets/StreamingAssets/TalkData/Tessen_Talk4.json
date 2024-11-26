@@ -10,7 +10,7 @@
         },
         {
             "ImageName": "RightPanel",
-            "SpriteName": "rei"
+            "SpriteName": "Rei"
         }
     ]
     },
@@ -24,17 +24,14 @@
       "QuestionData": [
         {
           "Answer": "悪くないよ",
-          "NextFlag": "",
           "NextTalkData": "Tessen_Talk4_1"
         },
         {
           "Answer": "あまり良くないかも",
-          "NextFlag": "",
           "NextTalkData": "Tessen_Talk4_2"
         },
         {
           "Answer": "……",
-          "NextFlag": "",
           "NextTalkData": "Tessen_Talk4_3"
         }
       ]

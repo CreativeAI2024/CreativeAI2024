@@ -3,15 +3,35 @@
         {
             "Speaker":"レイ",
             "text":"(中から何か物音が聞こえる……)",
-            "SE": "se2"
+            "SE": "cutupmeat",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ]
         },
         {
             "text":"テッセンが大きな肉片を両手で引きちぎり、そのまま口に運んでいる。",
-            "SE": "se2"
+            "SE": "cutupmeat",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
         },
         {
             "text":"肉を噛み千切り飲み込むたびに、機嫌よさそうに体を揺らしている。",
-            "SE": "se2"
+            "SE": "mogumogu"
         },
         {
             "Speaker":"レイ",

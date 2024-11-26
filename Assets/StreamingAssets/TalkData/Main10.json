@@ -15,7 +15,7 @@
                 },
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM": "bgm2",
@@ -82,7 +82,6 @@
                 },
                 {
                     "Answer": "殺さない",
-                    "NextFlag":"",
 	                "NextTalkData":"Main10_2"
                 }
             ],

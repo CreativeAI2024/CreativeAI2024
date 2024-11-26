@@ -46,7 +46,7 @@
             "Speaker":"テッセン",
             "Text":"こんなもの、必要ないね",
             "BGM": "bgm2",
-            "SE": "se2"
+            "SE": "ItemGetSound"
         },
         {
             "Text":"意識が途切れるその瞬間、ガラスの割れる音がした",
@@ -54,10 +54,13 @@
                 {
                     "ImageName": "RightPanel",
                     "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
                 }
             ],
-            "BGM": "bgm2",
-            "SE": "se2"
+            "BGM": "bgm2"
         }
     ]
 }

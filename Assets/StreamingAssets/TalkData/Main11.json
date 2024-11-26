@@ -10,7 +10,7 @@
         },
         {
             "ImageName": "LeftPanel",
-            "SpriteName": "rei"
+            "SpriteName": "Rei"
         }
     ]
     },
@@ -33,6 +33,23 @@
     {
       "Speaker": "アザミ",
       "Text": "体が熱いっ……"
+    },
+    {
+      "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "null"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
+            "SE":"balloon"
     }
   ]
 }

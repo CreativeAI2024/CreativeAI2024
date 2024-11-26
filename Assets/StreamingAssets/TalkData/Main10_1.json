@@ -9,27 +9,25 @@
                 }
             ],
             "BGM": "bgm2",
-            "SE": "knife"
+            "SE": "stabknife"
         },
         {
             "Text":"一心不乱に突き立てる。肉はとても硬く深くまでは刺さらない",
             "BGM": "bgm2",
-            "SE": "knife"
+            "SE": "stabknife"
         },
         {
             "Text":"次第にナイフの手から血が出るが、それでもナイフを刺し続ける",
             "BGM": "bgm2",
-            "SE": "knife"
+            "SE": "stabknife"
         },
         {
             "Text":"テッセンは悲鳴の一つも上げることなく静かに死んだ",
             "BGM": "bgm2",
-            "SE": "knife"
+            "SE": "stabknife"
         },
         {
-            "Text":"内臓を手に入れた",
-            "BGM": "bgm2",
-            "SE": "se2"
+            "Text":"内臓を手に入れた"
         }
     ]
 }

@@ -9,7 +9,7 @@
             ]
         }
     ],
-    "EventName": "GetItem Blood | Conversation Blood_get",
+    "EventName": "GetItem Rei'sBlood",
     "TriggerType": 3,
     "FlagCondition": {
         "Flag": [

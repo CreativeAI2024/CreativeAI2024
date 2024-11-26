@@ -10,10 +10,16 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM":"IntenseDest"
+        },
+        {
+            "Text":"早くここから出るぞ"
+        },
+        {
+            "Text":"ヒカル、死んだんだってね"
         },
         {
             "Speaker": "レイ",
@@ -51,7 +57,7 @@
                     "SpriteName":"Black"
                 }
             ],
-            "SE":""
+            "SE":"destroythings"
         },
         {
             "Speaker": "アザミ",
@@ -71,7 +77,7 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 },
                 {
                     "ImageName":"BackgroundPanel",

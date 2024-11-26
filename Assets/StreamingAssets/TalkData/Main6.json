@@ -10,7 +10,7 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM": "Joy"
@@ -56,13 +56,13 @@
                 }
             ],
             "BGM": "bgm2",
-            "SE": "impact"
+            "SE": "stabknife"
         },
         {
-            "SE": "lookFor"
+            "SE": "exploreluggage1"
         },
         {
-            "SE": "footsteps"
+            "SE": "footsteps2"
         }
     ]
 }

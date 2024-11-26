@@ -2,36 +2,35 @@
   "Id": 2,
   "Location": [
     {
-      "MapName": "ItemB_room",
+      "MapName": "reference_room",
       "Position": [
-        2,
-        8
+        8,
+        18
       ]
     }
   ],
-  "EventName": "PaperGame",
+  "EventName": "Conversation Mixing",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [
       [
-        "Progress2",
+        "Progress7",
         true
       ],
       [
-        "Progress3",
+        "Progress8",
         false
       ],
       [
-        "Worm",
+        "Progress9",
         false
-      ],
-      [
-        "Card",
-        true
       ]
     ],
     "NextFlag": [
-      
+      [
+        "StartTimingGame2",
+        true
+      ]
     ]
   }
 }

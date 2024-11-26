@@ -19,7 +19,12 @@
   "EventName": "ChangeScene reference_room,4,1",
   "TriggerType": 1,
   "FlagCondition": {
-    "Flag": [],
+    "Flag": [
+      [
+        "Key",
+        true
+      ]
+    ],
     "NextFlag": []
   }
 }

@@ -1,0 +1,23 @@
+{
+    "Content": [
+        {
+            "Speaker": "レイ",
+            "Text": "必要な材料は集まったけど、どうしよう？",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ],
+            "QuestionData": [
+                {
+                    "Answer": "調合を開始する",
+                    "NextFlag":[["Mixing"]]
+                },
+                {
+                    "Answer": "まだやめておく"
+                }
+            ]
+        }
+    ]
+}

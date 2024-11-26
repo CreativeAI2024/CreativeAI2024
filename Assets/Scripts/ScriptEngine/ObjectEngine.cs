@@ -90,7 +90,7 @@ public class ObjectEngine : MonoBehaviour
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
     {
-        return;
+        //return;
         for (int i = 0; i < mapDataController.GetMapSize().y; i++)
         {
             for (int j = 0; j < mapDataController.GetMapSize().x; j++)
