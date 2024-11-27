@@ -726,7 +726,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c0fd243c4033fd543803be234c572d71,
+      objectReference: {fileID: 11400000, guid: 216a665d38a562b47966dab5e2fd9830,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

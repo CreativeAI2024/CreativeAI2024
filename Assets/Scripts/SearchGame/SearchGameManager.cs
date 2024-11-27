@@ -14,7 +14,6 @@ public class SearchGameManager : MonoBehaviour
     private Dictionary<Item, GameObject> itemDict;
     [SerializeField] private ItemInventory itemInventory;
     [SerializeField] private ItemDatabase itemDatabase;
-    private bool emptyItemFlag;
     void Start()
     {
         _inputSetting = InputSetting.Load(); 
@@ -25,7 +24,6 @@ public class SearchGameManager : MonoBehaviour
         }
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
-        emptyItemFlag = false;
     }
 
     void Update()
@@ -54,11 +52,10 @@ public class SearchGameManager : MonoBehaviour
         {
             ConversationTextManager.Instance.OnConversationEnd += AddKnifeFlag;
         }
-        if (interactiveItems.All(interactiveItem => !interactiveItem.activeSelf) && (FlagManager.Instance.HasFlag("Worm") || FlagManager.Instance.HasFlag("Knife")) && !emptyItemFlag)
+        if (!interactiveItems.Any(interactiveItem => interactiveItem.activeSelf) && (FlagManager.Instance.HasFlag("Worm") || FlagManager.Instance.HasFlag("Knife")))
         {
+            Inactivate();
             ConversationTextManager.Instance.InitializeFromString("もう何も見当たらない。");
-            ConversationTextManager.Instance.OnConversationEnd += UnPause;
-            emptyItemFlag = true;
         }
     }
 
@@ -89,22 +86,20 @@ public class SearchGameManager : MonoBehaviour
 
     public void Inactivate()
     {
+        ConversationTextManager.Instance.OnConversationEnd -= UnPause;
         main.SetActive(false);
         cursorTip.Reset();
-        switch (gameObject.name)
+        ChangeFlagAndScene("StartSearchGame1", "itemA_room");
+        ChangeFlagAndScene("StartSearchGame2", "itemA_room");
+        ChangeFlagAndScene("StartSearchGame3", "itemB_room");
+    }
+
+    private void ChangeFlagAndScene(string flag, string scene)
+    {
+        if (FlagManager.Instance.HasFlag(flag))
         {
-            case "SearchGame 1":
-                FlagManager.Instance.DeleteFlag("StartSearchGame1");
-                SceneManager.LoadScene("itemA_room");
-                break;
-            case "SearchGame 2":
-                FlagManager.Instance.DeleteFlag("StartSearchGame2");
-                SceneManager.LoadScene("itemA_room");
-                break;
-            case "SearchGame 3":
-                FlagManager.Instance.DeleteFlag("StartSearchGame3");
-                SceneManager.LoadScene("itemB_room");
-                break;
+            FlagManager.Instance.DeleteFlag(flag);
+            SceneManager.LoadScene(scene);
         }
     }
 }

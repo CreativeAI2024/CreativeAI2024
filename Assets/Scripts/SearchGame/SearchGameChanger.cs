@@ -12,17 +12,16 @@ public class SearchGameChanger : MonoBehaviour
         {
             searchGame.SetActive(false);
         }
-        if (FlagManager.Instance.HasFlag("StartSearchGame1"))
+        SearchGameShifter("StartSearchGame1", searchGames[0]);
+        SearchGameShifter("StartSearchGame2", searchGames[1]);
+        SearchGameShifter("StartSearchGame3", searchGames[2]);
+    }
+
+    private void SearchGameShifter(string flag, GameObject searchGame)
+    {
+        if (FlagManager.Instance.HasFlag(flag))
         {
-            searchGames[0].SetActive(true);
-        }
-        else if (FlagManager.Instance.HasFlag("StartSearchGame2"))
-        {
-            searchGames[1].SetActive(true);
-        }
-        else if (FlagManager.Instance.HasFlag("StartSearchGame3"))
-        {
-            searchGames[2].SetActive(true);
+            searchGame.SetActive(true);
         }
     }
 }

@@ -47,7 +47,7 @@
         "Broken_A":false,
         "Broken_B": false,
 
-        "StartSearchGame1": false,
+        "StartSearchGame1": true,
         "StartSearchGame2": false,
         "StartSearchGame3": false
     }
