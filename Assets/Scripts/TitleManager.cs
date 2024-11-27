@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
@@ -9,20 +10,32 @@ public class TitleManager : MonoBehaviour
     private RectTransform[] rectTransforms;
     private int cursorPlace;
     private InputSetting _inputSetting;
-    private int cursorMax = 2;
-    // Start is called before the first frame update
+    private int cursorMax;
+
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetString("SceneName", "reference_room");
         _inputSetting = InputSetting.Load();
-        cursorPlace = 0;
         rectTransforms = new RectTransform[questionBranches.Length];
         for (int i = 0; i < questionBranches.Length; i++)
         {
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
         }
+        DebugLogger.Log(PlayerPrefs.GetString("SceneName", "null"));
+        cursorPlace = 0;
+        if (!PlayerPrefs.GetString("SceneName", "null").Equals("null"))
+        {
+            cursorMax = 2;
+            TitleCursorMove(1);
+        }
+        else
+        {
+            cursorMax = 1;
+            questionBranches[1].gameObject.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_inputSetting.GetBackKeyUp())
@@ -32,6 +45,20 @@ public class TitleManager : MonoBehaviour
         else if (_inputSetting.GetForwardKeyUp())
         {
             TitleCursorMove(-1);
+        }
+        if (_inputSetting.GetDecideInputUp())
+        {
+            switch (cursorPlace)
+            {
+                case 0:
+                    FlagManager.Instance.DeleteFlagFile();
+                    PlayerPrefs.DeleteAll();  //セーブデータ初期化
+                    SceneManager.LoadScene("mirror_room");
+                    break;
+                case 1:
+                    SceneManager.LoadScene(PlayerPrefs.GetString("SceneName"));
+                    break;
+            }
         }
     }
 
