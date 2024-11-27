@@ -36,22 +36,7 @@ public class PlayerController : MonoBehaviour
             if (LastInputVector != Vector2Int.zero)
             {
                 Direction = LastInputVector;
-                if (LastInputVector == Vector2Int.up)
-                {
-                    _canInput = _startPosition.y == mapDataController.GetMapSize().y - 1;
-                }
-                else if (LastInputVector == Vector2Int.left)
-                {
-                    _canInput = _startPosition.x == 0;
-                }
-                else if (LastInputVector == Vector2Int.down)
-                {
-                    _canInput = _startPosition.y == 0;
-                }
-                else if (LastInputVector == Vector2Int.right)
-                {
-                    _canInput = _startPosition.x == mapDataController.GetMapSize().x - 1;
-                }
+                _canInput = mapDataController.IsGridPositionOutOfRange(_startPosition+LastInputVector);
             }
             _targetPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
         }
