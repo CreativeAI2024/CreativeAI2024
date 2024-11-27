@@ -455,58 +455,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &5303790293232542685
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7821470558335562471}
-  - component: {fileID: 8469209408755760370}
-  m_Layer: 0
-  m_Name: Pause
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7821470558335562471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5303790293232542685}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 74.14508, y: 30.801392, z: -2.0984113}
-  m_LocalScale: {x: 1.2990528, y: 1.2990528, z: 1.2990528}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8797032700147529809}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8469209408755760370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5303790293232542685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b265d2ecc4a0dfe46a5ec55248829caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseScripts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 391039611161667759}
-  - {fileID: 7898760402459442629}
-  - {fileID: 1682440499713030}
-  - {fileID: 716952435788488357}
-  - {fileID: 265998898241986328}
 --- !u!1 &5669017398863806914
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,8 +561,9 @@ GameObject:
   - component: {fileID: 8994882899513647105}
   - component: {fileID: 2153974955179300974}
   - component: {fileID: 7455568368501060649}
+  - component: {fileID: 4026023008907123780}
   m_Layer: 5
-  m_Name: MenuUI
+  m_Name: MenuUIGroup
   m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -632,7 +581,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7821470558335562471}
   - {fileID: 3399862024726116996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -662,7 +610,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1072377025403335620
 MonoBehaviour:
@@ -717,6 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  pause: {fileID: 4026023008907123780}
 --- !u!114 &8994882899513647105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31982af394b5b42c89216059ad80c65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  main: {fileID: 6261210613205064336}
+  menuUI: {fileID: 6261210613205064336}
   followFocusedButton: {fileID: 1682440499713030}
 --- !u!114 &2153974955179300974
 MonoBehaviour:
@@ -761,6 +710,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuUI: {fileID: 6261210613205064336}
   cursor: {fileID: 265998898241986328}
+--- !u!114 &4026023008907123780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930691876699020002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b265d2ecc4a0dfe46a5ec55248829caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseScripts:
+  - {fileID: 8994882899513647105}
+  - {fileID: 7455568368501060649}
+  - {fileID: 391039611161667759}
+  - {fileID: 7898760402459442629}
+  - {fileID: 1682440499713030}
+  - {fileID: 716952435788488357}
+  - {fileID: 265998898241986328}
 --- !u!1 &5951509326146232404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +992,7 @@ GameObject:
   - component: {fileID: 3399862024726116996}
   - component: {fileID: 8789902222327279349}
   m_Layer: 5
-  m_Name: Main
+  m_Name: MenuUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
