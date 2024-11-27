@@ -37,7 +37,7 @@
             "Text":"意識が途切れるその瞬間、ガラスの割れる音がした。",
             "ChangeImage": [
                 {
-                    "ImageName": "RightPanel",
+                    "ImageName": "LeftPanel",
                     "SpriteName": "void"
                 },
                 {
