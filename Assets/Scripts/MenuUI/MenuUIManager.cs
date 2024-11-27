@@ -5,6 +5,13 @@ using UnityEngine;
 public class MenuUIManager : DontDestroySingleton<MenuUIManager>
 {
     [SerializeField] private ItemInventory itemInventory;
+    [SerializeField] private Pause pause;
+    void Start()
+    {
+        ConversationTextManager.Instance.OnConversationStart += pause.PauseAll;
+        ConversationTextManager.Instance.OnConversationEnd += pause.UnPauseAll;
+
+    }
     public Item GetItem(string item)
     {
         return itemInventory.GetItem(item);
@@ -45,8 +52,8 @@ public class MenuUIManager : DontDestroySingleton<MenuUIManager>
         string returnText = "inventory: ";
         foreach (Item item in GetItems())
         {
-            returnText += item.ItemName+",  ";
+            returnText += item.ItemName + ",  ";
         }
-        DebugLogger.Log(returnText.Substring(0, returnText.Length-3));
+        DebugLogger.Log(returnText.Substring(0, returnText.Length - 3));
     }
 }
