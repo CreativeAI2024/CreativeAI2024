@@ -20,7 +20,7 @@
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName":"BackgroundPanel",

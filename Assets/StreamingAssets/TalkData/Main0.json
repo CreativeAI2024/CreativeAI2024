@@ -6,11 +6,11 @@
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName":"BackgroundPanel",
@@ -63,7 +63,7 @@
                 },
                 {
                     "ImageName":"BackgroundPanel",
-                    "SpriteName":"null"
+                    "SpriteName":"void"
                 }
             ]
         },

@@ -77,7 +77,7 @@
             "QuestionData": [
                 {
                     "Answer": "殺す",
-                    "NextFlag":"getItem",
+                    "NextFlag":["getItem"],
 	                "NextTalkData":"Main10_1"
                 },
                 {
