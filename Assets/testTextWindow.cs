@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class testTextWindow : MonoBehaviour
 {
@@ -9,20 +11,13 @@ public class testTextWindow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DebugLogger.Log(Application.persistentDataPath);
         inputSetting = InputSetting.Load();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (inputSetting.GetDecideInputDown())
-        {
-            onClick();
-        }
+        Button button = GetComponent<Button>();
+        button.onClick.AddListener(onClick);
     }
     public void onClick()
     {
-        DebugLogger.Log("clicked");
         ConversationTextManager.Instance.InitializeFromJson(name);
     }
 }
