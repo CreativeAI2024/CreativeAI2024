@@ -25,6 +25,10 @@ public class TimingGame : MonoBehaviour
 
     private int timingGameNumber;
 
+    [SerializeField] ItemDatabase itemDatabase;
+    [SerializeField] ItemInventory itemInventory;
+
+
     void Update()
     {
         if (timeSchedule >= 0)
@@ -57,6 +61,8 @@ public class TimingGame : MonoBehaviour
 
     public void Initialize()
     {
+        //itemDatabase.Initialize();
+        //itemInventory.Initialize();
         if (FlagManager.Instance.HasFlag("StartTimingGame1"))
         {
             timingGameNumber = 1;
@@ -95,6 +101,17 @@ public class TimingGame : MonoBehaviour
         }
         else  
         {
+            switch (timingGameNumber)
+            {
+                case 1:
+                    ItemDelete("虫入り瓶");
+                    ItemDelete("レイの血");
+                    ItemDelete("ナニカの肉");
+                    break;
+                case 2:
+                    ItemDelete("テッセンの内臓");
+                    break;
+            }
             if (CalcScoreAverage() <= judgeGood)
             {
                 if (CalcScoreAverage() <= judgeGreat)
@@ -139,6 +156,16 @@ public class TimingGame : MonoBehaviour
         if (timingGameNumber == 2)
         {
             FlagManager.Instance.AddFlag(flagName);
+        }
+    }
+
+    private void ItemDelete(string itemName)
+    {
+        Item item = itemDatabase.GetItem(itemName);
+        if (itemInventory.IsContains(item))
+        {
+            DebugLogger.Log(itemName);
+            itemInventory.Remove(item);
         }
     }
 }
