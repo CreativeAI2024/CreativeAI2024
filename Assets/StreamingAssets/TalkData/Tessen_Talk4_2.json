@@ -2,7 +2,7 @@
   "Content": [
     {
       "Speaker": "テッセン",
-      "Text": "そう？  大変ね",
+      "Text": "「そう？  大変ね」",
       "ChangeImage": [
         {
             "ImageName": "LeftPanel",
@@ -12,15 +12,16 @@
             "ImageName": "RightPanel",
             "SpriteName": "Rei"
         }
-    ]
+    ],
+            "BGM":"talkwithtessen"
     },
     {
       "Speaker": "テッセン",
-      "Text": "少しは休んだ方がいいんじゃない？"
+      "Text": "「少しは休んだ方がいいんじゃない？」"
     },
     {
       "Speaker": "テッセン",
-      "Text": "あまり焦ると、もっと酷いことになるかもよ"
+      "Text": "「あまり焦ると、もっと酷いことになるかもよ」"
     }
   ]
 }

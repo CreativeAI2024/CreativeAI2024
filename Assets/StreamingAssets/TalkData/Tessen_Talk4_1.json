@@ -2,7 +2,7 @@
   "Content": [
     {
       "Speaker": "テッセン",
-      "Text": "そっか。ま、別にどーでもいいけど",
+      "Text": "「そっか。ま、別にどーでもいいけど」",
       "ChangeImage": [
         {
             "ImageName": "LeftPanel",
@@ -12,7 +12,8 @@
             "ImageName": "RightPanel",
             "SpriteName": "Rei"
         }
-    ]
+    ],
+            "BGM":"talkwithtessen"
     }
   ]
 }
