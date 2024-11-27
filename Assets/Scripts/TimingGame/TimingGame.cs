@@ -20,18 +20,13 @@ public class TimingGame : MonoBehaviour
     [SerializeField, HeaderAttribute("単位:ms")] private float judgeGreat;  //判定その１
     [SerializeField] private float judgeGood;   //判定その２
     private float justTiming;
-    private bool successFlag;
 
     [SerializeField] TextMeshProUGUI AttemptNumber;  //試行回数表示用
 
-    private bool initializeFlag = false;
-    bool endFlag = false;
     private int timingGameNumber;
 
     void Update()
     {
-        if (!initializeFlag) return;
-
         if (timeSchedule >= 0)
         {
             if (_inputSetting.GetDecideInput())
@@ -62,9 +57,6 @@ public class TimingGame : MonoBehaviour
 
     public void Initialize()
     {
-        if (initializeFlag)
-            return;
-
         if (FlagManager.Instance.HasFlag("StartTimingGame1"))
         {
             timingGameNumber = 1;
@@ -75,19 +67,11 @@ public class TimingGame : MonoBehaviour
         }
         _inputSetting = InputSetting.Load();
         timingResults = new();
-        initializeFlag = true;
-        endFlag = false;
         timingSlider.Initialize();
         justTiming = timingBar.anchoredPosition.y / timingSlider.SliderCoordinateSpeed();  //判定の基準となる時間
         timeSchedule = -0.04f;
-        successFlag = false;
         attempt = 1;
         DisplayAttemptNumberText();
-    }
-
-    public bool GetInitializeFlag()
-    {
-        return initializeFlag;
     }
 
     private float JustTimingDiff()  //判定とのずれ(時間)を返す
@@ -111,10 +95,8 @@ public class TimingGame : MonoBehaviour
         }
         else  
         {
-            initializeFlag = false;
             if (CalcScoreAverage() <= judgeGood)
             {
-                successFlag = true;
                 if (CalcScoreAverage() <= judgeGreat)
                 {
                     ConversationTextManager.Instance.InitializeFromString("とてもうまくできた。");
@@ -123,16 +105,19 @@ public class TimingGame : MonoBehaviour
                 {
                     ConversationTextManager.Instance.InitializeFromString("少しミスしたが、問題ない。");
                 }
+                ChangeSuccessFlag("Progress9");
             }
             else
             {
-                successFlag = false;
                 ConversationTextManager.Instance.InitializeFromString("…………………………………………");
+                ChangeSuccessFlag("Progress8");
             }
-            endFlag = true;
             DebugLogger.Log($"result:{Convert.ToString(CalcScoreAverage())}:{timingGameNumber}");
+            FlagManager.Instance.DeleteFlag("StartTimingGame1");
+            FlagManager.Instance.DeleteFlag("StartTimingGame2");
         }
     }
+
 
     private void SaveScore()  //判定とのずれ(時間)を絶対値で保存する
     {
@@ -149,13 +134,11 @@ public class TimingGame : MonoBehaviour
         AttemptNumber.text = $"Attempt:<br><size=200>{attempt}/{repeat}</size>";
     }
 
-    public bool GetSuccessFlag()
+    public void ChangeSuccessFlag(string flagName)
     {
-        return successFlag;
-    }
-
-    public bool GetEndFlag()
-    {
-        return endFlag;
+        if (timingGameNumber == 2)
+        {
+            FlagManager.Instance.AddFlag(flagName);
+        }
     }
 }
