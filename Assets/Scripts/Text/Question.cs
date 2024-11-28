@@ -28,6 +28,17 @@ public class Question : MonoBehaviour
             questionBranches[i].SetVisibleQuestionBranch(true);
             questionBranches[i].QuestionBranchText(questionData[i].Answer);
         }
+        if (questionData.Length==2)
+        {
+            rectTransforms[0].anchoredPosition = new(rectTransforms[0].anchoredPosition.x, 70);
+            rectTransforms[1].anchoredPosition = new(rectTransforms[1].anchoredPosition.x, -70);
+        }
+        else if (questionData.Length==3)
+        {
+            rectTransforms[0].anchoredPosition = new(rectTransforms[0].anchoredPosition.x, 100);
+            rectTransforms[1].anchoredPosition = new(rectTransforms[1].anchoredPosition.x, 0);
+            rectTransforms[2].anchoredPosition = new(rectTransforms[2].anchoredPosition.x, -100);
+        }
         cursorPlace = 0;
         questionPanel.SetActive(true);
         cursor.SetVisibleCursor(true);

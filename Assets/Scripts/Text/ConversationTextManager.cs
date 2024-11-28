@@ -48,24 +48,27 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideInputUp() && lineNumber < talkData.Content.Length - 1)
+                if (_inputSetting.GetDecideInputUp())
                 {
-                    ChangeQuestionData();
-                    ChangeLine(1);
-                    DisplayText();
-                    DebugLogger.Log("NextLine");
+                    if (lineNumber < talkData.Content.Length - 1)
+                    {
+                        ChangeQuestionData();
+                        ChangeLine(1);
+                        DisplayText();
+                        DebugLogger.Log("NextLine");
+                    }
+                    else
+                    {
+                        SoundManager.Instance.StopBGM();
+                        ChangeQuestionData();
+                        EndConversation();
+                    }
                 }
                 else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
                 {
                     ChangeLine(-1);
                     DisplayText();
                     DebugLogger.Log("BackLine");
-                }
-                else
-                {
-                    SoundManager.Instance.StopBGM();
-                    ChangeQuestionData();
-                    EndConversation();
                 }
             }
             else if (unitTime > -0.45f)

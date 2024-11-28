@@ -750,6 +750,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7544126218790116360, guid: 561f387b0f6c3af47870bb6e8d8d9a1c,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -807,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39ab39122d774468869a80833b165f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Tessen_Talk1
+  name: Tessen_Talk4
 --- !u!114 &1027903398
 MonoBehaviour:
   m_ObjectHideFlags: 0
