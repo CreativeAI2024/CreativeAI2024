@@ -5,28 +5,28 @@
         "MapName": "itemA_room",
         "Position": [
           0,
-          7
+          6
         ]
       },
       {
         "MapName":"itemA_room",
         "Position":[
           1,
-          7
+          6
         ]
       },
       {
         "MapName": "itemA_room_broken",
         "Position": [
           0,
-          7
+          6
         ]
       },
       {
         "MapName":"itemA_room_broken",
         "Position":[
           1,
-          7
+          6
         ]
       }
     ],

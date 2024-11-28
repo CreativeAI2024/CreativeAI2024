@@ -56,6 +56,6 @@
         "StartTimingGame1":false,
         "StartTimingGame2":false,
         "Mixing":false,
-        "Search"
+        "Search":false
     }
 }

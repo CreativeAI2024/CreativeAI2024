@@ -10,6 +10,8 @@ public class Pause : MonoBehaviour
     {
         foreach (Behaviour behaviour in pauseScripts)
         {
+            DebugLogger.Log(behaviour);
+            DebugLogger.Log($"{UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}, behaviour : {behaviour == null}");
             behaviour.enabled = false;
         }
     }

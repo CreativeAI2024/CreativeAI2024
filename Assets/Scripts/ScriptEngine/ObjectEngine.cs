@@ -1,19 +1,14 @@
 using System;
-using System.Collections;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Debug = UnityEngine.Debug;
 
 public class ObjectEngine : MonoBehaviour
 {
-    // public Texture gizmoDebugTexture;
     private List<ObjectData>[][] _eventObjects;
     private List<ObjectData>[][] _trapEventObjects;
     
@@ -21,8 +16,7 @@ public class ObjectEngine : MonoBehaviour
     [SerializeField] private ItemInventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
     [SerializeField] private Pause pause;
-    [SerializeField] private Image transitionImage;
-    [SerializeField] private float fadeTime = 1f;
+    
     [SerializeField] private MapEngine mapEngine;
     [SerializeField] private MapDataController mapDataController;
     
@@ -39,6 +33,9 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
         mapEngine.Initialize();
+        ConversationTextManager.Instance.OnConversationStart += Pause;
+        ConversationTextManager.Instance.OnConversationEnd += UnPause;
+        ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
         PlayerMove(changedPos);
@@ -90,7 +87,6 @@ public class ObjectEngine : MonoBehaviour
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
     {
-        //return;
         for (int i = 0; i < mapDataController.GetMapSize().y; i++)
         {
             for (int j = 0; j < mapDataController.GetMapSize().x; j++)
@@ -144,8 +140,15 @@ public class ObjectEngine : MonoBehaviour
         }
     }
     
+    private void Pause()
+    {
+        DebugLogger.Log("Pause : "+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+" : "+(pause == null), DebugLogger.Colors.Magenta);
+        pause.PauseAll();
+    }
+    
     private void UnPause()
     {
+        DebugLogger.Log("UnPause : "+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+" : "+(pause == null), DebugLogger.Colors.Magenta);
         pause.UnPauseAll();
     }
     
@@ -183,10 +186,8 @@ public class ObjectEngine : MonoBehaviour
     
     private async UniTask CallEvent(string eventName)
     {
-        Debug.Log("called");
         string[] eventArgs = eventName.Split(' ');
         string eventKey = eventArgs[0];
-        Debug.Log(eventKey + " : " + SceneManager.GetActiveScene().name);
         switch (eventKey)
         {
             case "PlayerMove":
@@ -205,11 +206,6 @@ public class ObjectEngine : MonoBehaviour
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
                 conversationFlag = true;
-                ConversationTextManager.Instance.OnConversationEnd += () =>
-                {
-                    UnPause();
-                    conversationFlag = false;
-                };
                 Conversation(eventArgs[1]);
                 await UniTask.WaitUntil(() => !conversationFlag);
                 break;
@@ -257,13 +253,8 @@ public class ObjectEngine : MonoBehaviour
     
     private async UniTask SceneChange(string sceneName)
     {
-        var operation = SceneManager.LoadSceneAsync(sceneName);
-        /*
-        operation.allowSceneActivation = false;
-        transitionImage.DOFade(1, fadeTime)
-            .OnComplete(() => operation.allowSceneActivation = true)
-            .SetLink(gameObject);*/
-        await operation.ToUniTask();
+        await SceneManager.LoadSceneAsync(sceneName).ToUniTask();
+        PlayerPrefs.SetString("SceneName", sceneName);
     }
     
     private void PlayerMove(Vector2Int moved)
@@ -273,15 +264,18 @@ public class ObjectEngine : MonoBehaviour
     
     private void Conversation(string fileName)
     {
-        pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromJson(fileName);
     }
     
     private void GetItem(string itemName)
     {
-        pause.PauseAll();
+        ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
         Item item = itemDatabase.GetItem(itemName);
-        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
+        if (item.ItemName.Contains("Rei'sBlood") || item.ItemName.Contains("SthFlesh") ||
+            item.ItemName.Contains("BugsInJar"))
+        {
+            FlagManager.Instance.SetReiStatus(FlagManager.Instance.ReiStatus + 1);
+        }
         inventory.Add(item);
         CombineItem(item);
     }

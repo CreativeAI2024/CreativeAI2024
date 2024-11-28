@@ -116,7 +116,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         initializeFlag = true;
         _onConversationStart?.Invoke();
-        _onConversationStart = null;
         contentObject.SetActive(true);
 
         lineNumber = 0;
