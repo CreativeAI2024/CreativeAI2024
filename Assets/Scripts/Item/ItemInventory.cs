@@ -65,4 +65,13 @@ public class ItemInventory : ScriptableObject
             Add(combineRecipeDatabase.GetResultItem(item, pairItem));
         }
     }
+    public void PrintInventory()
+    {
+        string returnText = "inventory: ";
+        foreach (Item item in GetItems())
+        {
+            returnText += item.ItemName + ",  ";
+        }
+        DebugLogger.Log(returnText.Substring(0, returnText.Length - 3));
+    }
 }
