@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   itemName: "\u9375"
-  descriptionText: "\u96A0\u3057\u90E8\u5C4B\u306E\u9375"
-  sprite: {fileID: 21300000, guid: b6642808131b04d77823f15aa5e64094, type: 3}
+  descriptionText: "\u8ABF\u5408\u5BA4\u306E\u9375\u7A74\u3068\u5408\u3044\u305D\u3046\u306A\u306A\u9375\u3002"
+  sprite: {fileID: 21300000, guid: f2f089f85b9c64e71a6822f09b747ab4, type: 3}
   contentTextFilePath: 
