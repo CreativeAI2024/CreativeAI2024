@@ -14,6 +14,7 @@ public class GameStart : MonoBehaviour
     private void Start()
     {
         _inputSetting = InputSetting.Load();
+        SoundManager.Instance.PlayBGM(7, 1f);
     }
 
     private void Update()
@@ -32,6 +33,7 @@ public class GameStart : MonoBehaviour
             Debug.Log("Go Saving Scene!");
             //�����Ɏ��̃V�[���ւ������߂�����
             SceneManager.LoadScene("mirror_room");
+            SoundManager.Instance.PlaySE(0, 5f);
             firstPush = true;
         }
     }
