@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -37,7 +36,6 @@ public class MapDataController : MonoBehaviour
         string[] mapFiles = Directory.GetFiles(assetsPath, "*.json");
         var filePath = mapFiles.FirstOrDefault(x => x.EndsWith($"{mapName}.json"));
         mapData = SaveUtility.JsonToData<MapData>(filePath);
-        
         if (!mapDictionary.ContainsKey(mapName))
         {
             mapDictionary.Add(mapName, new Queue<(TileLayer, Vector2Int, char)>());
