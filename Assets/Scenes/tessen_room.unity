@@ -191,7 +191,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &468565658
+--- !u!1 &471696682
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,34 +199,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 468565660}
-  - component: {fileID: 468565659}
+  - component: {fileID: 471696684}
+  - component: {fileID: 471696683}
   m_Layer: 0
-  m_Name: TessenRoomBGM
+  m_Name: BGMPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &468565659
+--- !u!114 &471696683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468565658}
+  m_GameObject: {fileID: 471696682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3e433011d53194fbc9b0ffacda4c81, type: 3}
+  m_Script: {fileID: 11500000, guid: 990efb9fef2fdec4cb6a6d4f91cce328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &468565660
+--- !u!4 &471696684
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468565658}
+  m_GameObject: {fileID: 471696682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.2479506, y: 4.419706, z: 8.530443}
@@ -1090,4 +1090,4 @@ SceneRoots:
   - {fileID: 2092417286}
   - {fileID: 1548886786}
   - {fileID: 1106138975}
-  - {fileID: 468565660}
+  - {fileID: 471696684}
