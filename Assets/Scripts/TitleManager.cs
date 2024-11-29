@@ -26,7 +26,7 @@ public class TitleManager : MonoBehaviour
             rectTransforms[i] = questionBranches[i].GetComponent<RectTransform>();
         }
         DebugLogger.Log(PlayerPrefs.GetString("SceneName", "null"));
-        cursorPlace = 0;
+        cursorPlace = NewGame;
         if (!PlayerPrefs.GetString("SceneName", "null").Equals("null"))
         {
             cursorMax = LoadGame + 1;
