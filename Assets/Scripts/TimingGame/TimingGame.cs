@@ -16,18 +16,12 @@ public class TimingGame : MonoBehaviour
     private float timeSchedule;                 //時間制御用
 
     private List<float> timingResults;
-
-    [SerializeField, HeaderAttribute("単位:ms")] private float judgeGreat;  //判定その１
-    [SerializeField] private float judgeGood;   //判定その２
     private float justTiming;
-
+    [SerializeField] TimingGameJudge timingGameJudge;
     [SerializeField] TextMeshProUGUI AttemptNumber;  //試行回数表示用
 
     private int timingGameNumber;
-
-    [SerializeField] ItemDatabase itemDatabase;
-    [SerializeField] ItemInventory itemInventory;
-
+    [SerializeField] TimingGameItem timingGameItem;
 
     void Update()
     {
@@ -101,40 +95,13 @@ public class TimingGame : MonoBehaviour
         }
         else  
         {
-            switch (timingGameNumber)
-            {
-                case 1:
-                    ItemDelete("虫入り瓶");
-                    ItemDelete("レイの血");
-                    ItemDelete("ナニカの肉");
-                    break;
-                case 2:
-                    ItemDelete("テッセンの内臓");
-                    break;
-            }
-            if (CalcScoreAverage() <= judgeGood)
-            {
-                if (CalcScoreAverage() <= judgeGreat)
-                {
-                    ConversationTextManager.Instance.InitializeFromString("とてもうまくできた。");
-                }
-                else
-                {
-                    ConversationTextManager.Instance.InitializeFromString("少しミスしたが、問題ない。");
-                }
-                ChangeSuccessFlag("Progress9");
-            }
-            else
-            {
-                ConversationTextManager.Instance.InitializeFromString("…………………………………………");
-                ChangeSuccessFlag("Progress8");
-            }
+            timingGameItem.ConsumeItem(timingGameNumber);
+            timingGameJudge.JudgeScore(CalcScoreAverage());
             DebugLogger.Log($"result:{Convert.ToString(CalcScoreAverage())}:{timingGameNumber}");
             FlagManager.Instance.DeleteFlag("StartTimingGame1");
             FlagManager.Instance.DeleteFlag("StartTimingGame2");
         }
     }
-
 
     private void SaveScore()  //判定とのずれ(時間)を絶対値で保存する
     {
@@ -149,23 +116,5 @@ public class TimingGame : MonoBehaviour
     private void DisplayAttemptNumberText()
     {
         AttemptNumber.text = $"Attempt:<br><size=200>{attempt}/{repeat}</size>";
-    }
-
-    public void ChangeSuccessFlag(string flagName)
-    {
-        if (timingGameNumber == 2)
-        {
-            FlagManager.Instance.AddFlag(flagName);
-        }
-    }
-
-    private void ItemDelete(string itemName)
-    {
-        Item item = itemDatabase.GetItem(itemName);
-        if (itemInventory.IsContains(item))
-        {
-            DebugLogger.Log(itemName);
-            itemInventory.Remove(item);
-        }
     }
 }

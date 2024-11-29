@@ -947,6 +947,8 @@ GameObject:
   - component: {fileID: 8234731322263087063}
   - component: {fileID: 8653529537483572275}
   - component: {fileID: 7493371068675014216}
+  - component: {fileID: 4094234709009871806}
+  - component: {fileID: 5705037297087384651}
   m_Layer: 5
   m_Name: TimingGameBase
   m_TagString: Untagged
@@ -1030,11 +1032,37 @@ MonoBehaviour:
   timingSlider: {fileID: 689765593209257427}
   timingBar: {fileID: 4045771884713700671}
   repeat: 3
-  judgeGreat: 50
-  judgeGood: 150
+  timingGameJudge: {fileID: 5705037297087384651}
   AttemptNumber: {fileID: 6914671014024492418}
+  timingGameItem: {fileID: 4094234709009871806}
+--- !u!114 &4094234709009871806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233757900128666215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e454ff70460bd648b4811bbcfe64cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+--- !u!114 &5705037297087384651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233757900128666215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae620472f01ccb4f840c6d7b7cf150d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  judgeGreat: 50
+  judgeGood: 150
 --- !u!1 &6759433081406679225
 GameObject:
   m_ObjectHideFlags: 0
