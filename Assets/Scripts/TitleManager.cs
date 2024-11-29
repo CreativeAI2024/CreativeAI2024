@@ -12,6 +12,9 @@ public class TitleManager : MonoBehaviour
     private InputSetting _inputSetting;
     private int cursorMax;
 
+    private const int NewGame = 0;
+    private const int LoadGame = 1;
+
     void Start()
     {
         //PlayerPrefs.DeleteAll();
@@ -26,45 +29,55 @@ public class TitleManager : MonoBehaviour
         cursorPlace = 0;
         if (!PlayerPrefs.GetString("SceneName", "null").Equals("null"))
         {
-            cursorMax = 2;
-            TitleCursorMove(1);
+            cursorMax = LoadGame + 1;
+            TitleCursorMove(LoadGame);
         }
         else
         {
-            cursorMax = 1;
-            questionBranches[1].gameObject.SetActive(false);
+            cursorMax = NewGame +1 ;
+            questionBranches[LoadGame].gameObject.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (_inputSetting.GetBackKeyUp())
+        if (_inputSetting.GetBackKeyDown())
         {
-            TitleCursorMove(1);
+            TitleCursorMove(LoadGame);
         }
-        else if (_inputSetting.GetForwardKeyUp())
+        else if (_inputSetting.GetForwardKeyDown())
         {
-            TitleCursorMove(-1);
+            TitleCursorMove(NewGame);
         }
-        if (_inputSetting.GetDecideInputUp())
+        if (_inputSetting.GetDecideInputDown())
         {
             switch (cursorPlace)
             {
-                case 0:
-                    FlagManager.Instance.DeleteFlagFile();
-                    PlayerPrefs.DeleteAll();  //セーブデータ初期化
-                    SceneManager.LoadScene("mirror_room");
+                case NewGame:
+                    GoNewGame();
                     break;
-                case 1:
-                    SceneManager.LoadScene(PlayerPrefs.GetString("SceneName"));
+                case LoadGame:
+                    GoLoadGame();
                     break;
             }
         }
     }
 
-    public void TitleCursorMove(int increase)
+    public void TitleCursorMove(int selectCursorPlace)
     {
-        cursorPlace = Mathf.Clamp(cursorPlace + increase, 0, cursorMax - 1);
+        cursorPlace = Mathf.Clamp(selectCursorPlace, 0, cursorMax - 1);
         cursor.CursorMove(rectTransforms[cursorPlace].position);
+    }
+
+    private void GoNewGame()
+    {
+        FlagManager.Instance.DeleteFlagFile();
+        PlayerPrefs.DeleteAll();  //セーブデータ初期化
+        SceneManager.LoadScene("mirror_room");
+    }
+
+    private void GoLoadGame()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetString("SceneName"));
     }
 }
