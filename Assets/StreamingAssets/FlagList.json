@@ -48,6 +48,10 @@
         "Broken_B":false,
 
         "StartTimingGame1": false,
-        "StartTimingGame2": false
+        "StartTimingGame2": false,
+
+        "StartSearchGame1": false,
+        "StartSearchGame2": false,
+        "StartSearchGame3": false
     }
 }

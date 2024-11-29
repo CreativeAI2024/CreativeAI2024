@@ -192,6 +192,7 @@ public class ObjectEngine : MonoBehaviour
                 PlayerMove(moved);
                 break;
             case "ChangeScene":
+                SoundManager.Instance.PlaySE(0, 5f); //ドアくぐる
                 DebugLogger.Log("ChangeScene", DebugLogger.Colors.Green);
                 string[] args = eventArgs[1].Split(',');
                 changedPos = new Vector2Int(int.Parse(args[1]), int.Parse(args[2]));
@@ -266,6 +267,7 @@ public class ObjectEngine : MonoBehaviour
     
     private void GetItem(string itemName)
     {
+        SoundManager.Instance.PlaySE(0, 5f); //アイテム拾う
         pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
         Item item = itemDatabase.GetItem(itemName);
