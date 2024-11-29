@@ -14,7 +14,6 @@ public class GameStart : MonoBehaviour
     private void Start()
     {
         _inputSetting = InputSetting.Load();
-        SoundManager.Instance.PlayBGM(7, 1f);
     }
 
     private void Update()
