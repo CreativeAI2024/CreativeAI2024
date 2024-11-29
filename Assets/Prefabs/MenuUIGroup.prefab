@@ -560,7 +560,6 @@ GameObject:
   - component: {fileID: 3105215125595598872}
   - component: {fileID: 8994882899513647105}
   - component: {fileID: 2153974955179300974}
-  - component: {fileID: 7455568368501060649}
   - component: {fileID: 4026023008907123780}
   m_Layer: 5
   m_Name: MenuUIGroup
@@ -664,7 +663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dedacd3e56e84280bad37e1439a494b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   pause: {fileID: 4026023008907123780}
 --- !u!114 &8994882899513647105
 MonoBehaviour:
@@ -696,20 +694,6 @@ MonoBehaviour:
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   combineRecipeDatabase: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
     type: 2}
---- !u!114 &7455568368501060649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930691876699020002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbc3ebbd12974257a67e9a2fcfe96a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuUI: {fileID: 6261210613205064336}
-  cursor: {fileID: 265998898241986328}
 --- !u!114 &4026023008907123780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,7 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScripts:
   - {fileID: 8994882899513647105}
-  - {fileID: 7455568368501060649}
+  - {fileID: 0}
   - {fileID: 391039611161667759}
   - {fileID: 7898760402459442629}
   - {fileID: 1682440499713030}
@@ -991,6 +975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3399862024726116996}
   - component: {fileID: 8789902222327279349}
+  - component: {fileID: 6308927637558385830}
   m_Layer: 5
   m_Name: MenuUI
   m_TagString: Untagged
@@ -1028,6 +1013,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6261210613205064336}
   m_CullTransparentMesh: 1
+--- !u!114 &6308927637558385830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261210613205064336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbc3ebbd12974257a67e9a2fcfe96a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuUI: {fileID: 6261210613205064336}
+  cursor: {fileID: 265998898241986328}
 --- !u!1 &8310620420339799068
 GameObject:
   m_ObjectHideFlags: 0

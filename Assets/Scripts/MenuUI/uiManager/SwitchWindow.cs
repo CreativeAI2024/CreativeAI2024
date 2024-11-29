@@ -12,13 +12,16 @@ public class SwitchWindow : MonoBehaviour
     }
     void Update()
     {
-        if (_inputSetting.GetMenuKeyDown())
+        if (MenuUIManager.Instance.GetIsMenuUIActive())
         {
-            SetWindowActive(!menuUI.activeInHierarchy);
-        }
-        else if (_inputSetting.GetCancelKeyDown() && menuUI.activeInHierarchy)
-        {
-            SetWindowActive(false);
+            if (_inputSetting.GetMenuKeyDown())
+            {
+                SetWindowActive(!menuUI.activeInHierarchy);
+            }
+            else if (_inputSetting.GetCancelKeyDown() && menuUI.activeInHierarchy)
+            {
+                SetWindowActive(false);
+            }
         }
     }
     private void SetWindowActive(bool isActive)
