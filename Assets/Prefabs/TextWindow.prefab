@@ -672,6 +672,7 @@ MonoBehaviour:
   question: {fileID: 4910975778818706883}
   contentObject: {fileID: 3865140633522996896}
   intervalTime: 0.04
+  textInstructions: {fileID: 7924051023662114735}
 --- !u!1 &3643819247776579852
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,11 +805,12 @@ RectTransform:
   - {fileID: 5029676575549437530}
   - {fileID: 8139945837365830268}
   - {fileID: 2420997963941119177}
+  - {fileID: 4705266593992143915}
   m_Father: {fileID: 1596788911644553040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 433}
+  m_AnchoredPosition: {x: 0, y: 389}
   m_SizeDelta: {x: 1920, y: 820}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4312913293960880496
@@ -1076,7 +1078,7 @@ GameObject:
   - component: {fileID: 2063760972012167658}
   - component: {fileID: 7924051023662114735}
   m_Layer: 5
-  m_Name: Instructions
+  m_Name: TextInstructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1098,7 +1100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 764.1, y: -78}
+  m_AnchoredPosition: {x: 749, y: -113}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2063760972012167658
@@ -1129,7 +1131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ddd6c60a1649142f98cf8574478ae263, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa839ec6b2b064fd2816a94a18d4c621, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1230,6 +1232,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 5126874592750329548}
   questionBranch: {fileID: 6614252123924659776}
+--- !u!1 &6670462263349402231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4705266593992143915}
+  - component: {fileID: 7621792883574253075}
+  - component: {fileID: 4854300975684296168}
+  m_Layer: 5
+  m_Name: QuestionInstructions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4705266593992143915
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6670462263349402231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2972381858317285162}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 808, y: -170}
+  m_SizeDelta: {x: 120, y: 120}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7621792883574253075
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6670462263349402231}
+  m_CullTransparentMesh: 1
+--- !u!114 &4854300975684296168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6670462263349402231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ddd6c60a1649142f98cf8574478ae263, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6893464470558686949
 GameObject:
   m_ObjectHideFlags: 0

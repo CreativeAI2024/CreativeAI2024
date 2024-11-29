@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConversationTextManager : DontDestroySingleton<ConversationTextManager>
 {
@@ -12,6 +13,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     [SerializeField] private Question question;
     [SerializeField] private GameObject contentObject;
     [SerializeField] private float intervalTime;
+    [SerializeField] private Image textInstructions;
     private float unitTime;
     private InputSetting _inputSetting;
 
@@ -43,7 +45,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             mainTextDrawer.Typewriter();
         }
 
-        if (_inputSetting.GetDecideInputUp() || _inputSetting.GetCancelKeyUp())
+        if (_inputSetting.GetDecideInputUp())
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
@@ -63,12 +65,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                         ChangeQuestionData();
                         EndConversation();
                     }
-                }
-                else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
-                {
-                    ChangeLine(-1);
-                    DisplayText();
-                    DebugLogger.Log("BackLine");
                 }
             }
             else if (unitTime > -0.45f)
@@ -154,6 +150,11 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         if (talkDataContent.QuestionData != null)
         {
             question.DisplayQuestion(talkDataContent.QuestionData);
+            textInstructions.enabled = false;
+        }
+        else
+        {
+            textInstructions.enabled = true;
         }
         if (talkDataContent.BGM != null)
         {
