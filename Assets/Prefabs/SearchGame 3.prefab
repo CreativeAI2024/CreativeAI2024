@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   item: {fileID: 11400000, guid: c4715b060ddcd468eb38a09fc3f0a571, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
   jsonFile: Book4_get
 --- !u!1 &1032859084133051817
 GameObject:
@@ -181,7 +182,7 @@ GameObject:
   - component: {fileID: 7807708950797435307}
   - component: {fileID: 2249619189805868916}
   - component: {fileID: 5245041538577192918}
-  - component: {fileID: 5327331218131160840}
+  - component: {fileID: 4975866925848023061}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -323,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7807708950797435307}
   polygonCollider2D: {fileID: 2249619189805868916}
---- !u!114 &5327331218131160840
+--- !u!114 &4975866925848023061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,11 +333,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032859084133051817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b993dbbe3a49f4eadd943181396266, type: 3}
+  m_Script: {fileID: 11500000, guid: f1afda344f3756d4b84b8c5da76536ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   item: {fileID: 11400000, guid: 742aeb78a5db64cf7893d942d06eb5ad, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
 --- !u!1 &1196871696803368926
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +479,6 @@ MonoBehaviour:
   - {fileID: 69409165241221984}
   - {fileID: 1032859084133051817}
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
 --- !u!1 &2781721073508468520
 GameObject:
   m_ObjectHideFlags: 0

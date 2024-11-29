@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 2444370698209879541}
   - component: {fileID: 1062029779704450206}
   - component: {fileID: 8085897706090279201}
-  - component: {fileID: 1065779092786660101}
+  - component: {fileID: 2839281354608471362}
   m_Layer: 0
   m_Name: Jar
   m_TagString: Untagged
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2444370698209879541}
   polygonCollider2D: {fileID: 1062029779704450206}
---- !u!114 &1065779092786660101
+--- !u!114 &2839281354608471362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -935,11 +935,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6980504486743529522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b993dbbe3a49f4eadd943181396266, type: 3}
+  m_Script: {fileID: 11500000, guid: e96e2cbf0103632459843851224cbe55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   item: {fileID: 11400000, guid: 76dd699543e1840d6aa12fb71fee36ca, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
 --- !u!1 &7584543140181595942
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +953,7 @@ GameObject:
   - component: {fileID: 2029459544578583920}
   - component: {fileID: 7368433886835811399}
   - component: {fileID: 6566142415236899778}
-  - component: {fileID: 2947188441317127854}
+  - component: {fileID: 6632276179676086314}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Untagged
@@ -1094,7 +1095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 2029459544578583920}
   polygonCollider2D: {fileID: 7368433886835811399}
---- !u!114 &2947188441317127854
+--- !u!114 &6632276179676086314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1103,8 +1104,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7584543140181595942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b993dbbe3a49f4eadd943181396266, type: 3}
+  m_Script: {fileID: 11500000, guid: e96e2cbf0103632459843851224cbe55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   item: {fileID: 11400000, guid: 43cc9aa292bf4434fae97ba7ce2f394f, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}

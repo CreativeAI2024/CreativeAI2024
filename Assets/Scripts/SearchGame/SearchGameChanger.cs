@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SearchGameChanger : MonoBehaviour
 {
-    [SerializeField] List<GameObject> searchGames;
+    [SerializeField] GameObject[] searchGames;
     // Start is called before the first frame update
     void Start()
     {
