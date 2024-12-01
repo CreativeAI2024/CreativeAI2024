@@ -2,7 +2,7 @@
   "Content": [
     {
       "Speaker": "レイ",
-      "Text": "このレシピってどうしたの？",
+      "Text": "「このレシピってどうしたの？」",
       "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -10,18 +10,18 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "BGM":"MysteryConfFear"
     },
     {
       "Speaker": "アザミ",
-      "Text": "あの部屋にはたくさん本があっただろ？本の中に書いてあったんだよ。"
+      "Text": "「あの部屋にはたくさん本があっただろ？本の中に書いてあったんだよ。」"
     },
     {
       "Speaker": "アザミ",
-      "Text": "もしかしたら、この館では薬の研究でもしてたのかもな"
+      "Text": "「もしかしたら、この館では薬の研究でもしてたのかもな」"
     }
   ]
 }
