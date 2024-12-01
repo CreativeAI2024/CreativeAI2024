@@ -16,11 +16,21 @@ public class SwitchWindow : MonoBehaviour
         {
             if (_inputSetting.GetMenuKeyDown())
             {
-                SetWindowActive(!menuUI.activeInHierarchy);
+                if (menuUI.activeInHierarchy)
+                {
+                    SetWindowActive(false);
+                    MenuUIManager.Instance.PlayerPause.UnPauseAll();
+                }
+                else
+                {
+                    SetWindowActive(true);
+                    MenuUIManager.Instance.PlayerPause.PauseAll();
+                }
             }
             else if (_inputSetting.GetCancelKeyDown() && menuUI.activeInHierarchy)
             {
                 SetWindowActive(false);
+                MenuUIManager.Instance.PlayerPause.UnPauseAll();
             }
         }
     }
