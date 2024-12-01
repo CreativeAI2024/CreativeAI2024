@@ -10,7 +10,7 @@ public class Question : MonoBehaviour
     private RectTransform[] rectTransforms;
     private int cursorMax;
     private int cursorPlace;
-     
+
     public void Initialize()
     {
         rectTransforms = new RectTransform[questionBranches.Length];
@@ -28,6 +28,19 @@ public class Question : MonoBehaviour
             questionBranches[i].SetVisibleQuestionBranch(true);
             questionBranches[i].QuestionBranchText(questionData[i].Answer);
         }
+
+        int questionCount = questionData.Length;
+        float interval = 100;
+        float center = 0;
+
+        for (int i = 0; i < questionCount; i++)
+        {
+            rectTransforms[i].anchoredPosition = new(
+                rectTransforms[i].anchoredPosition.x,
+                center - interval * (i - (questionCount - 1) / 2f)
+            );
+        }
+
         cursorPlace = 0;
         questionPanel.SetActive(true);
         cursor.SetVisibleCursor(true);
@@ -36,7 +49,7 @@ public class Question : MonoBehaviour
 
     public void QuestionCursorMove(int increase)
     {
-        if(cursorMax - 1 <= 0) 
+        if (cursorMax - 1 <= 0)
             cursorMax = 1;
 
         cursorPlace = Mathf.Clamp(cursorPlace + increase, 0, cursorMax - 1);
