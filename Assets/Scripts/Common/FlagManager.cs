@@ -59,5 +59,10 @@ public class FlagManager : DontDestroySingleton<FlagManager>
         ReiStatus = status;
         _flags[$"symptom{status + 1}"] = true;
     }
+
+    public void DeleteFlagFile()
+    {
+        File.Delete(_flagSaveFilePath);
+    }
 }
 
