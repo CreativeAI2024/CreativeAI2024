@@ -10,7 +10,7 @@ public class TextWindowCursor : MonoBehaviour
     public void CursorMove(Vector2 targetCursorPosition)
     {
         Vector2 cursorPosition = new Vector2(targetCursorPosition.x - cursorOffset, targetCursorPosition.y);
-        cursorObject.transform.position = cursorPosition;
+        cursorObject.transform.position = new Vector3(cursorPosition.x, cursorPosition.y, cursorObject.transform.position.z);
     }
 
     public void SetVisibleCursor(bool isVisible)

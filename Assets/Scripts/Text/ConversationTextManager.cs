@@ -101,6 +101,18 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         Initialize();
     }
 
+    public void InitializeFromStrings(List<string> texts)
+    {
+        talkData = new TalkData();
+        talkData.Content = new Content[texts.Count];
+        for (int i = 0;  i < texts.Count;  i++)
+        {
+            talkData.Content[i] = new Content();
+            talkData.Content[i].Text = texts[i];
+        }
+        Initialize();
+    }
+
     public void InitializeFromJson(string fileName)
     {
         string filePath = string.Join('/', Application.streamingAssetsPath, "TalkData", fileName + ".json");

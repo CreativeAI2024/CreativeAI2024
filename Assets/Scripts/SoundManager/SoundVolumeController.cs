@@ -17,7 +17,7 @@ public class SoundVolumeController : MonoBehaviour
 
     void Start()
     {
-        // ƒXƒ‰ƒCƒ_[‚Ì’l‚ª•Ï‚í‚Á‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éƒƒ\ƒbƒh‚ğİ’è
+        // ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å€¤ãŒå¤‰ã‚ã£ãŸã¨ãã«å‘¼ã°ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’è¨­å®š
         BGMSlider.onValueChanged.AddListener(SetBGM);
         SESlider.onValueChanged.AddListener(SetSE);
         masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
@@ -25,7 +25,7 @@ public class SoundVolumeController : MonoBehaviour
 
     float VolumeToDB(float volume)
     {
-        // ƒp[ƒZƒ“ƒe[ƒW‚ª 0 ˆÈ‰º‚Ìê‡A-80dB ‚É§ŒÀ‚·‚é
+        // ãƒ‘ãƒ¼ã‚»ãƒ³ãƒ†ãƒ¼ã‚¸ãŒ 0 ä»¥ä¸‹ã®å ´åˆã€-80dB ã«åˆ¶é™ã™ã‚‹
         if (volume <= 0f)
             return -80f;
         else
