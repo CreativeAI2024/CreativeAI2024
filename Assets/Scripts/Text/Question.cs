@@ -10,7 +10,6 @@ public class Question : MonoBehaviour
     private RectTransform[] rectTransforms;
     private int cursorMax;
     private int cursorPlace;
-     
     public void Initialize()
     {
         rectTransforms = new RectTransform[questionBranches.Length];
@@ -28,17 +27,19 @@ public class Question : MonoBehaviour
             questionBranches[i].SetVisibleQuestionBranch(true);
             questionBranches[i].QuestionBranchText(questionData[i].Answer);
         }
-        if (questionData.Length==2)
+
+        int questionCount = questionData.Length;
+        float interval = 100; 
+        float center = 0; 
+
+        for (int i = 0; i < questionCount; i++)
         {
-            rectTransforms[0].anchoredPosition = new(rectTransforms[0].anchoredPosition.x, 70);
-            rectTransforms[1].anchoredPosition = new(rectTransforms[1].anchoredPosition.x, -70);
+            rectTransforms[i].anchoredPosition = new(
+                rectTransforms[i].anchoredPosition.x,
+                center - interval * (i - (questionCount - 1) / 2f)
+            );
         }
-        else if (questionData.Length==3)
-        {
-            rectTransforms[0].anchoredPosition = new(rectTransforms[0].anchoredPosition.x, 100);
-            rectTransforms[1].anchoredPosition = new(rectTransforms[1].anchoredPosition.x, 0);
-            rectTransforms[2].anchoredPosition = new(rectTransforms[2].anchoredPosition.x, -100);
-        }
+        
         cursorPlace = 0;
         questionPanel.SetActive(true);
         cursor.SetVisibleCursor(true);
@@ -47,7 +48,7 @@ public class Question : MonoBehaviour
 
     public void QuestionCursorMove(int increase)
     {
-        if(cursorMax - 1 <= 0) 
+        if (cursorMax - 1 <= 0)
             cursorMax = 1;
 
         cursorPlace = Mathf.Clamp(cursorPlace + increase, 0, cursorMax - 1);
