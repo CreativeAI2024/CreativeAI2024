@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Diagnostics;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class MainTextDrawer : MonoBehaviour
 {
-    private TextMeshProUGUI _mainTextObject;
+    [SerializeField] private TextMeshProUGUI _mainTextObject;
 
     [SerializeField] Animator animator;
     [SerializeField] GameObject nextPageIcon;
@@ -17,7 +18,6 @@ public class MainTextDrawer : MonoBehaviour
 
     public void Initialize()
     {
-        _mainTextObject = GetComponent<TextMeshProUGUI>();
         _mainTextObject.maxVisibleCharacters = 0;
         _displayedSentenceLength = -1;
     }
@@ -64,6 +64,8 @@ public class MainTextDrawer : MonoBehaviour
 
     public bool AllowChangeLine()
     {
+        DebugLogger.Log("_mainTextObject: "+_mainTextObject);
+        DebugLogger.Log("_mainTextObject.GetParsedText(): "+_mainTextObject.GetParsedText());
         string sentence = _mainTextObject.GetParsedText();
         return _displayedSentenceLength > sentence.Length - 1;
     }
