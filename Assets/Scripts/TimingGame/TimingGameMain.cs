@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -85,9 +85,24 @@ public class TimingGameMain : MonoBehaviour
 
     private void JudgeTextAccuracy(string text)  //精度を表示する
     {
-        if (JustTimingDiffAbs() < judgeGreat) text += "<color=#7FFF00>Great</color>";
-        else if (JustTimingDiffAbs() < judgeGood) text += "<color=#00FF7F>Good</color>";
-        else text += "<color=#0000FF>Bad</color>";
+        if (JustTimingDiffAbs() < judgeGreat)
+        {
+            text += "<color=#7FFF00>Great</color>";
+            SoundManager.Instance.PlaySE(6, 1f);
+            SoundManager.Instance.PlaySE(4, 3f);
+        }
+        else if (JustTimingDiffAbs() < judgeGood)
+        {
+            text += "<color=#00FF7F>Good</color>";
+            SoundManager.Instance.PlaySE(6, 1f);
+            SoundManager.Instance.PlaySE(3, 3f);
+        }
+        else
+        {
+            text += "<color=#0000FF>Bad</color>";
+            SoundManager.Instance.PlaySE(6, 1f);
+            SoundManager.Instance.PlaySE(2, 3f);
+        }
         judgeText.text = text;
     }
 
@@ -103,6 +118,7 @@ public class TimingGameMain : MonoBehaviour
         else  //タイミングゲーの後は会話ウィンドウに遷移する
         {
             Debug.Log(CalcScoreAverage());
+            SoundManager.Instance.PlaySE(8, 3f);
             SceneManager.LoadScene(nextScene);
         }
     }
