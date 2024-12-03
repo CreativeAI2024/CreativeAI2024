@@ -12,7 +12,7 @@ public class SwitchWindow : MonoBehaviour
     }
     void Update()
     {
-        if (MenuUIManager.Instance.GetIsMenuUIActive())
+        if (MenuUIManager.Instance.IsMenuUIActive())
         {
             if (_inputSetting.GetMenuKeyDown())
             {

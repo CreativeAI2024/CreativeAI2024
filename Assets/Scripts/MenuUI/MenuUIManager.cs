@@ -6,7 +6,6 @@ public class MenuUIManager : DontDestroySingleton<MenuUIManager>
     [SerializeField] private Pause menuUIPause;
     private Pause playerPause;
     public Pause PlayerPause => playerPause;
-    private bool isMenuUIActive = false;
     void Start()
     {
         ConversationTextManager.Instance.OnConversationStart += menuUIPause.PauseAll;
@@ -15,11 +14,10 @@ public class MenuUIManager : DontDestroySingleton<MenuUIManager>
     }
     void SceneLoaded(Scene nextScene, LoadSceneMode mode)
     {
-        isMenuUIActive = nextScene.name.Contains("room");
         playerPause = GameObject.Find("Pause").GetComponent<Pause>();
     }
-    public bool GetIsMenuUIActive()
+    public bool IsMenuUIActive()
     {
-        return isMenuUIActive;
+        return SceneManager.GetActiveScene().name.Contains("room");
     }
 }
