@@ -10,13 +10,6 @@ public class Pause : MonoBehaviour
     void Start()
     {
         startSceneName = SceneManager.GetActiveScene().name;
-        DebugLogger.Log("startSceneName: " + startSceneName);
-        string text = "Behaviours: ";
-        foreach (Behaviour pauseScript in pauseScripts)
-        {
-            text += pauseScript.name + ",  ";
-        }
-        DebugLogger.Log(text);
     }
 
     public void PauseAll()
@@ -25,8 +18,6 @@ public class Pause : MonoBehaviour
         {
             foreach (Behaviour behaviour in pauseScripts)
             {
-                // DebugLogger.Log("startSceneName: " + startSceneName);
-                // DebugLogger.Log("currentSceneName: " + SceneManager.GetActiveScene().name);
                 behaviour.enabled = false;
             }
 
@@ -39,8 +30,6 @@ public class Pause : MonoBehaviour
         {
             foreach (Behaviour behaviour in pauseScripts)
             {
-                // DebugLogger.Log("startSceneName: " + startSceneName);
-                // DebugLogger.Log("currentSceneName: " + SceneManager.GetActiveScene().name);
                 behaviour.enabled = true;
             }
 

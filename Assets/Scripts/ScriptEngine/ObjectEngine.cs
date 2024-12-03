@@ -120,7 +120,6 @@ public class ObjectEngine : MonoBehaviour
             runFlag = false;
             foreach (ObjectData aroundObjectData in aroundObjectDatas)
             {
-                DebugLogger.Log("aroundObjectData: "+aroundObjectData);
                 await Call(aroundObjectData, 1, 2);
             }
             
