@@ -39,8 +39,8 @@ public class ObjectEngine : MonoBehaviour
         mapDataController.SetChange(ResetAction);
         ResetAction();
         PlayerMove(changedPos);
+        // pause = GameObject.Find("Pause").GetComponent<Pause>();
     }
-    
     private void ResetAction()
     {
         Initialize(_mapName, mapDataController.GetMapSize().x, mapDataController.GetMapSize().y);
@@ -219,6 +219,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "SearchGame":
                 DebugLogger.Log("SearchGame", DebugLogger.Colors.Green);
+                DebugLogger.Log("CurrentSceneName(ObjectEngine): "+SceneManager.GetActiveScene().name);
                 await SceneChange("SearchGame");
                 break;
             case "TimingGame":

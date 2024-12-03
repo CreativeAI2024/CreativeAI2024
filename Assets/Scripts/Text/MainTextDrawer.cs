@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class MainTextDrawer : MonoBehaviour
 {
-    private TextMeshProUGUI _mainTextObject;
+    [SerializeField] private TextMeshProUGUI _mainTextObject;
 
     [SerializeField] Animator animator;
     [SerializeField] GameObject nextPageIcon;
@@ -17,7 +15,6 @@ public class MainTextDrawer : MonoBehaviour
 
     public void Initialize()
     {
-        _mainTextObject = GetComponent<TextMeshProUGUI>();
         _mainTextObject.maxVisibleCharacters = 0;
         _displayedSentenceLength = -1;
     }

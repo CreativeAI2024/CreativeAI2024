@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75cb3e56cfa86074d8e914f78478ce64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainTextObject: {fileID: 7544126218790116360}
   animator: {fileID: 1203836122537559927}
   nextPageIcon: {fileID: 3643819247776579852}
   iconObject: {fileID: 915160964267895250}
