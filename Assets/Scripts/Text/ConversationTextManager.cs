@@ -204,6 +204,12 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             }
         }
     }
+    
+    public void ResetAction()
+    {
+        _onConversationStart = null;
+        _onConversationEnd = null;
+    }
 
     private void EndConversation()
     {
@@ -216,7 +222,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         initializeFlag = false;
         _onConversationEnd?.Invoke();
-        _onConversationEnd = null;
         if (nextTalkData != null){  //会話分岐
             InitializeFromJson(nextTalkData);
         }

@@ -33,7 +33,7 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
         mapEngine.Initialize();
-        ConversationTextManager.Instance.OnConversationStart += Pause;
+        ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
         ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
@@ -84,6 +84,7 @@ public class ObjectEngine : MonoBehaviour
         }
     }
     
+    /*
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
     {
@@ -110,10 +111,10 @@ public class ObjectEngine : MonoBehaviour
     {
         Gizmos.DrawWireCube(new Vector3(rect.center.x, rect.center.y, 0.01f), new Vector3(rect.size.x, rect.size.y, 0.01f));
     }
-    
+    */
     private async void Update()
     {
-        if (conversationFlag) return;
+        if (conversationFlag || changeSceneFlag) return;
         if (_inputSetting.GetDecideInputDown())
         {
             List<ObjectData> aroundObjectDatas = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
@@ -157,7 +158,6 @@ public class ObjectEngine : MonoBehaviour
         if (objectData is null) return;
         if (!triggerType.Contains(objectData.TriggerType)) return;
         string[] eventNames = objectData.EventName.Split(" | ");
-        changeSceneFlag = false;
         foreach (string eventName in eventNames)
         {
             foreach (var x in objectData.FlagCondition.Flag)
@@ -200,7 +200,6 @@ public class ObjectEngine : MonoBehaviour
                 DebugLogger.Log("ChangeScene", DebugLogger.Colors.Green);
                 string[] args = eventArgs[1].Split(',');
                 changedPos = new Vector2Int(int.Parse(args[1]), int.Parse(args[2]));
-                changeSceneFlag = true;
                 await SceneChange(args[0]);
                 break;
             case "Conversation":
@@ -219,7 +218,6 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "SearchGame":
                 DebugLogger.Log("SearchGame", DebugLogger.Colors.Green);
-                DebugLogger.Log("CurrentSceneName(ObjectEngine): "+SceneManager.GetActiveScene().name);
                 await SceneChange("SearchGame");
                 break;
             case "TimingGame":
@@ -254,6 +252,8 @@ public class ObjectEngine : MonoBehaviour
     
     private async UniTask SceneChange(string sceneName)
     {
+        changeSceneFlag = true;
+        //pause.PauseAll();
         await SceneManager.LoadSceneAsync(sceneName).ToUniTask();
         PlayerPrefs.SetString("SceneName", sceneName);
     }

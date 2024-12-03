@@ -32,10 +32,10 @@ public class MapEngine : MonoBehaviour
         }
     }
     
+    /*
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
     {
-        return;
         for (int i = 0; i < mapDataController.GetMapSize().y; i++)
         {
             for (int j = 0; j < mapDataController.GetMapSize().x; j++)
@@ -54,6 +54,7 @@ public class MapEngine : MonoBehaviour
     {
         Gizmos.DrawWireCube(new Vector3(rect.center.x, rect.center.y, 0.01f), new Vector3(rect.size.x, rect.size.y, 0.01f));
     }
+    */
 
     private void SetCollider(Vector3Int position)
     {

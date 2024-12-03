@@ -9,6 +9,7 @@ public class SearchGameManager : MonoBehaviour
     void Start()
     {
         _inputSetting = InputSetting.Load();
+        ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
     }
