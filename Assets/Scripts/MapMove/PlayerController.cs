@@ -110,7 +110,6 @@ public class PlayerController : MonoBehaviour
     {
         if (startSceneName == SceneManager.GetActiveScene().name)
         {
-            DebugLogger.Log("currentSceneName (GetGridPosition()): " + SceneManager.GetActiveScene().name);
             return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         }
         return new();
