@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,25 +23,29 @@ public class Question : MonoBehaviour
 
     public void DisplayQuestion(QuestionData[] questionData)
     {
-        cursorMax = Mathf.Min(questionData.Length, questionBranches.Length);
+        int questionLen = questionData.Length;
+        cursorMax = Mathf.Min(questionLen, questionBranches.Length);
         for (int i = 0; i < cursorMax; i++)
         {
             questionBranches[i].SetVisibleQuestionBranch(true);
             questionBranches[i].QuestionBranchText(questionData[i].Answer);
         }
 
-        int questionCount = questionData.Length;
-        float branchSpacing = 100;
-        float centerPositionY = 0;
-        float heightFromCenterUnit = (questionCount - 1) / 2f * branchSpacing;
-
-        for (int i = 0; i < questionCount; i++)
+        // QuestionPanelの下の辺をStartとしている。
+        // y軸の向きは上である。
+        float branchStartPosition = 200;
+        float halfQuestionPanelHeight = 400 / 2;
+        // float questionBranchSpacing = 250 / questionLength; //係数250で反比例の式にすると選択肢の間隔がいい感じになる
+        float questionBranchSpacing = 100;
+        // indexを渡すと、下揃えのbranchのPositionを返す。(i=0は一番下のbranch)
+        Func<int, float> bottomAlignmentBrchPos = (i) => branchStartPosition + i * questionBranchSpacing;
+        // branchPositionをPanelの中央までずらすのに必要なoffset
+        float offsetToCenter = halfQuestionPanelHeight - ((bottomAlignmentBrchPos(questionLen - 1) - bottomAlignmentBrchPos(0)) / 2f);
+        for (int i = 0; i < questionLen; i++)
         {
-            float heightFromCenter = i * branchSpacing - heightFromCenterUnit;
-            rectTransforms[i].anchoredPosition = new(
-                rectTransforms[i].anchoredPosition.x,
-                centerPositionY - heightFromCenter
-            );
+            int reverseIndex = questionLen - 1 - i;
+            float positionX = rectTransforms[reverseIndex].anchoredPosition.x;
+            rectTransforms[reverseIndex].anchoredPosition = new(positionX, bottomAlignmentBrchPos(i) + offsetToCenter);
         }
 
         cursorPlace = 0;
