@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Diagnostics;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class MainTextDrawer : MonoBehaviour
