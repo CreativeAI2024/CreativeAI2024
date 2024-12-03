@@ -30,14 +30,16 @@ public class Question : MonoBehaviour
         }
 
         int questionCount = questionData.Length;
-        float interval = 100;
-        float center = 0;
+        float branchSpacing = 100;
+        float centerPositionY = 0;
+        float heightFromCenterUnit = (questionCount - 1) / 2f * branchSpacing;
 
         for (int i = 0; i < questionCount; i++)
         {
+            float heightFromCenter = i * branchSpacing - heightFromCenterUnit;
             rectTransforms[i].anchoredPosition = new(
                 rectTransforms[i].anchoredPosition.x,
-                center - interval * (i - (questionCount - 1) / 2f)
+                centerPositionY - heightFromCenter
             );
         }
 
