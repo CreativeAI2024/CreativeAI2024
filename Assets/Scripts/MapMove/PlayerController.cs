@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // CollisionEnterを機能させるために必要
 [RequireComponent(typeof(Rigidbody2D))]
@@ -105,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
     public Vector2Int GetGridPosition()
     {
+        DebugLogger.Log("currentSceneName (GetGridPosition()): "+SceneManager.GetActiveScene().name);
         return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
     }
 }

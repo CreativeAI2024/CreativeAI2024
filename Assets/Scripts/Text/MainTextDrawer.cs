@@ -64,8 +64,6 @@ public class MainTextDrawer : MonoBehaviour
 
     public bool AllowChangeLine()
     {
-        DebugLogger.Log("_mainTextObject: "+_mainTextObject);
-        DebugLogger.Log("_mainTextObject.GetParsedText(): "+_mainTextObject.GetParsedText());
         string sentence = _mainTextObject.GetParsedText();
         return _displayedSentenceLength > sentence.Length - 1;
     }
