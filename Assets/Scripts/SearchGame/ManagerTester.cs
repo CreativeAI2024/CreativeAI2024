@@ -1,18 +1,26 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ManagerTester : MonoBehaviour
+public class ManagerTester : DontDestroySingleton<ManagerTester>
 {
     //サーチゲームの呼び出し&消しをテストするためのもの
-    [SerializeField] private SearchGameManager searchGameManager;
+    //[SerializeField] private SearchGameManager searchGameManager;
+
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            searchGameManager.Activate();
+            SceneManager.LoadScene("SearchGame");
         }
         else if (Input.GetKeyDown(KeyCode.P))
         {
-            searchGameManager.Inactivate();
+            //searchGameManager.Inactivate();
         }
     }
 }

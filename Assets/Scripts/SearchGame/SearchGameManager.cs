@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SearchGameManager : MonoBehaviour
 {
@@ -6,6 +9,7 @@ public class SearchGameManager : MonoBehaviour
     [SerializeField] private Pause pause;
     [SerializeField] private GameObject main;
     [SerializeField] private SearchGameCursorTip cursorTip;
+    [SerializeField] private GameObject[] interactiveItems;
     void Start()
     {
         _inputSetting = InputSetting.Load();
@@ -20,6 +24,10 @@ public class SearchGameManager : MonoBehaviour
         {
             Inactivate();
         }
+        if (!interactiveItems.Any(interactiveItem => interactiveItem.activeSelf))
+        {
+            ConversationTextManager.Instance.OnConversationEnd += Inactivate;
+        }
     }
 
     private void Pause()
@@ -33,13 +41,23 @@ public class SearchGameManager : MonoBehaviour
         pause.UnPauseAll();
     }
 
-    public void Activate()
-    {
-        main.SetActive(true);
-    }
     public void Inactivate()
     {
+        ConversationTextManager.Instance.OnConversationStart -= Pause;
+        ConversationTextManager.Instance.OnConversationEnd -= UnPause;
         main.SetActive(false);
         cursorTip.Reset();
+        ChangeFlagAndScene("StartSearchGame1", "itemA_room");
+        ChangeFlagAndScene("StartSearchGame2", "itemA_room");
+        ChangeFlagAndScene("StartSearchGame3", "itemB_room");
+    }
+
+    private void ChangeFlagAndScene(string flag, string scene)
+    {
+        if (FlagManager.Instance.HasFlag(flag))
+        {
+            FlagManager.Instance.DeleteFlag(flag);
+            SceneManager.LoadScene(scene);
+        }
     }
 }
