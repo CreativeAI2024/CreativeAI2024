@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Vector2Int LastInputVector { get; private set; }
 
     public Vector2Int Direction { get; private set; }
+    private string startSceneName;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         _inputSetting = InputSetting.Load();
         _playerTransform = transform;
+        startSceneName = SceneManager.GetActiveScene().name;
     }
 
     void Update()
@@ -37,7 +39,7 @@ public class PlayerController : MonoBehaviour
             if (LastInputVector != Vector2Int.zero)
             {
                 Direction = LastInputVector;
-                _canInput = mapDataController.IsGridPositionOutOfRange(_startPosition+LastInputVector);
+                _canInput = mapDataController.IsGridPositionOutOfRange(_startPosition + LastInputVector);
             }
             _targetPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
         }
@@ -106,7 +108,11 @@ public class PlayerController : MonoBehaviour
 
     public Vector2Int GetGridPosition()
     {
-        DebugLogger.Log("currentSceneName (GetGridPosition()): "+SceneManager.GetActiveScene().name);
-        return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        if (startSceneName == SceneManager.GetActiveScene().name)
+        {
+            DebugLogger.Log("currentSceneName (GetGridPosition()): " + SceneManager.GetActiveScene().name);
+            return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        }
+        return new();
     }
 }
