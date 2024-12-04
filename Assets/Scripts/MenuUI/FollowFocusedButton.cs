@@ -16,11 +16,10 @@ public class FollowFocusedButton : MonoBehaviour
         previousGameObject = EventSystem.current.currentSelectedGameObject;
         _scrollRect.verticalNormalizedPosition = 1.0f;
     }
-
     void Update()
     {
         GameObject currentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
-        if (currentSelectedGameObject!=null && previousGameObject != currentSelectedGameObject)
+        if (currentSelectedGameObject != null && previousGameObject != currentSelectedGameObject)
         {
             previousGameObject = currentSelectedGameObject;
             Scroll(currentSelectedGameObject.GetComponent<ItemButton>().Index);
@@ -47,5 +46,10 @@ public class FollowFocusedButton : MonoBehaviour
         {
             _scrollRect.verticalNormalizedPosition -= normalizedButtonSize;
         }
+    }
+
+    public void ScrollToTop()
+    {
+        _scrollRect.verticalNormalizedPosition = 1;
     }
 }
