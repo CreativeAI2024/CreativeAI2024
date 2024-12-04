@@ -267,7 +267,7 @@ public class ObjectEngine : MonoBehaviour
     
     private void GetItem(string itemName)
     {
-        SoundManager.Instance.PlaySE(0, 5f); //アイテム拾う
+        SoundManager.Instance.PlaySE(12, 5f); //アイテム拾う
         pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
         Item item = itemDatabase.GetItem(itemName);

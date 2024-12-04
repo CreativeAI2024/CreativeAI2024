@@ -22,7 +22,7 @@ public class SwitchWindow : MonoBehaviour
     }
     private void SetWindowActive(bool isActive)
     {
-        SoundManager.Instance.PlaySE(0, 5f);
+        SoundManager.Instance.PlaySE(16, 4f);
         menuUI.SetActive(isActive);
     }
 }
