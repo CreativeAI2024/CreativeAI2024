@@ -387,7 +387,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30A2\u30A4\u30C6\u30E0\u306E\u8AAC\u660E\u6587\u6700\u5927\uFF13\uFF10\u6587\u5B57\u3060\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 964363ad8dbd143bcb35871bb903b3ac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 966ea02a0780b304f9c10a523256de1f, type: 2}
   m_sharedMaterial: {fileID: 8079739326132595624, guid: 966ea02a0780b304f9c10a523256de1f,
     type: 2}
   m_fontSharedMaterials: []

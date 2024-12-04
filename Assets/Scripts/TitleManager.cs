@@ -34,7 +34,7 @@ public class TitleManager : MonoBehaviour
         }
         else
         {
-            cursorMax = NewGame +1 ;
+            cursorMax = NewGame + 1;
             questionBranches[LoadGame].gameObject.SetActive(false);
         }
     }

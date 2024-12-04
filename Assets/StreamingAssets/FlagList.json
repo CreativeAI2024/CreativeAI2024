@@ -18,6 +18,8 @@
         "Worm":false,
         "Organ":false,
         
+        "Key":false,
+        "Card":false,
         "Knife":false,
 
         "Symptoms1":false,
@@ -47,11 +49,13 @@
         "Broken_A":false,
         "Broken_B":false,
 
-        "StartTimingGame1": false,
-        "StartTimingGame2": false,
+        "StartSearchGame1":false,
+        "StartSearchGame2":false,
+        "StartSearchGame3":false,
 
-        "StartSearchGame1": false,
-        "StartSearchGame2": false,
-        "StartSearchGame3": false
+        "StartTimingGame1":false,
+        "StartTimingGame2":false,
+        "Mixing":false,
+        "Search":false
     }
 }

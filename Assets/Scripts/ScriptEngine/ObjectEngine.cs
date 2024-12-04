@@ -6,11 +6,9 @@ using System.Diagnostics;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Debug = UnityEngine.Debug;
 
 public class ObjectEngine : MonoBehaviour
 {
-    public Texture gizmoDebugTexture;
     private List<ObjectData>[][] _eventObjects;
     private List<ObjectData>[][] _trapEventObjects;
     
@@ -35,6 +33,9 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
         mapEngine.Initialize();
+        ConversationTextManager.Instance.ResetAction();
+        ConversationTextManager.Instance.OnConversationEnd += UnPause;
+        ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
         PlayerMove(changedPos);
@@ -48,7 +49,6 @@ public class ObjectEngine : MonoBehaviour
     // Start is called before the first frame update
     private void Initialize(string mapName, int width, int height)
     {
-        ConversationTextManager.Instance.OnConversationEnd += UnPause;
         _eventObjects = new List<ObjectData>[width][];
         _trapEventObjects = new List<ObjectData>[width][];
         for (int i = 0; i < width; i++)
@@ -84,6 +84,7 @@ public class ObjectEngine : MonoBehaviour
         }
     }
     
+    /*
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
     {
@@ -110,10 +111,10 @@ public class ObjectEngine : MonoBehaviour
     {
         Gizmos.DrawWireCube(new Vector3(rect.center.x, rect.center.y, 0.01f), new Vector3(rect.size.x, rect.size.y, 0.01f));
     }
-    
+    */
     private async void Update()
     {
-        if (conversationFlag) return;
+        if (conversationFlag || changeSceneFlag) return;
         if (_inputSetting.GetDecideInputDown())
         {
             List<ObjectData> aroundObjectDatas = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
@@ -140,8 +141,15 @@ public class ObjectEngine : MonoBehaviour
         }
     }
     
+    private void Pause()
+    {
+        DebugLogger.Log("Pause : "+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+" : "+(pause == null), DebugLogger.Colors.Magenta);
+        pause.PauseAll();
+    }
+    
     private void UnPause()
     {
+        DebugLogger.Log("UnPause : "+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+" : "+(pause == null), DebugLogger.Colors.Magenta);
         pause.UnPauseAll();
     }
     
@@ -150,7 +158,6 @@ public class ObjectEngine : MonoBehaviour
         if (objectData is null) return;
         if (!triggerType.Contains(objectData.TriggerType)) return;
         string[] eventNames = objectData.EventName.Split(" | ");
-        changeSceneFlag = false;
         foreach (string eventName in eventNames)
         {
             foreach (var x in objectData.FlagCondition.Flag)
@@ -179,10 +186,8 @@ public class ObjectEngine : MonoBehaviour
     
     private async UniTask CallEvent(string eventName)
     {
-        Debug.Log("called");
         string[] eventArgs = eventName.Split(' ');
         string eventKey = eventArgs[0];
-        Debug.Log(eventKey + " : " + SceneManager.GetActiveScene().name);
         switch (eventKey)
         {
             case "PlayerMove":
@@ -196,13 +201,11 @@ public class ObjectEngine : MonoBehaviour
                 DebugLogger.Log("ChangeScene", DebugLogger.Colors.Green);
                 string[] args = eventArgs[1].Split(',');
                 changedPos = new Vector2Int(int.Parse(args[1]), int.Parse(args[2]));
-                changeSceneFlag = true;
                 await SceneChange(args[0]);
                 break;
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
                 conversationFlag = true;
-                ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
                 Conversation(eventArgs[1]);
                 await UniTask.WaitUntil(() => !conversationFlag);
                 break;
@@ -250,8 +253,10 @@ public class ObjectEngine : MonoBehaviour
     
     private async UniTask SceneChange(string sceneName)
     {
-        ConversationTextManager.Instance.OnConversationEnd -= UnPause;
+        changeSceneFlag = true;
+        //pause.PauseAll();
         await SceneManager.LoadSceneAsync(sceneName).ToUniTask();
+        PlayerPrefs.SetString("SceneName", sceneName);
     }
     
     private void PlayerMove(Vector2Int moved)
@@ -261,16 +266,19 @@ public class ObjectEngine : MonoBehaviour
     
     private void Conversation(string fileName)
     {
-        pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromJson(fileName);
     }
     
     private void GetItem(string itemName)
     {
-        SoundManager.Instance.PlaySE(12, 5f); //アイテム拾う
+        SoundManager.Instance.PlaySE(0, 5f); //アイテム拾う
         pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
         Item item = itemDatabase.GetItem(itemName);
+        if (itemName.Equals("Rei'sBlood") || itemName.Equals("SthFlesh") || itemName.Equals("BugsInJar"))
+        {
+            FlagManager.Instance.SetReiStatus(FlagManager.Instance.ReiStatus + 1);
+        }
         inventory.Add(item);
         CombineItem(item);
     }

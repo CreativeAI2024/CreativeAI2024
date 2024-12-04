@@ -14,6 +14,8 @@ public class MenuUIManager : DontDestroySingleton<MenuUIManager>
     }
     void SceneLoaded(Scene nextScene, LoadSceneMode mode)
     {
+        if (!nextScene.name.Contains("room")) return;
+        
         playerPause = GameObject.Find("Pause").GetComponent<Pause>();
     }
     public bool IsMenuUIActive()

@@ -9,7 +9,7 @@ public class ItemBookEffect : MonoBehaviour, IEffectable
     public void PlayEffect()
     {
         itemInventory.Add(item);
-        if (itemInventory.IsContains(itemDatabase.GetItem("ナイフ")))
+        if (itemInventory.IsContains(itemDatabase.GetItem("Knife")))
         {
             jsonFile = $"{jsonFile}_any";
         }

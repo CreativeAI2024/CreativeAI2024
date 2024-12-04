@@ -2,42 +2,46 @@
     "Id": 2,
     "Location": [
       {
-        "MapName":"ItemA_room",
+        "MapName":"itemA_room",
         "Position":[
           0,
           3
         ]
       },
       {
-        "MapName":"ItemA_room",
+        "MapName":"itemA_room",
         "Position":[
           1,
           3
         ]
       }
     ],
-    "EventName": "Conversation Search1 | SearchGame",
+    "EventName": "Conversation Search",
     "TriggerType": 1,
     "FlagCondition": {
       "Flag": [
+        [
+          "Worm",
+          false
+        ],
         [
           "Progress2",
           true
         ]
       ],
       "NextFlag": [
-          [
-              "StartSearchGame1",
-              false
-          ],
-          [
-              "StartSearchGame2",
-              false
-          ],
-          [
-              "StartSearchGame3",
-              false
-          ]
+        [
+          "StartSearchGame1",
+          true
+        ],
+        [
+          "StartSearchGame2",
+          false
+        ],
+        [
+          "StartSearchGame3",
+          false
+        ]
       ]
     }
   }

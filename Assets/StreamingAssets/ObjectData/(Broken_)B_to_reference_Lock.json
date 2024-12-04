@@ -1,0 +1,30 @@
+{
+    "Id": 0,
+    "Location": [
+      {
+        "MapName": "itemB_room",
+        "Position": [
+          4,
+          9
+        ]
+      },
+      {
+        "MapName": "itemB_room_broken",
+        "Position": [
+          4,
+          9
+        ]
+      }
+    ],
+    "EventName": "Conversation Lock",
+    "TriggerType": 1,
+    "FlagCondition": {
+      "Flag": [
+        [
+          "Key",
+          false
+        ]
+      ],
+      "NextFlag": []
+    }
+  }

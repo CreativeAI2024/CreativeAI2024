@@ -1,0 +1,35 @@
+{
+    "Id": 0,
+    "Location": [
+      {
+        "MapName": "itemB_room",
+        "Position": [
+          1,
+          1
+        ]
+      },
+      {
+        "MapName": "itemB_room_broken",
+        "Position": [
+          1,
+          1
+        ]
+      }
+    ],
+    "EventName": "GetItem Key",
+    "TriggerType": 1,
+    "FlagCondition": {
+      "Flag": [
+        [
+            "Key",
+            false
+        ]
+      ],
+      "NextFlag": [
+        [
+            "Key",
+            true
+        ]
+      ]
+    }
+  }

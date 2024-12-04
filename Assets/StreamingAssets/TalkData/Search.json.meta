@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/StreamingAssets/TalkData/Search.json.meta
 guid: 674cedf3c1b4f4ce59209817f8d477fd
+========
+guid: 480928bbb91c941feb2916696c8c4a16
+>>>>>>>> develop:Assets/StreamingAssets/TalkData/Mirror.json.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

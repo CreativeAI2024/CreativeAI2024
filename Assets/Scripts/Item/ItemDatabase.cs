@@ -14,7 +14,7 @@ public class ItemDatabase : ScriptableObject
         _allItemDictionary = new Dictionary<string, Item>();
         foreach (Item item in allItemList)
         {
-            _allItemDictionary.Add(item.ItemName, item);
+            _allItemDictionary.Add(item.name, item);
         }
     }
     

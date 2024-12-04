@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // CollisionEnterを機能させるために必要
 [RequireComponent(typeof(Rigidbody2D))]
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
             if (LastInputVector != Vector2Int.zero)
             {
                 Direction = LastInputVector;
-                _canInput = mapDataController.IsGridPositionOutOfRange(_startPosition+LastInputVector);
+                _canInput = mapDataController.IsGridPositionOutOfRange(_startPosition + LastInputVector);
             }
             _targetPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
         }
