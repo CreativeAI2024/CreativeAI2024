@@ -1,50 +1,63 @@
 {
-    "Content": [
+    "content": [
         {
-            "Text":"レイはナイフを持つ手を降ろした。"
+            "Text":"レイはナイフを持つ手を降ろした",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
-            "Text":"降ろしてしまった。"
+            "Text":"降ろしてしまった",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
-            "Text":"突然、レイの体は吹き飛ばされ、扉に叩きつけられる。"
+            "Text":"突然、レイの体は吹き飛ばされ、扉に叩きつけられる",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
-            "Text":"何が起きたのか分からず、呆然としているとテッセンの爪が赤く染まっていた。"
+            "Text":"何が起きたのか分からず、呆然としているとテッセンの爪が赤く染まっていた",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
-            "Text":"意識が遠くなっていく。"
+            "Text":"意識が遠くなっていく",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
-            "Text":"レイはいともたやすく殺されたのだ。"
+            "Text":"レイはいともたやすく殺されたのだ",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
             "Speaker":"テッセン",
-            "Text":"「あっけないな」",
+            "Text":"あっけないな",
             "ChangeImage": [
                 {
-                    "ImageName": "LeftPanel",
+                    "ImageName": "RightPanel",
                     "SpriteName": "Tessen"
                 }
-            ]
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
             "Speaker":"テッセン",
-            "Text":"「こんなもの、必要ないね」",
-            "SE": "ItemGetSound"
+            "Text":"こんなもの、必要ないね",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
-            "Text":"意識が途切れるその瞬間、ガラスの割れる音がした。",
+            "Text":"意識が途切れるその瞬間、ガラスの割れる音がした",
             "ChangeImage": [
                 {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
+                    "ImageName": "RightPanel",
+                    "SpriteName": "null"
                 }
-            ]
+            ],
+            "BGM": "bgm2",
+            "SE": "se2"
         }
     ]
 }

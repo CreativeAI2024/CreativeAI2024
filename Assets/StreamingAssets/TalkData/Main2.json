@@ -1,59 +1,61 @@
-    {
-        "Content": [
-            {
-                "Speaker": "テッセン",
-                "Text": "「どうしたのかな」",
-                "ChangeImage": [
+{
+    "Content": [
+        {
+            "Speaker": "テッセン",
+            "Text": "どうしたのかな",
+            "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
                     "SpriteName": "Tessen"
                 },
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "Rei"
+                    "SpriteName": "rei"
                 }
-            ],
-            "BGM":"talkwithtessen"
-            },
-            {
-                "Speaker": "レイ",
-                "Text": "「......!!ッ」"
-            },
-            {
-                "Speaker": "？？？",
-                "Text" : "「探し物はアレかい？」"
-            },
-            {
-                "Speaker": "レイ",
-                "Text": ".「...........」"
-            },
-            {
-                "Speaker": "？？？",
-                "Text" : "「......取ってきてあげようか？」"
-            },
-            {
-                "Speaker": "レイ",
-                "Text": "「......いいの？」"
-            },
-            {
-                "Speaker": "？？？",
-                "Text": "「別にいいよ」"
-            },
-            {
-                "Speaker": "？？？",
-                "Text": "「アレは私には必要ないものだしね」"
-            },
-            {
-                "Speaker":"レイ",
-                "Text":"「............キミの名前は？」"
-            },
-            {
-                "Speaker":"？？？",
-                "Text":"「あぁ、言ってなかったね。私の名前はテッセンだ。よろしく」"
-            },
-            {
-                "Speaker":"レイ",
-                "Text":"「よ、よろしく......」"
-            }
-        ]
-    }
+            ]
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "……!!ッ"
+        },
+        {
+            "Speaker": "テッセン",
+            "Text": "探し物はアレかい？"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "…………"
+        },
+        {
+            "Speaker": "テッセン",
+            "Text": "……取ってきてあげようか？"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "……いいの？"
+        },
+        {
+            "Speaker": "テッセン",
+            "Text": "別にいいよ"
+        },
+        {
+            "Speaker": "テッセン",
+            "Text": "アレは私には必要ないものだしね"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "…………キミの名前は？"
+        },
+        {
+            "Speaker": "テッセン",
+            "Text": "あぁ、言ってなかったね。私の名前はテッセンだ。よろしく"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "よ、よろしく……"
+        },
+        {
+            "Text": "なにかの肉を手に入れた"
+        }
+    ]
+}

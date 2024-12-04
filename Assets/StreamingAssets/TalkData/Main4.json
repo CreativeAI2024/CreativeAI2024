@@ -2,7 +2,7 @@
     "Content": [
         {
             "Speaker": "アザミ",
-            "Text": "「薬の材料は集まってるか？」",
+            "Text": "薬の材料は集まってるか？",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -10,100 +10,62 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "Rei"
+                    "SpriteName": "rei"
                 }
             ],
             "BGM":"IntenseDest"
         },
         {
-            "Text":"「早くここから出るぞ」"
+            "Speaker": "レイ",
+            "Text": "………………"
         },
         {
-            "Text":"「ヒカル、死んだんだってね」"
+            "Speaker": "アザミ",
+            "Text": "ん？なんて言ったんだ？"
         },
         {
             "Speaker": "レイ",
-            "Text": "「..................」"
+            "Text": "…………さい…"
         },
         {
             "Speaker": "アザミ",
-            "Text": "「ん？なんて言ったんだ？」"
+            "Text": "なんだよ、どうしたんだ"
         },
         {
             "Speaker": "レイ",
-            "Text": "「............さい...」"
+            "Text": "うるさい…！！！！"
         },
         {
             "Speaker": "アザミ",
-            "Text": "「なんだよ、どうしたんだ」"
+            "Text": "…………"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "……………………しろ！"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "おい、しっかりしろ！"
         },
         {
             "Speaker": "レイ",
-            "Text": "「うるさい...！！！！」"
-            
-        },
-        {
-            "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
-                }
-            ],
-            "SE":"destroythings"
+            "Text": "………！"
         },
         {
             "Speaker": "アザミ",
-            "Text": "「............」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「........................しろ！」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "おい、しっかりしろ！",
-            "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "Azami_0"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "Rei"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"void"
-                }
-            ]
+            "Text": "どうだ？少しは落ち着いたか？"
         },
         {
             "Speaker": "レイ",
-            "Text": "「......！」"
+            "Text": "……うん。"
         },
         {
             "Speaker": "アザミ",
-            "Text": "「どうだ？少しは落ち着いたか？」"
-        },
-        {
-            "Speaker": "レイ",
-            "Text": "「......うん」"
+            "Text": "精神がおかしくなっているんだろう。この世界の影響を強く受けてしまっている。"
         },
         {
             "Speaker": "アザミ",
-            "Text": "「精神がおかしくなっているんだろう。この世界の影響を強く受けてしまっている」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「残りの材料もあと一つだ。それまで耐えてくれよ」"
+            "Text": "残りの材料もあと一つだ。それまで耐えてくれよ。"
         }
     ]
 }

@@ -1,26 +1,35 @@
 {
-    "Content":[
+    "content":[
         {
-            "Text":"レイは手に持ったナイフで一思いに突き刺す。",
+            "Text":"レイは手に持ったナイフで一思いに突き刺す",
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
                     "SpriteName": "rei"
                 }
             ],
-            "SE": "stabknife"
+            "BGM": "bgm2",
+            "SE": "knife"
         },
         {
-            "Text":"一心不乱に突き立てる。肉はとても硬く深くまでは刺さらない。",
-            "SE": "stabknife"
+            "Text":"一心不乱に突き立てる。肉はとても硬く深くまでは刺さらない",
+            "BGM": "bgm2",
+            "SE": "knife"
         },
         {
-            "Text":"次第にナイフの手から血が出るが、それでもナイフを刺し続ける。",
-            "SE": "stabknife"
+            "Text":"次第にナイフの手から血が出るが、それでもナイフを刺し続ける",
+            "BGM": "bgm2",
+            "SE": "knife"
         },
         {
-            "Text":"テッセンは悲鳴の一つも上げることなく静かに死んだ。",
-            "SE": "stabknife"
+            "Text":"テッセンは悲鳴の一つも上げることなく静かに死んだ",
+            "BGM": "bgm2",
+            "SE": "knife"
+        },
+        {
+            "Text":"内臓を手に入れた",
+            "BGM": "bgm2",
+            "SE": "se2"
         }
     ]
 }

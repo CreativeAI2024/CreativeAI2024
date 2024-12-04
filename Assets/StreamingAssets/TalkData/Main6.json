@@ -1,8 +1,8 @@
 {
-    "Content":[
+    "content":[
         {
             "Speaker":"アザミ",
-            "Text":"「レイ、薬は完成したのか？」",
+            "Text":"レイ、薬は完成したのか？",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -10,52 +10,45 @@
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "Rei"
+                    "SpriteName": "rei"
                 }
             ],
             "BGM": "Joy"
         },
         {
             "Speaker":"レイ",
-            "Text":"「！！アザミ......！」"
+            "Text":"！！アザミ……！",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
             "Speaker":"レイ",
-            "Text":"「キミが見た通りさ！レシピ通りの材料で作ったから、うまくできたよ」"
+            "Text":"キミが見た通りさ！レシピ通りの材料で作ったから、うまくできたよ",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
             "Speaker":"アザミ",
-            "Text":"「......そうか」"
+            "Text":"……そうか",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
             "Speaker":"レイ",
-            "Text":"「でも、出来た薬が一人分にしか」"
+            "Text":"でも、出来た薬が一人分にしか",
+            "BGM": "bgm2",
+            "SE": "se2"
         },
         {
-            "Text":"「レイが振り返ると、アザミが鈍器を振りかぶっていた」",
-            "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
-                }
-            ],
-            "SE": "stabknife"
+            "Text":"レイが振り返ると、アザミが鈍器を振りかぶっていた",
+            "BGM": "bgm2",
+            "SE": "impact"
         },
         {
-            "Text":"",
-            "SE": "exploreluggage1"
+            "SE": "lookFor"
         },
         {
-            "Text":"",
-            "SE": "footsteps2"
+            "SE": "footsteps"
         }
     ]
 }

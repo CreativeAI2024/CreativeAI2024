@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ConversationTextManager : DontDestroySingleton<ConversationTextManager>
 {
@@ -13,7 +12,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     [SerializeField] private Question question;
     [SerializeField] private GameObject contentObject;
     [SerializeField] private float intervalTime;
-    [SerializeField] private Image textInstructions;
     private float unitTime;
     private InputSetting _inputSetting;
 
@@ -45,26 +43,29 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             mainTextDrawer.Typewriter();
         }
 
-        if (_inputSetting.GetDecideInputUp())
+        if (_inputSetting.GetDecideInputUp() || _inputSetting.GetCancelKeyUp())
         {
             if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
             {
                 //次の行へ移動し、表示する文字数をリセット
-                if (_inputSetting.GetDecideInputUp())
+                if (_inputSetting.GetDecideInputUp() && lineNumber < talkData.Content.Length - 1)
                 {
-                    if (lineNumber < talkData.Content.Length - 1)
-                    {
-                        ChangeQuestionData();
-                        ChangeLine(1);
-                        DisplayText();
-                        DebugLogger.Log("NextLine");
-                    }
-                    else
-                    {
-                        SoundManager.Instance.StopBGM();
-                        ChangeQuestionData();
-                        EndConversation();
-                    }
+                    ChangeQuestionData();
+                    ChangeLine(1);
+                    DisplayText();
+                    DebugLogger.Log("NextLine");
+                }
+                else if (_inputSetting.GetCancelKeyUp() && 0 < lineNumber)
+                {
+                    ChangeLine(-1);
+                    DisplayText();
+                    DebugLogger.Log("BackLine");
+                }
+                else
+                {
+                    SoundManager.Instance.StopBGM();
+                    ChangeQuestionData();
+                    EndConversation();
                 }
             }
             else if (unitTime > -0.45f)
@@ -162,11 +163,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         if (talkDataContent.QuestionData != null)
         {
             question.DisplayQuestion(talkDataContent.QuestionData);
-            textInstructions.enabled = false;
-        }
-        else
-        {
-            textInstructions.enabled = true;
         }
         if (talkDataContent.BGM != null)
         {
