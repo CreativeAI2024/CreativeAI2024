@@ -894,6 +894,7 @@ MonoBehaviour:
   question: {fileID: 4910975778818706883}
   contentObject: {fileID: 3865140633522996896}
   intervalTime: 0.04
+  textInstructions: {fileID: 7924051023662114735}
 --- !u!1 &3643819247776579852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,9 +1277,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 4e9340e7c182b43a2a990e32b6289d23, type: 3}
   - {fileID: 21300000, guid: 2b4720d6581aca24da00d5934fb67a84, type: 3}
-  - {fileID: 21300000, guid: 1c7dd8668404c4b06a68453f3c593ade, type: 3}
+  - {fileID: 21300000, guid: be87ab5228c414f34a58d8f932d8a58f, type: 3}
+  - {fileID: 21300000, guid: 91dba157820b54b889df405e3ff46c06, type: 3}
+  - {fileID: 21300000, guid: 0c14945ebc40f5a4caf26bb52b10b8e2, type: 3}
+  - {fileID: 21300000, guid: 07632366c1be24aa8a0d80de4a86cb33, type: 3}
+  - {fileID: 21300000, guid: 44343ff1cfbec42a5acb3231a74ec1bd, type: 3}
   images:
   - {fileID: 4217064105894165281}
   - {fileID: 532698342962521887}
