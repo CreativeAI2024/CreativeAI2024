@@ -12,28 +12,28 @@ public class SwitchWindow : MonoBehaviour
     }
     void Update()
     {
-        if (MenuUIManager.Instance.IsMenuUIActive())
+        if (!MenuUIManager.Instance.IsMenuUIActive()) return;
+        if (_inputSetting.GetMenuKeyDown())
         {
-            if (_inputSetting.GetMenuKeyDown())
-            {
-                if (menuUI.activeInHierarchy)
-                {
-                    SetWindowActive(false);
-                    MenuUIManager.Instance.PlayerPause.UnPauseAll();
-                }
-                else
-                {
-                    SetWindowActive(true);
-                    MenuUIManager.Instance.PlayerPause.PauseAll();
-                }
-            }
-            else if (_inputSetting.GetCancelKeyDown() && menuUI.activeInHierarchy)
+            if (menuUI.activeInHierarchy)
             {
                 SetWindowActive(false);
                 MenuUIManager.Instance.PlayerPause.UnPauseAll();
             }
+            else
+            {
+                SetWindowActive(true);
+                MenuUIManager.Instance.PlayerPause.PauseAll();
+            }
+        }
+        else if (_inputSetting.GetCancelKeyDown() && menuUI.activeInHierarchy)
+        {
+            SetWindowActive(false);
+            MenuUIManager.Instance.PlayerPause.UnPauseAll();
         }
     }
+
+
     private void SetWindowActive(bool isActive)
     {
         SoundManager.Instance.PlaySE(0, 5f);
