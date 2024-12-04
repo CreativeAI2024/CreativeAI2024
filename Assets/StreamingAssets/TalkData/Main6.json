@@ -2,7 +2,7 @@
     "Content":[
         {
             "Speaker":"アザミ",
-            "Text":"レイ、薬は完成したのか？",
+            "Text":"「レイ、薬は完成したのか？」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -17,51 +17,44 @@
         },
         {
             "Speaker":"レイ",
-            "Text":"！！アザミ……！",
-            "BGM": "bgm2",
-            "SE": "se2"
+            "Text":"「！！アザミ......！」"
         },
         {
             "Speaker":"レイ",
-            "Text":"キミが見た通りさ！レシピ通りの材料で作ったから、うまくできたよ",
-            "BGM": "bgm2",
-            "SE": "se2"
+            "Text":"「キミが見た通りさ！レシピ通りの材料で作ったから、うまくできたよ」"
         },
         {
             "Speaker":"アザミ",
-            "Text":"……そうか",
-            "BGM": "bgm2",
-            "SE": "se2"
+            "Text":"「......そうか」"
         },
         {
             "Speaker":"レイ",
-            "Text":"でも、出来た薬が一人分にしか",
-            "BGM": "bgm2",
-            "SE": "se2"
+            "Text":"「でも、出来た薬が一人分にしか」"
         },
         {
-            "Text":"レイが振り返ると、アザミが鈍器を振りかぶっていた",
+            "Text":"「レイが振り返ると、アザミが鈍器を振りかぶっていた」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName":"BackgroundPanel",
                     "SpriteName":"Black"
                 }
             ],
-            "BGM": "bgm2",
             "SE": "stabknife"
         },
         {
+            "Text":"",
             "SE": "exploreluggage1"
         },
         {
+            "Text":"",
             "SE": "footsteps2"
         }
     ]

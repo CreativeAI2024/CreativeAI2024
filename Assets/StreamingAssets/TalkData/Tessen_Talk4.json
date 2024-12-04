@@ -2,7 +2,7 @@
   "Content": [
     {
       "Speaker": "テッセン",
-      "Text": "レイ",
+      "Text": "「レイ」",
       "ChangeImage": [
         {
             "ImageName": "LeftPanel",
@@ -12,15 +12,16 @@
             "ImageName": "RightPanel",
             "SpriteName": "Rei"
         }
-    ]
+    ],
+            "BGM":"talkwithtessen"
     },
     {
       "Speaker": "レイ",
-      "Text": "？！…ああ"
+      "Text": "「！？......ああ」"
     },
     {
       "Speaker": "テッセン",
-      "Text": "調子はどうかな？",
+      "Text": "「調子はどうかな？」",
       "QuestionData": [
         {
           "Answer": "悪くないよ",
@@ -31,7 +32,7 @@
           "NextTalkData": "Tessen_Talk4_2"
         },
         {
-          "Answer": "……",
+          "Answer": "......",
           "NextTalkData": "Tessen_Talk4_3"
         }
       ]

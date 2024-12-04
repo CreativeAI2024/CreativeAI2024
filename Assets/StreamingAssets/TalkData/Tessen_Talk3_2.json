@@ -2,7 +2,7 @@
   "Content": [
     {
       "Speaker": "テッセン",
-      "Text": "へー、探検……",
+      "Text": "「へー、探検......」",
       "ChangeImage": [
         {
             "ImageName": "LeftPanel",
@@ -12,19 +12,20 @@
             "ImageName": "RightPanel",
             "SpriteName": "Rei"
         }
-    ]
+    ],
+            "BGM":"talkwithtessen"
     },
     {
       "Speaker": "テッセン",
-      "Text": "…………本当に？"
+      "Text": "「............本当に？」"
     },
     {
       "Speaker": "テッセン",
-      "Text": "……ま、いいや。でも、私から何も奪わないでね？"
+      "Text": "「......ま、いいや。でも、私から何も奪わないでね？」"
     },
     {
       "Speaker": "レイ",
-      "Text": "？"
+      "Text": "「？」"
     }
   ]
 }
