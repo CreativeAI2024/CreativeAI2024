@@ -322,6 +322,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsSE.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a250c2a07ebd0c949a34a6bf41a5322b, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3565cd3afd7a1f34bb92aaa64ae7d7bd, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 48000248128441d439381d328dc6df5e, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3565cd3afd7a1f34bb92aaa64ae7d7bd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

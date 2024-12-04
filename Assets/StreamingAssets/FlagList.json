@@ -47,7 +47,7 @@
         "Broken_A":false,
         "Broken_B":false,
 
-        "StartTimingGame1": false,
+        "StartTimingGame1": true,
         "StartTimingGame2": false,
 
         "StartSearchGame1": false,

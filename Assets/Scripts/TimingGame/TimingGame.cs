@@ -8,7 +8,6 @@ using System.Linq;
 public class TimingGame : MonoBehaviour
 {
     [SerializeField] private TimingSlider timingSlider;
-    [SerializeField] private RectTransform timingBar;
     private InputSetting _inputSetting;
 
     [SerializeField] private int repeat;
@@ -16,7 +15,6 @@ public class TimingGame : MonoBehaviour
     private float timeSchedule;                 //時間制御用
 
     private List<float> timingResults;
-    private float justTiming;
     [SerializeField] TimingGameJudge timingGameJudge;
     [SerializeField] TextMeshProUGUI AttemptNumber;  //試行回数表示用
 
@@ -68,22 +66,12 @@ public class TimingGame : MonoBehaviour
         _inputSetting = InputSetting.Load();
         timingResults = new();
         timingSlider.Initialize();
-        justTiming = timingBar.anchoredPosition.y / timingSlider.SliderCoordinateSpeed();  //判定の基準となる時間
         timeSchedule = -0.04f;
         attempt = 1;
         DisplayAttemptNumberText();
     }
 
-    private float JustTimingDiff()  //判定とのずれ(時間)を返す
-    {
-        return timingSlider.SliderTopPositionTime() - justTiming;
-    }
-
-    private float JustTimingDiffAbs() //判定とのずれ(時間)を絶対値で返す
-    {
-        
-        return Math.Abs(JustTimingDiff());
-    }
+    
 
     private void EndTimingGame()  //スライダーが停止された後の振る舞いを指定 rep:タイミングゲーを繰り返す回数
     {
@@ -105,7 +93,7 @@ public class TimingGame : MonoBehaviour
 
     private void SaveScore()  //判定とのずれ(時間)を絶対値で保存する
     {
-        timingResults.Add(JustTimingDiffAbs());
+        timingResults.Add(timingSlider.JustTimingDiffAbs());
     }
 
     private float CalcScoreAverage()  //タイミングゲーの成績でテキストが変化するらしいのでtimingResultsの平均値を計算しておく(ミリ秒)
