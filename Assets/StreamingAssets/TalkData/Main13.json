@@ -6,11 +6,11 @@
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName":"BackgroundPanel",
@@ -25,7 +25,7 @@
             "Text":"アザミは今頃無事だろうか。それを確かめる手段はもうない。"
         },
         {
-            "Text":"…………"
+            "Text":"............"
         },
         {
             "Text":"ふと足元を見ると見覚えのないバッグが落ちていた"

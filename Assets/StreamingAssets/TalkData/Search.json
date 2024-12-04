@@ -12,7 +12,7 @@
             "QuestionData": [
                 {
                     "Answer": "探してみる",
-                    "NextFlag":[["Search", true]]
+                    "NextFlag":[["Search",true]]
                 },
                 {
                     "Answer": "やめておく"

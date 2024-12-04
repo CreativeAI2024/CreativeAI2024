@@ -5,11 +5,11 @@
       "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName":"BackgroundPanel",
@@ -30,7 +30,7 @@
       "Text": "あの男、アザミはどうなったのだろうか…。"
     },
     {
-      "Text": "………"
+      "Text": "......"
     },
     {
       "Text": "ふと辺りを見回すと見覚えのないバッグが落ちていた"

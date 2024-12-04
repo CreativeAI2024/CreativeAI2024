@@ -2,7 +2,7 @@
     "Content": [
         {
             "Speaker":"レイ",
-            "Text":"暗くてよく見えな……",
+            "Text":"「暗くてよく見えな......」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -21,15 +21,15 @@
         },
         {
             "Speaker":"ヒカル",
-            "Text":"やめて！お願いだから、近づかないで……",
+            "Text":"「やめて！お願いだから、近づかないで......」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "null"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName":"BackgroundPanel",
@@ -39,17 +39,17 @@
             "SE":"snake1"
         },
         {
-            "Text":"……"
+            "Text":"......"
         },
         {
-            "Text":"…………"
+            "Text":"............"
         },
         {
-            "Text":"………………"
+            "Text":".................."
         },
         {
             "Speaker": "？？？",
-            "Text": "目が覚めたか",
+            "Text": "「目が覚めたか」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -58,55 +58,59 @@
                 {
                     "ImageName": "LeftPanel",
                     "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"void"
                 }
             ],
             "BGM": "MysteryConfFear"
         },
         {
             "Speaker": "レイ",
-            "Text": "…………"
+            "Text": "「............」"
         },
         {
             "Speaker": "？？？",
-            "Text": "俺の名前はアザミだ。……お前、名前は？"
+            "Text": "「俺の名前はアザミだ。......お前、名前は？」"
         },
         {
             "Speaker": "レイ",
-            "Text": "…………レイ"
+            "Text": "「............レイ」"
         },
         {
             "Speaker": "アザミ",
-            "Text": "そうか、レイ……お前はこの世界に迷い込んでしまった。\nこのままでは狂ってしまう。これを見ろ"
+            "Text": "「そうか、レイ......お前はこの世界に迷い込んでしまった。\nこのままでは狂ってしまう。これを見ろ」"
         },
         {
             "Speaker": "アザミ",
-            "Text": "……ッ!!"
+            "Text": "「......ッ！！」"
         },
         {
             "Speaker": "アザミ",
-            "Text": "元に戻すには薬がいる。お前には材料を集めて欲しい"
+            "Text": "「元に戻すには薬がいる。お前には材料を集めて欲しい」"
         },
         {
-            "Text": "アザミは肥大化した手で1枚の紙を渡してくる"
+            "Text": "アザミは肥大化した手で1枚の紙を渡してくる。"
         },
         {
-            "Text": "見ると、紙には薬のレシピが書かれていた"
+            "Text": "見ると、紙には薬のレシピが書かれていた。"
         },
         {
             "Speaker": "アザミ",
-            "Text": "出来るだけ急いでくれ。お前達もバケモノになってしまう前に…"
+            "Text": "「出来るだけ急いでくれ。お前達もバケモノになってしまう前に......」"
         },
         {
-            "Text": "アザミは一方的に話し、そして部屋から去っていった",
+            "Text": "アザミは一方的に話し、そして部屋から去っていった。",
             "SE": "snake1"
         },
         {
             "Speaker":"レイ",
-            "Text": "ちょ、ちょっと待ってよ！"
+            "Text": "「ちょ、ちょっと待ってよ！」"
         },
         {
             "Speaker":"レイ",
-            "Text": "……行っちゃった……何なのよ……もう"
+            "Text": "「......行っちゃった......何なのよ......もう」"
         }
     ]
 }
