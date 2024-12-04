@@ -31,21 +31,13 @@ public class Question : MonoBehaviour
             questionBranches[i].QuestionBranchText(questionData[i].Answer);
         }
 
-        // QuestionPanelの下の辺をStartとしている。
-        // y軸の向きは上である。
-        float branchStartPosition = 200;
-        float halfQuestionPanelHeight = 400 / 2;
-        // float questionBranchSpacing = 250 / questionLength; //係数250で反比例の式にすると選択肢の間隔がいい感じになる
-        float questionBranchSpacing = 100;
-        // indexを渡すと、下揃えのbranchのPositionを返す。(i=0は一番下のbranch)
-        Func<int, float> bottomAlignmentBrchPos = (i) => branchStartPosition + i * questionBranchSpacing;
-        // branchPositionをPanelの中央までずらすのに必要なoffset
-        float offsetToCenter = halfQuestionPanelHeight - ((bottomAlignmentBrchPos(questionLen - 1) - bottomAlignmentBrchPos(0)) / 2f);
+        float branchCenterPos = 410;
+        float branchAreaHeight = questionLen * 75; //75でかけるといい感じになる
+        float branchStartPos = branchCenterPos + branchAreaHeight / 2;
+        float branchSpacing = branchAreaHeight / (questionLen - 1);
         for (int i = 0; i < questionLen; i++)
         {
-            int reverseIndex = questionLen - 1 - i;
-            float positionX = rectTransforms[reverseIndex].anchoredPosition.x;
-            rectTransforms[reverseIndex].anchoredPosition = new(positionX, bottomAlignmentBrchPos(i) + offsetToCenter);
+            rectTransforms[i].anchoredPosition = new(rectTransforms[i].anchoredPosition.x, branchStartPos - branchSpacing * i);
         }
 
         cursorPlace = 0;
