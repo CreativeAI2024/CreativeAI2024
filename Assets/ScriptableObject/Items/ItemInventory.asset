@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ItemInventory
   m_EditorClassIdentifier: 
   itemList:
-  - {fileID: 11400000, guid: 3a29fe8411ae040d7848685f9165840f, type: 2}
+  - {fileID: 11400000, guid: 47d13a32fd32f4de7b29bf984e03d25d, type: 2}
   combineRecipeDatabase: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
     type: 2}
