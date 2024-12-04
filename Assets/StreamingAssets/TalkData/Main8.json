@@ -1,7 +1,21 @@
 {
   "Content": [
     {
-      "Text": "薬を飲んで、すぐに鏡の中に飛び込んだ。"
+      "Text": "薬を飲んで、すぐに鏡の中に飛び込んだ。",
+      "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
     },
     {
       "Text": "気が付くと、衣装品売り場の姿見の前にいた。"
@@ -16,7 +30,7 @@
       "Text": "あの男、アザミはどうなったのだろうか…。"
     },
     {
-      "Text": "………"
+      "Text": "......"
     },
     {
       "Text": "ふと辺りを見回すと見覚えのないバッグが落ちていた"
