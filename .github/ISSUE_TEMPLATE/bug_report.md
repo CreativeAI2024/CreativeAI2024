@@ -1,3 +1,11 @@
+---
+name: バグ報告
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
+---
+
 **概要**
 <!-- 壁を抜けるバグ -->
 
