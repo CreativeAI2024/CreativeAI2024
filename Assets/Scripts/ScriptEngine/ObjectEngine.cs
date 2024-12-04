@@ -275,8 +275,7 @@ public class ObjectEngine : MonoBehaviour
         pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
         Item item = itemDatabase.GetItem(itemName);
-        if (item.ItemName.Contains("Rei'sBlood") || item.ItemName.Contains("SthFlesh") ||
-            item.ItemName.Contains("BugsInJar"))
+        if (itemName.Equals("Rei'sBlood") || itemName.Equals("SthFlesh") || itemName.Equals("BugsInJar"))
         {
             FlagManager.Instance.SetReiStatus(FlagManager.Instance.ReiStatus + 1);
         }

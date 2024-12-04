@@ -21,6 +21,10 @@
     "FlagCondition": {
       "Flag": [
         [
+          "Worm",
+          false
+        ],
+        [
           "Progress2",
           true
         ]

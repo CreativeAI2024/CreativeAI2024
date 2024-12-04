@@ -15,7 +15,7 @@ public class ItemInventory : ScriptableObject
         itemDict = new Dictionary<string, Item>();
         foreach (Item item in itemList)
         {
-            itemDict.Add(item.ItemName, item);
+            itemDict.Add(item.name, item);
         }
     }
 
@@ -45,12 +45,12 @@ public class ItemInventory : ScriptableObject
     
     public void Add(Item item)
     {
-        itemDict.Add(item.ItemName, item);
+        itemDict.Add(item.name, item);
     }
 
     public void Remove(Item item)
     {
-        itemDict.Remove(item.ItemName);
+        itemDict.Remove(item.name);
     }
 
     public void TryCombine(Item item)
