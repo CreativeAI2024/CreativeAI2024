@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/tessen_room.unity
     guid: cad76efb487c78b4ba6375b5666c3684
   - enabled: 1
+    path: Assets/Scenes/SearchGame.unity
+    guid: f922ad811485648b481f6c50a4716548
+  - enabled: 1
     path: Assets/Scenes/Develop/VolumeControl.unity
     guid: c2ed6f8d460d87542be42a1ad4f181f9
   m_configObjects: {}

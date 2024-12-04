@@ -2,14 +2,14 @@
     "Id": 2,
     "Location": [
         {
-            "MapName": "ItemB_room",
+            "MapName": "itemB_room",
             "Position": [
                 4,
                 5
             ]
         }
     ],
-    "EventName": "GetItem Blood | Conversation Blood_get",
+    "EventName": "GetItem Rei'sBlood",
     "TriggerType": 3,
     "FlagCondition": {
         "Flag": [

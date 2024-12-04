@@ -1,48 +1,48 @@
 {
-  "Id": 2,
-  "Location": [
-    {
-      "MapName":"reference_room",
-      "Position":[
-        8,
-        18
-      ]
-    }
-  ],
-  "EventName": "TimingGame",
-  "TriggerType": 1,
-  "FlagCondition": {
-    "Flag": [
-      [
-        "Progress3",
-        true
-      ],
-      [
-        "Progress4",
-        false
-      ],
-      [
-        "Progress5",
-        false
-      ]
+    "Id": 2,
+    "Location": [
+      {
+        "MapName":"reference_room",
+        "Position":[
+          8,
+          19
+        ]
+      }
     ],
-    "NextFlag": [
-      [
-        "Progress2",
-        false
+    "EventName": "TimingGame",
+    "TriggerType": 0,
+    "FlagCondition": {
+      "Flag": [
+        [
+          "Mixing",
+          true
+        ]
       ],
-      [
-        "Progress3",
-        false
-      ],
-      [
-        "Progress4",
-        true
-      ],
-      [
-        "Progress5",
-        true
-      ]
-  ]
+      "NextFlag": [
+        [
+          "Progress2",
+          false
+        ],
+        [
+          "Progress3",
+          false
+        ],
+        [
+          "Progress4",
+          true
+        ],
+        [
+          "Progress5",
+          true
+        ],
+        [
+          "StartTimingGame1",
+          false
+        ],
+        [
+          "Mixing",
+          false
+        ]
+    ]
+    }
   }
-}

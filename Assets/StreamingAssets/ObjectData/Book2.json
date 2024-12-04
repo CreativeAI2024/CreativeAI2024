@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Book2 | GetItem Book2",
+  "EventName": "GetItem MedicalBook",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [],

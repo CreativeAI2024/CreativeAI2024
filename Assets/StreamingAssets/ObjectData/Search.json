@@ -2,85 +2,87 @@
   "Id": 2,
   "Location": [
     {
-      "MapName": "ItemA_room",
+      "MapName": "itemA_room",
       "Position": [
         0,
-        7
+        5
       ]
     },
     {
-      "MapName":"ItemA_room",
-      "Position":[
+      "MapName": "itemA_room",
+      "Position": [
         1,
-        7
+        5
       ]
     },
     {
-      "MapName":"ItemA_room",
-      "Position":[
+      "MapName": "itemA_room",
+      "Position": [
         0,
+        2
+      ]
+    },
+    {
+      "MapName": "itemA_room",
+      "Position": [
+        1,
+        2
+      ]
+    },
+    {
+      "MapName": "itemA_room",
+      "Position": [
+        2,
         3
       ]
     },
     {
-      "MapName":"ItemA_room",
-      "Position":[
-        1,
-        3
-      ]
-    },
-    {
-      "MapName": "ItemA_room_broken",
+      "MapName": "itemA_room_broken",
       "Position": [
         0,
-        7
+        5
       ]
     },
     {
-      "MapName":"ItemA_room_broken",
-      "Position":[
+      "MapName": "itemA_room_broken",
+      "Position": [
         1,
-        7
+        5
       ]
     },
     {
-      "MapName":"ItemA_room_broken",
-      "Position":[
-        0,
-        1
-      ]
-    },
-    {
-      "MapName":"ItemA_room_broken",
-      "Position":[
-        1,
-        1
-      ]
-    },
-    {
-      "MapName": "ItemB_room_broken",
+      "MapName": "itemB_room_broken",
       "Position": [
         8,
-        9
+        7
       ]
     },
     {
-      "MapName": "ItemB_room_broken",
+      "MapName": "itemB_room_broken",
       "Position": [
         9,
-        9
+        7
       ]
     }
   ],
   "EventName": "SearchGame",
-  "TriggerType": 1,
+  "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [
         "Progress2",
         true
+      ],
+      [
+        "Search",
+        true
       ]
     ],
-    "NextFlag": []
+    "NextFlag": [
+      [
+        "Search",
+        false
+      ]
+    ]
   }
 }

@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Book3 | GetItem Book3",
+  "EventName": "GetItem MagicBook",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [],

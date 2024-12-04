@@ -10,7 +10,7 @@
     }
   ],
   "EventName": "ChangeScene itemA_room_broken,4,1",
-  "TriggerType": 0,
+  "TriggerType": 1,
   "FlagCondition": {
     "Flag": [
       [

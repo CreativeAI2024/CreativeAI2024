@@ -139,6 +139,10 @@
       [
         "Progress3",
         true
+      ],
+      [
+        "StartMixingGame1",
+        true
       ]
     ]
   }

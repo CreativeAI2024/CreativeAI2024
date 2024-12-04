@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using System.IO;
-using System.Linq;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 public class MapEngine : MonoBehaviour
@@ -35,6 +32,7 @@ public class MapEngine : MonoBehaviour
         }
     }
     
+    /*
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
     {
@@ -56,6 +54,7 @@ public class MapEngine : MonoBehaviour
     {
         Gizmos.DrawWireCube(new Vector3(rect.center.x, rect.center.y, 0.01f), new Vector3(rect.size.x, rect.size.y, 0.01f));
     }
+    */
 
     private void SetCollider(Vector3Int position)
     {

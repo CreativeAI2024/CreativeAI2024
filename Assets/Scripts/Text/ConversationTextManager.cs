@@ -220,6 +220,12 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             }
         }
     }
+    
+    public void ResetAction()
+    {
+        _onConversationStart = null;
+        _onConversationEnd = null;
+    }
 
     private void EndConversation()
     {
