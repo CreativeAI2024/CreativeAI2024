@@ -1,22 +1,8 @@
 {
-    "Content":[
+    "content":[
         {
             "Text":"気が付くと、衣料品売り場の姿見の前にいた。",
-            "BGM": "MusicBox",
-            "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
-                }
-            ]
+            "BGM": "MusicBox"
         },
         {
             "Text":"買い物客の声が今までの出来事が嘘だったかのように賑やかだ。"
@@ -25,7 +11,7 @@
             "Text":"アザミは今頃無事だろうか。それを確かめる手段はもうない。"
         },
         {
-            "Text":"............"
+            "Text":"…………"
         },
         {
             "Text":"ふと足元を見ると見覚えのないバッグが落ちていた"

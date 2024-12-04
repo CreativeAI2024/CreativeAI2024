@@ -2,7 +2,7 @@
     "Content": [
         {
             "Speaker": "テッセン",
-            "Text": "「さっきから館を歩き回って、何をしているんだい？」",
+            "Text": "さっきから館を歩き回って、何をしているんだい？",
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
@@ -10,20 +10,21 @@
                 },
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "Rei"
+                    "SpriteName": "rei"
                 }
             ],
             "QuestionData": [
                 {
                     "Answer": "薬の材料を集めているの",
+                    "NextFlag": "",
                     "NextTalkData": "Tessen_Talk3_1"
                 },
                 {
                     "Answer": "何でもないよ。探索しているだけ",
+                    "NextFlag": "",
                     "NextTalkData": "Tessen_Talk3_2"
                 }
-            ],
-            "BGM":"talkwithtessen"
+            ]
         }
     ]
 }

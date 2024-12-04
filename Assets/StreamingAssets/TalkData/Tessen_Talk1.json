@@ -2,7 +2,7 @@
     "Content":[
         {
             "Speaker":"レイ",
-            "Text":"「アザミってどういう人？」",
+            "Text":"アザミってどういう人？",
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
@@ -10,30 +10,29 @@
                 },
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "Rei"
+                    "SpriteName": "rei"
                 }
-            ],
-            "BGM":"talkwithtessen"
+            ]
         },
         {
             "Speaker":"テッセン",
-            "Text":"「アザミ？......面白い人だよ」"
+            "Text":"アザミ？……面白い人だよ"
         },
         {
             "Speaker":"レイ",
-            "Text":"「面白い？」"
+            "Text":"面白い？"
         },
         {
             "Speaker":"テッセン",
-            "Text":"「そう、必死にここから出ようと頑張っている姿が愛おしくってね」"
+            "Text":"そう、必死にここから出ようと頑張っている姿が愛おしくってね"
         },
         {
             "Speaker":"テッセン",
-            "Text":"「どうせ、ここから出られるわけないのに」"
+            "Text":"どうせ、ここから出られるわけないのに"
         },
         {
             "Speaker":"レイ",
-            "Text":"............"
+            "Text":"…………"
         }
     ]
 }

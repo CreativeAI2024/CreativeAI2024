@@ -2,7 +2,7 @@
     "Content": [
         {
             "Speaker": "テッセン",
-            "Text": "「へー、薬の材料ね」",
+            "Text": "へー、薬の材料ね",
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
@@ -10,22 +10,21 @@
                 },
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "Rei"
+                    "SpriteName": "rei"
                 }
-            ],
-            "BGM":"talkwithtessen"
+            ]
         },
         {
             "Speaker": "テッセン",
-            "Text": "「アザミから聞いたのかい？」"
+            "Text": "アザミから聞いたのかい？"
         },
         {
             "Speaker": "テッセン",
-            "Text": "「......ま、何でもいいや。でも、私から何も奪わないでね？」"
+            "Text": "……ま、何でもいいや。でも、私から何も奪わないでね？"
         },
         {
             "Speaker": "レイ",
-            "Text": "「？」"
+            "Text": "?"
         }
     ]
 }
