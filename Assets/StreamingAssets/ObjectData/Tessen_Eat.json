@@ -31,7 +31,7 @@
     }
   ],
   "EventName": "Conversation Tessen_Eat",
-  "TriggerType": 2,
+  "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [
