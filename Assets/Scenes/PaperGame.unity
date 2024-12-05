@@ -454,10 +454,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 850471411844080650, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 355
+      objectReference: {fileID: 0}
     - target: {fileID: 5975356874407393299, guid: b37057adf4d334744bf53a241a357a0c,
         type: 3}
       propertyPath: m_Name
       value: PaperGameBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483367638924219460, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 121.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483367638924219460, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483367638924219460, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 385
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483367638924219460, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -220
       objectReference: {fileID: 0}
     - target: {fileID: 7786128426552533567, guid: b37057adf4d334744bf53a241a357a0c,
         type: 3}
@@ -468,6 +493,26 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296051032261264799, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 148
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296051032261264799, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296051032261264799, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296051032261264799, guid: b37057adf4d334744bf53a241a357a0c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 8389050698839174500, guid: b37057adf4d334744bf53a241a357a0c,
         type: 3}
