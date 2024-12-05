@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Develop/VolumeControl.unity
     guid: c2ed6f8d460d87542be42a1ad4f181f9
+  - enabled: 1
+    path: Assets/Scenes/PaperGame.unity
+    guid: 29a55ee8fb3a23945be5b4293f2f4ec2
+  - enabled: 1
+    path: Assets/Scenes/TimingGame.unity
+    guid: ad226f95bf079284ea3aed9d74e37b2c
   m_configObjects: {}
