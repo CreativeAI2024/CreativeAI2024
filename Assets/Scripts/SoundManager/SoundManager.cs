@@ -34,7 +34,6 @@ public class SoundManager : DontDestroySingleton<SoundManager>
     public void PlayBGM(int bgmIndex, float volume = 1f)
     {
         AudioClip bgmClip = audioClipsBGM[bgmIndex];
-        CheckAudioClip(bgmIndex, bgmClip);
 
         // 同じBGMを再生している場合は何もしない
         if (audioSourceBGM.clip == bgmClip)
@@ -51,7 +50,7 @@ public class SoundManager : DontDestroySingleton<SoundManager>
         audioSourceBGM.clip = bgmClip;
         audioSourceBGM.volume = volume;
         audioSourceBGM.Play();
-    
+
     }
 
     public void StopBGM()
@@ -61,33 +60,13 @@ public class SoundManager : DontDestroySingleton<SoundManager>
 
     public void PlaySE(int seIndex, float volume = 1f)
     {
+        seIndex.Log(DebugLogger.Colors.Magenta);
         AudioClip seClip = audioClipsSE[seIndex];
-        CheckAudioClip(seIndex, seClip);
+        
         DebugLogger.Log("Playing SE: " + seClip.name, DebugLogger.Colors.Yellow);
         audioSourceSE.PlayOneShot(seClip, volume);
     }
-
-    void CheckAudioClip(int index, AudioClip clip)
-    {
-        CheckAudioClipRange(index);
-        CheckAudioClipNull(clip);
-    }
-
-    void CheckAudioClipRange(int index)
-    {
-        if (index < 0 || index >= audioClipsBGM.Count)
-        {
-            throw new System.ArgumentOutOfRangeException(nameof(index));
-        }
-    }
-
-    void CheckAudioClipNull(AudioClip clip)
-    {
-        if (clip == null)
-        {
-            throw new System.ArgumentNullException(nameof(clip), "not found: " );
-        }
-    }
+  
 
     public void ChangeBGM(string fileName)
     {

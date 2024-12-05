@@ -197,7 +197,7 @@ public class ObjectEngine : MonoBehaviour
                 PlayerMove(moved);
                 break;
             case "ChangeScene":
-                SoundManager.Instance.PlaySE(0, 5f); //ドアくぐる
+                SoundManager.Instance.PlaySE(6, 5f); //ドアくぐる
                 DebugLogger.Log("ChangeScene", DebugLogger.Colors.Green);
                 string[] args = eventArgs[1].Split(',');
                 changedPos = new Vector2Int(int.Parse(args[1]), int.Parse(args[2]));
@@ -273,7 +273,7 @@ public class ObjectEngine : MonoBehaviour
     {
         Item item = itemDatabase.GetItem(itemName);
         if (inventory.IsContains(item)) return;
-        SoundManager.Instance.PlaySE(0, 5f); //アイテム拾う
+        SoundManager.Instance.PlaySE(9, 5f); //アイテム拾う
         pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
         if (itemName.Equals("Rei'sBlood") || itemName.Equals("SthFlesh") || itemName.Equals("BugsInJar"))
