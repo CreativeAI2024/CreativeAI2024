@@ -16,7 +16,7 @@
       ]
     }
   ],
-  "EventName": "GetItem MisteryReport",
+  "EventName": "GetItem MisteryReport | TileModify itemA_room StylesFront 9,6 #",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [],

@@ -117,14 +117,19 @@ public class ObjectEngine : MonoBehaviour
         if (conversationFlag || changeSceneFlag) return;
         if (_inputSetting.GetDecideInputDown())
         {
-            List<ObjectData> aroundObjectDatas = _eventObjects[player.GetGridPosition().x + player.Direction.x][player.GetGridPosition().y + player.Direction.y];
-            runFlag = false;
-            foreach (ObjectData aroundObjectData in aroundObjectDatas)
+            Vector2Int frontPosition = new Vector2Int(player.GetGridPosition().x + player.Direction.x, player.GetGridPosition().y + player.Direction.y);
+            if (!mapDataController.IsGridPositionOutOfRange(frontPosition))
             {
-                await Call(aroundObjectData, 1, 2);
+                List<ObjectData> aroundObjectDatas = _eventObjects[frontPosition.x][frontPosition.y];
+                runFlag = false;
+                foreach (ObjectData aroundObjectData in aroundObjectDatas)
+                {
+                    await Call(aroundObjectData, 1, 2);
+                }
+                
+                if (runFlag) return;
             }
             
-            if (runFlag) return;
             List<ObjectData> centerObjectDatas = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
             foreach (ObjectData centerObjectData in centerObjectDatas)
             {
