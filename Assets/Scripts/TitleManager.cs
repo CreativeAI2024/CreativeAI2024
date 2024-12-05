@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class TitleManager : MonoBehaviour
 {
     [SerializeField] private QuestionBranch[] questionBranches;
     [SerializeField] private TextWindowCursor cursor;
+    [SerializeField] private ItemInitializer itemInitializer;
     private RectTransform[] rectTransforms;
     private int cursorPlace;
     private InputSetting _inputSetting;
@@ -71,6 +73,7 @@ public class TitleManager : MonoBehaviour
 
     private void GoNewGame()
     {
+        itemInitializer.DeleteFlagFile();
         FlagManager.Instance.DeleteFlagFile();
         PlayerPrefs.DeleteAll();  //セーブデータ初期化
         SceneManager.LoadScene("mirror_room");
@@ -78,6 +81,7 @@ public class TitleManager : MonoBehaviour
 
     private void GoLoadGame()
     {
+        itemInitializer.ItemInitialize();
         SceneManager.LoadScene(PlayerPrefs.GetString("SceneName"));
     }
 }

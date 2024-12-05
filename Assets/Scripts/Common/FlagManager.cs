@@ -21,14 +21,19 @@ public class FlagManager : DontDestroySingleton<FlagManager>
         else
         {
             Debug.Log("フラグデータがありませんでした");
-            if (File.Exists(_flagFilePath))
-            {
-                FlagData flags = SaveUtility.JsonToData<FlagData>(_flagFilePath);
-                _flags = flags.Flags;
-                SaveFlag();
-            }
+            SaveInitFlags();
         }
         ReiStatus = PlayerPrefs.GetInt("ReiStatus",0);
+    }
+    
+    private void SaveInitFlags()
+    {
+        if (File.Exists(_flagFilePath))
+        {
+            FlagData flags = SaveUtility.JsonToData<FlagData>(_flagFilePath);
+            _flags = flags.Flags;
+            SaveFlag();
+        }
     }
     
     public void AddFlag(string flagName)
@@ -63,6 +68,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     public void DeleteFlagFile()
     {
         File.Delete(_flagSaveFilePath);
+        SaveInitFlags();
     }
 }
 
