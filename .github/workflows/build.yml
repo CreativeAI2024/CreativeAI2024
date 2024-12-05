@@ -35,7 +35,7 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**','ProjectSettings/**') }}
           restore-keys: Library-
 
-      # MacOSBuildする
+      # Buildする
       - name: Run the Build
         uses: game-ci/unity-builder@v4.2.3
         env:
@@ -46,6 +46,7 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           projectPath: ${{ matrix.projectPath }}
           unityVersion: 2022.3.27f1
+          buildMethod: CIDevelopmentBuild.DevelopmentBuild
 
       # Build成果物をアップロードする
       - name: Upload artifact
