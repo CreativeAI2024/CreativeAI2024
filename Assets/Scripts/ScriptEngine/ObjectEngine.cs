@@ -33,6 +33,7 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
         ConversationTextManager.Instance.ResetAction();
+        ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
         ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
@@ -279,7 +280,6 @@ public class ObjectEngine : MonoBehaviour
         Item item = itemDatabase.GetItem(itemName);
         if (inventory.IsContains(item)) return;
         SoundManager.Instance.PlaySE(9, 5f); //アイテム拾う
-        pause.PauseAll();
         ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
         if (itemName.Equals("Rei'sBlood") || itemName.Equals("SthFlesh") || itemName.Equals("BugsInJar"))
         {
