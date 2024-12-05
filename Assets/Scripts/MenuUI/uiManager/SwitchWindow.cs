@@ -36,7 +36,7 @@ public class SwitchWindow : MonoBehaviour
 
     private void SetWindowActive(bool isActive)
     {
-        SoundManager.Instance.PlaySE(16, 4f);
+        SoundManager.Instance.PlaySE(13, 1f);
         menuUI.SetActive(isActive);
         followFocusedButton.ScrollToTop();
     }

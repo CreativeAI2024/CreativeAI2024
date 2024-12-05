@@ -1445,12 +1445,12 @@ PrefabInstance:
         type: 3}
       propertyPath: audioClipsSE.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 1210d80836bf1cb45adc3f472cb19c1d, type: 3}
+      objectReference: {fileID: 8300000, guid: 8f69bb626f0fd3049a81a9d671216a44, type: 3}
     - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
         type: 3}
       propertyPath: audioClipsSE.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 8f69bb626f0fd3049a81a9d671216a44, type: 3}
+      objectReference: {fileID: 8300000, guid: 1210d80836bf1cb45adc3f472cb19c1d, type: 3}
     - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
         type: 3}
       propertyPath: audioClipsSE.Array.data[2]
