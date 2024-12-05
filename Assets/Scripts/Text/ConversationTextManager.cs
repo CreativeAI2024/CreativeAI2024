@@ -61,7 +61,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                     }
                     else
                     {
-                        SoundManager.Instance.StopBGM();
                         ChangeQuestionData();
                         EndConversation();
                     }
