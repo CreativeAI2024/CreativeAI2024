@@ -43,7 +43,7 @@ public class CheckCurrentSelected : MonoBehaviour
     {
         if (selected.TryGetComponent<IFocusedObject>(out var focusedObject))
         {
-            SoundManager.Instance.PlaySE(14, 5f); //カーソルを動かしたとき
+            SoundManager.Instance.PlaySE(11, 1f); //カーソルを動かしたとき
             focusedObject.OnFocused();
         }
     }
