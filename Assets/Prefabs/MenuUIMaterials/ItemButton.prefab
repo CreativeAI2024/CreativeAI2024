@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30A2\u30A4\u30C6\u30E0\u306E\u540D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2b8f92bece66e6c44b19ecf85bbb189c, type: 2}
-  m_sharedMaterial: {fileID: 2507415486768267142, guid: 2b8f92bece66e6c44b19ecf85bbb189c,
+  m_fontAsset: {fileID: 11400000, guid: 966ea02a0780b304f9c10a523256de1f, type: 2}
+  m_sharedMaterial: {fileID: 8079739326132595624, guid: 966ea02a0780b304f9c10a523256de1f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
