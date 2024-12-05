@@ -84,6 +84,7 @@ public class PlayerController : MonoBehaviour
         Vector3 targetVector = new Vector3(_targetPosition.x, _targetPosition.y, 0);
         if (Vector3.Distance(targetVector, _playerTransform.position) >= allowDistance) return;
 
+        SoundManager.Instance.PlaySE(0, 1f);
         _playerTransform.position = targetVector;
         MovePrepare();
     }
