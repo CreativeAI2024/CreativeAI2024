@@ -7,17 +7,27 @@ public class TimingGameItem : MonoBehaviour
     [SerializeField] ItemDatabase itemDatabase;
     [SerializeField] ItemInventory itemInventory;
 
+
+    private void Start()
+    {
+        itemDatabase.Initialize();
+        itemInventory.Initialize();
+        itemInventory.Add(itemDatabase.GetItem("BugsInJar"));
+        itemInventory.Add(itemDatabase.GetItem("Rei'sBlood"));
+        itemInventory.Add(itemDatabase.GetItem("SthFlesh"));
+    }
+
     public void ConsumeItem(int timingGameNumber)
     {
         switch (timingGameNumber)
         {
             case 1:
-                ItemDelete("虫入り瓶");
-                ItemDelete("レイの血");
-                ItemDelete("ナニカの肉");
+                ItemDelete("BugsInJar");
+                ItemDelete("Rei'sBlood");
+                ItemDelete("SthFlesh");
                 break;
             case 2:
-                ItemDelete("テッセンの内臓");
+                ItemDelete("Tessen'sOrgan");
                 break;
         }
     }
