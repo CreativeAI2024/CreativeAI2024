@@ -559,7 +559,6 @@ GameObject:
   - component: {fileID: 8494295156328447956}
   - component: {fileID: 3105215125595598872}
   - component: {fileID: 8994882899513647105}
-  - component: {fileID: 2153974955179300974}
   - component: {fileID: 4026023008907123780}
   m_Layer: 5
   m_Name: MenuUIGroup
@@ -678,22 +677,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuUI: {fileID: 6261210613205064336}
   followFocusedButton: {fileID: 1682440499713030}
---- !u!114 &2153974955179300974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930691876699020002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7933b4f0a7834dedb6c2033125cbaca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
-  itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
-  combineRecipeDatabase: {fileID: 11400000, guid: 341634a854aa94c5ea23766c8dcf51ff,
-    type: 2}
 --- !u!114 &4026023008907123780
 MonoBehaviour:
   m_ObjectHideFlags: 0
