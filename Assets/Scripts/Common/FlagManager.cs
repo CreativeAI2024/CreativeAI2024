@@ -62,7 +62,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     {
         PlayerPrefs.SetInt("ReiStatus", status);
         ReiStatus = status;
-        _flags[$"symptom{status + 1}"] = true;
+        _flags[$"Symptoms{status + 1}"] = true;
     }
 
     public void DeleteFlagFile()
