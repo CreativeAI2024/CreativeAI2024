@@ -296,7 +296,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u672C\u6587\n\uFF11\u884C\u306B\u5168\u89D2\u6587\u5B57\u306F\u6700\u5927\uFF13\uFF10\u6587\u5B57\u307E\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\n\u6700\u5927\uFF13\u884C\u307E\u3067"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 964363ad8dbd143bcb35871bb903b3ac, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 966ea02a0780b304f9c10a523256de1f, type: 2}
   m_sharedMaterial: {fileID: 27027204031222209, guid: 964363ad8dbd143bcb35871bb903b3ac,
     type: 2}
   m_fontSharedMaterials: []
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_margin: {x: -7.0809937, y: 55.07393, z: 59.552734, w: -24.262207}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2339887943164628752
