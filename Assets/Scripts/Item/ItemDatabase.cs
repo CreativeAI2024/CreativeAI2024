@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -23,8 +24,9 @@ public class ItemDatabase : ScriptableObject
         return _allItemDictionary[item];
     }
     
-    public IEnumerable<Item> GetItems()
+    public IEnumerable<Item> GetItems(IEnumerable<string> items)
     {
-        return allItemList;
+        var itemSet = new HashSet<string>(items);
+        return allItemList.Where(x => itemSet.Contains(x.name));//fixme
     }
 }

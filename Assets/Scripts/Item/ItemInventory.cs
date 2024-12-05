@@ -10,6 +10,15 @@ public class ItemInventory : ScriptableObject
     [SerializeField] private List<Item> itemList;
     private Dictionary<string, Item> itemDict;
     [SerializeField] private CombineRecipeDatabase combineRecipeDatabase;
+    public void Initialize(IEnumerable<Item> items)
+    {
+        itemDict = new Dictionary<string, Item>();
+        foreach (Item item in items)
+        {
+            itemDict.Add(item.name, item);
+        }
+    }
+    
     public void Initialize()
     {
         itemDict = new Dictionary<string, Item>();
@@ -46,11 +55,23 @@ public class ItemInventory : ScriptableObject
     public void Add(Item item)
     {
         itemDict.Add(item.name, item);
+        SaveInventory();
     }
 
     public void Remove(Item item)
     {
         itemDict.Remove(item.name);
+        SaveInventory();
+    }
+    
+    private void SaveInventory()
+    {
+        InventoryData saveInventoryData = new InventoryData
+        {
+            Items = itemDict.Keys.ToList()
+        };
+        string itemSaveFilePath = string.Join('/', Application.persistentDataPath, "Inventory.dat");
+        SaveUtility.DataToSaveFile(saveInventoryData, itemSaveFilePath);
     }
 
     public void TryCombine(Item item)
