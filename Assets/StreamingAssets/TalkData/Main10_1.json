@@ -5,7 +5,7 @@
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
-                    "SpriteName": "rei"
+                    "SpriteName": "Rei"
                 }
             ],
             "SE": "stabknife"

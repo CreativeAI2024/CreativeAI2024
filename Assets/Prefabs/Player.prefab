@@ -73,9 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
-    type: 3}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: -1763708617, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3dd504e1f9bd5e48bc580f9294b13f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 5792109113550638988}
   spriteRenderer: {fileID: 7604412617774433017}
   characterIdleSprites:
   - {fileID: -1763708617, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
@@ -115,6 +113,7 @@ MonoBehaviour:
   - {fileID: 1930328524, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
   - {fileID: -1208994437, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
   - {fileID: 259334490, guid: 8906ffd1bc8480242bc2fccd9b5b9957, type: 3}
+  playerController: {fileID: 5792109113550638988}
   timeClockInterval: 0.2
 --- !u!1 &9039608792375202708
 GameObject:

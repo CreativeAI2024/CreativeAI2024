@@ -16,7 +16,7 @@
         ]
       }
     ],
-    "EventName": "GetItem Key",
+    "EventName": "GetItem Key | TileModify itemB_room StylesFront 1,1 #",
     "TriggerType": 1,
     "FlagCondition": {
       "Flag": [
