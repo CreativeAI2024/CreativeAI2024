@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SearchGameChanger : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class SearchGameChanger : MonoBehaviour
         SearchGameShifter("StartSearchGame1", searchGames[0]);
         SearchGameShifter("StartSearchGame2", searchGames[1]);
         SearchGameShifter("StartSearchGame3", searchGames[2]);
+        if(!(FlagManager.Instance.HasFlag("StartSearchGame1")|| FlagManager.Instance.HasFlag("StartSearchGame2")|| FlagManager.Instance.HasFlag("StartSearchGame3"))){
+            SceneManager.LoadScene("itemA_room");
+        }
     }
 
     private void SearchGameShifter(string flag, GameObject searchGame)
