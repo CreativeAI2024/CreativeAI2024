@@ -107,6 +107,6 @@ public class PlayerController : MonoBehaviour
 
     public Vector2Int GetGridPosition()
     {
-        return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        return mapDataController.ConvertGridPosition(new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y)));
     }
 }
