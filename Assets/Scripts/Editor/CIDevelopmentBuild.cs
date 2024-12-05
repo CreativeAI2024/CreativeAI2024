@@ -19,7 +19,7 @@ public class CIDevelopmentBuild
                 sceneList.Add(scene.path);
             }
         }
-        string buildPath = $"./Build/{buildTarget.ToString()}/{buildTarget.ToString()}.exe";
+        string buildPath = $"../build/{buildTarget.ToString()}/{buildTarget.ToString()}.exe";
         // プレイヤー作成
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions
         {
