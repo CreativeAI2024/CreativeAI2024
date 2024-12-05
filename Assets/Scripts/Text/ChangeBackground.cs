@@ -46,7 +46,8 @@ public class ChangeBackground : MonoBehaviour
             {
                 if (spriteName.StartsWith("Rei"))  //statusSpriteAndFlags.Keysに含まれる名称のとき
                 {
-                    ChangeSprite(imageName, $"{spriteName}_{FlagManager.Instance.ReiStatus}");
+                    ChangeSprite(imageName, $"{spriteName}_0");
+                    // ChangeSprite(imageName, $"{spriteName}_{FlagManager.Instance.ReiStatus}");
                 }else if (spritesDict.ContainsKey(spriteName))
                 {
                     ChangeSprite(imageName, spriteName);
