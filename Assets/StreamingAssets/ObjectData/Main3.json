@@ -114,7 +114,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main3 | TileModify mirror_room Tiles 5,2 - | KillCharacters",
+  "EventName": "Conversation Main3 | TileModify mirror_room Tiles 5,2 -",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [

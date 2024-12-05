@@ -19,9 +19,6 @@ public class ObjectEngine : MonoBehaviour
     
     [SerializeField] private MapEngine mapEngine;
     [SerializeField] private MapDataController mapDataController;
-
-    //mirror_roomでのみアタッチする
-    [SerializeField] private List<SpriteRenderer> killedCharacterChips;
     
     private string _mapName;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
@@ -241,10 +238,6 @@ public class ObjectEngine : MonoBehaviour
                 TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position,
                     eventArgs[4].ToCharArray()[0]);
                 break;
-            case "KillCharacters":
-                DebugLogger.Log("KillCharacters", DebugLogger.Colors.Green);
-                KillCharacters();
-                break;
             default: throw new NotImplementedException();
         }
     }
@@ -308,13 +301,5 @@ public class ObjectEngine : MonoBehaviour
     {
         mapDataController.ChangeMapTile(mapName, layer, position, tipSign);
         mapDataController.ApplyMapChange();
-    }
-
-    private void KillCharacters()
-    {
-        foreach(SpriteRenderer killedCharacterChip in killedCharacterChips)
-        {
-            killedCharacterChip.enabled = false;
-        }
     }
 }
