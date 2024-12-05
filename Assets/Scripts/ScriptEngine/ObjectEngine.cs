@@ -271,10 +271,11 @@ public class ObjectEngine : MonoBehaviour
     
     private void GetItem(string itemName)
     {
+        Item item = itemDatabase.GetItem(itemName);
+        if (inventory.IsContains(item)) return;
         SoundManager.Instance.PlaySE(0, 5f); //アイテム拾う
         pause.PauseAll();
-        ConversationTextManager.Instance.InitializeFromString($"{itemName}を手に入れた。");
-        Item item = itemDatabase.GetItem(itemName);
+        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
         if (itemName.Equals("Rei'sBlood") || itemName.Equals("SthFlesh") || itemName.Equals("BugsInJar"))
         {
             FlagManager.Instance.SetReiStatus(FlagManager.Instance.ReiStatus + 1);
