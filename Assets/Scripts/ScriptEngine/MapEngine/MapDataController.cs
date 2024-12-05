@@ -100,8 +100,8 @@ public class MapDataController : MonoBehaviour
     
     private string GetChangeTileString(Vector2Int position, char tipSign)
     {
-        char[] charArray = mapData.Tiles[position.x].ToCharArray();
-        charArray[position.y] = tipSign;
+        char[] charArray = mapData.Tiles[position.y].ToCharArray();
+        charArray[position.x] = tipSign;
         return charArray.ToString();
     }
     
