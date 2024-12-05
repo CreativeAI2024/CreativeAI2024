@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "GetItem MagicBook",
+  "EventName": "GetItem MagicBook | TileModify reference_room StylesFront 9,5 #",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [],

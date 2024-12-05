@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "GetItem MedicalBook",
+  "EventName": "GetItem MedicalBook | TileModify reference_room StylesFront 2,11 #",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [],

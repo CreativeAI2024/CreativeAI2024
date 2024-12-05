@@ -32,7 +32,6 @@ public class ObjectEngine : MonoBehaviour
         _inputSetting = InputSetting.Load();
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
-        mapEngine.Initialize();
         ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
         ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
@@ -43,6 +42,7 @@ public class ObjectEngine : MonoBehaviour
     
     private void ResetAction()
     {
+        mapEngine.Initialize();
         Initialize(_mapName, mapDataController.GetMapSize().x, mapDataController.GetMapSize().y);
     }
     
