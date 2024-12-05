@@ -6,8 +6,6 @@ public class SwitchWindow : MonoBehaviour
     [SerializeField] private GameObject menuUI;
     [SerializeField] private FollowFocusedButton followFocusedButton;
 
-    [SerializeField] Pause volumePause;
-
     void Start()
     {
         _inputSetting = InputSetting.Load();
@@ -21,13 +19,11 @@ public class SwitchWindow : MonoBehaviour
             {
                 SetWindowActive(false);
                 MenuUIManager.Instance.PlayerPause.UnPauseAll();
-                volumePause.UnPauseAll();
             }
             else
             {
                 SetWindowActive(true);
                 MenuUIManager.Instance.PlayerPause.PauseAll();
-                volumePause.UnPauseAll();
             }
         }
         else if (_inputSetting.GetCancelKeyDown() && menuUI.activeInHierarchy)
