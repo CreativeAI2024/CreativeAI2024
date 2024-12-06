@@ -169,25 +169,11 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
         if (talkDataContent.BGM != null)
         {
-            if (talkDataContent.BGM.Equals("void"))
-            {
-                SoundManager.Instance.StopBGM();
-            }
-            else
-            {
-                SoundManager.Instance.ChangeBGM(talkDataContent.BGM);
-            }
+            SoundManager.Instance.ChangeBGM(talkDataContent.BGM);    
         }
         if (talkDataContent.SE != null)
         {
-            if (talkDataContent.SE.Equals("void"))
-            {
-                SoundManager.Instance.StopSE();
-            }
-            else
-            {
-                SoundManager.Instance.ChangeSE(talkDataContent.SE);
-            }
+            SoundManager.Instance.ChangeSE(talkDataContent.SE);
         }
         if (talkDataContent.Text != null)
         {
