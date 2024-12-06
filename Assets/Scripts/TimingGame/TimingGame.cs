@@ -103,6 +103,6 @@ public class TimingGame : MonoBehaviour
 
     private void DisplayAttemptNumberText()
     {
-        AttemptNumber.text = $"Attempt:<br><size=200>{attempt}/{repeat}</size>";
+        AttemptNumber.text = $"Attempt:<br><size=150>{attempt}/{repeat}</size>";
     }
 }
