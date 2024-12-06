@@ -58,6 +58,11 @@ public class SoundManager : DontDestroySingleton<SoundManager>
         audioSourceBGM.Stop();
     }
 
+    public void StopSE()
+    {
+        audioSourceSE.Stop();
+    }
+
     public void PlaySE(int seIndex, float volume = 1f)
     {
         AudioClip seClip = audioClipsSE[seIndex];
