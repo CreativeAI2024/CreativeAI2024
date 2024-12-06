@@ -281,10 +281,6 @@ public class ObjectEngine : MonoBehaviour
         if (inventory.IsContains(item)) return;
         SoundManager.Instance.PlaySE(9, 5f); //アイテム拾う
         ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
-        if (itemName.Equals("Rei'sBlood") || itemName.Equals("SthFlesh") || itemName.Equals("BugsInJar"))
-        {
-            FlagManager.Instance.SetReiStatus(FlagManager.Instance.ReiStatus + 1);
-        }
         inventory.Add(item);
         CombineItem(item);
     }

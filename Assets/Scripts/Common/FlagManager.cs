@@ -62,6 +62,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     {
         PlayerPrefs.SetInt("ReiStatus", status);
         ReiStatus = status;
+        if (status == 0) return;
         _flags[$"Symptoms{status}"] = true;
     }
 

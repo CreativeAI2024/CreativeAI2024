@@ -76,6 +76,7 @@ public class TitleManager : MonoBehaviour
         itemInitializer.DeleteFlagFile();
         FlagManager.Instance.DeleteFlagFile();
         PlayerPrefs.DeleteAll();  //セーブデータ初期化
+        FlagManager.Instance.SetReiStatus(0);
         SceneManager.LoadScene("mirror_room");
     }
 

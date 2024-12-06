@@ -55,6 +55,11 @@ public class ItemInventory : ScriptableObject
     public void Add(Item item)
     {
         itemDict.Add(item.name, item);
+        if (item.name.Equals("Rei'sBlood") || item.name.Equals("SthFlesh") || item.name.Equals("BugsInJar"))
+        {
+            DebugLogger.Log((FlagManager.Instance.ReiStatus + 1), DebugLogger.Colors.Yellow);
+            FlagManager.Instance.SetReiStatus(FlagManager.Instance.ReiStatus + 1);
+        }
         SaveInventory();
     }
 
