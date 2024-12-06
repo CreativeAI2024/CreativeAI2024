@@ -19,19 +19,19 @@ public class ObjectEngine : MonoBehaviour
     
     [SerializeField] private MapEngine mapEngine;
     [SerializeField] private MapDataController mapDataController;
-    
+    private static Vector2Int changedPos = new Vector2Int(4, 2);
     private string _mapName;
     private Vector2Int _pastGridPosition = new Vector2Int(-1, -1);
     private bool conversationFlag = false;
     private bool changeSceneFlag = false;
     private bool runFlag = false;
-    private static Vector2Int changedPos = new Vector2Int(4, 2);
     private InputSetting _inputSetting;
     private void Start()
     {
         _inputSetting = InputSetting.Load();
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
+        
         ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
@@ -221,15 +221,18 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "PaperGame":
                 DebugLogger.Log("PaperGame", DebugLogger.Colors.Green);
+                changedPos = new Vector2Int(player.GetGridPosition().x, player.GetGridPosition().y);
                 await SceneChange("PaperGame");
                 break;
             case "SearchGame":
                 DebugLogger.Log("SearchGame", DebugLogger.Colors.Green);
+                changedPos = new Vector2Int(player.GetGridPosition().x, player.GetGridPosition().y);
                 await SceneChange("SearchGame");
                 break;
             case "TimingGame":
                 DebugLogger.Log("TimingGame", DebugLogger.Colors.Green);
                 ConversationTextManager.Instance.OnConversationStart -= Pause;
+                changedPos = new Vector2Int(player.GetGridPosition().x, player.GetGridPosition().y);
                 await SceneChange("TimingGame");
                 break;
             case "TileModify":
@@ -261,7 +264,6 @@ public class ObjectEngine : MonoBehaviour
     private async UniTask SceneChange(string sceneName)
     {
         changeSceneFlag = true;
-        //pause.PauseAll();
         await SceneManager.LoadSceneAsync(sceneName).ToUniTask();
         PlayerPrefs.SetString("SceneName", sceneName);
     }
