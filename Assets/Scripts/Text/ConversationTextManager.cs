@@ -169,7 +169,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
         if (talkDataContent.BGM != null)
         {
-            SoundManager.Instance.ChangeBGM(talkDataContent.BGM);
+            SoundManager.Instance.ChangeBGM(talkDataContent.BGM);    
         }
         if (talkDataContent.SE != null)
         {

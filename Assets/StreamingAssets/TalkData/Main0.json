@@ -48,6 +48,7 @@
         },
         {
             "Text": "",
+            "BGM":"void",
             "SE":"strongwind2"
         },
         {
@@ -67,7 +68,7 @@
                     "SpriteName":"void"
                 }
             ],
-            "BGM":"void"
+            "SE":"void"
         },
         {
             "Speaker":"レイ",

@@ -58,22 +58,39 @@ public class SoundManager : DontDestroySingleton<SoundManager>
         audioSourceBGM.Stop();
     }
 
+    public void StopSE()
+    {
+        audioSourceSE.Stop();
+    }
+
     public void PlaySE(int seIndex, float volume = 1f)
     {
         AudioClip seClip = audioClipsSE[seIndex];
         audioSourceSE.PlayOneShot(seClip, volume);
     }
-  
+
 
     public void ChangeBGM(string fileName)
     {
-        if (audioClipsBGMDict.ContainsKey(fileName))
+        if (fileName.Equals("void"))
+        {
+            StopBGM();
+        }
+        else if (audioClipsBGMDict.ContainsKey(fileName))
+        {
             PlayBGM(audioClipsBGMDict[fileName]);
+        }
     }
 
     public void ChangeSE(string fileName)
     {
-        if (audioClipsSEDict.ContainsKey(fileName))
+        if (fileName.Equals("void"))
+        {
+            StopSE();
+        }
+        else if (audioClipsSEDict.ContainsKey(fileName))
+        {
             PlaySE(audioClipsSEDict[fileName]);
+        }
     }
 }
