@@ -67,7 +67,8 @@
                     "SpriteName":"void"
                 }
             ],
-            "BGM":"void"
+            "BGM":"void",
+            "SE":"void"
         },
         {
             "Speaker":"レイ",
