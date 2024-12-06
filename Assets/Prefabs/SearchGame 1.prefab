@@ -182,13 +182,13 @@ MonoBehaviour:
   pause: {fileID: 5634643334848788090}
   main: {fileID: 1369951876392548342}
   cursorTip: {fileID: 977857614303754878}
-  items:
-  - {fileID: 11400000, guid: 43cc9aa292bf4434fae97ba7ce2f394f, type: 2}
-  - {fileID: 11400000, guid: 76dd699543e1840d6aa12fb71fee36ca, type: 2}
   interactiveItems:
   - {fileID: 7584543140181595942}
   - {fileID: 6980504486743529522}
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  items:
+  - {fileID: 11400000, guid: 43cc9aa292bf4434fae97ba7ce2f394f, type: 2}
+  - {fileID: 11400000, guid: 76dd699543e1840d6aa12fb71fee36ca, type: 2}
   itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
 --- !u!1 &1369951876392548342
 GameObject:
