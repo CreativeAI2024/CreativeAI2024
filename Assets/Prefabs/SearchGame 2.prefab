@@ -279,13 +279,14 @@ MonoBehaviour:
   pause: {fileID: 5355921018260739541}
   main: {fileID: 1240396358443521}
   cursorTip: {fileID: 5818327951935578146}
-  items:
-  - {fileID: 11400000, guid: 451be431fa8aa48dabc4b9759204896a, type: 2}
-  - {fileID: 11400000, guid: 742aeb78a5db64cf7893d942d06eb5ad, type: 2}
   interactiveItems:
   - {fileID: 2756246485427764747}
   - {fileID: 6326504358296892411}
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
+  items:
+  - {fileID: 11400000, guid: 451be431fa8aa48dabc4b9759204896a, type: 2}
+  - {fileID: 11400000, guid: 742aeb78a5db64cf7893d942d06eb5ad, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
 --- !u!1 &2721140826956422045
 GameObject:
   m_ObjectHideFlags: 0
