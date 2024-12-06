@@ -229,6 +229,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "TimingGame":
                 DebugLogger.Log("TimingGame", DebugLogger.Colors.Green);
+                ConversationTextManager.Instance.OnConversationStart -= Pause;
                 await SceneChange("TimingGame");
                 break;
             case "TileModify":

@@ -2,7 +2,7 @@ name: Build
   
 on:
   push:
-    branches: develop
+    branches: feat/timingGame
   workflow_dispatch: {}
 
 # 連続して実行されたときに一つ前の実行中のジョブが停止されるようにする
@@ -46,7 +46,6 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           projectPath: ${{ matrix.projectPath }}
           unityVersion: 2022.3.27f1
-          buildMethod: CIDevelopmentBuild.DevelopmentBuild
 
       # Build成果物をアップロードする
       - name: Upload artifact
