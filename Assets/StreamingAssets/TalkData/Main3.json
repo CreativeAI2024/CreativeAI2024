@@ -3,7 +3,11 @@
         {
             "Speaker": "ヒカル",
             "Text": "「よし！１つ目の材料が見つかった！」",
-            "ChangeImage": [
+            "BGM": "GroIntenseDest"
+        },
+        {
+            "Speaker": "ヒカル",
+              "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
                     "SpriteName": "Hikaru"
@@ -13,10 +17,6 @@
                     "SpriteName": "Rei"
                 }
             ],
-            "BGM": "GroIntenseDest"
-        },
-        {
-            "Speaker": "ヒカル",
             "Text": "「他の材料も早く見つけましょう、先輩！」"
         },
         {
