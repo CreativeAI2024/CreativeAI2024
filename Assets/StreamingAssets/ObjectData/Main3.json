@@ -139,6 +139,10 @@
       [
         "Symptoms1",
         false
+      ],
+      [
+        "Hikaru_Dead",
+        true
       ]
     ]
   }
