@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1208,6 +1208,21 @@ PrefabInstance:
       propertyPath: mapDataController
       value: 
       objectReference: {fileID: 1462334000}
+    - target: {fileID: 8726868009842821202, guid: f29074d64296a1b46be3b39e35fe101a,
+        type: 3}
+      propertyPath: hikaruCharacterChip
+      value: 
+      objectReference: {fileID: 206563810}
+    - target: {fileID: 8726868009842821202, guid: f29074d64296a1b46be3b39e35fe101a,
+        type: 3}
+      propertyPath: killedCharacterChips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726868009842821202, guid: f29074d64296a1b46be3b39e35fe101a,
+        type: 3}
+      propertyPath: killedCharacterChips.Array.data[0]
+      value: 
+      objectReference: {fileID: 206563810}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

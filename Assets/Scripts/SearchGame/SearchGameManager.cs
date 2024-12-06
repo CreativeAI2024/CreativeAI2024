@@ -10,12 +10,22 @@ public class SearchGameManager : MonoBehaviour
     [SerializeField] private GameObject main;
     [SerializeField] private SearchGameCursorTip cursorTip;
     [SerializeField] private GameObject[] interactiveItems;
+    [SerializeField] ItemInventory itemInventory;
+    [SerializeField] Item[] items;
+    [SerializeField] ItemDatabase itemDatabase;
     void Start()
     {
         _inputSetting = InputSetting.Load();
         ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
+        for (int i = 0; i < interactiveItems.Length; i++)
+        {
+            if (itemInventory.IsContains(items[i]) || itemInventory.IsContains(itemDatabase.GetItem("BugsInJar")))
+            {
+                interactiveItems[i].SetActive(false);
+            }
+        }
     }
 
     void Update()

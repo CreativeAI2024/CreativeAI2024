@@ -14,6 +14,20 @@
           1,
           3
         ]
+      },
+      {
+        "MapName":"itemA_room_broken",
+        "Position":[
+          0,
+          3
+        ]
+      },
+      {
+        "MapName":"itemA_room_broken",
+        "Position":[
+          1,
+          3
+        ]
       }
     ],
     "EventName": "Conversation Search",
