@@ -14,7 +14,6 @@ public class ComponentReferenceTest
     [Test]
     public void MissingReferenceTest()
     {
-        // Use the Assert class to test conditions
         int missingScriptCountSum = 0;
         var objs = new List<GameObject>();
         var count = SceneManager.sceneCountInBuildSettings;
