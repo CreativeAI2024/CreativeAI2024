@@ -21,7 +21,7 @@ public class SearchGameManager : MonoBehaviour
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
         for (int i = 0; i < interactiveItems.Length; i++)
         {
-            if (itemInventory.IsContains(items[i]) || itemInventory.IsContains(itemDatabase.GetItem("BugsInJar")))
+            if (itemInventory.IsContains(items[i]) || (itemInventory.IsContains(itemDatabase.GetItem("BugsInJar")) && FlagManager.Instance.HasFlag("StartSearchGame1")))
             {
                 interactiveItems[i].SetActive(false);
             }
@@ -57,9 +57,24 @@ public class SearchGameManager : MonoBehaviour
         ConversationTextManager.Instance.OnConversationEnd -= UnPause;
         main.SetActive(false);
         cursorTip.Reset();
-        ChangeFlagAndScene("StartSearchGame1", "itemA_room");
-        ChangeFlagAndScene("StartSearchGame2", "itemA_room");
-        ChangeFlagAndScene("StartSearchGame3", "itemB_room");
+        if (FlagManager.Instance.HasFlag("Broken_A"))
+        {
+            ChangeFlagAndScene("StartSearchGame1", "itemA_room_broken");
+            ChangeFlagAndScene("StartSearchGame2", "itemA_room_broken");
+        }
+        else
+        {
+            ChangeFlagAndScene("StartSearchGame1", "itemA_room");
+            ChangeFlagAndScene("StartSearchGame2", "itemA_room");
+        }
+        if(FlagManager.Instance.HasFlag("Broken_B"))
+        {
+            ChangeFlagAndScene("StartSearchGame3", "itemB_room_broken");
+        }
+        else
+        {
+            ChangeFlagAndScene("StartSearchGame3", "itemB_room");
+        }
     }
 
     private void ChangeFlagAndScene(string flag, string scene)

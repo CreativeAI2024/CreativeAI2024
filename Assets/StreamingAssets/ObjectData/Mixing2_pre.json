@@ -28,6 +28,10 @@
     ],
     "NextFlag": [
       [
+        "StartTimingGame1",
+        false
+      ],
+      [
         "StartTimingGame2",
         true
       ]

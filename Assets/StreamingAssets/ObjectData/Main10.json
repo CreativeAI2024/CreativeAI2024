@@ -4,33 +4,19 @@
     {
       "MapName": "tessen_room",
       "Position": [
-        9,
+        1,
         6
       ]
     },
     {
       "MapName": "tessen_room",
       "Position": [
-        10,
-        6
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        9,
-        7
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        10,
+        1,
         7
       ]
     }
   ],
-  "EventName": "Conversation Main10",
+  "EventName": "Conversation Main10 | GetItem Tessen'sOrgan",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
