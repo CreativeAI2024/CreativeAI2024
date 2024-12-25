@@ -231,6 +231,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "TimingGame":
                 DebugLogger.Log("TimingGame", DebugLogger.Colors.Green);
+                ConversationTextManager.Instance.OnConversationStart -= Pause;
                 changedPos = new Vector2Int(player.GetGridPosition().x, player.GetGridPosition().y);
                 await SceneChange("TimingGame");
                 break;
