@@ -1,0 +1,28 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "_room",
+      "Position": [
+        2,
+        2
+      ]
+    }
+  ],
+  "EventName": "Conversation Knife_get",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Knife",
+        false
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Knife",
+        true
+      ]
+    ]
+  }
+}

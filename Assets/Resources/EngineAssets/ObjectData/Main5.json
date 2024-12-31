@@ -1,0 +1,149 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName":"itemB_room",
+      "Position":
+      [
+        4,5
+      ]
+    },
+    {
+      "MapName":"itemA_room",
+      "Position":
+      [
+        0,2
+      ]
+    },
+    {
+      "MapName":"itemA_room",
+      "Position":
+      [
+        1,2
+      ]
+    },
+    {
+      "MapName":"itemA_room",
+      "Position":
+      [
+        2,3
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        8,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        11,
+        5
+      ]
+    },
+    {
+      "MapName":"tessen_room",
+      "Position":[
+        8,
+        6
+      ]
+    },
+    {
+      "MapName":"tessen_room",
+      "Position":[
+        11,
+        6
+      ]
+    },
+    {
+      "MapName":"tessen_room",
+      "Position":[
+        8,
+        7
+      ]
+    },
+    {
+      "MapName":"tessen_room",
+      "Position":[
+        11,
+        7
+      ]
+    },
+    {
+      "MapName":"tessen_room",
+      "Position":[
+        8,
+        8
+      ]
+    },
+    {
+      "MapName":"tessen_room",
+      "Position":[
+        9,
+        8
+      ]
+    },
+    {
+      "MapName":"tessen_room",
+      "Position":[
+        10,
+        8
+      ]
+    },
+    {
+      "MapName":"tessen_room",
+      "Position":[
+        11,
+        8
+      ]
+    }
+  ],
+  "EventName": "Conversation Main5",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress2",
+        true
+      ],
+      [
+        "Progress3",
+        false
+      ],
+      [
+        "Symptoms3",
+        true
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Symptoms3",
+        false
+      ],
+      [
+        "Progress3",
+        true
+      ],
+      [
+        "StartMixingGame1",
+        true
+      ]
+    ]
+  }
+}

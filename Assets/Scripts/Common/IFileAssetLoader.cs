@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IFileAssetLoader
 {
+    public string[] GetPathDirectory(string path);
+    public string GetPath(string path);
     public string LoadFileAsset(string assetPath);
 }

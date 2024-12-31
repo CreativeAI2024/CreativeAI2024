@@ -1,0 +1,106 @@
+{
+    "Content": [
+        {
+            "Speaker": "レイ",
+            "Text": "「ヒカルー、この服ヒカルに似合いそうじゃない？」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
+            "BGM":"ordinaryfun"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「えー！まじっすか？ワンピースなんて全然着たことないけど......」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「そうなの？じゃあ、これは？」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「あ、これならアタシでも着れそう！」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「鏡どこだろ......？」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「あ、コッチに姿見あるよ」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「ほんとだ！どれどれ......？」"
+        },
+        {
+            "Text": "2人が姿見に近づく。"
+        },
+        {
+            "Text": "",
+            "BGM":"void",
+            "SE":"strongwind2"
+        },
+        {
+            "Speaker":"ヒカル",
+            "Text":"「......先輩？......先輩！起きてくださいよ！先輩！」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"void"
+                }
+            ],
+            "SE":"void"
+        },
+        {
+            "Speaker":"レイ",
+            "Text":"「............うん......？」"
+        },
+        {
+            "Speaker":"ヒカル",
+            "Text":"「......この場所がどこなのか、先輩分かるっすか......？」"
+        },
+        {
+            "Speaker":"レイ",
+            "Text":"「どこかって......、なにこの部屋......。全然見覚えないよ」"
+        },
+        {
+            "Speaker":"レイ",
+            "Text":"「......ヒカルと服を見てて、鏡の前に行って、それから......」"
+        },
+        {
+            "Speaker":"レイ",
+            "Text":"「あーもう、その後の記憶が全くないや......」"
+        },
+        {
+            "Speaker":"ヒカル",
+            "Text":"「とにかく調べてみるしかなさそうっすね......」"
+        },
+        {
+            "Speaker":"レイ",
+            "Text":"「ヒカル、怖がりな癖に平静を装わなくても......」"
+        },
+        {
+            "Speaker":"ヒカル",
+            "Text":"「いや全然怖いし！？こんな危険そう場所、とっとと出てって家に帰るんすよ！！」"
+        }
+    ]
+}

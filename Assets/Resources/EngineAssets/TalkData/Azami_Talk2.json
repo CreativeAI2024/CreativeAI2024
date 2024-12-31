@@ -1,0 +1,38 @@
+{
+  "Content": [
+    {
+      "Speaker": "レイ",
+      "Text": "「ねぇ、テッセンってどういう奴？」",
+      "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ],
+            "BGM":"MysteryConfFear"
+    },
+    {
+      "Speaker": "アザミ",
+      "Text": "「......アイツは、よくわからない奴だよ」"
+    },
+    {
+      "Speaker": "アザミ",
+      "Text": "「そもそも俺らとは価値観がまるで違うんだ。アイツには近づかない方がいいぞ」",
+      "QuestionData": [
+        {
+          "Answer": "......わかった",
+          "NextFlag": [
+            ["Azami_Peace", true]
+          ]
+        },
+        {
+          "Answer": "そんな......きっと仲良くできるよ"
+        }
+      ]
+    }
+  ]
+}

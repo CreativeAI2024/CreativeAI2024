@@ -1,0 +1,36 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName":"reference_room",
+      "Position":[
+        8,
+        18
+      ]
+    }
+  ],
+  "EventName": "Conversation Mixing",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress3",
+        true
+      ],
+      [
+        "Progress4",
+        false
+      ],
+      [
+        "Progress5",
+        false
+      ]
+    ],
+    "NextFlag": [
+      [
+        "StartTimingGame1",
+        true
+      ]
+  ]
+  }
+}

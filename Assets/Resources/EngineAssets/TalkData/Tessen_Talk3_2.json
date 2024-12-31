@@ -1,0 +1,31 @@
+{
+  "Content": [
+    {
+      "Speaker": "テッセン",
+      "Text": "「へー、探検......」",
+      "ChangeImage": [
+        {
+            "ImageName": "LeftPanel",
+            "SpriteName": "Tessen"
+        },
+        {
+            "ImageName": "RightPanel",
+            "SpriteName": "Rei"
+        }
+    ],
+            "BGM":"talkwithtessen"
+    },
+    {
+      "Speaker": "テッセン",
+      "Text": "「............本当に？」"
+    },
+    {
+      "Speaker": "テッセン",
+      "Text": "「......ま、いいや。でも、私から何も奪わないでね？」"
+    },
+    {
+      "Speaker": "レイ",
+      "Text": "「？」"
+    }
+  ]
+}
