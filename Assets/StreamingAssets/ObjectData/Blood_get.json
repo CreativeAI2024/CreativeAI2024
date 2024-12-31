@@ -24,6 +24,10 @@
             [
                 "Blood",
                 false
+            ],
+            [
+                "ExperiencedPaperGame",
+                true
             ]
         ],
         "NextFlag": [

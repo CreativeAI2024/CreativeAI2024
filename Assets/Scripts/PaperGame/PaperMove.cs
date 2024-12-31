@@ -30,7 +30,15 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
 
         if (_inputSetting.GetCancelKey())
         {
-            SceneManager.LoadScene("itemB_room");
+            if (FlagManager.Instance.HasFlag("Broken_B"))
+            {
+                SceneManager.LoadScene("itemB_room_broken");
+            }
+            else
+            {
+                SceneManager.LoadScene("itemB_room");
+            }
+            FlagManager.Instance.AddFlag("ExperiencedPaperGame");
         }
 
         Vector3 newPosition = transform.position + speed * Time.deltaTime * moveDirection.normalized;

@@ -16,6 +16,18 @@
         [
           "Mixing",
           true
+        ],
+        [
+          "Progress7",
+          true
+        ],
+        [
+          "Progress8",
+          false
+        ],
+        [
+          "Progress9",
+          false
         ]
       ],
       "NextFlag": [
@@ -25,7 +37,7 @@
         ],
         [
           "StartTimingGame2",
-          false
+          true
         ],
         [
           "Mixing",
