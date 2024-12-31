@@ -1,0 +1,62 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName": "ItemB_room",
+      "Position": [
+        4,
+        5
+      ]
+    },
+    {
+      "MapName": "ItemB_room",
+      "Position": [
+        4,
+        1
+      ]
+    },
+    {
+      "MapName": "ItemB_room",
+      "Position": [
+        5,
+        1
+      ]
+    }
+  ],
+  "EventName": "Conversation Main4 | ChangeScene itemB_room_broken,4,1",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress2",
+        true
+      ],
+      [
+        "Progress3",
+        false
+      ],
+      [
+        "Symptoms2",
+        true
+      ],
+      [
+        "Symptoms3",
+        false
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Symptoms2",
+        false
+      ],
+      [
+        "Tessen_Talk4_key",
+        true
+      ],
+      [
+        "Broken_B",
+        true
+      ]
+    ]
+  }
+}

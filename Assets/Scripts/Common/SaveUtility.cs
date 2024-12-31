@@ -36,7 +36,7 @@ public static class SaveUtility
         File.WriteAllBytes(savePath, msgPackData);
     }
     
-    private static IFileAssetLoader FileAssetLoaderFactory()
+    public static IFileAssetLoader FileAssetLoaderFactory()
     {
 #if UNITY_WEBGL
         return new ResourcesFileAssetLoader();

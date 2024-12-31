@@ -62,12 +62,13 @@ public class ObjectEngine : MonoBehaviour
                 _trapEventObjects[i][j] = new List<ObjectData>(4);
             }
         }
-        string assetsPath = string.Join('/', Application.streamingAssetsPath, "ObjectData");
-        foreach (string filePath in Directory.GetFiles(assetsPath))
+        IFileAssetLoader loader = SaveUtility.FileAssetLoaderFactory();
+        string path = loader.GetPath("ObjectData");
+        foreach (string objectFilePath in loader.GetPathDirectory(path))
         {
-            if (filePath.EndsWith(".meta")) continue;
+            if (objectFilePath.EndsWith(".meta")) continue;
             
-            ObjectData objectData = SaveUtility.JsonToData<ObjectData>(filePath);
+            ObjectData objectData = SaveUtility.JsonToData<ObjectData>(objectFilePath);
             foreach (Location location in objectData.Location)
             {
                 if (!location.MapName.Equals(mapName)) continue;

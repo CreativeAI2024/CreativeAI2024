@@ -1,0 +1,26 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName": "reference_room",
+      "Position": [
+        8,
+        19
+      ]
+    }
+  ],
+  "EventName": "Conversation Main6",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress4",
+        true
+      ],
+      [
+        "Azami_Peace",
+        false
+      ]
+    ]
+  }
+}

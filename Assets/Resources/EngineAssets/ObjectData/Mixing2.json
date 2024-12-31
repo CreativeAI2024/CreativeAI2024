@@ -1,0 +1,36 @@
+{
+    "Id": 2,
+    "Location": [
+      {
+        "MapName":"reference_room",
+        "Position":[
+          8,
+          19
+        ]
+      }
+    ],
+    "EventName": "TimingGame",
+    "TriggerType": 0,
+    "FlagCondition": {
+      "Flag": [
+        [
+          "Mixing",
+          true
+        ]
+      ],
+      "NextFlag": [
+        [
+          "Progress7",
+          false
+        ],
+        [
+          "StartTimingGame2",
+          false
+        ],
+        [
+          "Mixing",
+          false
+        ]
+    ]
+    }
+  }
