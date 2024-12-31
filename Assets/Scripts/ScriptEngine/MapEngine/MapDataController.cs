@@ -32,10 +32,11 @@ public class MapDataController : MonoBehaviour
     public void LoadMapData(string mapName)
     {
         _mapName = mapName;
-        string assetsPath = Path.Combine(Application.streamingAssetsPath, "MapData");
-        string[] mapFiles = Directory.GetFiles(assetsPath, "*.json");
-        var filePath = mapFiles.FirstOrDefault(x => x.EndsWith($"{mapName}.json"));
-        mapData = SaveUtility.JsonToData<MapData>(filePath);
+        IFileAssetLoader loader = SaveUtility.FileAssetLoaderFactory();
+        string path = loader.GetPath("MapData");
+        string[] mapFiles = loader.GetPathDirectory(path);
+        var mapFilePath = mapFiles.FirstOrDefault(x => x.Contains(mapName));
+        mapData = SaveUtility.JsonToData<MapData>(mapFilePath);
         if (!mapDictionary.ContainsKey(mapName))
         {
             mapDictionary.Add(mapName, new Queue<(TileLayer, Vector2Int, char)>());

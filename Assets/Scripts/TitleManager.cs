@@ -51,7 +51,7 @@ public class TitleManager : MonoBehaviour
         {
             TitleCursorMove(NewGame);
         }
-        if (_inputSetting.GetDecideInputDown())
+        if (!Input.GetMouseButtonDown(0) && _inputSetting.GetDecideInputDown())
         {
             switch (cursorPlace)
             {

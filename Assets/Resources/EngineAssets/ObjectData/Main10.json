@@ -1,0 +1,69 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        6
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        6
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        7
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        7
+      ]
+    }
+  ],
+  "EventName": "Conversation Main10",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress6",
+        true
+      ],
+      [
+        "T_information",
+        true
+      ],
+      [
+        "Knife",
+        true
+      ],
+      [
+        "Progress7",
+        false
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Progress6",
+        false
+      ],
+      [
+        "Progress7",
+        true
+      ],
+      [
+        "T_killed",
+        true
+      ]
+    ]
+  }
+}
