@@ -1,0 +1,49 @@
+name: Test
+  
+on:
+  pull_request:
+    branches: develop
+  workflow_dispatch: {}
+
+# 連続して実行されたときに一つ前の実行中のジョブが停止されるようにする
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  unity-Test:
+    name: Run the unity test steps
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        testMode:
+          - editmode
+          
+    steps:
+      # Actionsがリポジトリにアクセスできるようにする
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      
+      # LibraryをCacheしてBuildを高速化する
+      - name: Cache Library
+        uses: actions/cache@v4.1.0
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**','ProjectSettings/**') }}
+          restore-keys: Library-
+
+      # Testする
+      - name: Run the Test
+        uses: game-ci/unity-test-runner@v4.3.1
+        id: tests
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: 2022.3.27f1
+          testMode: ${{ matrix.testMode }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}

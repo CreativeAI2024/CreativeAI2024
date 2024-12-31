@@ -1,0 +1,39 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "itemA_room",
+      "Position": [
+        4,
+        0
+      ]
+    },
+    {
+      "MapName": "itemA_room",
+      "Position": [
+        5,
+        0
+      ]
+    },
+    {
+      "MapName": "itemA_room_broken",
+      "Position": [
+        4,
+        0
+      ]
+    },
+    {
+      "MapName": "itemA_room_broken",
+      "Position": [
+        5,
+        0
+      ]
+    }
+  ],
+  "EventName": "ChangeScene azami_room,4,8",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [],
+    "NextFlag": []
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName": "itemB_room",
+      "Position": [
+        2,
+        8
+      ]
+    }
+  ],
+  "EventName": "PaperGame",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Progress2",
+        true
+      ],
+      [
+        "Progress3",
+        false
+      ],
+      [
+        "Card",
+        true
+      ]
+    ],
+    "NextFlag": [
+      
+    ]
+  }
+}

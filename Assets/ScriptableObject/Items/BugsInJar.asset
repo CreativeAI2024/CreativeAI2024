@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
+  m_Name: BugsInJar
+  m_EditorClassIdentifier: 
+  itemName: "\u866B\u5165\u308A\u74F6"
+  descriptionText: "\u8718\u86DB\u3068\u8776\u306E\u6B7B\u9AB8\u304C\u74F6\u306E\u4E2D\u306B\u8A70\u3081\u3089\u308C\u3066\u3044\u308B\u3002"
+  sprite: {fileID: 21300000, guid: 5d3c33a49e38649a8b9e7a61367c4e5c, type: 3}
+  contentTextFilePath: 

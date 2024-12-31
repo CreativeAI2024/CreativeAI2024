@@ -1,0 +1,28 @@
+{
+    "Id": 0,
+    "Location": [
+        {
+            "MapName": "reference_room",
+            "Position": [
+                1,
+                1
+            ]
+        }
+    ],
+    "EventName": "GetItem BlackCard | TileModify reference_room StylesFront 1,1 #",
+    "TriggerType": 1,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "Card",
+                false
+            ]
+        ],
+        "NextFlag": [
+            [
+                "Card",
+                true
+            ]
+        ]
+    }
+}

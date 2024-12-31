@@ -1,0 +1,30 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "itemA_room",
+      "Position": [
+        5,
+        7
+      ]
+    },
+    {
+      "MapName": "itemA_room_broken",
+      "Position": [
+        5,
+        7
+      ]
+    }
+  ],
+  "EventName": "ChangeScene itemB_room_broken,4,1",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Broken_B",
+        true
+      ]
+    ],
+    "NextFlag": []
+  }
+}
