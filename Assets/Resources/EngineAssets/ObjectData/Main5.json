@@ -9,6 +9,13 @@
       ]
     },
     {
+      "MapName":"itemB_room_broken",
+      "Position":
+      [
+        4,5
+      ]
+    },
+    {
       "MapName":"itemA_room",
       "Position":
       [
@@ -24,6 +31,27 @@
     },
     {
       "MapName":"itemA_room",
+      "Position":
+      [
+        2,3
+      ]
+    },
+    {
+      "MapName":"itemA_room_broken",
+      "Position":
+      [
+        0,2
+      ]
+    },
+    {
+      "MapName":"itemA_room_broken",
+      "Position":
+      [
+        1,2
+      ]
+    },
+    {
+      "MapName":"itemA_room_broken",
       "Position":
       [
         2,3
@@ -138,10 +166,6 @@
       ],
       [
         "Progress3",
-        true
-      ],
-      [
-        "StartMixingGame1",
         true
       ]
     ]

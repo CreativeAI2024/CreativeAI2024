@@ -16,13 +16,21 @@
         [
           "Mixing",
           true
+        ],
+        [
+          "Progress3",
+          true
+        ],
+        [
+          "Progress4",
+          false
+        ],
+        [
+          "Progress5",
+          false
         ]
       ],
       "NextFlag": [
-        [
-          "Progress2",
-          false
-        ],
         [
           "Progress3",
           false

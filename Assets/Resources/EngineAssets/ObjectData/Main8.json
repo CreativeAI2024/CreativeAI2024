@@ -5,7 +5,14 @@
       "MapName": "mirror_room",
       "Position": [
         4,
-        2
+        3
+      ]
+    },
+    {
+      "MapName": "mirror_room",
+      "Position": [
+        5,
+        3
       ]
     }
   ],

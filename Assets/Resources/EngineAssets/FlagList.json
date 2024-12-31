@@ -57,6 +57,7 @@
         "StartTimingGame2":false,
         "Mixing":false,
         "Search":false,
+        "ExperiencedPaperGame": false,
 
         "Hikaru_Dead":false
     }
