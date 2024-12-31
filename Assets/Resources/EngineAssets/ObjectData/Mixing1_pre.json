@@ -30,7 +30,11 @@
       [
         "StartTimingGame1",
         true
+      ],
+      [
+        "StartTimingGame2",
+        false
       ]
-  ]
+    ]
   }
 }

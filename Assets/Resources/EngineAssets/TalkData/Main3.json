@@ -10,7 +10,7 @@
               "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "Hikaru"
+                    "SpriteName": "hikaru"
                 },
                 {
                     "ImageName": "LeftPanel",

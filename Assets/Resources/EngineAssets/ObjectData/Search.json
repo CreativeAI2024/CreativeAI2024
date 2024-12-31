@@ -51,6 +51,27 @@
       ]
     },
     {
+      "MapName": "itemA_room_broken",
+      "Position": [
+        0,
+        2
+      ]
+    },
+    {
+      "MapName": "itemA_room_broken",
+      "Position": [
+        1,
+        2
+      ]
+    },
+    {
+      "MapName": "itemA_room_broken",
+      "Position": [
+        2,
+        3
+      ]
+    },
+    {
       "MapName": "itemB_room_broken",
       "Position": [
         8,

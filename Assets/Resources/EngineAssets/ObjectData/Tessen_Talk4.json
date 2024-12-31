@@ -55,6 +55,15 @@
         true
       ]
     ],
-    "NextFlag": []
+    "NextFlag": [
+      [
+        "Tessen_Talk4",
+        false
+      ],
+      [
+        "Tessen_Talk4_key",
+        false
+      ]
+    ]
   }
 }

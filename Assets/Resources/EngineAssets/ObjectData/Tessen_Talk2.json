@@ -55,6 +55,10 @@
       [
         "Tessen_Talk3",
         true
+      ],
+      [
+        "Tessen_Talk2",
+        false
       ]
     ]
   }

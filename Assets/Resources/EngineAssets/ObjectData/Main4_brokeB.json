@@ -2,21 +2,21 @@
   "Id": 2,
   "Location": [
     {
-      "MapName": "ItemB_room",
+      "MapName": "itemB_room",
       "Position": [
         4,
         5
       ]
     },
     {
-      "MapName": "ItemB_room",
+      "MapName": "itemB_room",
       "Position": [
         4,
         1
       ]
     },
     {
-      "MapName": "ItemB_room",
+      "MapName": "itemB_room",
       "Position": [
         5,
         1

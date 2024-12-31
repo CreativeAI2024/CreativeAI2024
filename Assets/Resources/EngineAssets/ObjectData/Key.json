@@ -16,7 +16,7 @@
         ]
       }
     ],
-    "EventName": "GetItem Key | TileModify itemB_room StylesFront 1,1 #",
+    "EventName": "GetItem Key | TileModify itemB_room StylesFront 1,1 # | TileModify itemB_room_broken StylesFront 1,1 #",
     "TriggerType": 1,
     "FlagCondition": {
       "Flag": [
