@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main1 | ChangeScene azami_room,4,1",
+  "EventName": "ChangeScene azami_room,4,1 | Conversation Main1",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [
