@@ -68,6 +68,7 @@
                     "SpriteName":"void"
                 }
             ],
+            "BGM":"GroCalm",
             "SE":"void"
         },
         {
