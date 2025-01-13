@@ -49,7 +49,12 @@
                     "SpriteName":"Black"
                 }
             ],
-            "SE":"balloon"
-    }
-  ]
+            "SE":"balloon",
+            "QuestionData": [
+                {
+                    "NextFlag": [ [ "Ending", true ] ]
+                }
+            ]
+        }
+    ]
 }

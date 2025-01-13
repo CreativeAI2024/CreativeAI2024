@@ -9,21 +9,13 @@
       ]
     }
   ],
-  "EventName": "Conversation Main6",
+  "EventName": "GoToEndScene",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [
-        "Progress4",
-        true
-      ],
-      [
-        "Azami_Peace",
-        false
-      ],
-      [
         "Ending",
-        false
+        true
       ]
     ]
   }

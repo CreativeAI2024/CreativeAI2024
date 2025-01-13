@@ -44,6 +44,7 @@
 
         "T_eat":false,
         "T_information":false,
+        "T_choise": false,
         "T_killed":false,
 
         "Broken_A":false,
@@ -59,6 +60,7 @@
         "Search":false,
         "ExperiencedPaperGame": false,
 
-        "Hikaru_Dead":false
+        "Hikaru_Dead":false,
+        "Ending":false
     }
 }
