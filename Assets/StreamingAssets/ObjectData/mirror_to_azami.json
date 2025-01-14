@@ -13,10 +13,6 @@
     "TriggerType": 1,
     "FlagCondition": {
         "Flag": [
-            [
-                "Azami_Attack",
-                false
-            ]
         ],
         "NextFlag": [
             
