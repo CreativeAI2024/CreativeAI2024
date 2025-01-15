@@ -5,21 +5,17 @@
       "MapName": "azami_room",
       "Position": [
         4,
-        4
+        3
       ]
     }
   ],
-  "EventName": "Conversation Main9",
-  "TriggerType": 1,
+  "EventName": "GoToEndScene",
+  "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [
-        "Progress6",
-        true
-      ],
-      [
         "Ending",
-        false
+        true
       ]
     ]
   }
