@@ -35,7 +35,7 @@ public class Question : MonoBehaviour
             }
         }
         cursorPlace = 0;
-        if (questionData.Any(question => question.Answer is null))
+        if (!questionData.Any(question => question.Answer is null))
         {
             float branchCenterPos = 410;
             float branchAreaHeight = questionLen * 75; //75でかけるといい感じになる
