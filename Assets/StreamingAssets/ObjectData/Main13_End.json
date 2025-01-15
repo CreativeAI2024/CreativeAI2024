@@ -5,28 +5,24 @@
       "MapName": "mirror_room",
       "Position": [
         4,
-        3
+        2
       ]
     },
     {
       "MapName": "mirror_room",
       "Position": [
         5,
-        3
+        2
       ]
     }
   ],
-  "EventName": "Conversation Main13",
-  "TriggerType": 1,
+  "EventName": "GoToEndScene",
+  "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [
-        "Progress10",
-        true
-      ],
-      [
         "Ending",
-        false
+        true
       ]
     ]
   }

@@ -75,7 +75,7 @@ public class ObjectEngine : MonoBehaviour
                 if (!location.MapName.Equals(mapName)) continue;
 
                 // 自動発動イベント
-                if (objectData.TriggerType == 0)
+                if (objectData.TriggerType == 0 || objectData.TriggerType == 4)
                 {
                     _trapEventObjects[location.Position.x][location.Position.y].Add(objectData);
                 }
@@ -139,13 +139,12 @@ public class ObjectEngine : MonoBehaviour
                 await Call(centerObjectData, 2, 3);
             }
         }
-
-        if (player.GetGridPosition() == _pastGridPosition) return;// centerObjectData.TriggerType == 0 
-        _pastGridPosition = player.GetGridPosition();
         List<ObjectData> trapObjectDatas = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
+        if (player.GetGridPosition() == _pastGridPosition && trapObjectDatas.Any(trapObjectData => trapObjectData.TriggerType == 4)) return;// centerObjectData.TriggerType == 0 
+        _pastGridPosition = player.GetGridPosition();
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
-            await Call(trapObjectData, 0);
+            await Call(trapObjectData, 0, 4);
         }
     }
 
@@ -188,7 +187,7 @@ public class ObjectEngine : MonoBehaviour
         DebugLogger.Log("end");
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
-            await Call(trapObjectData, 0);// フラグで制御されてるとはいえ再帰的になっているので要注意
+            await Call(trapObjectData, 0, 4);// フラグで制御されてるとはいえ再帰的になっているので要注意
         }
     }
 
@@ -244,6 +243,12 @@ public class ObjectEngine : MonoBehaviour
                 TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position,
                     eventArgs[4].ToCharArray()[0]);
                 break;
+            case "GoToEndScene":
+                DebugLogger.Log("GoToEndScene", DebugLogger.Colors.Green);
+                ConversationTextManager.Instance.OnConversationStart -= Pause;
+                pause.PauseReset();
+                await SceneChange("Ending");
+                break;
             default: throw new NotImplementedException();
         }
     }
@@ -286,16 +291,10 @@ public class ObjectEngine : MonoBehaviour
         if (inventory.IsContains(item)) return;
 
         SoundManager.Instance.PlaySE(9, 5f); //アイテム拾う
-        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
         inventory.Add(item);
         CombineItem(item);
-
-        if (item.HasContentText())
-        {
-            ConversationTextManager.Instance.InitializeFromJson(item.ContentTextFilePath);
-        }
+        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
     }
-
 
     private void CombineItem(Item item)
     {

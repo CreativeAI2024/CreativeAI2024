@@ -54,11 +54,13 @@
             "QuestionData": [
                 {
                     "Answer": "殺す",
-	                "NextTalkData":"Main10_1"
+	                "NextTalkData":"Main10_1",
+                    "NextFlag": [ [ "T_choise", true ] ]
                 },
                 {
                     "Answer": "殺さない",
-	                "NextTalkData":"Main10_2"
+	                "NextTalkData":"Main10_2",
+                    "NextFlag": [ [ "T_choise", true ] ]
                 }
             ]
         }

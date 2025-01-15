@@ -20,7 +20,15 @@
         },
         {
             "Text":"テッセンは悲鳴の一つも上げることなく静かに死んだ。",
-            "SE": "stabknife"
+            "SE": "stabknife",
+            "QuestionData": [
+                {
+                  "NextFlag": [
+                    [ "Organ", true ],
+                    [ "T_killed",true]
+                  ]
+                }
+            ]
         }
     ]
 }

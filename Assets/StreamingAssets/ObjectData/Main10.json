@@ -4,19 +4,19 @@
     {
       "MapName": "tessen_room",
       "Position": [
-        1,
+        2,
         6
       ]
     },
     {
       "MapName": "tessen_room",
       "Position": [
-        1,
+        2,
         7
       ]
     }
   ],
-  "EventName": "Conversation Main10 | GetItem Tessen'sOrgan",
+  "EventName": "Conversation Main10",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
@@ -35,6 +35,18 @@
       [
         "Progress7",
         false
+      ],
+      [
+        "T_choise",
+        false
+      ],
+      [
+        "Organ",
+        false
+      ],
+      [
+        "Ending",
+        false
       ]
     ],
     "NextFlag": [
@@ -44,10 +56,6 @@
       ],
       [
         "Progress7",
-        true
-      ],
-      [
-        "T_killed",
         true
       ]
     ]
