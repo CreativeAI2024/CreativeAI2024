@@ -12,10 +12,10 @@
                     "ImageName": "LeftPanel",
                     "SpriteName": "Rei"
                 }
-            ],
-            "BGM":"IntenseDest"
+            ]
         },
         {
+            "Speaker": "アザミ",
             "Text":"「早くここから出るぞ」"
         },
         {
@@ -57,6 +57,7 @@
                     "SpriteName":"Black"
                 }
             ],
+            "BGM":"IntenseDest",
             "SE":"destroythings"
         },
         {

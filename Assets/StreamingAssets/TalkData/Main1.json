@@ -17,7 +17,7 @@
                     "SpriteName":"Black"
                 }
             ],
-            "SE":"cutupmeat"
+            "SE":"snake1"
         },
         {
             "Speaker":"ヒカル",
@@ -36,7 +36,7 @@
                     "SpriteName":"Black"
                 }
             ],
-            "SE":"snake1"
+            "SE":"cutupmeat"
         },
         {
             "Text":"......"
@@ -83,7 +83,7 @@
             "Text": "「そうか、レイ......お前はこの世界に迷い込んでしまった。\nこのままでは狂ってしまう。これを見ろ」"
         },
         {
-            "Speaker": "アザミ",
+            "Speaker": "レイ",
             "Text": "「......ッ！！」"
         },
         {
