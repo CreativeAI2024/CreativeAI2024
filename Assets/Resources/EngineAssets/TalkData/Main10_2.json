@@ -44,6 +44,10 @@
                     "ImageName":"BackgroundPanel",
                     "SpriteName":"Black"
                 }
+            ],"QuestionData": [
+                {
+                    "NextFlag": [ [ "Ending", true ] ]
+                }
             ]
         }
     ]

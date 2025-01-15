@@ -2,15 +2,15 @@
   "Id": 1,
   "Location": [
     {
-      "MapName": "mirror_room",
+      "MapName": "azami_room",
       "Position": [
         4,
-        8
+        1
       ]
     }
   ],
-  "EventName": "Conversation Main1 | ChangeScene azami_room,4,1",
-  "TriggerType": 1,
+  "EventName": "Conversation Main1",
+  "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [

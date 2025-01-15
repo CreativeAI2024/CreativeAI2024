@@ -6,17 +6,18 @@ using System.Diagnostics;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class ObjectEngine : MonoBehaviour
 {
     private List<ObjectData>[][] _eventObjects;
     private List<ObjectData>[][] _trapEventObjects;
-    
+
     [SerializeField] private PlayerController player;
     [SerializeField] private ItemInventory inventory;
     [SerializeField] private ItemDatabase itemDatabase;
     [SerializeField] private Pause pause;
-    
+
     [SerializeField] private MapEngine mapEngine;
     [SerializeField] private MapDataController mapDataController;
     private static Vector2Int changedPos = new Vector2Int(4, 2);
@@ -31,7 +32,7 @@ public class ObjectEngine : MonoBehaviour
         _inputSetting = InputSetting.Load();
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
-        
+
         ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
@@ -40,13 +41,13 @@ public class ObjectEngine : MonoBehaviour
         ResetAction();
         PlayerMove(changedPos);
     }
-    
+
     private void ResetAction()
     {
         mapEngine.Initialize();
         Initialize(_mapName, mapDataController.GetMapSize().x, mapDataController.GetMapSize().y);
     }
-    
+
     // Start is called before the first frame update
     private void Initialize(string mapName, int width, int height)
     {
@@ -67,12 +68,12 @@ public class ObjectEngine : MonoBehaviour
         foreach (string objectFilePath in loader.GetPathDirectory(path))
         {
             if (objectFilePath.EndsWith(".meta")) continue;
-            
+
             ObjectData objectData = SaveUtility.JsonToData<ObjectData>(objectFilePath);
             foreach (Location location in objectData.Location)
             {
                 if (!location.MapName.Equals(mapName)) continue;
-                
+
                 // 自動発動イベント
                 if (objectData.TriggerType == 0 || objectData.TriggerType == 4)
                 {
@@ -85,7 +86,7 @@ public class ObjectEngine : MonoBehaviour
             }
         }
     }
-    
+
     /*
     [Conditional("UNITY_EDITOR")]
     private void OnDrawGizmos()
@@ -128,17 +129,16 @@ public class ObjectEngine : MonoBehaviour
                 {
                     await Call(aroundObjectData, 1, 2);
                 }
-                
+
                 if (runFlag) return;
             }
-            
+
             List<ObjectData> centerObjectDatas = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
             foreach (ObjectData centerObjectData in centerObjectDatas)
             {
                 await Call(centerObjectData, 2, 3);
             }
         }
-        
         List<ObjectData> trapObjectDatas = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
         if (player.GetGridPosition() == _pastGridPosition && !trapObjectDatas.Any(trapObjectData => trapObjectData.TriggerType == 4)) return;// centerObjectData.TriggerType == 0 
         _pastGridPosition = player.GetGridPosition();
@@ -147,19 +147,19 @@ public class ObjectEngine : MonoBehaviour
             await Call(trapObjectData, 0, 4);
         }
     }
-    
+
     private void Pause()
     {
-        DebugLogger.Log("Pause : "+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+" : "+(pause == null), DebugLogger.Colors.Magenta);
+        DebugLogger.Log("Pause : " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + " : " + (pause == null), DebugLogger.Colors.Magenta);
         pause.PauseAll();
     }
-    
+
     private void UnPause()
     {
-        DebugLogger.Log("UnPause : "+UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+" : "+(pause == null), DebugLogger.Colors.Magenta);
+        DebugLogger.Log("UnPause : " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + " : " + (pause == null), DebugLogger.Colors.Magenta);
         pause.UnPauseAll();
     }
-    
+
     private async UniTask Call(ObjectData objectData, params int[] triggerType)
     {
         if (objectData is null) return;
@@ -169,7 +169,7 @@ public class ObjectEngine : MonoBehaviour
         {
             foreach (var x in objectData.FlagCondition.Flag)
             {
-                DebugLogger.Log(x.Key+" : expected: "+x.Value+" : actual:"+ FlagManager.Instance.HasFlag(x.Key), DebugLogger.Colors.Blue);
+                DebugLogger.Log(x.Key + " : expected: " + x.Value + " : actual:" + FlagManager.Instance.HasFlag(x.Key), DebugLogger.Colors.Blue);
             }
             if (objectData.FlagCondition.Flag is not null && objectData.FlagCondition.Flag.Any(x => FlagManager.Instance.HasFlag(x.Key) != x.Value))
             {
@@ -190,7 +190,7 @@ public class ObjectEngine : MonoBehaviour
             await Call(trapObjectData, 0, 4);// フラグで制御されてるとはいえ再帰的になっているので要注意
         }
     }
-    
+
     private async UniTask CallEvent(string eventName)
     {
         string[] eventArgs = eventName.Split(' ');
@@ -252,7 +252,7 @@ public class ObjectEngine : MonoBehaviour
             default: throw new NotImplementedException();
         }
     }
-    
+
     private void SetNextFlag(KeyValuePair<string, bool>[] nextFlags)
     {
         foreach (KeyValuePair<string, bool> nextFlag in nextFlags)
@@ -267,32 +267,37 @@ public class ObjectEngine : MonoBehaviour
             }
         }
     }
-    
+
     private async UniTask SceneChange(string sceneName)
     {
         changeSceneFlag = true;
         await SceneManager.LoadSceneAsync(sceneName).ToUniTask();
         PlayerPrefs.SetString("SceneName", sceneName);
     }
-    
+
     private void PlayerMove(Vector2Int moved)
     {
         player.transform.position = new Vector3(moved.x, moved.y, 0);
     }
-    
+
     private void Conversation(string fileName)
     {
         ConversationTextManager.Instance.InitializeFromJson(fileName);
     }
-    
+
     private void GetItem(string itemName)
     {
         Item item = itemDatabase.GetItem(itemName);
         if (inventory.IsContains(item)) return;
+
         SoundManager.Instance.PlaySE(9, 5f); //アイテム拾う
         inventory.Add(item);
         CombineItem(item);
         ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
+        if (item.HasContentText())
+        {
+            ConversationTextManager.Instance.InitializeFromJson(item.ContentTextFilePath);
+        }
     }
 
     private void CombineItem(Item item)
@@ -302,7 +307,7 @@ public class ObjectEngine : MonoBehaviour
             inventory.TryCombine(item);
         }
     }
-    
+
     private void TileModify(string mapName, MapDataController.TileLayer layer, Vector2Int position, char tipSign)
     {
         mapDataController.ChangeMapTile(mapName, layer, position, tipSign);

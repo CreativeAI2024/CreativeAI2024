@@ -104,7 +104,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     {
         talkData = new TalkData();
         talkData.Content = new Content[texts.Count];
-        for (int i = 0;  i < texts.Count;  i++)
+        for (int i = 0; i < texts.Count; i++)
         {
             talkData.Content[i] = new Content();
             talkData.Content[i].Text = texts[i];
@@ -171,7 +171,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
         if (talkDataContent.BGM != null)
         {
-            SoundManager.Instance.ChangeBGM(talkDataContent.BGM);    
+            SoundManager.Instance.ChangeBGM(talkDataContent.BGM);
         }
         if (talkDataContent.SE != null)
         {
@@ -194,11 +194,11 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private void ChangeQuestionData()
     {
         QuestionData[] questionData = talkData.Content[lineNumber].QuestionData;
-        if (questionData == null) 
+        if (questionData == null)
             return;
 
         var nextFlag = questionData[question.GetCursorPlace()].NextFlag;
-        if (nextFlag == null) 
+        if (nextFlag == null)
             return;
 
         ChangeFlag(nextFlag);
@@ -210,7 +210,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         {
             string flagName = flags.Key;
             bool flagValue = flags.Value;
-            DebugLogger.Log(flagName+":"+ flagValue);
+            DebugLogger.Log(flagName + ":" + flagValue);
             if (flagValue)
             {
                 FlagManager.Instance.AddFlag(flagName);
@@ -221,7 +221,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             }
         }
     }
-    
+
     public void ResetAction()
     {
         _onConversationStart = null;
@@ -239,7 +239,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         initializeFlag = false;
         _onConversationEnd?.Invoke();
-        if (nextTalkData != null){  //会話分岐
+        if (nextTalkData != null)
+        {  //会話分岐
             InitializeFromJson(nextTalkData);
         }
         else
