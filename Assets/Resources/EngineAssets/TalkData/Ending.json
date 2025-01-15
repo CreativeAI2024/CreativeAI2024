@@ -1,0 +1,18 @@
+{
+  "Content": [
+    {
+      "Text": "The End.",
+      "ChangeImage": [
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
+        }
+      ],
+      "QuestionData": [
+        {
+          "NextTalkData": "Ending"
+        }
+      ]
+    }
+  ]
+}
