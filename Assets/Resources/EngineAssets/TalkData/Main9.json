@@ -5,14 +5,14 @@
       "Text": "「......アザミ、これを使って......」",
       "ChangeImage": [
         {
-            "ImageName": "RightPanel",
-            "SpriteName": "Azami_1"
+          "ImageName": "RightPanel",
+          "SpriteName": "Azami_1"
         },
         {
-            "ImageName": "LeftPanel",
-            "SpriteName": "Rei"
+          "ImageName": "LeftPanel",
+          "SpriteName": "Rei"
         }
-    ]
+      ]
     },
     {
       "Speaker": "アザミ",
@@ -35,7 +35,12 @@
     },
     {
       "Speaker": "レイ",
-      "Text": "「......サヨナラ、アザミ」"
+      "Text": "「......サヨナラ、アザミ」",
+      "QuestionData": [
+        {
+          "NextFlag": [ [ "Ending", true ] ]
+        }
+      ]
     }
   ]
 }

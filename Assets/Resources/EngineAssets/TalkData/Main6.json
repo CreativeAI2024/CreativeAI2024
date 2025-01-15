@@ -49,13 +49,20 @@
             ],
             "SE": "stabknife"
         },
-        {
+                {
             "Text":"",
             "SE": "exploreluggage1"
         },
         {
             "Text":"",
             "SE": "footsteps2"
+        },
+        {
+            "QuestionData": [
+                {
+                    "NextFlag": [ [ "Ending", true ] ]
+                }
+            ]
         }
     ]
 }
