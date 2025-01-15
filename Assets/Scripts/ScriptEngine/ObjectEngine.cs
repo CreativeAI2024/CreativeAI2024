@@ -294,6 +294,10 @@ public class ObjectEngine : MonoBehaviour
         inventory.Add(item);
         CombineItem(item);
         ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
+        if (item.HasContentText())
+        {
+            ConversationTextManager.Instance.InitializeFromJson(item.ContentTextFilePath);
+        }
     }
 
     private void CombineItem(Item item)
