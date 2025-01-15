@@ -11,8 +11,4 @@ public class EndingManager : MonoBehaviour
         ConversationTextManager.Instance.InitializeFromJson("Ending");
     }
 
-    void Update()
-    {
-
-    }
 }
