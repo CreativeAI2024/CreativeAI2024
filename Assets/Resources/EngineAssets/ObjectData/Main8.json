@@ -23,6 +23,10 @@
       [
         "Progress6",
         true
+      ],
+      [
+        "Ending",
+        false
       ]
     ]
   }
