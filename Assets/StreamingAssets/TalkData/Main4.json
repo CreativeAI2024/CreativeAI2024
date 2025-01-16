@@ -58,7 +58,8 @@
                 }
             ],
             "BGM":"IntenseDest",
-            "SE":"destroythings","QuestionData": [
+            "SE":"destroythings",
+            "QuestionData": [
                 {
 	                "NextTalkData":"Main4_1"
                 }
