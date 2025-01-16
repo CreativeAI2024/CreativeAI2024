@@ -1,0 +1,28 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName":"itemA_room",
+      "Position":
+      [
+        -1,-1
+      ]
+    }
+  ],
+  "EventName": "Conversation Main4_2",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Main4_A_after",
+        true
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Main4_A_after",
+        false
+      ]
+    ]
+  }
+}

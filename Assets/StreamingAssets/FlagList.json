@@ -61,6 +61,9 @@
         "ExperiencedPaperGame": false,
 
         "Hikaru_Dead":false,
-        "Ending":false
+        "Ending":false,
+
+        "Main4_A_after": true,
+        "Main4_B_after": true
     }
 }

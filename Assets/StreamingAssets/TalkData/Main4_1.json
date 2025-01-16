@@ -67,44 +67,6 @@
         {
             "Speaker": "アザミ",
             "Text": "「........................しろ！」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "おい、しっかりしろ！",
-            "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "Azami_0"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "Rei"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"void"
-                }
-            ]
-        },
-        {
-            "Speaker": "レイ",
-            "Text": "「......！」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「どうだ？少しは落ち着いたか？」"
-        },
-        {
-            "Speaker": "レイ",
-            "Text": "「......うん」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「精神がおかしくなっているんだろう。この世界の影響を強く受けてしまっている」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「残りの材料もあと一つだ。それまで耐えてくれよ」"
         }
     ]
 }
