@@ -35,7 +35,7 @@
   "FlagCondition": {
     "Flag": [
       [
-        "T_killed",
+        "T_room_killed",
         false
       ],
       [
