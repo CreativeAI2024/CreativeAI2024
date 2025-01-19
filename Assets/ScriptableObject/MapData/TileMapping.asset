@@ -124,6 +124,6 @@ MonoBehaviour:
   - symbol: 75
     tile: {fileID: 11400000, guid: f6fe729043cf4a34693f59951b00c8b3, type: 2}
   - symbol: 121
-    tile: {fileID: 11400000, guid: 87400227a018db247bbafca67cf90019, type: 2}
+    tile: {fileID: 11400000, guid: 14afed0db7b259846a01f37171c6f605, type: 2}
   - symbol: 35
     tile: {fileID: 0}

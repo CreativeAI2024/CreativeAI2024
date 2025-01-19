@@ -2,6 +2,7 @@
     "Content": [
         {
             "Speaker": "アザミ",
+<<<<<<< HEAD
             "Text": "「薬の材料は集まってるか？」",
             "ChangeImage": [
                 {
@@ -43,6 +44,9 @@
             
         },
         {
+=======
+            "Text": "「............」",
+>>>>>>> ff4d7e5836b8f3103d125ca68427c15aee45f998
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -56,17 +60,71 @@
                     "ImageName":"BackgroundPanel",
                     "SpriteName":"Black"
                 }
+<<<<<<< HEAD
             ],
             "BGM":"IntenseDest",
+<<<<<<<< HEAD:Assets/StreamingAssets/TalkData/Main4_1.json
             "SE":"destroythings"
         },
         {
             "Speaker": "アザミ",
             "Text": "「............」"
+=======
+            ]
+>>>>>>> ff4d7e5836b8f3103d125ca68427c15aee45f998
         },
         {
             "Speaker": "アザミ",
             "Text": "「........................しろ！」"
+<<<<<<< HEAD
+========
+            "SE":"destroythings",
+            "QuestionData": [
+                {
+	                "NextTalkData":"Main4_1"
+                }
+            ]
+>>>>>>>> ff4d7e5836b8f3103d125ca68427c15aee45f998:Assets/StreamingAssets/TalkData/Main4.json
+=======
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "おい、しっかりしろ！",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"void"
+                }
+            ]
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「......！」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「どうだ？少しは落ち着いたか？」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「......うん」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「精神がおかしくなっているんだろう。この世界の影響を強く受けてしまっている」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「残りの材料もあと一つだ。それまで耐えてくれよ」"
+>>>>>>> ff4d7e5836b8f3103d125ca68427c15aee45f998
         }
     ]
 }

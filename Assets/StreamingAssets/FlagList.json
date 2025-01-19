@@ -46,6 +46,7 @@
         "T_information":false,
         "T_choise": false,
         "T_killed":false,
+        "T_room_killed":false,
 
         "Broken_A":false,
         "Broken_B":false,

@@ -37,6 +37,10 @@
         [
           "Progress2",
           true
+        ],
+        [
+          "Knife",
+          false
         ]
       ],
       "NextFlag": [
