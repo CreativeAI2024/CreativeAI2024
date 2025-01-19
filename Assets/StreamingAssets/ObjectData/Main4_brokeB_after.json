@@ -2,7 +2,7 @@
   "Id": 0,
   "Location": [
     {
-      "MapName": "itemA_room_broken",
+      "MapName": "itemB_room_broken",
       "Position": [
         -1,
         -1
@@ -14,13 +14,13 @@
   "FlagCondition": {
     "Flag": [
       [
-        "Main4_A_after",
+        "Main4_B_after",
         true
       ]
     ],
     "NextFlag": [
       [
-        "Main4_A_after",
+        "Main4_B_after",
         false
       ]
     ]
