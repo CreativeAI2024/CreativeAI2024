@@ -2,11 +2,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class ObjectEngine : MonoBehaviour
 {
@@ -77,7 +75,21 @@ public class ObjectEngine : MonoBehaviour
                 // 自動発動イベント
                 if (objectData.TriggerType == 0 || objectData.TriggerType == 4)
                 {
-                    _trapEventObjects[location.Position.x][location.Position.y].Add(objectData);
+                    if (location.Position.x == -1 && location.Position.y == -1)
+                    {
+                        for (int i=0; i<width; i++)
+                        {
+                            for (int j=0; j<height; j++)
+                            {
+                                _trapEventObjects[i][j].Add(objectData);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        _trapEventObjects[location.Position.x][location.Position.y].Add(objectData);
+                    }
+                    
                 }
                 else
                 {
