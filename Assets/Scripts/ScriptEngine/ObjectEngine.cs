@@ -82,6 +82,7 @@ public class ObjectEngine : MonoBehaviour
                 else
                 {
                     _eventObjects[location.Position.x][location.Position.y].Add(objectData);
+                    PutMiniGameTwinkle(objectData);
                 }
             }
         }
@@ -172,7 +173,7 @@ public class ObjectEngine : MonoBehaviour
             {
                 DebugLogger.Log(x.Key + " : expected: " + x.Value + " : actual:" + FlagManager.Instance.HasFlag(x.Key), DebugLogger.Colors.Blue);
             }
-            if (objectData.FlagCondition.Flag is not null && objectData.FlagCondition.Flag.Any(x => FlagManager.Instance.HasFlag(x.Key) != x.Value))
+            if (IsFlagsInsufficient(objectData))
             {
                 return; // continue;
             }
@@ -254,6 +255,11 @@ public class ObjectEngine : MonoBehaviour
         }
     }
 
+    private bool IsFlagsInsufficient(ObjectData objectData)
+    {
+        return objectData.FlagCondition.Flag is not null && objectData.FlagCondition.Flag.Any(x => FlagManager.Instance.HasFlag(x.Key) != x.Value);
+    }
+
     private void SetNextFlag(KeyValuePair<string, bool>[] nextFlags)
     {
         foreach (KeyValuePair<string, bool> nextFlag in nextFlags)
@@ -313,5 +319,19 @@ public class ObjectEngine : MonoBehaviour
     {
         mapDataController.ChangeMapTile(mapName, layer, position, tipSign);
         mapDataController.ApplyMapChange();
+    }
+
+    private void PutMiniGameTwinkle(ObjectData objectData)
+    {
+        bool isObjectDataMiniGame = false;
+        string[] miniGameNames = new string[5] { "PaperGame", "SearchGame", "TimingGame", "Conversation Search", "Conversation Mixing" };
+        isObjectDataMiniGame = miniGameNames.Any(name => objectData.EventName.Contains(name));
+        if (isObjectDataMiniGame && !IsFlagsInsufficient(objectData))
+        {
+            foreach (Location loc in objectData.Location)
+            {
+                mapEngine.PutTwinkleTile(new Vector3Int(loc.Position.x, loc.Position.y, 0), mapEngine.tileMapping.ToDictionary());
+            }
+        }
     }
 }
