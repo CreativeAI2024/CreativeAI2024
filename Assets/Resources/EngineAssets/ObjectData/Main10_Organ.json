@@ -30,6 +30,10 @@
       [
         "Organ",
         false
+      ],
+      [
+        "T_room_killed",
+        true
       ]
     ]
   }
