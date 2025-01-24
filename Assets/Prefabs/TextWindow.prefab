@@ -297,7 +297,7 @@ MonoBehaviour:
   m_text: "\u672C\u6587\n\uFF11\u884C\u306B\u5168\u89D2\u6587\u5B57\u306F\u6700\u5927\uFF13\uFF10\u6587\u5B57\u307E\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\u3067\n\u6700\u5927\uFF13\u884C\u307E\u3067"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 966ea02a0780b304f9c10a523256de1f, type: 2}
-  m_sharedMaterial: {fileID: 27027204031222209, guid: 964363ad8dbd143bcb35871bb903b3ac,
+  m_sharedMaterial: {fileID: -4951279460305360542, guid: 966ea02a0780b304f9c10a523256de1f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1774,7 +1774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.4, y: 0}
+  m_AnchoredPosition: {x: 30, y: 6}
   m_SizeDelta: {x: 173.1633, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7135492464053252475
@@ -1817,10 +1817,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u540D\u524D\u540D\u524D\u540D\u524D"
+  m_text: "\u30C6\u30C3\u30BB\u30F3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 966ea02a0780b304f9c10a523256de1f, type: 2}
-  m_sharedMaterial: {fileID: 27027204031222209, guid: 964363ad8dbd143bcb35871bb903b3ac,
+  m_sharedMaterial: {fileID: -4951279460305360542, guid: 966ea02a0780b304f9c10a523256de1f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1852,7 +1852,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1884,7 +1884,7 @@ MonoBehaviour:
   m_margin: {x: 14.579712, y: 0, z: -70.12141, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8522452595365373094
