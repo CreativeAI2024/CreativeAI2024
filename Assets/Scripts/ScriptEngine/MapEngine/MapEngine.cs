@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,6 +8,7 @@ public class MapEngine : MonoBehaviour
     [SerializeField] private Tilemap frontTilemap;
     [SerializeField] private Tilemap middleTilemap;
     [SerializeField] private Tilemap backTilemap;
+    [SerializeField] private Tilemap twinkleTile;
     [SerializeField] private Tile clearTile;
     public TileMapping tileMapping;
     
@@ -77,6 +76,11 @@ public class MapEngine : MonoBehaviour
     private void PutFrontStyleTile(Vector3Int position, Dictionary<char, TileBase> tileDictionary)
     {
         PutSingleTile(frontTilemap, position, tileDictionary, mapDataController.GetStyleFrontChar(position));
+    }
+
+    public void PutTwinkleTile(Vector3Int position, Dictionary<char, TileBase> tileDictionary)
+    {
+        PutSingleTile(twinkleTile, position, tileDictionary, '?');
     }
     
     private void PutSingleTile(Tilemap tilemap, Vector3Int position, Dictionary<char, TileBase> tileDictionary, char tileChar)
