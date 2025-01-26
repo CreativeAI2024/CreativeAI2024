@@ -6,4 +6,9 @@ public class MouseHide : MonoBehaviour
     {
         Cursor.visible = false;
     }
+
+    void OnDisable()
+    {
+        Cursor.visible = true;
+    }
 }
