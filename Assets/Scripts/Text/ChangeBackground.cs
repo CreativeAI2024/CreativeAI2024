@@ -1,7 +1,9 @@
+#nullable enable
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,17 @@ public class ChangeBackground : MonoBehaviour
     [SerializeField] private Image[] images;
     Dictionary<string, Image> imagesDict = new Dictionary<string, Image>();
     Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
+    private float speakerBrightness = 1;
+    private float listenerBrightness = 0.5f;
+    private ChangeImage[]? latestChangeImages;
+    private Dictionary<string, string> speakerToSpriteDict = new Dictionary<string, string>
+    {
+        {"レイ", "Rei"},
+        {"ヒカル", "Hikaru"},
+        {"アザミ", "Azami"},
+        {"？？？", "Azami"},
+        {"テッセン", "Tessen"}
+    };
 
     public void Initialize()
     {
@@ -52,7 +65,6 @@ public class ChangeBackground : MonoBehaviour
                 {
                     ChangeSprite(imageName, spriteName);
                 }
-
             }
         }
     }
@@ -60,8 +72,47 @@ public class ChangeBackground : MonoBehaviour
     private void ChangeSprite(string image,string sprite)
     {
         imagesDict[image].sprite = spritesDict[sprite];
-        ColorUtility.TryParseHtmlString("#FFFFFFFF", out Color color);
+        UnityEngine.ColorUtility.TryParseHtmlString("#FFFFFFFF", out Color color);
         imagesDict[image].color = color;
+    }
+
+    public void HighlightSpeakerSprite(string speaker, ChangeImage[]? changeImages)
+    {
+        if (changeImages != null)
+        {
+            latestChangeImages = changeImages;
+        }
+        if (latestChangeImages != null)
+        {
+            foreach(ChangeImage latestChangeImage in latestChangeImages)
+            {
+                string imageName = latestChangeImage.ImageName;
+                string spriteName = latestChangeImage.SpriteName;
+                if (imageName.Equals("BackgroundPanel")) continue;
+                float brightnessMultiply;
+                if (spriteName.Contains(speakerToSpriteDict[speaker]))
+                {
+                    brightnessMultiply = speakerBrightness;
+                }
+                else
+                {
+                    brightnessMultiply = listenerBrightness;
+                }
+                DebugLogger.Log($"imageName: {imageName}");
+                DebugLogger.Log($"before imagesDict[imageName].color: {imagesDict[imageName].color}");
+                Color currentColor = imagesDict[imageName].color;
+                float h, s, v;
+                Color.RGBToHSV(currentColor, out h, out s, out v);
+                v = brightnessMultiply;
+                Color newColor = Color.HSVToRGB(h, s, v);
+                imagesDict[imageName].color = newColor;
+                DebugLogger.Log($"after imagesDict[imageName].color: {imagesDict[imageName].color}");
+                if (imagesDict[imageName].sprite != null)
+                {
+                    DebugLogger.Log($"imagesDict[imageName].sprite.name: {imagesDict[imageName].sprite.name}");
+                }
+            }
+        }
     }
 }
 
