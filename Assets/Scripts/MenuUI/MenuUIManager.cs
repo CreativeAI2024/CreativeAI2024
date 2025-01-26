@@ -10,6 +10,7 @@ public class MenuUIManager : DontDestroySingleton<MenuUIManager>
     {
         ConversationTextManager.Instance.OnConversationStart += menuUIPause.PauseAll;
         ConversationTextManager.Instance.OnConversationEnd += menuUIPause.UnPauseAll;
+        DebugLogger.Log("OnConversationStart/End called.");
         SceneManager.sceneLoaded += SceneLoaded;
     }
     void SceneLoaded(Scene nextScene, LoadSceneMode mode)

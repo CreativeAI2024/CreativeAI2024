@@ -11,6 +11,7 @@ public class Pause : MonoBehaviour
     {
         foreach (Behaviour behaviour in pauseScripts)
         {
+            DebugLogger.Log($"Paused Script: {behaviour.name}");
             behaviour.enabled = false;
         }
     }
@@ -19,6 +20,7 @@ public class Pause : MonoBehaviour
     {
         foreach (Behaviour behaviour in pauseScripts)
         {
+            DebugLogger.Log($"UnPaused Script: {behaviour.name}");
             behaviour.enabled = true;
         }
     }
