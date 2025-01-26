@@ -152,13 +152,14 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private void TalkDataShifter()
     {
         Content talkDataContent = talkData.Content[lineNumber];
-        if (talkDataContent.Speaker != null)
-        {
-            nameTextDrawer.DisplayNameText(talkDataContent.Speaker);
-        }
         if (talkDataContent.ChangeImage != null)
         {
             changeBackground.ChangeImages(talkDataContent.ChangeImage);
+        }
+        if (talkDataContent.Speaker != null)
+        {
+            nameTextDrawer.DisplayNameText(talkDataContent.Speaker);
+            changeBackground.HighlightSpeakerSprite(talkDataContent.Speaker, talkDataContent.ChangeImage);
         }
         if (talkDataContent.QuestionData != null)
         {
