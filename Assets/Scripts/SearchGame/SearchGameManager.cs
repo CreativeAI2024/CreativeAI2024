@@ -16,7 +16,8 @@ public class SearchGameManager : MonoBehaviour
     void Start()
     {
         _inputSetting = InputSetting.Load();
-        ConversationTextManager.Instance.ResetAction();
+        //TODO: これをコメントアウトして問題ないかチェック
+        // ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
         for (int i = 0; i < interactiveItems.Length; i++)

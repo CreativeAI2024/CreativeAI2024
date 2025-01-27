@@ -31,13 +31,23 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
 
-        ConversationTextManager.Instance.ResetAction();
+        //TODO: これがMenuUIのPauseをリセットしていた。
+        //TODO: ResetAction()をコメントアウトすると、部屋切り替え時にエラー発生。
+        // ConversationTextManager.Instance.ResetAction();
+        // DebugLogger.Log($"ConversationManager Action Reset.");
+        RemoveAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
         ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
         PlayerMove(changedPos);
+    }
+
+    private void RemoveAction()
+    {
+        ConversationTextManager.Instance.OnConversationStart -= Pause;
+        ConversationTextManager.Instance.OnConversationEnd -= UnPause;
     }
 
     private void ResetAction()

@@ -128,7 +128,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         initializeFlag = true;
         _onConversationStart?.Invoke();
-        DebugLogger.Log($"_onConversationStart will called");
+        DebugLogger.Log($"_onConversationStart called");
         contentObject.SetActive(true);
 
         lineNumber = 0;
