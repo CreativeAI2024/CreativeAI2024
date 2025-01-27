@@ -19,10 +19,17 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     private int lineNumber;
     private bool initializeFlag = false;
+    //TODO: ~~ForOEの命名を改良する
+    public event Action OnConversationStartForOE { add => _onConversationStartForOE += value; remove => _onConversationStartForOE -= value; }
+    private Action _onConversationStartForOE;
+    public event Action OnConversationEndForOE { add => _onConversationEndForOE += value; remove => _onConversationEndForOE -= value; }
+    private Action _onConversationEndForOE;
+
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
     private Action _onConversationStart;
     public event Action OnConversationEnd { add => _onConversationEnd += value; remove => _onConversationEnd -= value; }
     private Action _onConversationEnd;
+
     TalkData talkData;
 
     public override void Awake()
@@ -127,6 +134,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             return;
 
         initializeFlag = true;
+        _onConversationStartForOE?.Invoke();
         _onConversationStart?.Invoke();
         DebugLogger.Log($"_onConversationStart called");
         contentObject.SetActive(true);
@@ -226,8 +234,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     public void ResetAction()
     {
-        _onConversationStart = null;
-        _onConversationEnd = null;
+        _onConversationStartForOE = null;
+        _onConversationEndForOE = null;
     }
 
     private void EndConversation()
@@ -240,6 +248,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         initializeFlag = false;
+        _onConversationEndForOE?.Invoke();
         _onConversationEnd?.Invoke();
         if (nextTalkData != null)
         {  //会話分岐

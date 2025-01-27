@@ -33,21 +33,15 @@ public class ObjectEngine : MonoBehaviour
 
         //TODO: これがMenuUIのPauseをリセットしていた。
         //TODO: ResetAction()をコメントアウトすると、部屋切り替え時にエラー発生。
-        // ConversationTextManager.Instance.ResetAction();
+        ConversationTextManager.Instance.ResetAction();
         // DebugLogger.Log($"ConversationManager Action Reset.");
-        RemoveAction();
-        ConversationTextManager.Instance.OnConversationStart += Pause;
-        ConversationTextManager.Instance.OnConversationEnd += UnPause;
-        ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
+        ConversationTextManager.Instance.OnConversationStartForOE += Pause;
+        ConversationTextManager.Instance.OnConversationEndForOE += UnPause;
+        DebugLogger.Log("Action Readded.");
+        ConversationTextManager.Instance.OnConversationEndForOE += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
         PlayerMove(changedPos);
-    }
-
-    private void RemoveAction()
-    {
-        ConversationTextManager.Instance.OnConversationStart -= Pause;
-        ConversationTextManager.Instance.OnConversationEnd -= UnPause;
     }
 
     private void ResetAction()
@@ -256,7 +250,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "TimingGame":
                 DebugLogger.Log("TimingGame", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStart -= Pause;
+                ConversationTextManager.Instance.OnConversationStartForOE -= Pause;
                 changedPos = new Vector2Int(player.GetGridPosition().x, player.GetGridPosition().y);
                 await SceneChange("TimingGame");
                 break;
@@ -269,7 +263,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "GoToEndScene":
                 DebugLogger.Log("GoToEndScene", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStart -= Pause;
+                ConversationTextManager.Instance.OnConversationStartForOE -= Pause;
                 pause.PauseReset();
                 await SceneChange("Ending");
                 break;
