@@ -4,29 +4,15 @@
     {
       "MapName": "tessen_room",
       "Position": [
-        0,
-        6
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        0,
-        7
+        1,
+        4
       ]
     },
     {
       "MapName": "tessen_room_kill",
       "Position": [
-        0,
-        6
-      ]
-    },
-    {
-      "MapName": "tessen_room_kill",
-      "Position": [
-        0,
-        7
+        1,
+        4
       ]
     }
   ],
