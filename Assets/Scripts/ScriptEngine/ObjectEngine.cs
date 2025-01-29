@@ -31,14 +31,11 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
 
-        //TODO: これがMenuUIのPauseをリセットしていた。
-        //TODO: ResetAction()をコメントアウトすると、部屋切り替え時にエラー発生。
         ConversationTextManager.Instance.ResetAction();
-        // DebugLogger.Log($"ConversationManager Action Reset.");
-        ConversationTextManager.Instance.OnConversationStartForOE += Pause;
-        ConversationTextManager.Instance.OnConversationEndForOE += UnPause;
+        ConversationTextManager.Instance.OnConversationStartForObjectEngine += Pause;
+        ConversationTextManager.Instance.OnConversationEndForObjectEngine += UnPause;
         DebugLogger.Log("Action Readded.");
-        ConversationTextManager.Instance.OnConversationEndForOE += () => conversationFlag = false;
+        ConversationTextManager.Instance.OnConversationEndForObjectEngine += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
         PlayerMove(changedPos);
@@ -250,7 +247,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "TimingGame":
                 DebugLogger.Log("TimingGame", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStartForOE -= Pause;
+                ConversationTextManager.Instance.OnConversationStartForObjectEngine -= Pause;
                 changedPos = new Vector2Int(player.GetGridPosition().x, player.GetGridPosition().y);
                 await SceneChange("TimingGame");
                 break;
@@ -263,7 +260,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "GoToEndScene":
                 DebugLogger.Log("GoToEndScene", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStartForOE -= Pause;
+                ConversationTextManager.Instance.OnConversationStartForObjectEngine -= Pause;
                 pause.PauseReset();
                 await SceneChange("Ending");
                 break;

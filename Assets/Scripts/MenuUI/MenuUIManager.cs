@@ -8,8 +8,6 @@ public class MenuUIManager : DontDestroySingleton<MenuUIManager>
     public Pause PlayerPause => playerPause;
     private void Start()
     {
-        //TODO: 他に以下の処理が成功している例は見つからなかった。
-
         ConversationTextManager.Instance.OnConversationStart += menuUIPause.PauseAll;
         ConversationTextManager.Instance.OnConversationEnd += menuUIPause.UnPauseAll;
         DebugLogger.Log("OnConversationStart/End called.");

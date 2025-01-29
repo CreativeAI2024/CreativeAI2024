@@ -20,10 +20,10 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private int lineNumber;
     private bool initializeFlag = false;
     //TODO: ~~ForOEの命名を改良する
-    public event Action OnConversationStartForOE { add => _onConversationStartForOE += value; remove => _onConversationStartForOE -= value; }
-    private Action _onConversationStartForOE;
-    public event Action OnConversationEndForOE { add => _onConversationEndForOE += value; remove => _onConversationEndForOE -= value; }
-    private Action _onConversationEndForOE;
+    public event Action OnConversationStartForObjectEngine { add => _onConversationStartForObjectEngine += value; remove => _onConversationStartForObjectEngine -= value; }
+    private Action _onConversationStartForObjectEngine;
+    public event Action OnConversationEndForObjectEngine { add => _onConversationEndForObjectEngine += value; remove => _onConversationEndForObjectEngine -= value; }
+    private Action _onConversationEndForObjectEngine;
 
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
     private Action _onConversationStart;
@@ -134,7 +134,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             return;
 
         initializeFlag = true;
-        _onConversationStartForOE?.Invoke();
+        _onConversationStartForObjectEngine?.Invoke();
         _onConversationStart?.Invoke();
         DebugLogger.Log($"_onConversationStart called");
         contentObject.SetActive(true);
@@ -234,8 +234,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     public void ResetAction()
     {
-        _onConversationStartForOE = null;
-        _onConversationEndForOE = null;
+        _onConversationStartForObjectEngine = null;
+        _onConversationEndForObjectEngine = null;
     }
 
     private void EndConversation()
@@ -248,7 +248,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         initializeFlag = false;
-        _onConversationEndForOE?.Invoke();
+        _onConversationEndForObjectEngine?.Invoke();
         _onConversationEnd?.Invoke();
         if (nextTalkData != null)
         {  //会話分岐
