@@ -32,85 +32,8 @@
     {
       "MapName": "tessen_room",
       "Position": [
-        8,
-        5
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        9,
-        5
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        10,
-        5
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        11,
-        5
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        8,
-        6
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        11,
-        6
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        8,
-        7
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        11,
-        7
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        8,
-        8
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        9,
-        8
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        10,
-        8
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        11,
-        8
+        -1,
+        -1
       ]
     }
   ],

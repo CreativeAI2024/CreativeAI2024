@@ -12,10 +12,10 @@
                     "ImageName": "LeftPanel",
                     "SpriteName": "Rei"
                 }
-            ],
-            "BGM":"IntenseDest"
+            ]
         },
         {
+            "Speaker": "アザミ",
             "Text":"「早くここから出るぞ」"
         },
         {
@@ -57,53 +57,13 @@
                     "SpriteName":"Black"
                 }
             ],
-            "SE":"destroythings"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「............」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「........................しろ！」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "おい、しっかりしろ！",
-            "ChangeImage": [
+            "BGM":"IntenseDest",
+            "SE":"destroythings",
+            "QuestionData": [
                 {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "Azami_0"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "Rei"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"void"
+	                "NextTalkData":"Main4_1"
                 }
             ]
-        },
-        {
-            "Speaker": "レイ",
-            "Text": "「......！」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「どうだ？少しは落ち着いたか？」"
-        },
-        {
-            "Speaker": "レイ",
-            "Text": "「......うん」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「精神がおかしくなっているんだろう。この世界の影響を強く受けてしまっている」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「残りの材料もあと一つだ。それまで耐えてくれよ」"
         }
     ]
 }
