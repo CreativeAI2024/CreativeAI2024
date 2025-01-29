@@ -202,6 +202,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303063825}
   m_CullTransparentMesh: 1
+--- !u!114 &339656207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4026023008907123780, guid: 582dcb683345148abb97df144af58bb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 375933732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b265d2ecc4a0dfe46a5ec55248829caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &375933732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -315,6 +327,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8994882899513647105, guid: 582dcb683345148abb97df144af58bb1,
+        type: 3}
+      propertyPath: volumeControllerPause
+      value: 
+      objectReference: {fileID: 1323693279}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1406,6 +1423,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 988459842806107227, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: menuUIPause
+      value: 
+      objectReference: {fileID: 339656207}
     - target: {fileID: 2283307419357181433, guid: 809807c4accd19b47b70f38399921f72,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1766,6 +1788,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809807c4accd19b47b70f38399921f72, type: 3}
+--- !u!114 &1323693279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4244217392764673549, guid: 809807c4accd19b47b70f38399921f72,
+    type: 3}
+  m_PrefabInstance: {fileID: 1323693278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b265d2ecc4a0dfe46a5ec55248829caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1337973637
 PrefabInstance:
   m_ObjectHideFlags: 0

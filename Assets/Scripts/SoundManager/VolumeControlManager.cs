@@ -7,6 +7,7 @@ public class VolumeControlManager : MonoBehaviour
 {
     [SerializeField] private GameObject volumeControlObject;
     private Pause playerPause;
+    [SerializeField] private Pause menuUIPause;
 
     void Start()
     {
@@ -37,11 +38,13 @@ public class VolumeControlManager : MonoBehaviour
         if (volumeControlObject.activeSelf)
         {
             playerPause.UnPauseAll();
+            menuUIPause.UnPauseAll();
             DebugLogger.Log("パネルを非表示にします");
         }
         else
         {
             playerPause.PauseAll();
+            menuUIPause.PauseAll();
             DebugLogger.Log("パネルを表示します");
         }
         volumeControlObject.SetActive(!volumeControlObject.activeSelf);

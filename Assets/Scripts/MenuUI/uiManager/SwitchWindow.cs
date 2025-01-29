@@ -5,6 +5,7 @@ public class SwitchWindow : MonoBehaviour
     private InputSetting _inputSetting;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private FollowFocusedButton followFocusedButton;
+    [SerializeField] private Pause volumeControllerPause;
 
     void Start()
     {
@@ -18,11 +19,13 @@ public class SwitchWindow : MonoBehaviour
             if (menuUI.activeInHierarchy)
             {
                 SetWindowActive(false);
+                volumeControllerPause.UnPauseAll();
                 MenuUIManager.Instance.PlayerPause.UnPauseAll();
             }
             else
             {
                 SetWindowActive(true);
+                volumeControllerPause.PauseAll();
                 MenuUIManager.Instance.PlayerPause.PauseAll();
             }
         }
