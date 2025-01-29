@@ -16,10 +16,17 @@ public class InteractObject : MonoBehaviour
     }
     void Update()
     {
-        if (!isFocused) return;
         if (_inputSetting.GetDecideInputDown() || Input.GetMouseButtonDown(0))
         {
-            effect.PlayEffect();
+            if (!isFocused)
+            {
+                SoundManager.Instance.PlaySE(6);
+            }
+            else
+            {
+                effect.PlayEffect();
+                SoundManager.Instance.PlaySE(4);
+            }
         }
     }
     void OnTriggerEnter2D(Collider2D other)
