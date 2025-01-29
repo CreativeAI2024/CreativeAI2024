@@ -19,7 +19,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     private int lineNumber;
     private bool initializeFlag = false;
-    //TODO: ~~ForOEの命名を改良する
     public event Action OnConversationStartForObjectEngine { add => _onConversationStartForObjectEngine += value; remove => _onConversationStartForObjectEngine -= value; }
     private Action _onConversationStartForObjectEngine;
     public event Action OnConversationEndForObjectEngine { add => _onConversationEndForObjectEngine += value; remove => _onConversationEndForObjectEngine -= value; }
