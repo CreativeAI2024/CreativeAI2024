@@ -32,9 +32,14 @@
     ],
     "NextFlag": [
       [
+        "Azami_Talk1",
+        false
+      ],
+      [
         "Azami_Talk2",
         true
       ]
     ]
+
   }
 }

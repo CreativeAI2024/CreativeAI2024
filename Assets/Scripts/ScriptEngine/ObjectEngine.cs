@@ -140,6 +140,10 @@ public class ObjectEngine : MonoBehaviour
                 runFlag = false;
                 foreach (ObjectData aroundObjectData in aroundObjectDatas)
                 {
+                    if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
+                    {
+                        continue;
+                    }
                     await Call(aroundObjectData, 1, 2);
                 }
 
@@ -189,6 +193,10 @@ public class ObjectEngine : MonoBehaviour
             {
                 return; // continue;
             }
+            if (objectData.EventName.Contains("Conversation") && ConversationTextManager.Instance.transform.GetChild(0).gameObject.activeInHierarchy)
+            {
+                return;
+            }
             runFlag = true;
             await CallEvent(eventName);
         }
@@ -227,7 +235,12 @@ public class ObjectEngine : MonoBehaviour
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
                 conversationFlag = true;
-                Conversation(eventArgs[1]);
+                // DebugLogger.Log($"aaa ContentObject: {ConversationTextManager.Instance.transform.GetChild(0).gameObject.activeInHierarchy}");
+                // DebugLogger.Log($"aaa IsAllowCall: {ConversationTextManager.Instance.IsAllowCall}");
+                // if (!ConversationTextManager.Instance.transform.GetChild(0).gameObject.activeInHierarchy)
+                // {
+                    Conversation(eventArgs[1]);
+                // }
                 await UniTask.WaitUntil(() => !conversationFlag);
                 break;
             case "GetItem":
