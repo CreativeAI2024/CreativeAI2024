@@ -5,18 +5,11 @@
       "MapName": "tessen_room",
       "Position": [
         2,
-        6
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        2,
-        7
+        4
       ]
     }
   ],
-  "EventName": "ChangeScene tessen_room_kill,1,6",
+  "EventName": "ChangeScene tessen_room_kill,2,4",
   "TriggerType": 4,
   "FlagCondition": {
     "Flag": [
