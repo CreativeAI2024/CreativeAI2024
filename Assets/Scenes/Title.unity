@@ -1445,12 +1445,12 @@ PrefabInstance:
     - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
         type: 3}
       propertyPath: audioClipsSE.Array.size
-      value: 55
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
         type: 3}
       propertyPath: audioClipsBGM.Array.size
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
         type: 3}
