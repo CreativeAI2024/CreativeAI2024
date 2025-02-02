@@ -55,6 +55,8 @@ public class PaperMove : MonoBehaviour, IDragHandler, IBeginDragHandler
 
         _imageSize.x = spriteRect.width;  // 画像のサイズ（幅、高さ）を取得
         _imageSize.y = spriteRect.height;  // 画像のサイズ（幅、高さ）を取得
+
+        SoundManager.Instance.PlayBGM(0);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
