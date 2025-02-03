@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class ObjectEngine : MonoBehaviour
 {
@@ -130,6 +131,7 @@ public class ObjectEngine : MonoBehaviour
     */
     private async void Update()
     {
+        DebugLogger.Log("aaa Update() start.--------------------");
         if (conversationFlag || changeSceneFlag) return;
         if (_inputSetting.GetDecideInputDown())
         {
@@ -144,6 +146,7 @@ public class ObjectEngine : MonoBehaviour
                     {
                         continue;
                     }
+                    DebugLogger.Log($"aaa Call(aroundObjectData, 1, 2): {aroundObjectData.EventName}");
                     await Call(aroundObjectData, 1, 2);
                 }
 
@@ -153,6 +156,7 @@ public class ObjectEngine : MonoBehaviour
             List<ObjectData> centerObjectDatas = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
             foreach (ObjectData centerObjectData in centerObjectDatas)
             {
+                DebugLogger.Log($"aaa Call(centerObjectData, 2, 3): {centerObjectData.EventName}");
                 await Call(centerObjectData, 2, 3);
             }
         }
@@ -162,6 +166,7 @@ public class ObjectEngine : MonoBehaviour
         _pastGridPosition = player.GetGridPosition();
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
+            DebugLogger.Log($"aaa Call(trapObjectData, 0, 4): {trapObjectData.EventName}");
             await Call(trapObjectData, 0, 4);
         }
     }

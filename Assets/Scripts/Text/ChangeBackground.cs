@@ -98,18 +98,18 @@ public class ChangeBackground : MonoBehaviour
                 {
                     brightnessMultiply = listenerBrightness;
                 }
-                DebugLogger.Log($"imageName: {imageName}");
-                DebugLogger.Log($"before imagesDict[imageName].color: {imagesDict[imageName].color}");
+                // DebugLogger.Log($"imageName: {imageName}");
+                // DebugLogger.Log($"before imagesDict[imageName].color: {imagesDict[imageName].color}");
                 Color currentColor = imagesDict[imageName].color;
                 float h, s, v;
                 Color.RGBToHSV(currentColor, out h, out s, out v);
                 v = brightnessMultiply;
                 Color newColor = Color.HSVToRGB(h, s, v);
                 imagesDict[imageName].color = newColor;
-                DebugLogger.Log($"after imagesDict[imageName].color: {imagesDict[imageName].color}");
+                // DebugLogger.Log($"after imagesDict[imageName].color: {imagesDict[imageName].color}");
                 if (imagesDict[imageName].sprite != null)
                 {
-                    DebugLogger.Log($"imagesDict[imageName].sprite.name: {imagesDict[imageName].sprite.name}");
+                    // DebugLogger.Log($"imagesDict[imageName].sprite.name: {imagesDict[imageName].sprite.name}");
                 }
             }
         }
