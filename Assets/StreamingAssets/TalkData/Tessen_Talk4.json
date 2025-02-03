@@ -2,7 +2,7 @@
   "Content": [
     {
       "Speaker": "テッセン",
-      "Text": "「レイ」",
+      "Text": "「やぁ、またココの部屋に来てくれたね。」",
       "ChangeImage": [
         {
             "ImageName": "LeftPanel",
@@ -17,18 +17,18 @@
     },
     {
       "Speaker": "レイ",
-      "Text": "「！？......ああ」"
+      "Text": "「.........う...うん。」"
     },
     {
       "Speaker": "テッセン",
-      "Text": "「調子はどうかな？」",
+      "Text": "「身体の具合はどうかな？」",
       "QuestionData": [
         {
-          "Answer": "悪くないよ",
+          "Answer": "悪くないよ。",
           "NextTalkData": "Tessen_Talk4_1"
         },
         {
-          "Answer": "あまり良くないかも",
+          "Answer": "あまり良くないかも。",
           "NextTalkData": "Tessen_Talk4_2"
         },
         {

@@ -1,12 +1,12 @@
 {
     "Content": [
         {
-            "Speaker": "レイ",
-            "Text": "「ヒカルー、この服ヒカルに似合いそうじゃない？」",
+            "Speaker": "ヒカル",
+            "Text": "「今日の部活、最後の先生の話めっちゃ長くなかったっすか！？」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "void"
+                    "SpriteName": "Hikaru"
                 },
                 {
                     "ImageName": "LeftPanel",
@@ -17,43 +17,56 @@
                     "SpriteName":"Black"
                 }
             ],
-            "BGM":"ordinaryfun"
-        },
-        {
-            "Speaker": "ヒカル",
-            "Text": "「えー！まじっすか？ワンピースなんて全然着たことないけど......」"
+            "BGM": "ordinaryfun"
         },
         {
             "Speaker": "レイ",
-            "Text": "「そうなの？じゃあ、これは？」"
+            "Text": "「帰るの30分も遅れたもんね。」",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ]
         },
         {
             "Speaker": "ヒカル",
-            "Text": "「あ、これならアタシでも着れそう！」"
+            "Text": "「ほんと、勘弁してほしいっすよね～。」"
         },
         {
             "Speaker": "ヒカル",
-            "Text": "「鏡どこだろ......？」"
+            "Text": "「...........ん...？」",
+            "BGM": "void"
         },
         {
             "Speaker": "レイ",
-            "Text": "「あ、コッチに姿見あるよ」"
+            "Text": "「......ヒカル？どうしたの？」"
         },
         {
             "Speaker": "ヒカル",
-            "Text": "「ほんとだ！どれどれ......？」"
+            "Text": "「...ぁ、いや、えっと......こんなところに鏡なんてありましたっけ？」",
+            "BGM": "MysteryConfFear"
         },
         {
-            "Text": "2人が姿見に近づく。"
+            "Text": "ヒカルの視線を追うと、そこには頭からつま先まで映るほどの鏡があった。",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
+                }
+            ]
         },
         {
-            "Text": "",
-            "BGM":"void",
-            "SE":"strongwind2"
-        },
-        {
-            "Speaker":"ヒカル",
-            "Text":"「......先輩？......先輩！起きてくださいよ！先輩！」",
+            "Speaker": "レイ",
+            "Text": "「あれ？ほんとだ。朝通ったときは無かった気がするけどな。」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -65,6 +78,86 @@
                 },
                 {
                     "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「なんかちょっとホラーっぽいね。\n　もしかしたら鏡の中から何か覗いてたりして。」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「ちょっと！先輩！やめてくださいよ！！\n　本当にいたらどうするんすか！！！」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「あはは、ごめんごめん。」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「はぁ～、なんか今日は疲れたな。部活、ちょっと頑張りすぎたかな。」"
+        },
+        {   "Speaker": "レイ",
+            "Text": "「すっごく眠たい...　まぶたが......重...い...」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「先輩？大丈夫っすか？\n　あれ、たしかにちょっと眠いかも...やば...」"
+        },
+        {
+            "Text": "その瞬間、抗いがたい強い眠気に襲われ\n闇に包まれるように意識を失った。",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
+                }
+            ],
+            "BGM":"void",
+            "SE":"strongwind2"
+        },
+        {
+            "Text": ".............."
+        },
+        {
+            "Text": ".............."
+        },
+        {
+            "Text": ".............."
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「......先輩？......先輩！起きてくださいよ！先輩！」"
+            
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「...........ん...？」",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ]
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「先輩！この場所がどこだか分かるっすか...？」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Hikaru"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
                     "SpriteName":"void"
                 }
             ],
@@ -72,36 +165,24 @@
             "SE":"void"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「............うん......？」"
+            "Speaker": "レイ",
+            "Text": "「どこ、ここ...？全然知らない場所...。」"
         },
         {
-            "Speaker":"ヒカル",
-            "Text":"「......この場所がどこなのか、先輩分かるっすか......？」"
+            "Speaker": "レイ",
+            "Text": "「学校からの帰り道で急に眠くなって......\n　そのまま倒れちゃったんだ。」"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「どこかって......、なにこの部屋......。全然見覚えないよ」"
+            "Speaker": "ヒカル",
+            "Text": "「う～ん...とりあえずここ以外にも部屋とかありそうだし\n　色々調べてみます？」"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「......ヒカルと服を見てて、鏡の前に行って、それから......」"
+            "Speaker": "レイ",
+            "Text": "「すごいね。ヒカル、落ち着いてて。」"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「あーもう、その後の記憶が全くないや......」"
-        },
-        {
-            "Speaker":"ヒカル",
-            "Text":"「とにかく調べてみるしかなさそうっすね......」"
-        },
-        {
-            "Speaker":"レイ",
-            "Text":"「ヒカル、怖がりな癖に平静を装わなくても......」"
-        },
-        {
-            "Speaker":"ヒカル",
-            "Text":"「いや全然怖いし！？こんな危険そうな場所、とっとと出てって家に帰るんすよ！！」"
+            "Speaker": "ヒカル",
+            "Text": "「いや全然怖いし！？\n　こんな危険そうな場所、とっとと出てって家に帰るんすよ！！」"
         }
     ]
 }

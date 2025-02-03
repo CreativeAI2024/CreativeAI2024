@@ -114,7 +114,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main3 | TileModify mirror_room Tiles 5,2 -",
+  "EventName": "Conversation Main3 | ChangeScene mirror_room,4,2",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
@@ -136,10 +136,6 @@
       ]
     ],
     "NextFlag": [
-      [
-        "Symptoms1",
-        false
-      ],
       [
         "Hikaru_Dead",
         true
