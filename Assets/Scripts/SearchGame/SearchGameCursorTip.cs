@@ -69,6 +69,7 @@ public class SearchGameCursorTip : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         cursor.SetIsFocusing(true);
+        SoundManager.Instance.PlaySE(5);
     }
     void OnTriggerExit2D(Collider2D other)
     {
