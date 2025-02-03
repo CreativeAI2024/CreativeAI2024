@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -547,6 +547,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529066608}
   m_CullTransparentMesh: 1
+--- !u!82 &553380211 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8234234183171575846, guid: 809807c4accd19b47b70f38399921f72,
+    type: 3}
+  m_PrefabInstance: {fileID: 1323693278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &617126530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,8 +1439,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
         type: 3}
+      propertyPath: audioSourceSE
+      value: 
+      objectReference: {fileID: 553380211}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
       propertyPath: audioClipsSE.Array.size
-      value: 53
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
         type: 3}
@@ -1760,7 +1771,32 @@ PrefabInstance:
         type: 3}
       propertyPath: audioClipsSE.Array.data[53]
       value: 
-      objectReference: {fileID: 8300000, guid: dcd4856685b08fe4190c8f8462634220, type: 3}
+      objectReference: {fileID: 8300000, guid: 0454975c7201c884c9528ea24b310298, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsSE.Array.data[54]
+      value: 
+      objectReference: {fileID: 8300000, guid: adf4c9560e103fb45a5412d08ddd777d, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsSE.Array.data[55]
+      value: 
+      objectReference: {fileID: 8300000, guid: a250c2a07ebd0c949a34a6bf41a5322b, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsSE.Array.data[56]
+      value: 
+      objectReference: {fileID: 8300000, guid: a250c2a07ebd0c949a34a6bf41a5322b, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsSE.Array.data[57]
+      value: 
+      objectReference: {fileID: 8300000, guid: a250c2a07ebd0c949a34a6bf41a5322b, type: 3}
+    - target: {fileID: 9152245797625783924, guid: 809807c4accd19b47b70f38399921f72,
+        type: 3}
+      propertyPath: audioClipsBGM.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: adf4c9560e103fb45a5412d08ddd777d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

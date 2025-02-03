@@ -25,6 +25,10 @@ public class TimingGame : MonoBehaviour
     {
         if (timeSchedule >= 0)
         {
+            if (_inputSetting.GetDecideInputDown())
+            {
+                SoundManager.Instance.PlaySE(2);
+            }
             if (_inputSetting.GetDecideInput())
             {
                 timingSlider.AscendSlider();
@@ -35,6 +39,9 @@ public class TimingGame : MonoBehaviour
                 SaveScore();
                 timingSlider.SliderStop();
                 timeSchedule = -2.0f;
+                SoundManager.Instance.StopSE();
+                SoundManager.Instance.PlaySE(0);
+
             }
         }else if(-0.1f < timeSchedule && timeSchedule < -0.05f)
         {
@@ -85,6 +92,7 @@ public class TimingGame : MonoBehaviour
         {
             timingGameItem.ConsumeItem(timingGameNumber);
             timingGameJudge.JudgeScore(CalcScoreAverage());
+            SoundManager.Instance.PlaySE(53);
             DebugLogger.Log($"result:{Convert.ToString(CalcScoreAverage())}:{timingGameNumber}");
             FlagManager.Instance.DeleteFlag("StartTimingGame1");
             FlagManager.Instance.DeleteFlag("StartTimingGame2");

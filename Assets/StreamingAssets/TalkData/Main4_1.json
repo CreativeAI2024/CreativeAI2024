@@ -1,64 +1,38 @@
 {
-    "Content": [
+  "Content": [
+    {
+      "Speaker": "レイ",
+      "Text": "「......！」",
+      "ChangeImage": [
         {
-            "Speaker": "アザミ",
-            "Text": "「............」",
-            "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
-                }
-            ]
+          "ImageName": "RightPanel",
+          "SpriteName": "Azami_0"
         },
         {
-            "Speaker": "アザミ",
-            "Text": "「........................しろ！」"
+          "ImageName": "LeftPanel",
+          "SpriteName": "Rei"
         },
         {
-            "Speaker": "アザミ",
-            "Text": "おい、しっかりしろ！",
-            "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "Azami_0"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "Rei"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"void"
-                }
-            ]
-        },
-        {
-            "Speaker": "レイ",
-            "Text": "「......！」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「どうだ？少しは落ち着いたか？」"
-        },
-        {
-            "Speaker": "レイ",
-            "Text": "「......うん」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「精神がおかしくなっているんだろう。この世界の影響を強く受けてしまっている」"
-        },
-        {
-            "Speaker": "アザミ",
-            "Text": "「残りの材料もあと一つだ。それまで耐えてくれよ」"
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "void"
         }
-    ]
+      ]
+    },
+    {
+      "Speaker": "アザミ",
+      "Text": "「どうだ？少しは落ち着いたか？」"
+    },
+    {
+      "Speaker": "レイ",
+      "Text": "「......うん」"
+    },
+    {
+      "Speaker": "アザミ",
+      "Text": "「精神がおかしくなっているんだろう。この世界の影響を強く受けてしまっている」"
+    },
+    {
+      "Speaker": "アザミ",
+      "Text": "「残りの材料もあと一つだ。それまで耐えてくれよ」"
+    }
+  ]
 }
