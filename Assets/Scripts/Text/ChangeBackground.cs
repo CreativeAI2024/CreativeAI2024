@@ -49,7 +49,6 @@ public class ChangeBackground : MonoBehaviour
     public void ChangeImages(ChangeImage[] changeImages)
     {
         // 各スプライトと画像の名前を初期化
-        //for (int i = 0; i < changeImage.Length; i++)
         foreach(var changeImage in changeImages) 
         {
             string imageName = changeImage.ImageName;
@@ -100,9 +99,8 @@ public class ChangeBackground : MonoBehaviour
                     brightnessMultiply = listenerBrightness;
                 }
                 Color currentColor = imagesDict[imageName].color;
-                float h, s, v;
-                Color.RGBToHSV(currentColor, out h, out s, out v);
-                v = brightnessMultiply;
+                Color.RGBToHSV(currentColor, out float h, out float s, out _);
+                float v = brightnessMultiply;
                 Color newColor = Color.HSVToRGB(h, s, v);
                 imagesDict[imageName].color = newColor;
             }
