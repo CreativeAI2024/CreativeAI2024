@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "EventName": "ChangeScene tessen_room,1,6",
+  "EventName": "ChangeScene tessen_room,1,4",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
