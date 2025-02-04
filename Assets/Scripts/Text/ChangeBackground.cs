@@ -11,6 +11,7 @@ public class ChangeBackground : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private Image[] images;
+    [SerializeField] private Sprite voidImage;
     Dictionary<string, Image> imagesDict = new Dictionary<string, Image>();
     Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
     private float speakerBrightness = 1;
@@ -32,6 +33,8 @@ public class ChangeBackground : MonoBehaviour
             for (int i = 0; i < images.Length; i++)
             {
                 imagesDict.Add(images[i].name, images[i]);
+                if (images[i].name.Equals("BackgroundPanel")) continue;
+                ChangeBrightness(images[i].name, listenerBrightness);
             }
             for (int i = 0; i < sprites.Length; i++)
             {
@@ -41,7 +44,7 @@ public class ChangeBackground : MonoBehaviour
         
         for (int i = 0; i < images.Length; i++)
         {
-            images[i].sprite = null;
+            images[i].sprite = voidImage;
             images[i].color = Color.clear;
         }
     }
@@ -75,36 +78,31 @@ public class ChangeBackground : MonoBehaviour
         imagesDict[image].color = color;
     }
 
-    public void HighlightSpeakerSprite(string speaker, ChangeImage[]? changeImages)
+    public void HighlightSpeakerSprite(string? speaker, ChangeImage[]? changeImages)
     {
-        if (changeImages != null)
+        speaker ??= "";
+        latestChangeImages = changeImages ?? latestChangeImages;
+        if (latestChangeImages == null) return;
+
+        foreach(ChangeImage latestChangeImage in latestChangeImages)
         {
-            latestChangeImages = changeImages;
+            string imageName = latestChangeImage.ImageName;
+            string spriteName = latestChangeImage.SpriteName;
+            if (imageName.Equals("BackgroundPanel")) continue;
+            ChangeBrightness(imageName, SelectBrightness(speaker, spriteName));
         }
-        if (latestChangeImages != null)
-        {
-            foreach(ChangeImage latestChangeImage in latestChangeImages)
-            {
-                string imageName = latestChangeImage.ImageName;
-                string spriteName = latestChangeImage.SpriteName;
-                if (imageName.Equals("BackgroundPanel")) continue;
-                if (!speakerToSpriteDict.ContainsKey(speaker)) continue;
-                float brightnessMultiply;
-                if (spriteName.Contains(speakerToSpriteDict[speaker]))
-                {
-                    brightnessMultiply = speakerBrightness;
-                }
-                else
-                {
-                    brightnessMultiply = listenerBrightness;
-                }
-                Color currentColor = imagesDict[imageName].color;
-                Color.RGBToHSV(currentColor, out float h, out float s, out _);
-                float v = brightnessMultiply;
-                Color newColor = Color.HSVToRGB(h, s, v);
-                imagesDict[imageName].color = newColor;
-            }
-        }
+    }
+
+    private float SelectBrightness(string speaker, string spriteName)
+    {
+        return (speakerToSpriteDict.ContainsKey(speaker) && spriteName.Contains(speakerToSpriteDict[speaker])) ? speakerBrightness : listenerBrightness;
+    }
+    private void ChangeBrightness(string imageName, float brightness)
+    {
+        Color currentColor = imagesDict[imageName].color;
+        Color.RGBToHSV(currentColor, out float h, out float s, out _);
+        Color newColor = Color.HSVToRGB(h, s, brightness);
+        imagesDict[imageName].color = newColor;
     }
 }
 

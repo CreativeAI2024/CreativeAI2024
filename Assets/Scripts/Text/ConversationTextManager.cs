@@ -159,8 +159,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         if (talkDataContent.Speaker != null)
         {
             nameTextDrawer.DisplayNameText(talkDataContent.Speaker);
-            changeBackground.HighlightSpeakerSprite(talkDataContent.Speaker, talkDataContent.ChangeImage);
         }
+        changeBackground.HighlightSpeakerSprite(talkDataContent.Speaker, talkDataContent.ChangeImage);
         if (talkDataContent.QuestionData != null)
         {
             question.DisplayQuestion(talkDataContent.QuestionData);
