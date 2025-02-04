@@ -1,9 +1,0 @@
-[image]void^TestPanel1|void^TestPanel2:こちらが会話ウィンドウのサンプルになります。基本的な動作は安定して行えるはずです。
-また、TextMeshProではリッチテキストタグが利用できます。<size=50>このように</size>文字を大きくしたり、<color=red>赤く</color>できたり、様々な工夫が出来ます。
-[image]bluePop^Panel:背景画像の変更が可能になりました。
-また、TextMeshProRubyという一般に公開されているScriptを用いることで、<r=かんたん>簡単</r>にルビ振りすることも可能です。
-[speaker]名前表示:加えて、名前表示することもできます。
-[speaker]<size=24>名前を入力してください</size>:[image]pileShape^Panel|1nomal^TestPanel1|2NG^TestPanel2:テキストを入力してください。
-[image]3smile^TestPanel1|4suspect^TestPanel2:テキストを入力してください。その2
-[image]5bewilder^TestPanel1|6exite^TestPanel2:テキストを入力してください。その3
-[image]blueTide^Panel|3smile^TestPanel1|3smile^TestPanel2:[question]yes^1|no^2|wow^3|wow^4:[speaker]最後に:選択肢の表示もできます。
