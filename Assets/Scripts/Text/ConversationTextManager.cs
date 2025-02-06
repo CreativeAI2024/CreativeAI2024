@@ -25,6 +25,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private Action _onConversationStart;
     public event Action OnConversationEnd { add => _onConversationEnd += value; remove => _onConversationEnd -= value; }
     private Action _onConversationEnd;
+
     TalkData talkData;
 
     public override void Awake()
@@ -130,7 +131,9 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             return;
 
         initializeFlag = true;
+        // _onConversationStartForObjectEngine?.Invoke();
         _onConversationStart?.Invoke();
+        DebugLogger.Log($"_onConversationStart called");
         contentObject.SetActive(true);
 
         lineNumber = 0;
@@ -162,8 +165,9 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         if (talkDataContent.Speaker != null)
         {
             nameTextDrawer.DisplayNameText(talkDataContent.Speaker);
-            changeBackground.HighlightSpeakerSprite(talkDataContent.Speaker, talkDataContent.ChangeImage);
         }
+        talkDataContent.Speaker ??= "";
+        changeBackground.HighlightSpeakerSprite(talkDataContent.Speaker);
         if (talkDataContent.QuestionData != null)
         {
             question.DisplayQuestion(talkDataContent.QuestionData);
@@ -242,6 +246,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         initializeFlag = false;
+        // _onConversationEndForObjectEngine?.Invoke();
         _onConversationEnd?.Invoke();
         if (nextTalkData != null)
         {  //会話分岐

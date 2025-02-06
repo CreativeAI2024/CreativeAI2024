@@ -32,9 +32,10 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
 
-        ConversationTextManager.Instance.ResetAction();
+        // ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
+        DebugLogger.Log("Action Readded.");
         ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
@@ -236,6 +237,8 @@ public class ObjectEngine : MonoBehaviour
                 string[] args = eventArgs[1].Split(',');
                 changedPos = new Vector2Int(int.Parse(args[1]), int.Parse(args[2]));
                 await SceneChange(args[0]);
+                ConversationTextManager.Instance.OnConversationStart -= Pause;
+                ConversationTextManager.Instance.OnConversationEnd -= UnPause;
                 break;
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);

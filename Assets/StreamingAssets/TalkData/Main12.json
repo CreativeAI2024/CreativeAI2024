@@ -1,55 +1,31 @@
 {
-    "Content":[
+    "Content": [
         {
-            "Speaker":"レイ",
-            "Text":"「今度こそ、できた......」",
+            "Speaker": "レイ",
+            "Text": "「これで2人分の薬になった.......？」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
-                    "SpriteName": "Azami_1"
+                    "SpriteName": "void"
                 },
                 {
                     "ImageName": "LeftPanel",
                     "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
                 }
             ],
-            "BGM":"Joy"
+            "BGM": "Joy"
         },
         {
-            "Speaker":"アザミ",
-            "Text":"「出来たって......もう一つ薬ができたのか？......どうやって......」"
+            "Speaker": "レイ",
+            "Text": "「アザミと２人で帰れる！」"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「......その......内臓を......」"
-        },
-        {
-            "Speaker":"アザミ",
-            "Text":"「内臓......？どこでそんなもの......」"
-        },
-        {
-            "Speaker":"レイ",
-            "Text":"「......テッセンの......」"
-        },
-        {
-            "Speaker":"アザミ",
-            "Text":"「！？......」"
-        },
-        {
-            "Speaker":"レイ",
-            "Text":"「あーいや、怪我とかはないし......薬の効果も......多分大丈夫......」"
-        },
-        {
-            "Speaker":"アザミ",
-            "Text":"「あぁ、そうか......死んだかぁー」"
-        },
-        {
-            "Speaker":"レイ",
-            "Text":"「アザミ......？」"
-        },
-        {
-            "Speaker":"アザミ",
-            "Text":"「いや、大丈夫だよ。早く帰ろうか......」"
+            "Speaker": "レイ",
+            "Text": "「鏡の部屋に行こう。」"
         }
     ]
 }

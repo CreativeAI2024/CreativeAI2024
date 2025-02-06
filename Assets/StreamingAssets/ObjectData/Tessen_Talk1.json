@@ -4,29 +4,36 @@
     {
       "MapName": "tessen_room",
       "Position": [
+        8,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        8,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
         9,
         6
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        10,
-        6
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        9,
-        7
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        10,
-        7
       ]
     }
   ],

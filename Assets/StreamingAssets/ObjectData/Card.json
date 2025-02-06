@@ -9,7 +9,7 @@
             ]
         }
     ],
-    "EventName": "GetItem BlackCard | TileModify reference_room StylesFront 1,1 #",
+    "EventName": "GetItem WhiteCard | TileModify reference_room StylesFront 1,1 #",
     "TriggerType": 1,
     "FlagCondition": {
         "Flag": [
