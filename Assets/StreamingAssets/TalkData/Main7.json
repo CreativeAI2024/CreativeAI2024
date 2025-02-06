@@ -2,96 +2,111 @@
   "Content": [
     {
       "Speaker": "レイ",
-      "Text": "「で、できたー！やっと完成した！」",
-      "ChangeImage": [
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "Rei"
-                }
-              ],
-              "BGM":"Joy"
-    },
-    {
-      "Speaker": "レイ",
-      "Text": "「あれ...でもこれって...」"
-    },
-    {
-      "Speaker": "アザミ",
-      "Text": "「レイ」",
+      "Text": "「これで...！薬が完成した.........のかな？」",
       "ChangeImage": [
         {
-            "ImageName": "RightPanel",
-            "SpriteName": "Azami_1"
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
         },
         {
-            "ImageName": "LeftPanel",
-            "SpriteName": "Rei"
+          "ImageName": "LeftPanel",
+          "SpriteName": "Rei"
+        },
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
         }
-    ]
+      ]
+    },
+    {
+      "Text": "",
+      "ChangeImage": [
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
+        }
+      ],
+      "SE": "snake1"
     },
     {
       "Speaker": "レイ",
-      "Text": "「ああ、アザミ...！......って、その姿は......」"
+      "Text": "「......！？」",
+      "ChangeImage": [
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "Rei"
+        }
+      ]
     },
     {
-      "Speaker":"アザミ",
-      "Text":"「あー、これか。…キミが薬を作っている間に、俺の体がまた化け物に近づいてしまってね」"
+      "Text": "ヒヤリとした空気を首筋に感じ振り返る。いつの間にか、背後には\nアザミが立っていた。ただ、先ほどまでとは異なった姿で......",
+      "ChangeImage": [
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "Azami_0"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "Rei"
+        }
+      ]
     },
     {
-      "Speaker":"レイ",
-      "Text":"「............」"
-    },
-    {
-      "Speaker":"アザミ",
-      "Text":"「それより今は......。薬はできたのかい？」"
-    },
-    {
-      "Speaker":"レイ",
-      "Text":"「......もちろん、できたよ！......でも......」"
-    },
-    {
-      "Speaker": "アザミ",
-      "Text": "「でも？何かあったのか？」"
-    },
-    {
-      "Speaker": "レイ",
-      "Text": "「出来た薬が一人分にしかならなくて。これじゃあ、アザミとアタシの2人で一緒に人間に戻ることができない」"
-    },
-    {
-      "Speaker": "アザミ",
-      "Text": "「だろうな」"
+      "Text": "腕先は研ぎたての刃物のように鋭く光り、動くたびに空気を裂く音が\n耳を刺す。肋骨は不自然に広がり、露出した骨が存在感を放つ。\n眼孔と胸の奥には、底知れないほどの闇が潜んでいた。"
     },
     {
       "Speaker": "レイ",
-      "Text": "「え？」"
+      "Text": "「アザミ...その姿は..............」",
+      "ChangeImage": [
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "Azami_0"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "Rei"
+        },
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "void"
+        }
+      ]
     },
     {
       "Speaker": "アザミ",
-      "Text": "「このレシピ通りに作ったら一人分しかできないのは、分かっていたんだ」"
+      "Text": "「ちょっとこの世界に長居しすぎたみたいだ。\n また人間から遠のいてしまった。」"
     },
     {
       "Speaker": "レイ",
-      "Text": "「そうなの！？」"
+      "Text": "「..................」"
     },
     {
       "Speaker": "アザミ",
-      "Text": "「キミは、この薬で元の姿に戻ってかえるんだ」"
+      "Text": "「薬、できたんだろ。\n　それを飲んで最初に目覚めた部屋の鏡に、お前が飛び込め。」"
     },
     {
       "Speaker": "アザミ",
-      "Text": "「俺のことは気にしなくていい」"
-    },
-    {
-      "Speaker": "アザミ",
-      "Text": "「薬を飲んで人間の姿に戻ったら、すぐにあの部屋の姿見に飛び込め」"
+      "Text": "「あの鏡がこの世界と元居た世界を繋いでいる。\n　但し、あの鏡に入れるのは人間だけだ。だから薬は鏡に入る前に飲め。」"
     },
     {
       "Speaker": "レイ",
-      "Text": "「鏡に...？」"
+      "Text": "「あなたも一緒に戻るんだよね？」"
     },
     {
       "Speaker": "アザミ",
-      "Text": "「あの姿見は人間だけが入ることができる、二つの世界をつなぐ門だ」"
+      "Text": "「その薬は１人分だ。こんなにバケモノになってしまった俺に\n　効くかどうか判らない。お前が飲むんだ。」"
+    },
+    {
+      "Speaker": "レイ",
+      "Text": "「そんな...............」"
     }
   ]
 }
