@@ -81,10 +81,31 @@ public class ChangeBackground : MonoBehaviour
     {
         foreach(Image image in images)
         {
-            string imageName = image.name;
-            string spriteName = image.sprite.name;
-            if (imageName.Equals("BackgroundPanel")) continue;
-            ChangeBrightness(imageName, SelectBrightness(speaker, spriteName));
+            latestChangeImages = changeImages;
+        }
+        if (latestChangeImages != null)
+        {
+            foreach(ChangeImage latestChangeImage in latestChangeImages)
+            {
+                string imageName = latestChangeImage.ImageName;
+                string spriteName = latestChangeImage.SpriteName;
+                if (imageName.Equals("BackgroundPanel")) continue;
+                float brightnessMultiply;
+                if (spriteName.Contains(speakerToSpriteDict[speaker]))
+                {
+                    brightnessMultiply = speakerBrightness;
+                }
+                else
+                {
+                    brightnessMultiply = listenerBrightness;
+                }
+                Color currentColor = imagesDict[imageName].color;
+                float h, s, v;
+                Color.RGBToHSV(currentColor, out h, out s, out v);
+                v = brightnessMultiply;
+                Color newColor = Color.HSVToRGB(h, s, v);
+                imagesDict[imageName].color = newColor;
+            }
         }
     }
 
