@@ -32,6 +32,7 @@ public class SearchGameManager : MonoBehaviour
         if (_inputSetting.GetCancelKeyDown())
         {
             Inactivate();
+            SoundManager.Instance.PlaySE(7);
         }
         if (!interactiveItems.Any(interactiveItem => interactiveItem.activeSelf))
         {
