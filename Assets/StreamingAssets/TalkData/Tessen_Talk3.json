@@ -2,7 +2,10 @@
     "Content": [
         {
             "Speaker": "テッセン",
-            "Text": "「さっきから館を歩き回って、何をしているんだい？」",
+            "Text": "「さっきから集めてるものって何に使おうとしているの？」"
+        },
+        {
+            "Text": "",
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
@@ -15,11 +18,11 @@
             ],
             "QuestionData": [
                 {
-                    "Answer": "薬の材料を集めているの",
+                    "Answer": "薬の材料を集めているの。",
                     "NextTalkData": "Tessen_Talk3_1"
                 },
                 {
-                    "Answer": "何でもないよ。探索しているだけ",
+                    "Answer": "何でもないよ。ただ集めているだけ。",
                     "NextTalkData": "Tessen_Talk3_2"
                 }
             ],

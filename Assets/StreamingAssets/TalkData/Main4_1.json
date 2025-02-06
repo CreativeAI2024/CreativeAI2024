@@ -1,38 +1,84 @@
 {
-  "Content": [
-    {
-      "Speaker": "レイ",
-      "Text": "「......！」",
-      "ChangeImage": [
+    "Content": [
         {
-          "ImageName": "RightPanel",
-          "SpriteName": "Azami_0"
+            "Text": "『なんで......そんなこと言われ.......』",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
+            "BGM": "GroIntenseDest"
         },
         {
-          "ImageName": "LeftPanel",
-          "SpriteName": "Rei"
+            "Text": "頭の中で叫びとも囁きともいえる声が堰を切ったように溢れ出す。"
         },
         {
-          "ImageName": "BackgroundPanel",
-          "SpriteName": "void"
+            "Text": "『私の.......せい......?』『いや、私は......悪くない。』『......でも...それって本当？』"
+        },
+        {
+            "Text": "音が渦を巻く。頭の中を幾つもの声が交差する。\n責める声、否定する声、わけの解らない断片的な言葉が重なり響き、\n絶え間なく打ち寄せては、思考する力を削っていく。"
+        },
+        {
+            "Text": "激しく巡る声が頭の奥に反響し続ける。何も分からない。分かりたくない。\n考えたくないーーけれど、止めることもできない......"
+        },
+        {
+            "Speaker": "？？？",
+            "Text": "「................」"
+        },
+        {
+            "Speaker": "？？？",
+            "Text": "「....................しろ！」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「おい、しっかりしろ！」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"void"
+                }
+            ]
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「..............................！」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「............少しは落ち着いたか？」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「......ひ...ヒカルが...いて............。」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「またバケモノ化が進んだな。お前が見ていたのは幻覚だ。\n　ヒカルはとっくに死んでる。現れるわけないだろ。」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「薬の材料はあと一つなんだろ？\n　これ以上、“人間”を失う前に見つけて薬を完成させろ。」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「頼んだぞ。」"
         }
-      ]
-    },
-    {
-      "Speaker": "アザミ",
-      "Text": "「どうだ？少しは落ち着いたか？」"
-    },
-    {
-      "Speaker": "レイ",
-      "Text": "「......うん」"
-    },
-    {
-      "Speaker": "アザミ",
-      "Text": "「精神がおかしくなっているんだろう。この世界の影響を強く受けてしまっている」"
-    },
-    {
-      "Speaker": "アザミ",
-      "Text": "「残りの材料もあと一つだ。それまで耐えてくれよ」"
-    }
-  ]
+    ]
 }
