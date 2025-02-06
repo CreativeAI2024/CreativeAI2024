@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hikaruSprite: {fileID: 206563810}
+  tilemapCollider: {fileID: 2085017735}
 --- !u!1 &391875105
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1073,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49d27c0371ce12744bb22dab9bf2ab49, type: 3}
+--- !u!19719996 &2085017735 stripped
+TilemapCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7107196932883052286, guid: 49d27c0371ce12744bb22dab9bf2ab49,
+    type: 3}
+  m_PrefabInstance: {fileID: 2085017734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092417282
 GameObject:
   m_ObjectHideFlags: 0
