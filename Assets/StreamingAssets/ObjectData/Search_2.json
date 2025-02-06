@@ -2,23 +2,9 @@
     "Id": 2,
     "Location": [
       {
-        "MapName": "itemA_room",
-        "Position": [
-          0,
-          6
-        ]
-      },
-      {
         "MapName":"itemA_room",
         "Position":[
           1,
-          6
-        ]
-      },
-      {
-        "MapName": "itemA_room_broken",
-        "Position": [
-          0,
           6
         ]
       },
