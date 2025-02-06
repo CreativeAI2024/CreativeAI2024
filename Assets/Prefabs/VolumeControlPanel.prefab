@@ -1713,9 +1713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeControlObject: {fileID: 1266104320630741170}
-  menuUIPause: {fileID: 4026023008907123780, guid: 582dcb683345148abb97df144af58bb1,
-    type: 3}
-  volumeControllerPause: {fileID: 4952509525294187119}
+  menuUIPause: {fileID: 0}
+  pause: {fileID: 4952509525294187119}
 --- !u!114 &4952509525294187119
 MonoBehaviour:
   m_ObjectHideFlags: 0
