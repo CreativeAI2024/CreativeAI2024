@@ -37,10 +37,10 @@ public class PlayerController : MonoBehaviour
             if (LastInputVector != Vector2Int.zero)
             {
                 Direction = LastInputVector;
-                _canInput = mapDataController.IsGridPositionOutOfRange(_startPosition + LastInputVector);
+                bool isInRange = !mapDataController.IsGridPositionOutOfRange(_startPosition + LastInputVector);
                 Vector2Int convertedNextPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
                 Vector3Int nextPosition = new Vector3Int(convertedNextPosition.x, convertedNextPosition.y,0);
-                _canInput = !mapDataController.IsWalkable(nextPosition);
+                _canInput = isInRange && !mapDataController.IsWalkable(nextPosition);
             }
             _targetPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
         }
