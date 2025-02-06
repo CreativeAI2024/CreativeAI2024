@@ -19,10 +19,12 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     private int lineNumber;
     private bool initializeFlag = false;
+
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
     private Action _onConversationStart;
     public event Action OnConversationEnd { add => _onConversationEnd += value; remove => _onConversationEnd -= value; }
     private Action _onConversationEnd;
+
     TalkData talkData;
 
     public override void Awake()
@@ -127,7 +129,9 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             return;
 
         initializeFlag = true;
+        // _onConversationStartForObjectEngine?.Invoke();
         _onConversationStart?.Invoke();
+        DebugLogger.Log($"_onConversationStart called");
         contentObject.SetActive(true);
 
         lineNumber = 0;
@@ -239,6 +243,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         initializeFlag = false;
+        // _onConversationEndForObjectEngine?.Invoke();
         _onConversationEnd?.Invoke();
         if (nextTalkData != null)
         {  //会話分岐

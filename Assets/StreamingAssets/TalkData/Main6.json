@@ -1,8 +1,36 @@
 {
-    "Content":[
+    "Content": [
         {
-            "Speaker":"アザミ",
-            "Text":"「レイ、薬は完成したのか？」",
+            "Text": "",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
+                }
+            ],
+            "BGM": "void",
+            "SE": "snake1"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「......！？」",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ]
+        },
+        {
+            "Text": "振り返ると、いつの間に近づいてきたのか、アザミが立っていた。",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -13,26 +41,36 @@
                     "SpriteName": "Rei"
                 }
             ],
-            "BGM": "Joy"
+            "BGM": "MysteryConfFear"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「！！アザミ......！」"
+            "Speaker": "アザミ",
+            "Text": "「薬の調合が終わったみたいだな。\n　ここまで頑張ってくれてありがとう。」",
+            "ChangeImage": [
+                {
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "void"
+                }
+            ]
         },
         {
-            "Speaker":"レイ",
-            "Text":"「キミが見た通りさ！レシピ通りの材料で作ったから、うまくできたよ」"
+            "Speaker": "レイ",
+            "Text": "「薬の量......かなり少ない............これで本当に２人分なの？」"
         },
         {
-            "Speaker":"アザミ",
-            "Text":"「......そうか」"
+            "Speaker": "アザミ",
+            "Text": "「......あぁ。調合が正しくできているか確認するから\n　いったん薬を貸してくれ。」"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「でも、出来た薬が一人分にしか」"
+            "Text": "アザミに促されて、先ほど完成したばかりの薬をそっと差し出す。"
         },
         {
-            "Text":"「レイが振り返ると、アザミが鈍器を振りかぶっていた」",
+            "Speaker": "アザミ",
+            "Text": "「お前をこの世界に呼んだ甲斐があったよ。本当にありがとう。」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「え............！？」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -43,24 +81,49 @@
                     "SpriteName": "void"
                 },
                 {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
                 }
             ],
-            "SE": "stabknife"
-        },
-                {
-            "Text":"",
-            "SE": "exploreluggage1"
+            "SE": "balloon"
         },
         {
-            "Text":"",
-            "SE": "footsteps2"
+            "Text": "突然、何かが視界を横切ったかと思うと、氷のように冷たい感触が\n首を締め付けてきた。それがアザミの腕だと気づいたときには、\n身体が地面から浮かび上がっていた。",
+            "BGM": "GroIntenseDest"
         },
         {
+            "Text": "長い腕の先にある顔からは、生き物の温かみを忘れたかのような、\n冷たく無機質な視線が真っ直ぐにこちらへ向けられていた。"
+        },
+        {
+            "Text": "ーー息が詰まる。\nーーー肺が空気を求めて震える。"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「ぁ......が...........ど...どうし....て」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「この薬は１人分なんだ。ここまで私のために動いてくれて感謝しかないよ。\n　ほんとうに、ね。」"
+        },
+        {
+            "Text": "目に映るものが徐々に歪み、世界の輪郭が溶けていく。"
+        },
+        {
+            "Text": "身体に力を込めようとするが、指先すら動かせない。"
+        },
+        {
+            "Text": "頭の中が次第に空白になり、思考が霧散していく。\n意識は冷たく沈み、視界はわずかな光すら逃さない暗闇に覆われていった......"
+        },
+        {
+            "Text": "",
             "QuestionData": [
                 {
-                    "NextFlag": [ [ "Ending", true ] ]
+                    "NextFlag": [
+                        [
+                            "Ending",
+                            true
+                        ]
+                    ]
                 }
             ]
         }

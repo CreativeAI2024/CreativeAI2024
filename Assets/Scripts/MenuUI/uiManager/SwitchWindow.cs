@@ -1,14 +1,19 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwitchWindow : MonoBehaviour
 {
     private InputSetting _inputSetting;
     [SerializeField] private GameObject menuUI;
     [SerializeField] private FollowFocusedButton followFocusedButton;
+    [SerializeField] private Pause volumeControllerPause;
+    private Pause playerPause;
 
     void Start()
     {
         _inputSetting = InputSetting.Load();
+        DebugLogger.Log("OnConversationStart/End called.");
+        SceneManager.sceneLoaded += SceneLoaded;
     }
     void Update()
     {
@@ -18,21 +23,29 @@ public class SwitchWindow : MonoBehaviour
             if (menuUI.activeInHierarchy)
             {
                 SetWindowActive(false);
-                MenuUIManager.Instance.PlayerPause.UnPauseAll();
+                volumeControllerPause.UnPauseAll();
+                playerPause.UnPauseAll();
             }
             else
             {
                 SetWindowActive(true);
-                MenuUIManager.Instance.PlayerPause.PauseAll();
+                volumeControllerPause.PauseAll();
+                playerPause.PauseAll();
             }
         }
         else if (_inputSetting.GetCancelKeyDown() && menuUI.activeInHierarchy)
         {
             SetWindowActive(false);
-            MenuUIManager.Instance.PlayerPause.UnPauseAll();
+            playerPause.UnPauseAll();
         }
     }
-
+    
+    void SceneLoaded(Scene nextScene, LoadSceneMode mode)
+    {
+        if (!nextScene.name.Contains("room")) return;
+        
+        playerPause = GameObject.Find("Pause").GetComponent<Pause>();
+    }
 
     private void SetWindowActive(bool isActive)
     {

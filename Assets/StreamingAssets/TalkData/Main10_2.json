@@ -1,52 +1,92 @@
 {
     "Content": [
         {
-            "Text":"レイはナイフを持つ手を降ろした。"
-        },
-        {
-            "Text":"降ろしてしまった。"
-        },
-        {
-            "Text":"突然、レイの体は吹き飛ばされ、扉に叩きつけられる。"
-        },
-        {
-            "Text":"何が起きたのか分からず、呆然としているとテッセンの爪が赤く染まっていた。"
-        },
-        {
-            "Text":"意識が遠くなっていく。"
-        },
-        {
-            "Text":"レイはいともたやすく殺されたのだ。"
-        },
-        {
-            "Speaker":"テッセン",
-            "Text":"「あっけないな」",
+            "Text": "震える手でナイフを握る。\nしかし、身体が硬直してぴくりとも動かせない。",
             "ChangeImage": [
                 {
                     "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName": "RightPanel",
                     "SpriteName": "Tessen"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
                 }
             ]
         },
         {
-            "Speaker":"テッセン",
-            "Text":"「こんなもの、必要ないね」",
-            "SE": "ItemGetSound"
+            "Speaker": "テッセン",
+            "Text": "「その手に持っているモノは何？\n　もしかしてワタシを殺そうと思ってるの？」"
         },
         {
-            "Text":"意識が途切れるその瞬間、ガラスの割れる音がした。",
+            "Speaker": "テッセン",
+            "Text": "「できないコトはするもんじゃないよ。」"
+        },
+        {
+            "Text": "バケモノの声が響き終わるよりも早く、口が大きく裂け、\nその中から数本の触手が猛烈な勢いでこちらへ飛び出してきた。",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                }
+            ],
+            "SE": "balloon"
+        },
+        {
+            "Text": "視界を覆い尽くす程の勢いに反応する間もなく、ぬめる感触が\n腕や脚に絡みつき、一瞬で全身を拘束する。"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「ぅ......ぃゃ..........嫌だ....！」"
+        },
+        {
+            "Text": "ミミズのように動めく触手のうちの一本が頭上に迫る。"
+        },
+        {
+            "Text": "触手の先に開いた穴からは薄紫色の粘液がドロリと溢れ出す。\n粘性を持ったその液体が頬に触れた瞬間、抗えない何かが\n皮膚の奥まで浸み込んでいくのがわかった。"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「あ....ぅ.........ぐ...ぁ...............」"
+        },
+        {
+            "Text": "ブクブクと泡立ちながら膨れ上がる肉片に視界が奪われてい行く。\n体の内側では強い圧力に耐え切れない骨がギシギシと悲鳴を上げる。\n喉では空気の通る僅かな隙間が残ることも許されずに押し潰されていく。"
+        },
+        {
+            "Text": "ーー酸素の届かなくなった脳が考えることを辞める。"
+        },
+        {
+            "Speaker": "テッセン",
+            "Text": "「コレはもう必要ないよね。」"
+        },
+        {
+            "Text": "頭がぼうっと霞み、意識が途切れるその瞬間、硝子の割れる音がした。",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
                     "SpriteName": "void"
                 },
                 {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
                 }
-            ],"QuestionData": [
+            ],
+            "SE": "glassbreak3",
+            "QuestionData": [
                 {
-                    "NextFlag": [ [ "Ending", true ] ]
+                    "NextFlag": [
+                        [
+                            "Ending",
+                            true
+                        ]
+                    ]
                 }
             ]
         }
