@@ -2,7 +2,7 @@
         "Content": [
             {
                 "Speaker": "テッセン",
-                "Text": "「この部屋に来るなんて珍しいじゃないか。\n　あれ、もしかして初めましてかな？ワタシに何か用事でも？」",
+                "Text": "「この部屋に来るなんて珍しいじゃないか。\n　あれ、もしかして初めましてかな？」",
                 "ChangeImage": [
                     {
                         "ImageName": "LeftPanel",
@@ -16,14 +16,8 @@
                 "BGM": "talkwithtessen"
             },
             {
-                "Speaker": "レイ",
-                "Text": "「この部屋の上のほうに何かあるみたいで............」",
-                "ChangeImage": [
-                    {
-                        "ImageName": "RightPanel",
-                        "SpriteName": "Rei"
-                    }
-                ],
+                "Speaker": "テッセン",
+                "Text": "「ワタシに何か用事でも？」",
                 "QuestionData": [
                     {
                         "Answer": "「あれが欲しいんだけど......」"
@@ -35,7 +29,13 @@
             },
             {
                 "Speaker": "レイ",
-                "Text": "「え....えっと.........この部屋の、上のほうにあるものって何？\n　手が届かなくて.........」"
+                "Text": "「え....えっと.........この部屋の、上のほうにあるものって何？\n　手が届かなくて.........」",
+                "ChangeImage": [
+                    {
+                        "ImageName": "RightPanel",
+                        "SpriteName": "Rei"
+                    }
+                ]
             },
             {
                 "Speaker": "テッセン",

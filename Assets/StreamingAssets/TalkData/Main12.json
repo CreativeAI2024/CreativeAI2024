@@ -1,8 +1,8 @@
 {
-    "Content":[
+    "Content": [
         {
-            "Speaker":"レイ",
-            "Text":"「これで2人分の薬になった.......？」",
+            "Speaker": "レイ",
+            "Text": "「これで2人分の薬になった.......？」",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -11,17 +11,21 @@
                 {
                     "ImageName": "LeftPanel",
                     "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
                 }
             ],
-            "BGM":"Joy"
+            "BGM": "Joy"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「アザミと２人で帰れる！」"
+            "Speaker": "レイ",
+            "Text": "「アザミと２人で帰れる！」"
         },
         {
-            "Speaker":"レイ",
-            "Text":"「鏡の部屋に行こう。」"
+            "Speaker": "レイ",
+            "Text": "「鏡の部屋に行こう。」"
         }
     ]
 }

@@ -5,12 +5,16 @@
             "Text": "「これって１つ目の材料...？\n　案外早く見つかったな。」",
             "ChangeImage": [
                 {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
                     "ImageName": "LeftPanel",
                     "SpriteName": "Rei"
                 },
                 {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "void"
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"void"
                 }
             ]
         },

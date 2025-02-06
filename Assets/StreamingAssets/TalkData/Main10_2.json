@@ -78,6 +78,7 @@
                     "SpriteName": "Black"
                 }
             ],
+            "SE": "glassbreak3",
             "QuestionData": [
                 {
                     "NextFlag": [
