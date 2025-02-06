@@ -19,10 +19,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     private int lineNumber;
     private bool initializeFlag = false;
-    // public event Action OnConversationStartForObjectEngine { add => _onConversationStartForObjectEngine += value; remove => _onConversationStartForObjectEngine -= value; }
-    // private Action _onConversationStartForObjectEngine;
-    // public event Action OnConversationEndForObjectEngine { add => _onConversationEndForObjectEngine += value; remove => _onConversationEndForObjectEngine -= value; }
-    // private Action _onConversationEndForObjectEngine;
 
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
     private Action _onConversationStart;
