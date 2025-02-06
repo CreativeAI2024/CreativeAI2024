@@ -677,7 +677,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuUI: {fileID: 6261210613205064336}
   followFocusedButton: {fileID: 1682440499713030}
-  volumeControllerPause: {fileID: 0}
+  volumeControllerPause: {fileID: 4952509525294187119, guid: b84ea0fb36badd9479334443befc8a95,
+    type: 3}
+  playerPause: {fileID: 0}
 --- !u!114 &4026023008907123780
 MonoBehaviour:
   m_ObjectHideFlags: 0
