@@ -19,10 +19,10 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     private int lineNumber;
     private bool initializeFlag = false;
-    public event Action OnConversationStartForObjectEngine { add => _onConversationStartForObjectEngine += value; remove => _onConversationStartForObjectEngine -= value; }
-    private Action _onConversationStartForObjectEngine;
-    public event Action OnConversationEndForObjectEngine { add => _onConversationEndForObjectEngine += value; remove => _onConversationEndForObjectEngine -= value; }
-    private Action _onConversationEndForObjectEngine;
+    // public event Action OnConversationStartForObjectEngine { add => _onConversationStartForObjectEngine += value; remove => _onConversationStartForObjectEngine -= value; }
+    // private Action _onConversationStartForObjectEngine;
+    // public event Action OnConversationEndForObjectEngine { add => _onConversationEndForObjectEngine += value; remove => _onConversationEndForObjectEngine -= value; }
+    // private Action _onConversationEndForObjectEngine;
 
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
     private Action _onConversationStart;
@@ -133,7 +133,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             return;
 
         initializeFlag = true;
-        _onConversationStartForObjectEngine?.Invoke();
+        // _onConversationStartForObjectEngine?.Invoke();
         _onConversationStart?.Invoke();
         DebugLogger.Log($"_onConversationStart called");
         contentObject.SetActive(true);
@@ -233,8 +233,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     public void ResetAction()
     {
-        _onConversationStartForObjectEngine = null;
-        _onConversationEndForObjectEngine = null;
+        _onConversationStart = null;
+        _onConversationEnd = null;
     }
 
     private void EndConversation()
@@ -247,7 +247,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         initializeFlag = false;
-        _onConversationEndForObjectEngine?.Invoke();
+        // _onConversationEndForObjectEngine?.Invoke();
         _onConversationEnd?.Invoke();
         if (nextTalkData != null)
         {  //会話分岐

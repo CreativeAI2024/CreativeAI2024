@@ -31,11 +31,11 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
 
-        ConversationTextManager.Instance.ResetAction();
-        ConversationTextManager.Instance.OnConversationStartForObjectEngine += Pause;
-        ConversationTextManager.Instance.OnConversationEndForObjectEngine += UnPause;
+        // ConversationTextManager.Instance.ResetAction();
+        ConversationTextManager.Instance.OnConversationStart += Pause;
+        ConversationTextManager.Instance.OnConversationEnd += UnPause;
         DebugLogger.Log("Action Readded.");
-        ConversationTextManager.Instance.OnConversationEndForObjectEngine += () => conversationFlag = false;
+        ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
         PlayerMove(changedPos);
@@ -224,6 +224,8 @@ public class ObjectEngine : MonoBehaviour
                 string[] args = eventArgs[1].Split(',');
                 changedPos = new Vector2Int(int.Parse(args[1]), int.Parse(args[2]));
                 await SceneChange(args[0]);
+                ConversationTextManager.Instance.OnConversationStart -= Pause;
+                ConversationTextManager.Instance.OnConversationEnd -= UnPause;
                 break;
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
@@ -247,7 +249,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "TimingGame":
                 DebugLogger.Log("TimingGame", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStartForObjectEngine -= Pause;
+                ConversationTextManager.Instance.OnConversationStart -= Pause;
                 changedPos = new Vector2Int(player.GetGridPosition().x, player.GetGridPosition().y);
                 await SceneChange("TimingGame");
                 break;
@@ -260,7 +262,7 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "GoToEndScene":
                 DebugLogger.Log("GoToEndScene", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStartForObjectEngine -= Pause;
+                ConversationTextManager.Instance.OnConversationStart -= Pause;
                 pause.PauseReset();
                 await SceneChange("Ending");
                 break;

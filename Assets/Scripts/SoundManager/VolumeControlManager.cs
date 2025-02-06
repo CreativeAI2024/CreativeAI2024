@@ -8,11 +8,14 @@ public class VolumeControlManager : MonoBehaviour
     [SerializeField] private GameObject volumeControlObject;
     private Pause playerPause;
     [SerializeField] private Pause menuUIPause;
+    [SerializeField] private Pause soundManagerPause;
 
     void Start()
     {
         SceneManager.sceneLoaded += SceneLoaded;
         playerPause ??= FindPause();
+        ConversationTextManager.Instance.OnConversationStart += soundManagerPause.PauseAll;
+        ConversationTextManager.Instance.OnConversationEnd += soundManagerPause.UnPauseAll;
     }
 
     void SceneLoaded(Scene nextScene, LoadSceneMode mode)
