@@ -16,7 +16,6 @@ public class ChangeBackground : MonoBehaviour
     Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
     private float speakerBrightness = 1;
     private float listenerBrightness = 0.5f;
-    private ChangeImage[]? latestChangeImages;
     private Dictionary<string, string> speakerToSpriteDict = new Dictionary<string, string>
     {
         {"レイ", "Rei"},
@@ -78,16 +77,12 @@ public class ChangeBackground : MonoBehaviour
         imagesDict[image].color = color;
     }
 
-    public void HighlightSpeakerSprite(string? speaker, ChangeImage[]? changeImages)
+    public void HighlightSpeakerSprite(string speaker)
     {
-        speaker ??= "";
-        latestChangeImages = changeImages ?? latestChangeImages;
-        if (latestChangeImages == null) return;
-
-        foreach(ChangeImage latestChangeImage in latestChangeImages)
+        foreach(Image image in images)
         {
-            string imageName = latestChangeImage.ImageName;
-            string spriteName = latestChangeImage.SpriteName;
+            string imageName = image.name;
+            string spriteName = image.sprite.name;
             if (imageName.Equals("BackgroundPanel")) continue;
             ChangeBrightness(imageName, SelectBrightness(speaker, spriteName));
         }
