@@ -55,8 +55,8 @@ public class SearchGameManager : MonoBehaviour
     {
         ConversationTextManager.Instance.OnConversationStart -= Pause;
         ConversationTextManager.Instance.OnConversationEnd -= UnPause;
-        main.SetActive(false);
-        cursorTip.Reset();
+        // main.SetActive(false);
+        // cursorTip.Reset();
         if (FlagManager.Instance.HasFlag("Broken_A"))
         {
             ChangeFlagAndScene("StartSearchGame1", "itemA_room_broken");
