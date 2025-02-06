@@ -38,9 +38,9 @@ public class PlayerController : MonoBehaviour
             {
                 Direction = LastInputVector;
                 _canInput = mapDataController.IsGridPositionOutOfRange(_startPosition + LastInputVector);
-                Vector2Int vector2Int = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
-                Vector3Int vector3Int = new Vector3Int(vector2Int.x, vector2Int.y,0);
-                _canInput = !mapDataController.IsWalkable(vector3Int);
+                Vector2Int convertedNextPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
+                Vector3Int nextPosition = new Vector3Int(convertedNextPosition.x, convertedNextPosition.y,0);
+                _canInput = !mapDataController.IsWalkable(nextPosition);
             }
             _targetPosition = mapDataController.ConvertGridPosition(_startPosition + LastInputVector);
         }
