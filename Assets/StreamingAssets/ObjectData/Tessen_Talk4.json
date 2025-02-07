@@ -60,6 +60,10 @@
       [
         "Azami_Peace",
         true
+      ],
+      [
+        "Progress6",
+        false
       ]
     ],
     "NextFlag": [

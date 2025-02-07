@@ -10,7 +10,7 @@
     }
   ],
   "EventName": "Conversation Main7",
-  "TriggerType": 0,
+  "TriggerType": 4,
   "FlagCondition": {
     "Flag": [
       [
