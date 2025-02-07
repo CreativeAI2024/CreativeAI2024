@@ -25,9 +25,9 @@ public class FlagManager : DontDestroySingleton<FlagManager>
         ReiStatus = PlayerPrefs.GetInt("ReiStatus",0);
     }
     
-    //TODO: ビルドするときは消す
     void Update()
     {
+        #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F))
         {
             string output = "Current Flags\n";
@@ -37,6 +37,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
             }
             DebugLogger.Log(output);
         }
+        #endif
     }
 
     private void SaveInitFlags()
