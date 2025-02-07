@@ -57,14 +57,19 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideInputUp())
                 {
+                    // DebugLogger.Log($"Before Text: {talkData.Content[lineNumber].Text[..8]}~");
+                    DebugLogger.Log($"lineNumber: {lineNumber}", DebugLogger.Colors.Yellow);
+                    DebugLogger.Log($"talkData.Content.Length: {talkData.Content.Length}", DebugLogger.Colors.Yellow);
                     if (lineNumber < talkData.Content.Length - 1)
                     {
+                        DebugLogger.Log($"Talk Continued.", DebugLogger.Colors.Yellow);
                         ChangeQuestionData();
                         ChangeLine(1);
                         DisplayText();
                     }
                     else
                     {
+                        DebugLogger.Log($"Talk Ended.", DebugLogger.Colors.Yellow);
                         ChangeQuestionData();
                         EndConversation();
                     }
@@ -266,6 +271,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         else
         {
             contentObject.SetActive(false);
+            DebugLogger.Log($"TextWindow/ContentObject closed.", DebugLogger.Colors.Yellow);
         }
     }
 }

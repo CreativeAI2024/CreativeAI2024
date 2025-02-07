@@ -143,7 +143,7 @@ public class ObjectEngine : MonoBehaviour
                 foreach (ObjectData aroundObjectData in aroundObjectDatas)
                 {
                     DebugLogger.Log($"around EventName: {aroundObjectData.EventName}", DebugLogger.Colors.Cyan);
-                    if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
+                    if ((aroundObjectData.EventName.Contains("Conversation") || aroundObjectData.EventName.Contains("GetItem")) && !ConversationTextManager.Instance.IsAllowCall)
                     {
                         continue;
                     }
@@ -166,6 +166,10 @@ public class ObjectEngine : MonoBehaviour
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
             DebugLogger.Log($"trap EventName: {trapObjectData.EventName}", DebugLogger.Colors.Cyan);
+            if (trapObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
+            {
+                continue;
+            }
             await Call(trapObjectData, 0, 4);
         }
     }
@@ -235,12 +239,14 @@ public class ObjectEngine : MonoBehaviour
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
                 conversationFlag = true;
-                    Conversation(eventArgs[1]);
+                Conversation(eventArgs[1]);
                 await UniTask.WaitUntil(() => !conversationFlag);
                 break;
             case "GetItem":
                 DebugLogger.Log("GetItem", DebugLogger.Colors.Green);
+                conversationFlag = true;
                 GetItem(eventArgs[1]);
+                await UniTask.WaitUntil(() => !conversationFlag);
                 break;
             case "PaperGame":
                 DebugLogger.Log("PaperGame", DebugLogger.Colors.Green);
