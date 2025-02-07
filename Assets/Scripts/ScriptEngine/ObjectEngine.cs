@@ -32,10 +32,8 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
 
-        // ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
-        DebugLogger.Log("Action Readded.");
         ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
@@ -142,8 +140,7 @@ public class ObjectEngine : MonoBehaviour
                 runFlag = false;
                 foreach (ObjectData aroundObjectData in aroundObjectDatas)
                 {
-                    DebugLogger.Log($"around EventName: {aroundObjectData.EventName}", DebugLogger.Colors.Cyan);
-                    if ((aroundObjectData.EventName.Contains("Conversation") || aroundObjectData.EventName.Contains("GetItem")) && !ConversationTextManager.Instance.IsAllowCall)
+                    if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
                     {
                         continue;
                     }
@@ -165,7 +162,6 @@ public class ObjectEngine : MonoBehaviour
         _pastGridPosition = player.GetGridPosition();
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
-            DebugLogger.Log($"trap EventName: {trapObjectData.EventName}", DebugLogger.Colors.Cyan);
             if (trapObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
             {
                 continue;

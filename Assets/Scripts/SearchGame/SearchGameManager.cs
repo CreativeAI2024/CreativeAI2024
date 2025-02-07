@@ -44,12 +44,10 @@ public class SearchGameManager : MonoBehaviour
 
     private void Pause()
     {
-        DebugLogger.Log("Pause");
         pause.PauseAll();
     }
     private void UnPause()
     {
-        DebugLogger.Log("UnPause");
         pause.UnPauseAll();
     }
 
