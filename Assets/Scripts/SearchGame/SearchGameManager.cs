@@ -13,6 +13,7 @@ public class SearchGameManager : MonoBehaviour
     [SerializeField] ItemInventory itemInventory;
     [SerializeField] Item[] items;
     [SerializeField] ItemDatabase itemDatabase;
+    private bool isInactiveAdded = false;
     void Start()
     {
         _inputSetting = InputSetting.Load();
@@ -34,8 +35,9 @@ public class SearchGameManager : MonoBehaviour
             Inactivate();
             SoundManager.Instance.PlaySE(7);
         }
-        if (!interactiveItems.Any(interactiveItem => interactiveItem.activeSelf))
+        if (!interactiveItems.Any(interactiveItem => interactiveItem.activeSelf) && !isInactiveAdded)
         {
+            isInactiveAdded = true;
             ConversationTextManager.Instance.OnConversationEnd += Inactivate;
         }
     }
@@ -53,10 +55,10 @@ public class SearchGameManager : MonoBehaviour
 
     public void Inactivate()
     {
+        DebugLogger.Log($"aaa Inactive() called.");
         ConversationTextManager.Instance.OnConversationStart -= Pause;
         ConversationTextManager.Instance.OnConversationEnd -= UnPause;
-        // main.SetActive(false);
-        // cursorTip.Reset();
+        ConversationTextManager.Instance.OnConversationEnd -= Inactivate;
         if (FlagManager.Instance.HasFlag("Broken_A"))
         {
             ChangeFlagAndScene("StartSearchGame1", "itemA_room_broken");
@@ -81,6 +83,7 @@ public class SearchGameManager : MonoBehaviour
     {
         if (FlagManager.Instance.HasFlag(flag))
         {
+            isInactiveAdded = false;
             FlagManager.Instance.DeleteFlag(flag);
             SceneManager.LoadScene(scene);
         }

@@ -25,6 +25,20 @@ public class FlagManager : DontDestroySingleton<FlagManager>
         ReiStatus = PlayerPrefs.GetInt("ReiStatus",0);
     }
     
+    //TODO: ビルドするときは消す
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            string output = "Current Flags\n";
+            foreach (KeyValuePair<string, bool> e in _flags)
+            {
+                output += $"{e.Key}: {e.Value}\n";
+            }
+            DebugLogger.Log(output);
+        }
+    }
+
     private void SaveInitFlags()
     {
         IFileAssetLoader loader = SaveUtility.FileAssetLoaderFactory();
