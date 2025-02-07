@@ -55,7 +55,6 @@ public class SearchGameManager : MonoBehaviour
 
     public void Inactivate()
     {
-        DebugLogger.Log($"aaa Inactive() called.");
         ConversationTextManager.Instance.OnConversationStart -= Pause;
         ConversationTextManager.Instance.OnConversationEnd -= UnPause;
         ConversationTextManager.Instance.OnConversationEnd -= Inactivate;
