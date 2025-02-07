@@ -19,6 +19,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     private int lineNumber;
     private bool initializeFlag = false;
+    private bool stop = false;
     private bool isAllowCall = true;
     public bool IsAllowCall => isAllowCall;
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
@@ -51,7 +52,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
         if (_inputSetting.GetDecideInputUp())
         {
-            if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f)
+            if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f && !stop)
             {
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideInputUp())
@@ -187,8 +188,19 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
         if (talkDataContent.Text != null)
         {
-            mainTextDrawer.DisplayMainText(talkDataContent.Text);
+            string mainText;
+            if (talkDataContent.Text.EndsWith("{Stop}"))
+            {
+                stop = true;
+                mainText = talkDataContent.Text.Split("{")[0];
+            }
+            else
+            {
+                mainText = talkDataContent.Text;
+            }
+            mainTextDrawer.DisplayMainText(mainText);
             mainTextDrawer.DisplayTextRuby();
+            
         }
     }
 
