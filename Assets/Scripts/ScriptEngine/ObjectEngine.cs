@@ -132,7 +132,6 @@ public class ObjectEngine : MonoBehaviour
     */
     private async void Update()
     {
-        DebugLogger.Log("aaa Update() start.--------------------");
         if (conversationFlag || changeSceneFlag) return;
         if (_inputSetting.GetDecideInputDown())
         {
@@ -143,11 +142,11 @@ public class ObjectEngine : MonoBehaviour
                 runFlag = false;
                 foreach (ObjectData aroundObjectData in aroundObjectDatas)
                 {
+                    DebugLogger.Log($"around EventName: {aroundObjectData.EventName}", DebugLogger.Colors.Cyan);
                     if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
                     {
                         continue;
                     }
-                    DebugLogger.Log($"aaa Call(aroundObjectData, 1, 2): {aroundObjectData.EventName}");
                     await Call(aroundObjectData, 1, 2);
                 }
 
@@ -157,7 +156,6 @@ public class ObjectEngine : MonoBehaviour
             List<ObjectData> centerObjectDatas = _eventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
             foreach (ObjectData centerObjectData in centerObjectDatas)
             {
-                DebugLogger.Log($"aaa Call(centerObjectData, 2, 3): {centerObjectData.EventName}");
                 await Call(centerObjectData, 2, 3);
             }
         }
@@ -167,7 +165,7 @@ public class ObjectEngine : MonoBehaviour
         _pastGridPosition = player.GetGridPosition();
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
-            DebugLogger.Log($"aaa Call(trapObjectData, 0, 4): {trapObjectData.EventName}");
+            DebugLogger.Log($"trap EventName: {trapObjectData.EventName}", DebugLogger.Colors.Cyan);
             await Call(trapObjectData, 0, 4);
         }
     }
@@ -198,10 +196,6 @@ public class ObjectEngine : MonoBehaviour
             if (IsFlagsInsufficient(objectData))
             {
                 return; // continue;
-            }
-            if (objectData.EventName.Contains("Conversation") && ConversationTextManager.Instance.transform.GetChild(0).gameObject.activeInHierarchy)
-            {
-                return;
             }
             runFlag = true;
             await CallEvent(eventName);
@@ -241,12 +235,7 @@ public class ObjectEngine : MonoBehaviour
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
                 conversationFlag = true;
-                // DebugLogger.Log($"aaa ContentObject: {ConversationTextManager.Instance.transform.GetChild(0).gameObject.activeInHierarchy}");
-                // DebugLogger.Log($"aaa IsAllowCall: {ConversationTextManager.Instance.IsAllowCall}");
-                // if (!ConversationTextManager.Instance.transform.GetChild(0).gameObject.activeInHierarchy)
-                // {
                     Conversation(eventArgs[1]);
-                // }
                 await UniTask.WaitUntil(() => !conversationFlag);
                 break;
             case "GetItem":

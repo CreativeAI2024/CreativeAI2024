@@ -62,7 +62,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                         ChangeQuestionData();
                         ChangeLine(1);
                         DisplayText();
-                        DebugLogger.Log("NextLine");
                     }
                     else
                     {
