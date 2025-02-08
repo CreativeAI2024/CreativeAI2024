@@ -153,7 +153,7 @@ public class ObjectEngine : MonoBehaviour
                 await Call(centerObjectData, 2, 3);
             }
         }
-        if (player is null) return;
+        if (player == null) return;
         List<ObjectData> trapObjectDatas = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
         if (player.GetGridPosition() == _pastGridPosition && !trapObjectDatas.Any(trapObjectData => trapObjectData.TriggerType == 4)) return;// centerObjectData.TriggerType == 0 
         _pastGridPosition = player.GetGridPosition();

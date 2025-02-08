@@ -21,6 +21,7 @@
         "Key":false,
         "Card":false,
         "Knife":false,
+        "Unlock": false,
 
         "Symptoms1":false,
         "Symptoms2":false,
