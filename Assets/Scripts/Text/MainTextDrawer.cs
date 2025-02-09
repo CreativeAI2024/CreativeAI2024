@@ -36,7 +36,6 @@ public class MainTextDrawer : MonoBehaviour
     {
         _displayedSentenceLength = _mainTextObject.GetParsedText().Length;
         _mainTextObject.maxVisibleCharacters = _displayedSentenceLength;
-        DebugLogger.Log("LineSkipped");
     }
 
     public int GetDelayTime()
