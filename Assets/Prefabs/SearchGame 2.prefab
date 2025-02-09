@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 6531592275026246974}
   - component: {fileID: 3012790774811937307}
   m_Layer: 0
-  m_Name: HistoryBook
+  m_Name: OtherWorldBook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -540,7 +540,7 @@ MonoBehaviour:
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   item: {fileID: 11400000, guid: 451be431fa8aa48dabc4b9759204896a, type: 2}
   itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
-  jsonFile: Book1_get
+  jsonFile: OtherWorldBook_get
 --- !u!1 &3373354130545588798
 GameObject:
   m_ObjectHideFlags: 0

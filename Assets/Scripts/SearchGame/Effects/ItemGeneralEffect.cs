@@ -7,6 +7,6 @@ public class ItemGeneralEffect : MonoBehaviour, IEffectable
     public void PlayEffect()
     {
         itemInventory.Add(item);
-        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた<br>{item.DescriptionText}");
+        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
     }
 }

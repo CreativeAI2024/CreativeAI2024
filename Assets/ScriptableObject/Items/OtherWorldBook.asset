@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: HistoryBook
+  m_Name: OtherWorldBook
   m_EditorClassIdentifier: 
-  itemName: "\u6B74\u53F2\u66F8"
+  itemName: "\u7570\u4E16\u754C\u306E\u672C"
   descriptionText: "\u3053\u306E\u4E16\u754C\u306E\u6B74\u53F2\u3084\u5BA2\u89B3\u7684\u4E8B\u5B9F\u306B\u95A2\u3057\u3066\u307E\u3068\u3081\u3089\u308C\u305F\u672C\u3002"
   sprite: {fileID: 21300000, guid: b4003dd6d24164bb6a347966f0851ec5, type: 3}
-  contentTextFilePath: ItemContentText/Book1
+  contentTextFilePath: ItemContentText/OtherWorldBook

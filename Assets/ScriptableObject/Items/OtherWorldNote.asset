@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
-  m_Name: MagicBook
+  m_Name: OtherWorldNote
   m_EditorClassIdentifier: 
-  itemName: "\u9B54\u8853\u66F8"
-  descriptionText: "\u3053\u306E\u4E16\u754C\u306E\u9B54\u8853\u306B\u95A2\u3057\u3066\u307E\u3068\u3081\u3089\u308C\u305F\u672C\u3002"
-  sprite: {fileID: 21300000, guid: 1d6c3ad83368741d1aa91334ea98bcf7, type: 3}
-  contentTextFilePath: ItemContentText/Book3
+  itemName: "\u7570\u754C\u306E\u624B\u8A18"
+  descriptionText: "\u6C5A\u308C\u304C\u76EE\u7ACB\u3064\u3002\u30CE\u30FC\u30C8\u306E\u7AEF\u306B\u300CA.N\u300D\u3068\u66F8\u304B\u308C\u3066\u3044\u308B\u3002"
+  sprite: {fileID: 21300000, guid: 12f9b0a936dbc47738ae73d7cd1d242f, type: 3}
+  contentTextFilePath: ItemContentText/OtherWorldNote
