@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7519438356364126511}
   - component: {fileID: 25301089835746801}
   m_Layer: 0
-  m_Name: RechJournal
+  m_Name: OtherWorldNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   itemInventory: {fileID: 11400000, guid: 8dab998da671c4bbd8a08f5d123b5cb2, type: 2}
   item: {fileID: 11400000, guid: c4715b060ddcd468eb38a09fc3f0a571, type: 2}
   itemDatabase: {fileID: 11400000, guid: 8cac6bd49a6ad40c1a94f456c6477d31, type: 2}
-  jsonFile: Book4_get
+  jsonFile: OtherWorldNote_get
 --- !u!1 &1032859084133051817
 GameObject:
   m_ObjectHideFlags: 0

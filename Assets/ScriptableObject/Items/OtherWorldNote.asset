@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: OtherWorldNote
   m_EditorClassIdentifier: 
-  itemName: "\u7814\u7A76\u65E5\u8A8C"
+  itemName: "\u7570\u754C\u306E\u624B\u8A18"
   descriptionText: "\u6C5A\u308C\u304C\u76EE\u7ACB\u3064\u3002\u30CE\u30FC\u30C8\u306E\u7AEF\u306B\u300CA.N\u300D\u3068\u66F8\u304B\u308C\u3066\u3044\u308B\u3002"
   sprite: {fileID: 21300000, guid: 12f9b0a936dbc47738ae73d7cd1d242f, type: 3}
-  contentTextFilePath: ItemContentText/Book4
+  contentTextFilePath: ItemContentText/OtherWorldNote
