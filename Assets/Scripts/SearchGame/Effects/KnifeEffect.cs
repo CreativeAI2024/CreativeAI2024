@@ -9,13 +9,11 @@ public class KnifeEffect : MonoBehaviour, IEffectable
     public void PlayEffect()
     {
         itemInventory.Add(item);
-        List<string> texts = new List<string>();
-        texts.Add($"{item.ItemName}を手に入れた<br>{item.DescriptionText}");
+        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
         if (itemInventory.IsContains(itemDatabase.GetItem("OtherWorldBook")) || itemInventory.IsContains(itemDatabase.GetItem("OtherWorldNote")))
         {
-            texts.Add("もう何も見当たらない。");
+            ConversationTextManager.Instance.InitializeFromString($"もう何も見つからない。");
         }
-        ConversationTextManager.Instance.InitializeFromStrings(texts);
         FlagManager.Instance.AddFlag("Knife");
         gameObject.SetActive(false);
     }
