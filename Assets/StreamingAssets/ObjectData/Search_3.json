@@ -2,7 +2,7 @@
     "Id": 2,
     "Location": [
         {
-            "MapName": "itemB_room_broken",
+            "MapName": "itemB_room",
             "Position": [
                 8,
                 8
@@ -11,7 +11,7 @@
         {
             "MapName": "itemB_room_broken",
             "Position": [
-                9,
+                8,
                 8
             ]
         }

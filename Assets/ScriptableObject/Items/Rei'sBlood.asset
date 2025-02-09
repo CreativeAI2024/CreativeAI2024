@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: Rei'sBlood
   m_EditorClassIdentifier: 
-  itemName: "\u30EC\u30A4\u306E\u8840"
-  descriptionText: "\u900F\u660E\u306E\u5BB9\u5668\u306B\u30EC\u30A4\u306E\u8840\u304C\u5165\u3063\u3066\u3044\u308B\u3002"
+  itemName: "\u8840\u6DB2"
+  descriptionText: "\u900F\u660E\u306E\u74F6\u306B\u5165\u3063\u305F\u8840\u6DB2\u3002\u3044\u3063\u305F\u3044\u8AB0\u306E\u3082\u306E\u306A\u3093\u3060\u308D\u3046..."
   sprite: {fileID: 21300000, guid: 5aa18938626f7449a860de7ff984195a, type: 3}
   contentTextFilePath: 
