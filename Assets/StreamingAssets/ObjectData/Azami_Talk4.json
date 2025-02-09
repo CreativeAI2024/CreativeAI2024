@@ -24,6 +24,10 @@
       [
         "Azami_Talk4",
         true
+      ],
+      [
+        "Progress6",
+        false
       ]
     ]
   }

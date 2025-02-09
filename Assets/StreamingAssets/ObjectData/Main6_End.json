@@ -10,7 +10,7 @@
     }
   ],
   "EventName": "GoToEndScene",
-  "TriggerType": 0,
+  "TriggerType": 4,
   "FlagCondition": {
     "Flag": [
       [
