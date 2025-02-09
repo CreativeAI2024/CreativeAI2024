@@ -11,7 +11,7 @@ public class KnifeEffect : MonoBehaviour, IEffectable
         itemInventory.Add(item);
         List<string> texts = new List<string>();
         texts.Add($"{item.ItemName}を手に入れた<br>{item.DescriptionText}");
-        if (itemInventory.IsContains(itemDatabase.GetItem("HistoryBook")) || itemInventory.IsContains(itemDatabase.GetItem("RechJournal")))
+        if (itemInventory.IsContains(itemDatabase.GetItem("OtherWorldBook")) || itemInventory.IsContains(itemDatabase.GetItem("OtherWorldNote")))
         {
             texts.Add("もう何も見当たらない。");
         }
