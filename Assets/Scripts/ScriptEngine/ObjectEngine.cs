@@ -153,7 +153,7 @@ public class ObjectEngine : MonoBehaviour
                 await Call(centerObjectData, 2, 3);
             }
         }
-        if (player is null) return;
+        if (player == null) return;
         List<ObjectData> trapObjectDatas = _trapEventObjects[player.GetGridPosition().x][player.GetGridPosition().y];
         if (player.GetGridPosition() == _pastGridPosition && !trapObjectDatas.Any(trapObjectData => trapObjectData.TriggerType == 4)) return;// centerObjectData.TriggerType == 0 
         _pastGridPosition = player.GetGridPosition();
@@ -224,8 +224,6 @@ public class ObjectEngine : MonoBehaviour
                 string[] args = eventArgs[1].Split(',');
                 changedPos = new Vector2Int(int.Parse(args[1]), int.Parse(args[2]));
                 await SceneChange(args[0]);
-                ConversationTextManager.Instance.OnConversationStart -= Pause;
-                ConversationTextManager.Instance.OnConversationEnd -= UnPause;
                 break;
             case "Conversation":
                 DebugLogger.Log("Conversation", DebugLogger.Colors.Green);
@@ -293,6 +291,8 @@ public class ObjectEngine : MonoBehaviour
     private async UniTask SceneChange(string sceneName)
     {
         changeSceneFlag = true;
+        ConversationTextManager.Instance.OnConversationStart -= Pause;
+        ConversationTextManager.Instance.OnConversationEnd -= UnPause;
         await SceneManager.LoadSceneAsync(sceneName).ToUniTask();
         PlayerPrefs.SetString("SceneName", sceneName);
     }
