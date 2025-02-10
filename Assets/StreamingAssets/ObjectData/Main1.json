@@ -42,6 +42,10 @@
       [
         "Azami_Attack",
         false
+      ],
+      [
+        "Hikaru_Back_To_Mirror_Room",
+        true
       ]
     ]
   }

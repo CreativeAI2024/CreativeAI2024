@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 814579609}
   - component: {fileID: 814579608}
   m_Layer: 0
-  m_Name: HikaruMeetToAzami
+  m_Name: Re-enteredAzamiRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
