@@ -267,12 +267,6 @@ public class ObjectEngine : MonoBehaviour
                 TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position,
                     eventArgs[4].ToCharArray()[0]);
                 break;
-            case "GoToEndScene":
-                DebugLogger.Log("GoToEndScene", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStart -= Pause;
-                pause.PauseReset();
-                await SceneChange("Ending");
-                break;
             default: throw new NotImplementedException();
         }
     }

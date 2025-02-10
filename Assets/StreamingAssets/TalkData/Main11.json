@@ -67,6 +67,23 @@
           ]
         }
       ]
+    },
+    {
+      "Text": "The End.<br><br><align=\"right\">Ending No.05 死の処方箋{Stop}",
+      "ChangeImage": [
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
+        },
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "void"
+        }
+      ]
     }
   ]
 }
