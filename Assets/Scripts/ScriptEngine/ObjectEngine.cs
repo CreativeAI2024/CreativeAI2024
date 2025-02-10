@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class ObjectEngine : MonoBehaviour
 {
@@ -31,10 +32,8 @@ public class ObjectEngine : MonoBehaviour
         _mapName = SceneManager.GetActiveScene().name;
         mapDataController.LoadMapData(_mapName);
 
-        // ConversationTextManager.Instance.ResetAction();
         ConversationTextManager.Instance.OnConversationStart += Pause;
         ConversationTextManager.Instance.OnConversationEnd += UnPause;
-        DebugLogger.Log("Action Readded.");
         ConversationTextManager.Instance.OnConversationEnd += () => conversationFlag = false;
         mapDataController.SetChange(ResetAction);
         ResetAction();
@@ -141,6 +140,10 @@ public class ObjectEngine : MonoBehaviour
                 runFlag = false;
                 foreach (ObjectData aroundObjectData in aroundObjectDatas)
                 {
+                    if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall())
+                    {
+                        continue;
+                    }
                     await Call(aroundObjectData, 1, 2);
                 }
 
@@ -159,6 +162,10 @@ public class ObjectEngine : MonoBehaviour
         _pastGridPosition = player.GetGridPosition();
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
+            if (trapObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall())
+            {
+                continue;
+            }
             await Call(trapObjectData, 0, 4);
         }
     }
@@ -233,7 +240,9 @@ public class ObjectEngine : MonoBehaviour
                 break;
             case "GetItem":
                 DebugLogger.Log("GetItem", DebugLogger.Colors.Green);
+                conversationFlag = true;
                 GetItem(eventArgs[1]);
+                await UniTask.WaitUntil(() => !conversationFlag);
                 break;
             case "PaperGame":
                 DebugLogger.Log("PaperGame", DebugLogger.Colors.Green);

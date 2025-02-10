@@ -2,20 +2,20 @@
     "Content": [
         {
             "Speaker": "テッセン",
-            "Text": "「さっきから集めてるものって何に使おうとしているの？」"
+            "Text": "「さっきから集めてるものって何に使おうとしているの？」",
+            "ChangeImage": [
+              {
+                  "ImageName": "LeftPanel",
+                  "SpriteName": "Tessen"
+              },
+              {
+                  "ImageName": "RightPanel",
+                  "SpriteName": "Rei"
+              }
+          ]
         },
         {
             "Text": "",
-            "ChangeImage": [
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "Tessen"
-                },
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "Rei"
-                }
-            ],
             "QuestionData": [
                 {
                     "Answer": "薬の材料を集めているの。",

@@ -20,7 +20,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private int lineNumber;
     private bool initializeFlag = false;
     private bool stop = false;
-
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
     private Action _onConversationStart;
     public event Action OnConversationEnd { add => _onConversationEnd += value; remove => _onConversationEnd -= value; }
@@ -60,7 +59,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
                         ChangeQuestionData();
                         ChangeLine(1);
                         DisplayText();
-                        DebugLogger.Log("NextLine");
                     }
                     else
                     {
@@ -143,15 +141,18 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     // 会話終了時にキャラチップを消すことが多い
 
 
+    public bool IsAllowCall()
+    {
+        return !contentObject.activeInHierarchy;
+    }
+
     private void Initialize()
     {
         if (initializeFlag)
             return;
 
         initializeFlag = true;
-        // _onConversationStartForObjectEngine?.Invoke();
         _onConversationStart?.Invoke();
-        DebugLogger.Log($"_onConversationStart called");
         contentObject.SetActive(true);
 
         lineNumber = 0;
@@ -275,7 +276,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         initializeFlag = false;
-        // _onConversationEndForObjectEngine?.Invoke();
         _onConversationEnd?.Invoke();
         if (nextTalkData != null)
         {  //会話分岐
