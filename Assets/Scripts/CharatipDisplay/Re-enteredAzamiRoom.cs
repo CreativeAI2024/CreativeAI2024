@@ -5,7 +5,7 @@ public class Re_enteredAzamiRoom : CharatipDisplay
 {
     protected override void Update()
     {
-    if (FlagManager.Instance.HasFlag("Hikaru_Back_To_Mirror_Room")/* && SceneManager.GetActiveScene().name.Equals(belongSceneName)*/)
+    if (charatip.enabled && FlagManager.Instance.HasFlag("FirstLeaveFromAzamiRoom"))
         {
             DebugLogger.Log($"HikaruMeetToAzami Hidden.", DebugLogger.Colors.Yellow);
             charatip.enabled = false;
