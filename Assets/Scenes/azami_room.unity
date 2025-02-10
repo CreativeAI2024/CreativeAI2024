@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charatip: {fileID: 814579609}
+  BelongSceneName: azami_room
 --- !u!212 &814579609
 SpriteRenderer:
   m_ObjectHideFlags: 0
