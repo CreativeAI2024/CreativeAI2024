@@ -122,7 +122,26 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         string assetsPath = loader.GetPath(filePath);
         talkData = SaveUtility.JsonToData<TalkData>(assetsPath);
         Initialize();
+        DisplayCharatipByFileName(fileName);
     }
+
+    // 会話開始時に表示するキャラチップ
+    private void DisplayCharatipByFileName(string fileName)
+    {
+        switch (fileName)
+        {
+            case "Main1": 
+            CharatipDisplayManager.Instance.SetIsVisible("HikaruMeetToAzami", true);
+            break;
+            case "Main3_2":
+            CharatipDisplayManager.Instance.SetIsVisible("HikaruDead", true);
+            CharatipDisplayManager.Instance.SetIsVisible("HikaruBlood", true);
+            break;
+        }
+    }
+    // 今の所、駆けつけるアザミ以外は、JSON読み込み時に呼び出してしまえばOK
+    // 会話終了時にキャラチップを消すことが多い
+
 
     private void Initialize()
     {
