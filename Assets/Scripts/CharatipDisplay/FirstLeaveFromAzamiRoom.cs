@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Re_enteredAzamiRoom : CharatipDisplay
+public class FirstLeaveFromAzamiRoom : CharatipDisplay
 {
     protected override void Update()
     {
-    if (charatip.enabled && FlagManager.Instance.HasFlag("FirstLeaveFromAzamiRoom"))
+        if (charatip.enabled && FlagManager.Instance.HasFlag("FirstLeaveFromAzamiRoom"))
         {
             DebugLogger.Log($"HikaruMeetToAzami Hidden.", DebugLogger.Colors.Yellow);
             charatip.enabled = false;
