@@ -1,20 +1,13 @@
 using UnityEngine;
 
-// 各シーンに表示したいキャラチップをアタッチしたオブジェクトを追加しておき、必要なタイミングで表示, 非表示を切り替える
-public class CharatipDisplay : MonoBehaviour
+abstract public class CharatipDisplay : MonoBehaviour
 {
+    [SerializeField] protected SpriteRenderer charatip;
     void Start()
     {
-        CharatipDisplayManager.Instance.RegisterCharatipDisplay(this);
-        gameObject.SetActive(CharatipDisplayManager.Instance.GetIsVisible(name));
-    }
-    public void Display()
-    {
-        gameObject.SetActive(true);
+        DebugLogger.Log($"ChangeCharatipVisibility() added.", DebugLogger.Colors.Yellow);
+        FlagManager.Instance.OnFlagChanged += ChangeCharatipVisibility;
     }
 
-    public void Hide()
-    {
-        gameObject.SetActive(false);
-    }
+    protected abstract void ChangeCharatipVisibility();
 }

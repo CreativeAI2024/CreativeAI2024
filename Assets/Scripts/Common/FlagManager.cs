@@ -8,6 +8,9 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     private Dictionary<string, bool> _flags;
     public int ReiStatus { get; private set; }
     private string _flagSaveFilePath;
+    public event Action OnFlagChanged { add => _onFlagChanged += value; remove => _onFlagChanged -= value; }
+    private Action _onFlagChanged = () => DebugLogger.Log("OnFlagChanged called.", DebugLogger.Colors.Yellow);
+
     public override void Awake()
     {
         base.Awake();
@@ -67,6 +70,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
             Flags = _flags
         };
         SaveUtility.DataToSaveFile(saveFlagData, _flagSaveFilePath);
+        _onFlagChanged?.Invoke();
     }
     
     public bool HasFlag(string flagName) => _flags[flagName];
