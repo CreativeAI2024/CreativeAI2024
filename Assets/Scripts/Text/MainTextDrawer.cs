@@ -105,6 +105,11 @@ public class MainTextDrawer : MonoBehaviour
         }
     }
 
+    public void DisableNextLineIcon()
+    {
+        nextPageIcon.SetActive(false);
+    }
+
     private Vector2 LastTextPosition()
     {
         TMP_TextInfo textInfo = _mainTextObject.textInfo;

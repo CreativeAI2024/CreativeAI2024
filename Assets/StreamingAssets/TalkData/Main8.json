@@ -45,7 +45,24 @@
       "Text": "全てが終わったはずなのに、胸の奥にぽっかりと穴が開いたような感覚が残る。"
     },
     {
-      "Text": "確かにそこにあったはずのものが、指の隙間から零れ落ちていくような\nーーそんな、名もつけられない喪失感だけが、心の奥で静かに息をしていた。",
+      "Text": "確かにそこにあったはずのものが、指の隙間から零れ落ちていくような\nーーそんな、名もつけられない喪失感だけが、心の奥で静かに息をしていた。"
+    },
+    {
+      "Text": "The End.<br><br><align=\"right\">Ending No.02 孤影の還り道{Stop}",
+      "ChangeImage": [
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
+        },
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "void"
+        }
+      ],
       "QuestionData": [
         {
           "NextFlag": [ [ "Ending", true ] ]
