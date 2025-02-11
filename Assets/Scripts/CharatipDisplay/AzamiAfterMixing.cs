@@ -1,9 +1,9 @@
 using UnityEngine;
-public class AzamiAfterMixing1 : CharatipDisplay
+public class AzamiAfterMixing : CharatipDisplay
 {
     public override void ChangeCharatipVisibility()
     {
-        if (!charatip.enabled && FlagManager.Instance.HasFlag("ClearMixing1"))
+        if (!charatip.enabled && (FlagManager.Instance.HasFlag("ClearMixing1") || FlagManager.Instance.HasFlag("Progress8")))
         {
             DebugLogger.Log($"AzamiAfterMixing1 Displayed.", DebugLogger.Colors.Yellow);
             charatip.enabled = true;
