@@ -127,7 +127,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         talkData = SaveUtility.JsonToData<TalkData>(assetsPath);
         Initialize();
     }
-
     public bool IsAllowCall()
     {
         return !contentObject.activeInHierarchy;

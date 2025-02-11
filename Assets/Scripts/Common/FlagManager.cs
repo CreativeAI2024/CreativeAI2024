@@ -2,12 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlagManager : DontDestroySingleton<FlagManager>
 {
     private Dictionary<string, bool> _flags;
     public int ReiStatus { get; private set; }
     private string _flagSaveFilePath;
+    private Action _onFlagChanged;
+    public event Action OnFlagChanged { add => _onFlagChanged += value; remove => _onFlagChanged -= value; }
+
     public override void Awake()
     {
         base.Awake();
@@ -23,6 +27,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
             SaveInitFlags();
         }
         ReiStatus = PlayerPrefs.GetInt("ReiStatus",0);
+        SceneManager.sceneLoaded += SceneLoaded;
     }
     
     void Update()
@@ -38,6 +43,11 @@ public class FlagManager : DontDestroySingleton<FlagManager>
             DebugLogger.Log(output);
         }
         #endif
+    }
+
+    void SceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _onFlagChanged = null;
     }
 
     private void SaveInitFlags()
@@ -67,6 +77,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
             Flags = _flags
         };
         SaveUtility.DataToSaveFile(saveFlagData, _flagSaveFilePath);
+        _onFlagChanged?.Invoke();
     }
     
     public bool HasFlag(string flagName) => _flags[flagName];
