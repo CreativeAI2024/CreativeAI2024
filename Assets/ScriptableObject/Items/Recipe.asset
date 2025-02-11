@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967c656d202fb4c9e8c018a080891c15, type: 3}
   m_Name: Recipe
   m_EditorClassIdentifier: 
-  itemName: 
-  descriptionText: 
-  sprite: {fileID: 0}
+  itemName: "\u85AC\u306E\u30EC\u30B7\u30D4"
+  descriptionText: "\u300E\u866B\u306E\u6B7B\u9AB8\u3001\u5316\u3051\u7269\u306E\u6B7B\u8089\u3001\u4EBA\u9593\u306E\u8840\u6DB2\u300F\u3068\u66F8\u3044\u3066\u3042\u308B\u3002"
+  sprite: {fileID: 21300000, guid: e439c9fb3a5d24f4889d5c7009ecd586, type: 3}
   contentTextFilePath: 
