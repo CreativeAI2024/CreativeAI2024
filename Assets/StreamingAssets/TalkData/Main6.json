@@ -112,12 +112,7 @@
             "Text": "身体に力を込めようとするが、指先すら動かせない。"
         },
         {
-            "Text": "頭の中が次第に空白になり、思考が霧散していく。\n意識は冷たく沈み、視界はわずかな光すら逃さない暗闇に覆われていった......",
-            "QuestionData": [
-              {
-                "NextFlag": [ [ "Ending", true ] ]
-              }
-            ]
+            "Text": "頭の中が次第に空白になり、思考が霧散していく。\n意識は冷たく沈み、視界はわずかな光すら逃さない暗闇に覆われていった......"
         },
         {
           "Text": "The End.<br><br><align=\"right\">Ending No.01 非情なる報酬{Stop}",
@@ -133,6 +128,11 @@
             {
               "ImageName": "LeftPanel",
               "SpriteName": "void"
+            }
+          ],
+          "QuestionData": [
+            {
+              "NextFlag": [ [ "Ending", true ] ]
             }
           ]
         }

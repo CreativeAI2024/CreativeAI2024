@@ -78,6 +78,9 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             }
             if (unitTime > -0.55f)//連打対策（爆速スクロール等）
                 unitTime -= 0.35f;
+        }else if (stop && !FlagManager.Instance.HasFlag("Ending"))
+        {
+            ChangeQuestionData();
         }
         if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())
         {

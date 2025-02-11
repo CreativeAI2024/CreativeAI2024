@@ -56,17 +56,7 @@
       "Text": "飲み込んだ直後、体の奥底から熱が湧き上がる。それはただの熱さではなく、\n内臓が沸騰するような激しさで全身に広がった。"
     },
     {
-      "Text": "次の瞬間、視界が揺らぎ、足元が崩れる感覚とともに、\n意識が遠ざかっていった。",
-      "QuestionData": [
-        {
-          "NextFlag": [
-            [
-              "Ending",
-              true
-            ]
-          ]
-        }
-      ]
+      "Text": "次の瞬間、視界が揺らぎ、足元が崩れる感覚とともに、\n意識が遠ざかっていった。"
     },
     {
       "Text": "The End.<br><br><align=\"right\">Ending No.05 死の処方箋{Stop}",
@@ -82,6 +72,16 @@
         {
           "ImageName": "LeftPanel",
           "SpriteName": "void"
+        }
+      ],
+      "QuestionData": [
+        {
+          "NextFlag": [
+            [
+              "Ending",
+              true
+            ]
+          ]
         }
       ]
     }

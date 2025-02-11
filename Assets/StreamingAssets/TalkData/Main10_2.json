@@ -88,34 +88,34 @@
                     "SpriteName": "Black"
                 }
             ],
-            "SE": "glassbreak3",
-            "QuestionData": [
-                {
-                    "NextFlag": [
-                        [
-                            "Ending",
-                            true
-                        ]
-                    ]
-                }
-            ]
+            "SE": "glassbreak3"
         },
-        {
-          "Text": "The End.<br><br><align=\"right\">Ending No.04 還らずの命{Stop}",
-          "ChangeImage": [
-            {
-              "ImageName": "BackgroundPanel",
-              "SpriteName": "Black"
-            },
-            {
-              "ImageName": "RightPanel",
-              "SpriteName": "void"
-            },
-            {
-              "ImageName": "LeftPanel",
-              "SpriteName": "void"
-            }
-          ]
-        }
+      {
+        "Text": "The End.<br><br><align=\"right\">Ending No.04 還らずの命{Stop}",
+        "ChangeImage": [
+          {
+            "ImageName": "BackgroundPanel",
+            "SpriteName": "Black"
+          },
+          {
+            "ImageName": "RightPanel",
+            "SpriteName": "void"
+          },
+          {
+            "ImageName": "LeftPanel",
+            "SpriteName": "void"
+          }
+        ],
+        "QuestionData": [
+          {
+            "NextFlag": [
+              [
+                "Ending",
+                true
+              ]
+            ]
+          }
+        ]
+      }
     ]
 }

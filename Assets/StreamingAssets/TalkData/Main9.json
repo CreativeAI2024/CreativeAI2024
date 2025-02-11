@@ -59,12 +59,7 @@
       ]
     },
     {
-      "Text": "身体から人間としての感覚がーー名も、形も、感情もーー消え失せて、\n崩れ去り、ただの闇だけが全身を支配していった。",
-      "QuestionData": [
-        {
-          "NextFlag": [ [ "Ending", true ] ]
-        }
-      ]
+      "Text": "身体から人間としての感覚がーー名も、形も、感情もーー消え失せて、\n崩れ去り、ただの闇だけが全身を支配していった。"
     },
     {
       "Text": "The End.<br><br><align=\"right\">Ending No.03 消えゆく声と還る背中{Stop}",
@@ -80,6 +75,11 @@
         {
           "ImageName": "LeftPanel",
           "SpriteName": "void"
+        }
+      ],
+      "QuestionData": [
+        {
+          "NextFlag": [ [ "Ending", true ] ]
         }
       ]
     }
