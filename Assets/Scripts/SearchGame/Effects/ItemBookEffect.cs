@@ -8,8 +8,9 @@ public class ItemBookEffect : MonoBehaviour, IEffectable
     public void PlayEffect()
     {
         itemInventory.Add(item);
-        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
-        ConversationTextManager.Instance.InitializeFromJson(item.ContentTextFilePath);
+        DebugLogger.Log($"fileName: {item.name}_get");
+        ConversationTextManager.Instance.InitializeFromJson($"{item.name}_get");
+        // ここでUniTaskで止める？
         if (itemInventory.IsContains(itemDatabase.GetItem("Knife")))
         {
             ConversationTextManager.Instance.InitializeFromString($"もう何も見つからない。");
