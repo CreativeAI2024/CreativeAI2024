@@ -1,0 +1,39 @@
+{
+    "Id": 0,
+    "Location": [
+        {
+            "MapName": "mirror_room",
+            "Position": [
+                4,
+                7
+            ]
+        },
+        {
+            "MapName": "itemA_room",
+            "Position": [
+                4,
+                1
+            ]
+        }
+    ],
+    "EventName": "TileModify azami_room Tiles 5,1 - | TileModify azami_room Tiles 5,2 -",
+    "TriggerType": 0,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "Progress2",
+                true
+            ],
+            [
+                "FirstLeaveFromAzamiRoom",
+                false
+            ]
+        ],
+        "NextFlag": [
+            [
+                "FirstLeaveFromAzamiRoom",
+                true
+            ]
+        ]
+    }
+}
