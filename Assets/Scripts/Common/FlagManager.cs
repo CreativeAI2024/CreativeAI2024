@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlagManager : DontDestroySingleton<FlagManager>
 {
     private Dictionary<string, bool> _flags;
     public int ReiStatus { get; private set; }
     private string _flagSaveFilePath;
-    public event Action OnFlagChanged { add => _onFlagChanged += value; remove => _onFlagChanged -= value; }
-    private Action _onFlagChanged = () => DebugLogger.Log("OnFlagChanged called.", DebugLogger.Colors.Yellow);
+    private Action _onFlagChanged;
 
     public override void Awake()
     {
@@ -26,6 +26,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
             SaveInitFlags();
         }
         ReiStatus = PlayerPrefs.GetInt("ReiStatus",0);
+        SceneManager.sceneLoaded += SceneLoaded;
     }
     
     void Update()
@@ -41,6 +42,16 @@ public class FlagManager : DontDestroySingleton<FlagManager>
             DebugLogger.Log(output);
         }
         #endif
+    }
+
+    void SceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _onFlagChanged = null;
+        GameObject[] charatips = GameObject.FindGameObjectsWithTag("Charatip");
+        foreach (GameObject charatip in charatips)
+        {
+            _onFlagChanged += charatip.GetComponent<CharatipDisplay>().ChangeCharatipVisibility;
+        }
     }
 
     private void SaveInitFlags()
