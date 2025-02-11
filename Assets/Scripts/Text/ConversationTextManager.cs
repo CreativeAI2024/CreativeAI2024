@@ -47,9 +47,9 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             mainTextDrawer.Typewriter();
         }
 
-        if (_inputSetting.GetDecideInputUp())
+        if (_inputSetting.GetDecideInputUp() && !stop)
         {
-            if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f && !stop)
+            if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f )
             {
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideInputUp())
@@ -78,6 +78,9 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             }
             if (unitTime > -0.55f)//連打対策（爆速スクロール等）
                 unitTime -= 0.35f;
+        }else if (stop && !FlagManager.Instance.HasFlag("Ending"))
+        {
+            ChangeQuestionData();
         }
         if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())
         {
@@ -89,7 +92,10 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         //次の行へ進むアイコンの表示非表示
-        mainTextDrawer.NextLineIcon();
+        if (!stop)
+        {
+            mainTextDrawer.NextLineIcon();
+        }
     }
 
     public void InitializeFromString(string text)
@@ -188,6 +194,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             {
                 stop = true;
                 mainText = talkDataContent.Text.Split("{")[0];
+                mainTextDrawer.DisableNextLineIcon();
+                textInstructions.gameObject.SetActive(false);
             }
             else
             {
