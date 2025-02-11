@@ -1,0 +1,34 @@
+{
+  "Content": [
+    {
+      "Speaker": "レイ",
+      "Text": "「薬の材料、何か見つかった？」",
+      "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ]
+    },
+    {
+      "Speaker": "ヒカル",
+      "Text": "「いや、まだっす......でも、ボクの勘ではこの部屋が\n　怪しい気がするんす！！！」"
+    },
+    {
+      "Speaker": "レイ",
+      "Text": "「勘！？......でも当たることもあるし、\n　ヒカルの言うことなら信じようかな。」"
+    },
+    {
+      "Speaker": "ヒカル",
+      "Text": "「そうですよ！！直感は大事っす！」"
+    },
+    {
+      "Speaker": "ヒカル",
+      "Text": "「早く見つけて元の世界に一緒に戻るっすよ～！」"
+    }
+  ]
+}

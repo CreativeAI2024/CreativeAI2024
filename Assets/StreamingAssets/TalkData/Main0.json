@@ -2,6 +2,212 @@
     "Content": [
         {
             "Speaker": "ヒカル",
+            "Text": "「いや～、今日の部活めっちゃ疲れたっす～。\n　土耕すのってあんなに大変でしたっけ！？」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ],
+            "BGM": "ordinaryfun"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「園芸部って意外と重労働だよね。\n　植え付けの前に、しっかり土づくりしないとね。」",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ]
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「地味に腕にくるんすよね～。\n　もう握力なくなりそうっす。」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「ふふふ。でも、こうしておくと植物が元気に育つんだよ。」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「ほぇ～......言われてみれば、去年の芝桜も綺麗に咲いてましたよね。\n　濃いピンク色が可愛くて。今年植える花も綺麗に咲くといいな～。」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「楽しみだね。」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「よ～し！今年も綺麗に咲かせるっす！園芸部員として気合い入れて\n　頑張るっすよ～！！」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「...........ん...？」",
+            "BGM": "void"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「......ヒカル？どうしたの？」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「...ぁ、いや、えっと......こんなところに鏡なんてありましたっけ？」",
+            "BGM": "MysteryConfFear"
+        },
+        {
+            "Text": "ヒカルの視線を追うと、そこには頭からつま先まで映るほどの鏡があった。",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
+                }
+            ]
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「あれ？ほんとだ。朝通ったときは無かった気がするけどな。」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Hikaru"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「なんかちょっとホラーっぽいね.......。\n　もしかしたら鏡の中から誰か覗いてたりして。」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「ちょっと！先輩！やめてくださいよ！！\n　本当にいたらどうするんすか！！！」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「あはは、ごめんごめん。」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「はぁ～、なんか今日は疲れたな。部活、ちょっと頑張りすぎたかも......」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「ですね～。なんか全身だるいっす......」"
+        },
+        {   "Speaker": "レイ",
+            "Text": "「すっごく眠たい......まぶたが......重...い...」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「先輩？大丈夫っすか？\n　あれ、たしかに......ちょっと眠......い...やば...」"
+        },
+        {
+            "Text": "その瞬間、抗えないほどの強い眠気に襲われ\n意識はゆっくりと闇の中へ沈んでいった.......",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
+                }
+            ],
+            "BGM":"void",
+            "SE":"strongwind2"
+        },
+        {
+            "Text": ".............."
+        },
+        {
+            "Text": ".............."
+        },
+        {
+            "Text": ".............."
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「......先輩？......先輩！起きてくださいよ！先輩！」"
+            
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「...........ん...？」",
+            "ChangeImage": [
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ]
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「先輩！この場所がどこだか分かるっすか...？」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Hikaru"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"void"
+                }
+            ],
+            "BGM":"GroCalm",
+            "SE":"void"
+        },
+        {
+            "Text": "瞬きを繰り返しながら周囲を見渡す。そこは、全く知らない、薄暗い部屋だった。\nすぐそばには、先ほど見たものと同じ、大きな鏡が佇んでいる。"
+        },
+        {
+            "Text": "部屋には、微かに青みを帯びた、どこか湿った土のような匂いが漂っていた。\nーー和蘭芹を思わせる、苦みを含んだ香り......"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「どこ、ここ...？全然知らない場所...。」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「学校からの帰り道で急に眠くなって......\n　そのまま倒れちゃったんだ。」"
+        },
+        {
+            "Speaker": "ヒカル",
+            "Text": "「う～ん...とりあえずここ以外にも部屋とかありそうだし\n　色々調べてみます？」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「すごいね。ヒカル、落ち着いてて。」"
+        },
+        {
+            "Speaker": "ヒカル",
             "Text": "「いや全然怖いし！？\n　こんな危険そうな場所、とっとと出てって家に帰るんすよ！！」"
         }
     ]
