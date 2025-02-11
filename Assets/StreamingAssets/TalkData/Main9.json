@@ -6,7 +6,7 @@
       "ChangeImage": [
         {
           "ImageName": "RightPanel",
-          "SpriteName": "Azami_1"
+          "SpriteName": "Azami_0"
         },
         {
           "ImageName": "LeftPanel",
@@ -31,14 +31,32 @@
       "Text": "「早く行って。私だって理性を保つのがやっとなんだから。」"
     },
     {
-      "Text": "アザミは私の言葉に、目を伏せたまましばらく動かなかったが、\nやがて意を決したように鏡の方へと進んでいった。"
+      "Text": "アザミは私の言葉に、目を伏せたまましばらく動かなかったが、\nやがて意を決したように鏡の方へと進んでいった。",
+      "ChangeImage": [
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
+        }
+      ]
     },
     {
       "Speaker": "レイ",
-      "Text": "「......サヨナラ、アザミ」"
+      "Text": "「......サヨナラ、アザミ」",
+      "ChangeImage": [
+                {
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
+                }
+            ]
     },
     {
-      "Text": "頭の奥に靄がかかり、現実感が薄れる。また身体が作り変えられていくのを感じる。"
+      "Text": "頭の奥に靄がかかり、現実感が薄れる。また身体が作り変えられていくのを感じる。",
+      "ChangeImage": [
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "void"
+        }
+      ]
     },
     {
       "Text": "身体から人間としての感覚がーー名も、形も、感情もーー消え失せて、\n崩れ去り、ただの闇だけが全身を支配していった。",
