@@ -68,6 +68,7 @@
 
         "FirstLeaveFromAzamiRoom":false,
         "ClearMixing1":false,
-        "LeaveReferenceRoomAfterMixing1":false
+        "LeaveReferenceRoomAfterMixing1":false,
+        "AzamiRush":false
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TimingGameJudge : MonoBehaviour
@@ -23,7 +21,7 @@ public class TimingGameJudge : MonoBehaviour
         }
         else
         {
-            ConversationTextManager.Instance.InitializeFromString("…………………………………………");
+            ConversationTextManager.Instance.InitializeFromString("................................................");
             ChangeSuccessFlag("Progress8");
         }
     }
