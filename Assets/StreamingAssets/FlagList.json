@@ -63,6 +63,7 @@
         "ExperiencedPaperGame": false,
 
         "Hikaru_Dead":false,
+        "Hikaru_Eaten":false,
         "Ending":false,
 
         "FirstLeaveFromAzamiRoom":false
