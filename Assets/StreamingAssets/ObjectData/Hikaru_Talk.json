@@ -1,0 +1,28 @@
+{
+    "Id": 0,
+    "Location": [
+        {
+            "MapName": "mirror_room",
+            "Position": [
+                5,
+                2
+            ]
+        }
+    ],
+    "EventName": "Conversation Hikaru_Talk",
+    "TriggerType": 1,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "Progress2",
+                true
+            ],
+            [
+                "Hikaru_Dead",
+                false
+            ]
+        ],
+        "NextFlag": [
+        ]
+    }
+}
