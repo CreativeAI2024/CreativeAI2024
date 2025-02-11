@@ -10,6 +10,7 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     public int ReiStatus { get; private set; }
     private string _flagSaveFilePath;
     private Action _onFlagChanged;
+    public event Action OnFlagChanged { add => _onFlagChanged += value; remove => _onFlagChanged -= value; }
 
     public override void Awake()
     {
@@ -47,11 +48,6 @@ public class FlagManager : DontDestroySingleton<FlagManager>
     void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
         _onFlagChanged = null;
-        GameObject[] charatips = GameObject.FindGameObjectsWithTag("Charatip");
-        foreach (GameObject charatip in charatips)
-        {
-            _onFlagChanged += charatip.GetComponent<CharatipDisplay>().ChangeCharatipVisibility;
-        }
     }
 
     private void SaveInitFlags()

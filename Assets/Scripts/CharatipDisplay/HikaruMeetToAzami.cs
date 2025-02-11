@@ -1,10 +1,5 @@
 public class HikaruMeetToAzami : CharatipDisplay
 {
-    void Start()
-    {
-        ChangeCharatipVisibility();
-    }
-
     public override void ChangeCharatipVisibility()
     {
         if (charatip.enabled && FlagManager.Instance.HasFlag("FirstLeaveFromAzamiRoom"))
