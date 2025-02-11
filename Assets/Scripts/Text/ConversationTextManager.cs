@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,8 +21,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private int lineNumber;
     private bool initializeFlag = false;
     private bool stop = false;
-    private bool isAllowCall = true;
-    public bool IsAllowCall => isAllowCall;
+    public bool IsAllowCall {get; private set;} = true;
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
     private Action _onConversationStart;
     public event Action OnConversationEnd { add => _onConversationEnd += value; remove => _onConversationEnd -= value; }
@@ -33,13 +33,10 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     {
         base.Awake();
         _inputSetting = InputSetting.Load();
-        //InitializeFromString("nantokaKaiwa");
-        //InitializeFromJson("parallelTest");
     }
 
     void Update()
     {
-        isAllowCall = !contentObject.activeInHierarchy;
         if (!initializeFlag) return;
 
         unitTime += Time.deltaTime;
@@ -133,6 +130,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         initializeFlag = true;
         _onConversationStart?.Invoke();
         contentObject.SetActive(true);
+        IsAllowCall = false;
 
         lineNumber = 0;
         unitTime = -1f;
@@ -263,6 +261,11 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         else
         {
             contentObject.SetActive(false);
+            UniTask.Void(async () => 
+            {
+                await UniTask.DelayFrame(1);
+                IsAllowCall = true;
+            });
         }
     }
 }
