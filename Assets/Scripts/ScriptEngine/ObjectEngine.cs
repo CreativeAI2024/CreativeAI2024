@@ -140,7 +140,7 @@ public class ObjectEngine : MonoBehaviour
                 runFlag = false;
                 foreach (ObjectData aroundObjectData in aroundObjectDatas)
                 {
-                    if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall())
+                    if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
                     {
                         continue;
                     }
@@ -162,7 +162,7 @@ public class ObjectEngine : MonoBehaviour
         _pastGridPosition = player.GetGridPosition();
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
-            if (trapObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall())
+            if (trapObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
             {
                 continue;
             }
@@ -266,12 +266,6 @@ public class ObjectEngine : MonoBehaviour
                 Vector2Int position = new Vector2Int(int.Parse(positionStr[0]), int.Parse(positionStr[1]));
                 TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position,
                     eventArgs[4].ToCharArray()[0]);
-                break;
-            case "GoToEndScene":
-                DebugLogger.Log("GoToEndScene", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStart -= Pause;
-                pause.PauseReset();
-                await SceneChange("Ending");
                 break;
             default: throw new NotImplementedException();
         }

@@ -115,17 +115,26 @@
             "Text": "頭の中が次第に空白になり、思考が霧散していく。\n意識は冷たく沈み、視界はわずかな光すら逃さない暗闇に覆われていった......"
         },
         {
-            "Text": "",
-            "QuestionData": [
-                {
-                    "NextFlag": [
-                        [
-                            "Ending",
-                            true
-                        ]
-                    ]
-                }
-            ]
+          "Text": "The End.<br><br><align=\"right\">Ending No.01 非情なる報酬{Stop}",
+          "ChangeImage": [
+            {
+              "ImageName": "BackgroundPanel",
+              "SpriteName": "Black"
+            },
+            {
+              "ImageName": "RightPanel",
+              "SpriteName": "void"
+            },
+            {
+              "ImageName": "LeftPanel",
+              "SpriteName": "void"
+            }
+          ],
+          "QuestionData": [
+            {
+              "NextFlag": [ [ "Ending", true ] ]
+            }
+          ]
         }
     ]
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     private int lineNumber;
     private bool initializeFlag = false;
     private bool stop = false;
+    public bool IsAllowCall {get; private set;} = true;
     public event Action OnConversationStart { add => _onConversationStart += value; remove => _onConversationStart -= value; }
     private Action _onConversationStart;
     public event Action OnConversationEnd { add => _onConversationEnd += value; remove => _onConversationEnd -= value; }
@@ -31,8 +33,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
     {
         base.Awake();
         _inputSetting = InputSetting.Load();
-        //InitializeFromString("nantokaKaiwa");
-        //InitializeFromJson("parallelTest");
     }
 
     void Update()
@@ -47,9 +47,9 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             mainTextDrawer.Typewriter();
         }
 
-        if (_inputSetting.GetDecideInputUp())
+        if (_inputSetting.GetDecideInputUp() && !stop)
         {
-            if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f && !stop)
+            if (mainTextDrawer.AllowChangeLine() && unitTime > -0.45f )
             {
                 //次の行へ移動し、表示する文字数をリセット
                 if (_inputSetting.GetDecideInputUp())
@@ -78,6 +78,9 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             }
             if (unitTime > -0.55f)//連打対策（爆速スクロール等）
                 unitTime -= 0.35f;
+        }else if (stop && !FlagManager.Instance.HasFlag("Ending"))
+        {
+            ChangeQuestionData();
         }
         if (_inputSetting.GetBackKeyUp() || _inputSetting.GetRightKeyUp())
         {
@@ -89,7 +92,10 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         }
 
         //次の行へ進むアイコンの表示非表示
-        mainTextDrawer.NextLineIcon();
+        if (!stop)
+        {
+            mainTextDrawer.NextLineIcon();
+        }
     }
 
     public void InitializeFromString(string text)
@@ -121,10 +127,6 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         talkData = SaveUtility.JsonToData<TalkData>(assetsPath);
         Initialize();
     }
-    public bool IsAllowCall()
-    {
-        return !contentObject.activeInHierarchy;
-    }
 
     private void Initialize()
     {
@@ -134,6 +136,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         initializeFlag = true;
         _onConversationStart?.Invoke();
         contentObject.SetActive(true);
+        IsAllowCall = false;
 
         lineNumber = 0;
         unitTime = -1f;
@@ -191,6 +194,8 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
             {
                 stop = true;
                 mainText = talkDataContent.Text.Split("{")[0];
+                mainTextDrawer.DisableNextLineIcon();
+                textInstructions.gameObject.SetActive(false);
             }
             else
             {
@@ -264,6 +269,11 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         else
         {
             contentObject.SetActive(false);
+            UniTask.Void(async () => 
+            {
+                await UniTask.DelayFrame(1);
+                IsAllowCall = true;
+            });
         }
     }
 }
