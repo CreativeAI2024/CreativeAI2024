@@ -66,6 +66,8 @@
         "Hikaru_Eaten":false,
         "Ending":false,
 
-        "FirstLeaveFromAzamiRoom":false
+        "FirstLeaveFromAzamiRoom":false,
+        "ClearMixing1":false,
+        "LeaveReferenceRoomAfterMixing1":false
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 public class DisableHikaruSprite : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer hikaruSprite;

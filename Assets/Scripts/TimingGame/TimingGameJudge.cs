@@ -34,6 +34,10 @@ public class TimingGameJudge : MonoBehaviour
         {
             FlagManager.Instance.AddFlag(flagName);
         }
+        else if (FlagManager.Instance.HasFlag("StartTimingGame1"))
+        {
+            FlagManager.Instance.AddFlag("ClearMixing1");
+        }
     }
 
 }
