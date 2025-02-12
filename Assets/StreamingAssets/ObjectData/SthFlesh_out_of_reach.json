@@ -1,0 +1,30 @@
+{
+    "Id": 2,
+    "Location": [
+        {
+            "MapName": "tessen_room",
+            "Position": [
+                4,
+                9
+            ]
+        },
+        {
+            "MapName": "tessen_room_kill",
+            "Position": [
+                4,
+                9
+            ]
+        }
+    ],
+    "EventName": "Conversation SthFlesh_out_of_reach",
+    "TriggerType": 1,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "Flesh",
+                false
+            ]
+        ],
+        "NextFlag": []
+    }
+}

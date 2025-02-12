@@ -2,22 +2,22 @@
     "Id": 0,
     "Location": [
       {
-        "MapName": "itemB_room",
+        "MapName": "tessen_room",
         "Position": [
-          1,
-          1
+          11,
+          8
         ]
       },
       {
-        "MapName": "itemB_room_broken",
+        "MapName": "tessen_room_kill",
         "Position": [
-          1,
-          1
+          11,
+          8
         ]
       }
     ],
-    "EventName": "GetItem Key | TileModify itemB_room StylesFront 1,1 # | TileModify itemB_room_broken StylesFront 1,1 #",
-    "TriggerType": 1,
+    "EventName": "GetItem Key | TileModify tessen_room StylesFront 11,8 # | TileModify tessen_room_kill StylesFront 11,8 #",
+    "TriggerType": 2,
     "FlagCondition": {
       "Flag": [
         [
