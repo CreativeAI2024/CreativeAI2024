@@ -1,0 +1,39 @@
+{
+    "Id": 0,
+    "Location": [
+        {
+            "MapName": "itemB_room",
+            "Position": [
+                4,
+                8
+            ]
+        },
+        {
+            "MapName": "itemB_room_broken",
+            "Position": [
+                4,
+                8
+            ]
+        }
+    ],
+    "EventName": "TileModify reference_room Tiles 6,20 -",
+    "TriggerType": 0,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "ClearMixing1",
+                true
+            ],
+            [
+                "LeaveReferenceRoomAfterMixing1",
+                false
+            ]
+        ],
+        "NextFlag": [
+            [
+                "LeaveReferenceRoomAfterMixing1",
+                true
+            ]
+        ]
+    }
+}

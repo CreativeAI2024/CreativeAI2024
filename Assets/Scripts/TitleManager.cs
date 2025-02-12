@@ -29,15 +29,15 @@ public class TitleManager : MonoBehaviour
         }
         DebugLogger.Log(PlayerPrefs.GetString("SceneName", "null"));
         cursorPlace = NewGame;
-        if (!PlayerPrefs.GetString("SceneName", "null").Equals("null"))
+        if (PlayerPrefs.GetString("SceneName", "null").Equals("null") || FlagManager.Instance.HasFlag("Ending"))
         {
-            cursorMax = LoadGame + 1;
-            TitleCursorMove(LoadGame);
+            cursorMax = NewGame + 1;
+            questionBranches[LoadGame].gameObject.SetActive(false); 
         }
         else
         {
-            cursorMax = NewGame + 1;
-            questionBranches[LoadGame].gameObject.SetActive(false);
+            cursorMax = LoadGame + 1;
+            TitleCursorMove(LoadGame);
         }
     }
 

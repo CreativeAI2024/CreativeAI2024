@@ -65,7 +65,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main5",
+  "EventName": "Conversation Main5 | TileModify mirror_room Tiles 5,2 - | TileModify mirror_room Tiles 6,2 -",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
@@ -89,6 +89,10 @@
       ],
       [
         "Progress3",
+        true
+      ],
+      [
+        "Hikaru_Eaten",
         true
       ]
     ]

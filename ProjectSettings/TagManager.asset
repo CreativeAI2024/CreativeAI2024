@@ -8,7 +8,6 @@ TagManager:
   - Canvas
   - UIManager
   - ItemImageScreen
-  - Charatip
   layers:
   - Default
   - TransparentFX
