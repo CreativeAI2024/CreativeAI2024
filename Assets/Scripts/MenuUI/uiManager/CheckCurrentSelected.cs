@@ -20,6 +20,10 @@ public class CheckCurrentSelected : MonoBehaviour
             return;
         }
         GameObject currentSelected = EventSystem.current.currentSelectedGameObject;
+        if (currentSelected == null)
+        {
+            currentSelected = lastSelected;
+        }
         cursor.Focus(lastSelected.transform.position);
         if (currentSelected != lastSelected)
         {
@@ -37,7 +41,11 @@ public class CheckCurrentSelected : MonoBehaviour
             IPushedObject pushedObject = lastSelected.GetComponent<IPushedObject>();
             pushedObject.OnCancelKeyDown();
         }
-        lastSelected = EventSystem.current.currentSelectedGameObject;
+
+        if (EventSystem.current.currentSelectedGameObject != null)
+        {
+            lastSelected = EventSystem.current.currentSelectedGameObject;
+        }
     }
     private void OnFocused(GameObject selected)
     {
