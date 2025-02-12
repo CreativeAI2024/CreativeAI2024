@@ -1,0 +1,12 @@
+{
+    "Content": [
+        {
+            "Text": "異界の手記を手に入れた。",
+            "QuestionData": [
+                {
+                    "NextTalkData": "OtherWorldNote"
+                }
+            ]
+        }
+    ]
+}

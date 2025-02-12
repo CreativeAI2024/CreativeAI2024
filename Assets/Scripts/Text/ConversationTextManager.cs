@@ -37,6 +37,7 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
 
     void Update()
     {
+        IsAllowCall = !contentObject.activeInHierarchy;
         if (!initializeFlag) return;
 
         unitTime += Time.deltaTime;
@@ -269,11 +270,11 @@ public class ConversationTextManager : DontDestroySingleton<ConversationTextMana
         else
         {
             contentObject.SetActive(false);
-            UniTask.Void(async () => 
-            {
-                await UniTask.DelayFrame(1);
-                IsAllowCall = true;
-            });
+            // UniTask.Void(async () => 
+            // {
+            //     await UniTask.DelayFrame(1);
+            //     IsAllowCall = true;
+            // });
         }
     }
 }

@@ -318,10 +318,14 @@ public class ObjectEngine : MonoBehaviour
         SoundManager.Instance.PlaySE(9, 5f); //アイテム拾う
         inventory.Add(item);
         CombineItem(item);
-        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
+        
         if (item.HasContentText())
         {
-            ConversationTextManager.Instance.InitializeFromJson(item.ContentTextFilePath);
+            ConversationTextManager.Instance.InitializeFromJson($"{itemName}_get");
+        }
+        else
+        {
+            ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
         }
     }
 
