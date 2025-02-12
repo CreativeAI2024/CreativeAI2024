@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main1",
+  "EventName": "Conversation Main1 | GetItem Recipe",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
