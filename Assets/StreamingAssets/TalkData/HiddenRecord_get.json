@@ -1,0 +1,12 @@
+{
+    "Content": [
+        {
+            "Text": "隠匿の記録を手に入れた。",
+            "QuestionData": [
+                {
+                    "NextTalkData": "HiddenRecord"
+                }
+            ]
+        }
+    ]
+}
