@@ -142,7 +142,8 @@
             "SE":"destroythings",
             "QuestionData": [
                 {
-	                "NextTalkData":"Main4_1"
+	                "NextTalkData":"Main4_1",
+                    "NextFlag": [ [ "BrokenRoom", true ] ]
                 }
             ]
         }

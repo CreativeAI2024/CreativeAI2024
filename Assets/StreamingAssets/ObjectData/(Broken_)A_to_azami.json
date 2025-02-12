@@ -30,10 +30,15 @@
       ]
     }
   ],
-  "EventName": "ChangeScene azami_room,4,8",
+  "EventName": "TileModify itemA_room_broken Tiles 5,2 - | TileModify itemA_room_broken Tiles 5,3 - | ChangeScene azami_room,4,8",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [],
-    "NextFlag": []
+    "NextFlag": [
+      [
+        "BrokenRoom",
+        false
+      ]
+    ]
   }
 }

@@ -1,7 +1,21 @@
 {
     "Content": [
         {
-            "Text": "覚悟を決め、ゆっくりと目を開けた。"
+            "Text": "覚悟を決め、ゆっくりと目を開けた。",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
         },
         {
             "Speaker": "レイ",
