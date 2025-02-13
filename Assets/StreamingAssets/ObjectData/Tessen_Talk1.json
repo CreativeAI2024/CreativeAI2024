@@ -1,76 +1,69 @@
 {
-  "Id": 0,
-  "Location": [
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        8,
-        4
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        8,
-        5
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        9,
-        4
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        9,
-        5
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        9,
-        6
-      ]
-    }
-  ],
-  "EventName": "Conversation Tessen_Talk1",
-  "TriggerType": 1,
-  "FlagCondition": {
-    "Flag": [
-      [
-        "Progress2",
-        true
-      ],
-      [
-        "Progress3",
-        false
-      ],
-      [
-        "Tessen_Talk1",
-        true
-      ],
-      [
-        "Tessen_Talk2",
-        false
-      ],
-      [
-        "Progress6",
-        false
-      ]
+    "Id": 0,
+    "Location": [
+        {
+            "MapName": "tessen_room",
+            "Position": [
+                8,
+                4
+            ]
+        },
+        {
+            "MapName": "tessen_room",
+            "Position": [
+                8,
+                5
+            ]
+        },
+        {
+            "MapName": "tessen_room",
+            "Position": [
+                9,
+                4
+            ]
+        },
+        {
+            "MapName": "tessen_room",
+            "Position": [
+                9,
+                5
+            ]
+        },
+        {
+            "MapName": "tessen_room",
+            "Position": [
+                9,
+                6
+            ]
+        }
     ],
-    "NextFlag": [
-      [
-        "Tessen_Talk2",
-        true
-      ],
-      [
-        "Tessen_Talk1",
-        false
-      ]
-    ]
-  }
+    "EventName": "Conversation Tessen_Talk1",
+    "TriggerType": 1,
+    "FlagCondition": {
+        "Flag": [
+            [
+                "Flesh",
+                true
+            ],
+
+            [
+                "Tessen_Talk1",
+                true
+            ],
+            [
+                "Tessen_Talk2",
+                false
+            ]
+        ],
+        "NextFlag": [
+            [
+                "Tessen_Talk2",
+                true
+            ],
+            [
+                "Tessen_Talk1",
+                false
+            ]
+        ]
+    }
 }

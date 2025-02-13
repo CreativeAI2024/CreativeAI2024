@@ -91,10 +91,6 @@
   "FlagCondition": {
     "Flag": [
       [
-        "Progress2",
-        true
-      ],
-      [
         "Search",
         true
       ]
