@@ -23,7 +23,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main4 | ChangeScene itemB_room_broken,4,1",
+  "EventName": "TileModify itemB_room_broken Tiles 3,2 # | TileModify itemB_room_broken Tiles 3,3 # | Conversation Main4 | ChangeScene itemB_room_broken,4,1",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [

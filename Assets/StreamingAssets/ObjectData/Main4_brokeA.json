@@ -2,24 +2,24 @@
   "Id": 2,
   "Location": [
     {
-      "MapName":"itemA_room",
-      "Position":
-      [
-        0,2
+      "MapName": "itemA_room",
+      "Position": [
+        0,
+        2
       ]
     },
     {
-      "MapName":"itemA_room",
-      "Position":
-      [
-        1,2
+      "MapName": "itemA_room",
+      "Position": [
+        1,
+        2
       ]
     },
     {
-      "MapName":"itemA_room",
-      "Position":
-      [
-        2,3
+      "MapName": "itemA_room",
+      "Position": [
+        2,
+        3
       ]
     },
     {
@@ -37,7 +37,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main4 | ChangeScene itemA_room_broken,4,1",
+  "EventName": "TileModify itemA_room_broken Tiles 5,2 # | TileModify itemA_room_broken Tiles 5,3 # | Conversation Main4 | ChangeScene itemA_room_broken,4,1",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [

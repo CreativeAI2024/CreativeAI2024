@@ -16,7 +16,7 @@
             ]
         }
     ],
-    "EventName": "ChangeScene itemB_room,4,8",
+    "EventName": "TileModify reference_room Tiles 6,20 - | ChangeScene itemB_room,4,8",
     "TriggerType": 0,
     "FlagCondition": {
         "Flag": [
@@ -25,6 +25,11 @@
                 false
             ]
         ],
-        "NextFlag": []
+      "NextFlag": [
+        [
+          "ClearMixing1",
+          false
+        ]
+      ]
     }
 }

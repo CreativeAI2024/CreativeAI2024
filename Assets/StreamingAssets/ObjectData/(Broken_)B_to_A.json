@@ -30,7 +30,7 @@
       ]
     }
   ],
-  "EventName": "ChangeScene itemA_room,5,6",
+  "EventName": "TileModify itemB_room_broken Tiles 3,2 - | TileModify itemB_room_broken Tiles 3,3 - | ChangeScene itemA_room,5,6",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
@@ -39,6 +39,11 @@
         false
       ]
     ],
-    "NextFlag": []
+    "NextFlag": [
+      [
+        "BrokenRoom",
+        false
+      ]
+    ]
   }
 }
