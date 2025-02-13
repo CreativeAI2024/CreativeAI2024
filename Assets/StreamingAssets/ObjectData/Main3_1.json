@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "TileModify mirror_room Tiles 5,2 -",
+  "EventName": "TileModify mirror_room Tiles 5,2 # | TileModify mirror_room Tiles 6,2 #",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [

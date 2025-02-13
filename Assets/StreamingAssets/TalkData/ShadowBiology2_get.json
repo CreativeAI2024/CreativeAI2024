@@ -1,0 +1,12 @@
+{
+    "Content": [
+        {
+            "Text": "影の生物誌２を手に入れた。",
+            "QuestionData": [
+                {
+                    "NextTalkData": "ShadowBiology2"
+                }
+            ]
+        }
+    ]
+}

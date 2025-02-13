@@ -37,7 +37,7 @@
       ]
     }
   ],
-  "EventName": "Conversation Main2 | GetItem SthFlesh",
+  "EventName": "Conversation Main2 | GetItem SthFlesh | TileModify tessen_room StylesFront 4,12 # | TileModify tessen_room_kill StylesFront 4,12 #",
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [

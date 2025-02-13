@@ -22,9 +22,4 @@ public class Pause : MonoBehaviour
             behaviour.enabled = true;
         }
     }
-
-    public void PauseReset()
-    {
-        pauseScripts.Clear();
-    }
 }

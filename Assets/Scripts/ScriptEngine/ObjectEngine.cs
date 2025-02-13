@@ -140,7 +140,7 @@ public class ObjectEngine : MonoBehaviour
                 runFlag = false;
                 foreach (ObjectData aroundObjectData in aroundObjectDatas)
                 {
-                    if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall())
+                    if (aroundObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
                     {
                         continue;
                     }
@@ -162,7 +162,7 @@ public class ObjectEngine : MonoBehaviour
         _pastGridPosition = player.GetGridPosition();
         foreach (ObjectData trapObjectData in trapObjectDatas)
         {
-            if (trapObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall())
+            if (trapObjectData.EventName.Contains("Conversation") && !ConversationTextManager.Instance.IsAllowCall)
             {
                 continue;
             }
@@ -267,12 +267,6 @@ public class ObjectEngine : MonoBehaviour
                 TileModify(eventArgs[1], Enum.Parse<MapDataController.TileLayer>(eventArgs[2]), position,
                     eventArgs[4].ToCharArray()[0]);
                 break;
-            case "GoToEndScene":
-                DebugLogger.Log("GoToEndScene", DebugLogger.Colors.Green);
-                ConversationTextManager.Instance.OnConversationStart -= Pause;
-                pause.PauseReset();
-                await SceneChange("Ending");
-                break;
             default: throw new NotImplementedException();
         }
     }
@@ -324,10 +318,14 @@ public class ObjectEngine : MonoBehaviour
         SoundManager.Instance.PlaySE(9, 5f); //アイテム拾う
         inventory.Add(item);
         CombineItem(item);
-        ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
+        
         if (item.HasContentText())
         {
-            ConversationTextManager.Instance.InitializeFromJson(item.ContentTextFilePath);
+            ConversationTextManager.Instance.InitializeFromJson($"{itemName}_get");
+        }
+        else
+        {
+            ConversationTextManager.Instance.InitializeFromString($"{item.ItemName}を手に入れた。");
         }
     }
 

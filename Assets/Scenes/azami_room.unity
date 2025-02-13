@@ -732,6 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377524682}
   - component: {fileID: 1377524683}
+  - component: {fileID: 1377524684}
   m_Layer: 0
   m_Name: Azami
   m_TagString: Untagged
@@ -806,6 +807,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1377524684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377524681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d457dbbe6b78b4cffbcc2181376d868f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charatip: {fileID: 1377524683}
 --- !u!114 &1462334000 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 975195158262473547, guid: 49d27c0371ce12744bb22dab9bf2ab49,
