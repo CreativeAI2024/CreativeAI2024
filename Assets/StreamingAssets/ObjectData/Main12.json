@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "EventName": "TileModify mirror_room Tiles 5,1 # | Conversation Main12",
+  "EventName": "Conversation Main12 | TileModify azami_room Tiles 4,4 - | TileModify azami_room Tiles 4,5 - | TileModify mirror_room Tiles 5,2 #",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [

@@ -3,16 +3,17 @@ public class AzamiAfterMixing : CharatipDisplay
 {
     public override void ChangeCharatipVisibility()
     {
-        if (!charatip.enabled && (FlagManager.Instance.HasFlag("ClearMixing1") || FlagManager.Instance.HasFlag("Progress8")))
+        FlagManager flag = FlagManager.Instance;
+        if (!charatip.enabled && ((flag.HasFlag("ClearMixing1") && !flag.HasFlag("LeaveReferenceRoomAfterMixing1"))) || flag.HasFlag("Progress8"))
         {
             DebugLogger.Log($"AzamiAfterMixing1 Displayed.", DebugLogger.Colors.Yellow);
             charatip.enabled = true;
         }
-        if (charatip.enabled && FlagManager.Instance.HasFlag("LeaveReferenceRoomAfterMixing1"))
+        if (charatip.enabled && flag.HasFlag("LeaveReferenceRoomAfterMixing1"))
         {
             DebugLogger.Log($"HikaruMeetToAzami Hidden.", DebugLogger.Colors.Yellow);
             charatip.enabled = false;
-            FlagManager.Instance.DeleteFlag("LeaveReferenceRoomAfterMixing1");
+            flag.DeleteFlag("LeaveReferenceRoomAfterMixing1");
         }
     }
 }
