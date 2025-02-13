@@ -88,6 +88,10 @@
         false
       ],
       [
+        "Progress2",
+        false
+      ],
+      [
         "Progress3",
         true
       ],

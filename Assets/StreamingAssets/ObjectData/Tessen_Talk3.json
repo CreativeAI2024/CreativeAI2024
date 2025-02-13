@@ -41,26 +41,19 @@
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [
-      [
-        "Progress2",
-        true
-      ],
-      [
-        "Progress3",
-        false
-      ],
-      [
-        "Tessen_Talk3",
-        true
-      ],
-      [
-        "Tessen_Talk4",
-        false
-      ],
-      [
-        "Progress6",
-        false
-      ]
+        [
+            "Flesh",
+            true
+        ],
+
+        [
+            "Tessen_Talk3",
+            true
+        ],
+        [
+            "Tessen_Talk4",
+            false
+        ]
     ],
     "NextFlag": [
       [

@@ -21,10 +21,6 @@
     "FlagCondition": {
       "Flag": [
         [
-          "Progress2",
-          true
-        ],
-        [
           "Knife",
           false
         ]

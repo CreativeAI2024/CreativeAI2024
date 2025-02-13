@@ -42,13 +42,10 @@
   "FlagCondition": {
     "Flag": [
       [
-        "Progress2",
+        "Flesh",
         true
       ],
-      [
-        "Progress3",
-        false
-      ],
+
       [
         "Tessen_Talk4",
         true
@@ -60,10 +57,6 @@
       [
         "Azami_Peace",
         true
-      ],
-      [
-        "Progress6",
-        false
       ]
     ],
     "NextFlag": [
