@@ -21,6 +21,7 @@
         "Key":false,
         "Card":false,
         "Knife":false,
+        "Unlock": false,
 
         "Symptoms1":false,
         "Symptoms2":false,
@@ -44,7 +45,9 @@
 
         "T_eat":false,
         "T_information":false,
+        "T_choise": false,
         "T_killed":false,
+        "T_room_killed":false,
 
         "Broken_A":false,
         "Broken_B":false,
@@ -59,6 +62,14 @@
         "Search":false,
         "ExperiencedPaperGame": false,
 
-        "Hikaru_Dead":false
+        "Hikaru_Dead":false,
+        "Hikaru_Eaten":false,
+        "Ending":false,
+
+        "FirstLeaveFromAzamiRoom":false,
+        "ClearMixing1":false,
+        "LeaveReferenceRoomAfterMixing1":false,
+        "AzamiRush":false,
+        "BrokenRoom": false
     }
 }

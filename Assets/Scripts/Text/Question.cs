@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Question : MonoBehaviour
@@ -27,23 +28,27 @@ public class Question : MonoBehaviour
         cursorMax = Mathf.Min(questionLen, questionBranches.Length);
         for (int i = 0; i < cursorMax; i++)
         {
-            questionBranches[i].SetVisibleQuestionBranch(true);
-            questionBranches[i].QuestionBranchText(questionData[i].Answer);
+            if (questionData[i].Answer != null)
+            {
+                questionBranches[i].SetVisibleQuestionBranch(true);
+                questionBranches[i].QuestionBranchText(questionData[i].Answer);
+            }
         }
-
-        float branchCenterPos = 410;
-        float branchAreaHeight = questionLen * 75; //75でかけるといい感じになる
-        float branchStartPos = branchCenterPos + branchAreaHeight / 2;
-        float branchSpacing = branchAreaHeight / (questionLen - 1);
-        for (int i = 0; i < questionLen; i++)
-        {
-            rectTransforms[i].anchoredPosition = new(rectTransforms[i].anchoredPosition.x, branchStartPos - branchSpacing * i);
-        }
-
         cursorPlace = 0;
-        questionPanel.SetActive(true);
-        cursor.SetVisibleCursor(true);
-        cursor.CursorMove(rectTransforms[cursorPlace].position);
+        if (!questionData.Any(question => question.Answer is null))
+        {
+            float branchCenterPos = 410;
+            float branchAreaHeight = questionLen * 75; //75でかけるといい感じになる
+            float branchStartPos = branchCenterPos + branchAreaHeight / 2;
+            float branchSpacing = branchAreaHeight / (questionLen - 1);
+            for (int i = 0; i < questionLen; i++)
+            {
+                rectTransforms[i].anchoredPosition = new(rectTransforms[i].anchoredPosition.x, branchStartPos - branchSpacing * i);
+            }
+            questionPanel.SetActive(true);
+            cursor.SetVisibleCursor(true);
+            cursor.CursorMove(rectTransforms[cursorPlace].position);
+        }
     }
 
     public void QuestionCursorMove(int increase)

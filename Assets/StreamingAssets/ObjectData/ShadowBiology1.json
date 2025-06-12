@@ -1,0 +1,18 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "reference_room",
+      "Position": [
+        9,
+        5
+      ]
+    }
+  ],
+  "EventName": "GetItem ShadowBiology1 | TileModify reference_room StylesFront 9,5 #",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [],
+    "NextFlag": []
+  }
+}

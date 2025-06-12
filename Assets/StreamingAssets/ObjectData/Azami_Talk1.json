@@ -28,13 +28,22 @@
       [
         "Azami_Talk2",
         false
+      ],
+      [
+        "Progress6",
+        false
       ]
     ],
     "NextFlag": [
+      [
+        "Azami_Talk1",
+        false
+      ],
       [
         "Azami_Talk2",
         true
       ]
     ]
+
   }
 }

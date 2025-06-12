@@ -16,6 +16,10 @@
       [
         "Progress8",
         true
+      ],
+      [
+        "Ending",
+        false
       ]
     ]
   }

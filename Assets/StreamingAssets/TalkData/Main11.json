@@ -2,54 +2,88 @@
   "Content": [
     {
       "Speaker": "レイ",
-      "Text": "「薬、完成したねアザミ！」",
+      "Text": "「アザミ！薬が完成したよ。」",
       "ChangeImage": [
         {
-            "ImageName": "RightPanel",
-            "SpriteName": "Azami_1"
+          "ImageName": "RightPanel",
+          "SpriteName": "Azami_1"
         },
         {
-            "ImageName": "LeftPanel",
-            "SpriteName": "Rei"
+          "ImageName": "LeftPanel",
+          "SpriteName": "Rei"
         }
-    ]
+      ]
     },
     {
       "Speaker": "アザミ",
-      "Text": "「ああ、でもこれって......」"
+      "Text": "「ああ、遂に、遂に完成したんだな............」"
     },
     {
       "Speaker": "レイ",
-      "Text": "「早くこれ飲んで、かえろう...！」"
+      "Text": "「早くこれを飲んで、元の世界に帰ろう。」"
     },
     {
       "Speaker": "アザミ",
-      "Text": "「......っよし、そうだな！」"
+      "Text": "「......あぁ、そうだな。」"
+    },
+    {
+      "Text": "小瓶に入った液体を慎重に二つに分け、それぞれ手に持つ。無言のまま、\n互いに視線を交わせる。覚悟を決めると、小さな瓶の口に慎重に唇をつけ、\n冷たい液体を喉に流し込んだ。"
     },
     {
       "Speaker": "レイ",
-      "Text": "「うっ......体が......」"
+      "Text": "「うっ......体が......」",
+      "ChangeImage": [
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
+        }
+      ],
+      "SE": "balloon"
     },
     {
       "Speaker": "アザミ",
       "Text": "「体が熱いっ......」"
     },
     {
+      "Text": "飲み込んだ直後、体の奥底から熱が湧き上がる。それはただの熱さではなく、\n内臓が沸騰するような激しさで全身に広がった。"
+    },
+    {
+      "Text": "次の瞬間、視界が揺らぎ、足元が崩れる感覚とともに、\n意識が遠ざかっていった。"
+    },
+    {
+      "Text": "The End.<br><br><align=\"right\">Ending No.05 死の処方箋{Stop}",
       "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
-                }
-            ],
-            "SE":"balloon"
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
+        },
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "void"
+        }
+      ],
+      "QuestionData": [
+        {
+          "NextFlag": [
+            [
+              "Ending",
+              true
+            ]
+          ]
+        }
+      ]
     }
   ]
 }

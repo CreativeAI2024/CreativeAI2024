@@ -1,0 +1,39 @@
+{
+  "Id": 0,
+  "Location": [
+    {
+      "MapName": "itemB_room",
+      "Position": [
+        4,
+        9
+      ]
+    },
+    {
+      "MapName": "itemB_room_broken",
+      "Position": [
+        4,
+        9
+      ]
+    }
+  ],
+  "EventName": "Conversation Unlock | ChangeScene reference_room,4,1",
+  "TriggerType": 1,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Key",
+        true
+      ],
+      [
+        "Unlock",
+        false
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Unlock",
+        true
+      ]
+    ]
+  }
+}

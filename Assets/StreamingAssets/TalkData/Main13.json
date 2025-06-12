@@ -1,8 +1,36 @@
 {
-    "Content":[
+    "Content": [
         {
-            "Text":"気が付くと、衣料品売り場の姿見の前にいた。",
-            "BGM": "MusicBox",
+            "Speaker": "レイ",
+            "Text": "「アザミ！薬が完成したよ。」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "Azami_0"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                }
+            ]
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「ああ、遂に、遂に完成したんだな.........」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「早くこれを飲んで、元の世界に帰ろう。」"
+        },
+        {
+            "Speaker": "アザミ",
+            "Text": "「......あぁ、そうだな。」"
+        },
+        {
+            "Text": "小瓶に入った液体を慎重に二つに分け、それぞれ手に持つ。無言のまま、\n互いに視線を交わせる。覚悟を決めると、小さな瓶の口に慎重に唇をつけ、\n冷たい液体を喉に流し込む。"
+        },
+        {
+            "Text": "直後に鏡の中へと飛び込んだ。",
             "ChangeImage": [
                 {
                     "ImageName": "RightPanel",
@@ -13,22 +41,68 @@
                     "SpriteName": "void"
                 },
                 {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
+                    "ImageName": "BackgroundPanel",
+                    "SpriteName": "Black"
                 }
+            ],
+            "BGM": "void",
+            "SE": "strongwind2"
+        },
+        {
+            "Text": "......"
+        },
+        {
+            "Text": "........."
+        },
+        {
+            "Text": "気が付くと、いつもの通学路に立っていた。",
+            "BGM": "SadAnxScared"
+        },
+        {
+            "Text": "目の前に鏡は............無い。"
+        },
+        {
+            "Text": "腕に目を向けると、かさぶたの覆う大きな傷跡がついていた。"
+        },
+        {
+            "Text": "異形に変わり果てていた身体は、何事もなかったように人間の形へと戻っている。"
+        },
+        {
+            "Text": "夕日が青かった空を赤く染めあげている。差し込む光が妙に目に染みて、\n思わず瞬きをした。視線を足元に落とすと、道端で小さなワスレナグサが\n風を受けて揺れている。"
+        },
+        {
+          "Text": "全てが終わったはずなのに、胸の奥にぽっかりと穴が開いたような感覚が残る。"
+        },
+        {
+          "Text": "確かにそこにあったはずのものが、指の隙間から零れ落ちていくような\nーーそんな、名もつけられない喪失感だけが、心の奥で静かに息をしていた。"
+        },
+      {
+        "Text": "The End.<br><br><align=\"right\">Ending No.06 双影の還り道{Stop}",
+        "ChangeImage": [
+          {
+            "ImageName": "BackgroundPanel",
+            "SpriteName": "Black"
+          },
+          {
+            "ImageName": "RightPanel",
+            "SpriteName": "void"
+          },
+          {
+            "ImageName": "LeftPanel",
+            "SpriteName": "void"
+          }
+        ],
+        "QuestionData": [
+          {
+            "NextFlag": [
+              [
+                "Ending",
+                true
+              ]
             ]
-        },
-        {
-            "Text":"買い物客の声が今までの出来事が嘘だったかのように賑やかだ。"
-        },
-        {
-            "Text":"アザミは今頃無事だろうか。それを確かめる手段はもうない。"
-        },
-        {
-            "Text":"............"
-        },
-        {
-            "Text":"ふと足元を見ると見覚えのないバッグが落ちていた"
-        }
+          }
+        ]
+
+      }
     ]
 }

@@ -32,89 +32,12 @@
     {
       "MapName": "tessen_room",
       "Position": [
-        8,
-        5
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        9,
-        5
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        10,
-        5
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        11,
-        5
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        8,
-        6
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        11,
-        6
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        8,
-        7
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        11,
-        7
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        8,
-        8
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        9,
-        8
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        10,
-        8
-      ]
-    },
-    {
-      "MapName":"tessen_room",
-      "Position":[
-        11,
-        8
+        -1,
+        -1
       ]
     }
   ],
-  "EventName": "Conversation Main3 | TileModify mirror_room Tiles 5,2 -",
+  "EventName": "Conversation Main3 | ChangeScene mirror_room,4,2",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
@@ -136,10 +59,6 @@
       ]
     ],
     "NextFlag": [
-      [
-        "Symptoms1",
-        false
-      ],
       [
         "Hikaru_Dead",
         true

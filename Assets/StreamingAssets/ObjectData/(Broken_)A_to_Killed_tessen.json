@@ -30,12 +30,12 @@
       ]
     }
   ],
-  "EventName": "ChangeScene tessen_room_kill,1,6",
+  "EventName": "ChangeScene tessen_room_kill,1,4",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [
-        "T_killed",
+        "T_room_killed",
         true
       ],
       [

@@ -4,19 +4,145 @@
     {
       "MapName": "tessen_room",
       "Position": [
-        1,
-        6
+        6,
+        2
       ]
     },
     {
       "MapName": "tessen_room",
       "Position": [
-        1,
-        7
+        6,
+        3
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        6,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        6,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        7,
+        2
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        7,
+        3
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        7,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        7,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        8,
+        2
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        8,
+        3
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        8,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        8,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        2
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        3
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        2
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        3
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        10,
+        5
       ]
     }
   ],
-  "EventName": "Conversation Main10 | GetItem Tessen'sOrgan",
+  "EventName": "Conversation Main10",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
@@ -35,6 +161,18 @@
       [
         "Progress7",
         false
+      ],
+      [
+        "T_choise",
+        false
+      ],
+      [
+        "Organ",
+        false
+      ],
+      [
+        "Ending",
+        false
       ]
     ],
     "NextFlag": [
@@ -44,10 +182,6 @@
       ],
       [
         "Progress7",
-        true
-      ],
-      [
-        "T_killed",
         true
       ]
     ]

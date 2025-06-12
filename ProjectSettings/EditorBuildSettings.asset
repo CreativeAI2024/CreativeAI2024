@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/itemB_room_broken.unity
     guid: afd2391f4876f9c4ba3452000fcde6cd
+  - enabled: 1
+    path: Assets/Scenes/tessen_room_kill.unity
+    guid: 0e415f6cb964d89459bfa7d081df5bcc
   m_configObjects: {}

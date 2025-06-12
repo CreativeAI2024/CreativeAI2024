@@ -1,0 +1,32 @@
+{
+  "Id": 2,
+  "Location": [
+    {
+      "MapName":"mirror_room",
+      "Position":
+      [
+        4,2
+      ]
+    }
+  ],
+  "EventName": "TileModify mirror_room Tiles 5,2 # | TileModify mirror_room Tiles 6,2 #",
+  "TriggerType": 0,
+  "FlagCondition": {
+    "Flag": [
+      [
+        "Symptoms1",
+        true
+      ],
+      [
+        "Hikaru_Dead",
+        true
+      ]
+    ],
+    "NextFlag": [
+      [
+        "Symptoms1",
+        false
+      ]
+    ]
+  }
+}

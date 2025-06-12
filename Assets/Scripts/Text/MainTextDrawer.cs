@@ -36,7 +36,6 @@ public class MainTextDrawer : MonoBehaviour
     {
         _displayedSentenceLength = _mainTextObject.GetParsedText().Length;
         _mainTextObject.maxVisibleCharacters = _displayedSentenceLength;
-        DebugLogger.Log("LineSkipped");
     }
 
     public int GetDelayTime()
@@ -104,6 +103,11 @@ public class MainTextDrawer : MonoBehaviour
             nextPageIcon.SetActive(true);
             animator.enabled = true;
         }
+    }
+
+    public void DisableNextLineIcon()
+    {
+        nextPageIcon.SetActive(false);
     }
 
     private Vector2 LastTextPosition()

@@ -9,8 +9,8 @@
       ]
     }
   ],
-  "EventName": "Conversation Main7",
-  "TriggerType": 0,
+  "EventName": "TileModify reference_room Tiles 6,20 # | Conversation Main7",
+  "TriggerType": 4,
   "FlagCondition": {
     "Flag": [
       [

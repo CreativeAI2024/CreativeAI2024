@@ -5,15 +5,16 @@ public class ItemBookEffect : MonoBehaviour, IEffectable
     [SerializeField] ItemInventory itemInventory;
     [SerializeField] Item item;
     [SerializeField] ItemDatabase itemDatabase;
-    [SerializeField] string jsonFile;
     public void PlayEffect()
     {
         itemInventory.Add(item);
+        DebugLogger.Log($"fileName: {item.name}_get");
+        ConversationTextManager.Instance.InitializeFromJson($"{item.name}_get");
+        // ここでUniTaskで止めたら良さそう？
         if (itemInventory.IsContains(itemDatabase.GetItem("Knife")))
         {
-            jsonFile = $"{jsonFile}_any";
+            ConversationTextManager.Instance.InitializeFromString($"もう何も見つからない。");
         }
-        ConversationTextManager.Instance.InitializeFromJson(jsonFile);
         gameObject.SetActive(false);
     }
 }

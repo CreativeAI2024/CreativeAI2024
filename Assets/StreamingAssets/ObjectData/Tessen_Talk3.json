@@ -4,29 +4,36 @@
     {
       "MapName": "tessen_room",
       "Position": [
+        8,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        8,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        4
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
+        9,
+        5
+      ]
+    },
+    {
+      "MapName": "tessen_room",
+      "Position": [
         9,
         6
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        10,
-        6
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        9,
-        7
-      ]
-    },
-    {
-      "MapName": "tessen_room",
-      "Position": [
-        10,
-        7
       ]
     }
   ],
@@ -34,22 +41,19 @@
   "TriggerType": 1,
   "FlagCondition": {
     "Flag": [
-      [
-        "Progress2",
-        true
-      ],
-      [
-        "Progress3",
-        false
-      ],
-      [
-        "Tessen_Talk3",
-        true
-      ],
-      [
-        "Tessen_Talk4",
-        false
-      ]
+        [
+            "Flesh",
+            true
+        ],
+
+        [
+            "Tessen_Talk3",
+            true
+        ],
+        [
+            "Tessen_Talk4",
+            false
+        ]
     ],
     "NextFlag": [
       [

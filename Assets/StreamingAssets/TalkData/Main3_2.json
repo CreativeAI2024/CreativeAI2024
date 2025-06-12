@@ -1,0 +1,59 @@
+{
+    "Content": [
+        {
+            "Text": "覚悟を決め、ゆっくりと目を開けた。",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"Black"
+                }
+            ]
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「ヒカ......ル..................？」",
+            "ChangeImage": [
+                {
+                    "ImageName": "RightPanel",
+                    "SpriteName": "void"
+                },
+                {
+                    "ImageName": "LeftPanel",
+                    "SpriteName": "Rei"
+                },
+                {
+                    "ImageName":"BackgroundPanel",
+                    "SpriteName":"void"
+                }
+            ]
+        },
+        {
+            "Text": "そこにはヒカルがいた。\nーー数時間前の明るくて元気なヒカルとはほど遠い、無残な姿で......"
+        },
+        {
+            "Text": "ヒカルの身体は鋭い刃で斬られたように傷ついていた。\n腕や胸元からは鮮赤色の液体が溢れている。周囲には赤い液体を纏った塊が\n僅かな光を反射しながら無造作に散乱していた。"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「ヒカル......ヒカル...！\n　ヒカル！ど、どうしたの！？なんで！？」"
+        },
+        {
+            "Speaker": "レイ",
+            "Text": "「さっきのバケモノのせい...？\n　ねぇ...ヒカル！！！起きてよ！！！！」",
+            "QuestionData": [
+                {
+                    "NextTalkData": "Main3_3",
+                    "NextFlag": [["AzamiRush", true]]
+                }
+            ]
+        }
+    ]
+}

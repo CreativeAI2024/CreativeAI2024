@@ -10,7 +10,7 @@
     }
   ],
   "EventName": "Conversation Main6",
-  "TriggerType": 0,
+  "TriggerType": 4,
   "FlagCondition": {
     "Flag": [
       [
@@ -19,6 +19,10 @@
       ],
       [
         "Azami_Peace",
+        false
+      ],
+      [
+        "Ending",
         false
       ]
     ]

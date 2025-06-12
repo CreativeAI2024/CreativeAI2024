@@ -1,39 +1,73 @@
 {
   "Content": [
     {
-      "Text": "薬を飲んで、すぐに鏡の中に飛び込んだ。",
+      "Text": "薬を飲んで、すぐに鏡の中へと飛び込んだ。",
       "ChangeImage": [
-                {
-                    "ImageName": "RightPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName": "LeftPanel",
-                    "SpriteName": "void"
-                },
-                {
-                    "ImageName":"BackgroundPanel",
-                    "SpriteName":"Black"
-                }
-            ]
-    },
-    {
-      "Text": "気が付くと、衣装品売り場の姿見の前にいた。"
-    },
-    {
-      "Text": "買い物客の声が今までの出来事が嘘だったかのように賑やかだ。"
-    },
-    {
-      "Text": "下を向くと、かさぶたになった大きな傷跡が目に入る。"
-    },
-    {
-      "Text": "あの男、アザミはどうなったのだろうか…。"
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
+        }
+      ],
+      "BGM": "void",
+      "SE": "strongwind2"
     },
     {
       "Text": "......"
     },
     {
-      "Text": "ふと辺りを見回すと見覚えのないバッグが落ちていた"
+      "Text": "........."
+    },
+    {
+      "Text": "気が付くと、いつもの通学路に立っていた。",
+      "BGM": "SadAnxScared"
+    },
+    {
+      "Text": "目の前に鏡は............無い。"
+    },
+    {
+      "Text": "腕に目を向けると、かさぶたに覆われた大きな傷跡がついていた。"
+    },
+    {
+      "Text": "異形に変わり果てていた身体は、何事もなかったように人間の形へと戻っている。"
+    },
+    {
+      "Text": "夕日が青かった空を赤く染めあげている。差し込む光が妙に目に染みて、\n思わず瞬きをした。視線を足元に落とすと、道端で小さなワスレナグサが\n風を受けて揺れている。"
+    },
+    {
+      "Text": "全てが終わったはずなのに、胸の奥にぽっかりと穴が開いたような感覚が残る。"
+    },
+    {
+      "Text": "確かにそこにあったはずのものが、指の隙間から零れ落ちていくような\nーーそんな、名もつけられない喪失感だけが、心の奥で静かに息をしていた。"
+    },
+    {
+      "Text": "The End.<br><br><align=\"right\">Ending No.02 孤影の還り道{Stop}",
+      "ChangeImage": [
+        {
+          "ImageName": "BackgroundPanel",
+          "SpriteName": "Black"
+        },
+        {
+          "ImageName": "RightPanel",
+          "SpriteName": "void"
+        },
+        {
+          "ImageName": "LeftPanel",
+          "SpriteName": "void"
+        }
+      ],
+      "QuestionData": [
+        {
+          "NextFlag": [ [ "Ending", true ] ]
+        }
+      ]
     }
   ]
 }

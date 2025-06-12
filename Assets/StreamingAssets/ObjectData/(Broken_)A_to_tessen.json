@@ -30,12 +30,12 @@
       ]
     }
   ],
-  "EventName": "ChangeScene tessen_room,1,6",
+  "EventName": "TileModify itemA_room_broken Tiles 5,2 - | TileModify itemA_room_broken Tiles 5,3 - | ChangeScene tessen_room,1,4",
   "TriggerType": 0,
   "FlagCondition": {
     "Flag": [
       [
-        "T_killed",
+        "T_room_killed",
         false
       ],
       [
@@ -43,6 +43,11 @@
         false
       ]
     ],
-    "NextFlag": []
+    "NextFlag": [
+      [
+        "BrokenRoom",
+        false
+      ]
+    ]
   }
 }
